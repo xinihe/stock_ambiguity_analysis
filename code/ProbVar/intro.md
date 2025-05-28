@@ -169,6 +169,7 @@ print(interval_std)
 
 * **Interval Standard Deviations (interval_std)**: Reflect the variability in the probability estimates for each return interval across the rolling window.
 * **Ambiguity Metric (ambiguity_metric)**: Represents the average uncertainty in the return distribution over the specified window. Higher values indicate greater ambiguity.
+* **interval_std** is a vector that captures the standard deviation of estimated probabilities for each return interval (or bin) across multiple days within a rolling window.
 
 ## **Conclusion**
 
