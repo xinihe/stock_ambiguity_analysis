@@ -30,4 +30,4 @@ coverage.xml
 *.sublime-workspace
 
 # Ignore virtual environment directory
-.ambi_venv/
+ambi_venv/
