@@ -14,12 +14,6 @@ In financial markets, ambiguity refers to the uncertainty about the probability 
 * Learn how to compute ambiguity using the variance of probability distributions.
 * Apply the method to financial return data using Python.
 
-## **Prerequisites**
-
-* Basic knowledge of Python programming.
-* Familiarity with pandas and numpy libraries.
-* Understanding of financial return calculations.
-
 ## **Step-by-Step Guide**
 
 ### **1. Data Preparation**
