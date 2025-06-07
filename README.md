@@ -97,7 +97,7 @@ All possible combinations of these parameters are included, resulting in a wide 
 
 ### Calculation Methodology
 
-For each date and each parameter combination:* The ambiguity metric is computed as the average standard deviation across bins of the daily return probability distributions, by the code in [cal_ambi_pv.ipynb](code/cal_ambi_pv.ipynb), using the specified rolling window and bin count.
+For each date and each parameter combination:* The ambiguity metric is computed as the average standard deviation across bins of the daily return probability distributions, by the code in [cal_ambi_pv.ipynb](code/ProbVar/cal_ambi_pv.ipynb), using the specified rolling window and bin count.
 
 * If there is insufficient historical data for a given window size on a particular date, the value is recorded as NaN.
 
