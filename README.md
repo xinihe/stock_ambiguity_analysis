@@ -25,7 +25,7 @@ This research project investigates the role of **ambiguity**—uncertainty about
 ### **2. Analyzing Ambiguity’s Properties**
 
 * **Statistical Analysis**: Study the distribution, volatility, and autocorrelation of ambiguity measures.
-* **Risk Relationship**: Examine correlations between ambiguity and traditional risk metrics like standard deviation and beta.
+* **[Risk Relationship**:](code/ProbVar/readme.md) Examine correlations between ambiguity and traditional risk metrics like standard deviation and beta.
 * **Influencing Factors**: Identify macroeconomic and firm-specific variables that may affect or be affected by ambiguity.
 
 ### **3. Assessing Impact on Excess Returns**
