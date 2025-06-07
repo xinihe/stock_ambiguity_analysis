@@ -42,7 +42,7 @@ This research project investigates the role of **ambiguity**—uncertainty about
 
 ## Data
 
-SSE.000300.csv
+[SSE.000300.csv](/data/SSE.00300.csv)
 
 This file contains the raw minute-level price data for the CSI 300 Index (SSE 000300), which serves as the basis for all ambiguity and risk calculations in this project.
 
