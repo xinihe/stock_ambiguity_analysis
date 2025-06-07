@@ -70,7 +70,7 @@ The results show:
 
 ### Joint Dynamics of Ambiguity and Risk
 
-![Ambiguity and Risk Analysis](ambiguity_risk_analysis.png)
+![Ambiguity and Risk Analysis](fig/ambiguity_risk_analysis.png)
 
 The figure above provides a comprehensive overview of the relationship between ambiguity and traditional risk in the SSE 300 Index:
 
@@ -88,7 +88,7 @@ The lower subplots show the distributions of the ambiguity metric and risk, resp
 
 ### Time-Varying Correlation
 
-![**30-Day Rolling Correlation between Ambiguity and Risk](rolling_correlation.png)
+![**30-Day Rolling Correlation between Ambiguity and Risk](fig/rolling_correlation.png)
 
 The above figure illustrates the 30-day rolling correlation between ambiguity and risk over the sample period. Several key insights emerge:
 
