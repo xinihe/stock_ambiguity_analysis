@@ -19,7 +19,7 @@ This research project investigates the role of **ambiguity**—uncertainty about
   * **Knightian Uncertainty**: Differentiating between measurable risk and unmeasurable uncertainty.
   * **Ambiguity Aversion Models**: Such as the Maxmin Expected Utility model.
 * **Computational Approaches**: Implement various methods to calculate ambiguity metrics, for example:
-  * **Probability Distribution Variance**: Assessing the variability in estimated probabilities over time. [More](code/ProVar/readme.md)
+  * **Probability Distribution Variance**: Assessing the variability in estimated probabilities over time. [More](code/ProbVar/readme.md) 
   * **Entropy-Based Measures**: Quantifying the unpredictability in return distributions.
 
 ### **2. Analyzing Ambiguity’s Properties**
