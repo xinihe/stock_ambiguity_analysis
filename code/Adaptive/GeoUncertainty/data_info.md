@@ -1,76 +1,76 @@
-# 数据信息文档
+# Data Information Document
 
-本文档描述了从Excel文件中提取并处理后的两个主要数据集：气候风险数据和地缘政治风险国家数据。
+This document describes two main datasets extracted and processed from Excel files: Climate Risk Data and Geopolitical Risk Country Data.
 
-## 1. 气候风险数据
+## 1. Climate Risk Data
 
-### 数据来源
-原始数据来源于Climate_Risk_Index.xlsx文件中的气候风险指数数据，特别是'Climate Risk Data Rognone'工作表。
+### Data Source
+The original data was sourced from the Climate_Risk_Index.xlsx file, specifically from the 'Climate Risk Data' worksheet.
 
-### 数据处理步骤
-1. 从Excel文件中提取气候风险数据
-2. 跳过前6行描述性文本，直接读取实际数据
-3. 重命名列以使其更易于理解
-4. 确保日期格式正确
-5. 过滤掉2005年1月1日之前的数据
-6. 删除所有值为空的列
-7. 将非数字值转换为标准缺失值格式
-8. 保存为表格格式的文件
+### Data Processing Steps
+1. Extract climate risk data from the Excel file
+2. Skip the first 6 descriptive text lines and directly read the actual data
+3. Rename columns for better understanding
+4. Ensure correct date formatting
+5. Filter out data before January 1, 2005
+6. Delete all columns with empty values
+7. Convert non-numeric values to standard missing value format
+8. Save as a tabular format file
 
-### 数据概览
-- **数据行数**: 5343
-- **数据列数**: 7
-- **日期范围**: 2005年1月3日到2025年6月30日
+### Data Overview
+- **Number of Rows**: 5343
+- **Number of Columns**: 7
+- **Date Range**: January 3, 2005 to June 30, 2025
 
-### 数据列说明
-- **Date**: 日期（YYYY-MM-DD格式）
-- **Physical_Risk_Index**: 物理风险指数
-- **Physical_Risk_Change**: 物理风险变化率
-- **Transition_Risk_Index**: 转型风险指数
-- **Transition_Risk_Change**: 转型风险变化率
-- **Climate_Policy_Risk**: 气候政策风险指标
-- **Market_Sentiment_Risk**: 市场情绪风险指标
+### Data Column Description
+- **Date**: Date (YYYY-MM-DD format)
+- **Physical_Risk_Index**: Physical Risk Index
+- **Physical_Risk_Change**: Physical Risk Change Rate
+- **Transition_Risk_Index**: Transition Risk Index
+- **Transition_Risk_Change**: Transition Risk Change Rate
+- **Climate_Policy_Risk**: Climate Policy Risk Indicator
+- **Market_Sentiment_Risk**: Market Sentiment Risk Indicator
 
-## 2. 地缘政治风险国家数据
+## 2. Geopolitical Risk Country Data
 
-### 2.1 原始地缘政治风险数据
+### 2.1 Original Geopolitical Risk Data
 
-#### 数据来源
-原始数据来源于data_gpr_export.xls文件中的地缘政治风险数据。
+#### Data Source
+The original data was sourced from the geopolitical risk data in the data_geopolitical_risk_export.xls file.
 
-#### 数据处理步骤
-1. 从Excel文件中提取地缘政治风险数据
-2. 筛选出中国、香港特别行政区、日本和美国四个国家/地区的数据
-3. 重命名列以使其更清晰
-4. 排除说明行，只保留实际数据
-5. 确保日期格式正确
-6. 保存为表格格式的文件
+#### Data Processing Steps
+1. Extract geopolitical risk data from the Excel file
+2. Filter data for four countries/regions: China, Hong Kong Special Administrative Region, Japan, and the United States
+3. Rename columns for clarity
+4. Exclude explanatory lines, keeping only actual data
+5. Ensure correct date formatting
+6. Save as a tabular format file
 
-#### 数据概览
-- **数据行数**: 1509
-- **数据列数**: 5
-- **日期范围**: 1900年1月1日到2025年9月1日
+#### Data Overview
+- **Number of Rows**: 1509
+- **Number of Columns**: 5
+- **Date Range**: January 1, 1900 to September 1, 2025
 
-### 2.2 过滤后的地缘政治风险数据
+### 2.2 Filtered Geopolitical Risk Data
 
-#### 数据来源
-基于原始地缘政治风险数据进行过滤处理得到。
+#### Data Source
+Derived from filtering the original geopolitical risk data.
 
-#### 数据处理步骤
-1. 读取原始地缘政治风险国家数据
-2. 确保日期格式正确
-3. 过滤掉2005年1月1日之前的数据
-4. 保存为新的表格格式文件
+#### Data Processing Steps
+1. Read the original geopolitical risk country data
+2. Ensure correct date formatting
+3. Filter out data before January 1, 2005
+4. Save as a new tabular format file
 
-#### 数据概览
-- **数据行数**: 249
-- **数据列数**: 5
-- **日期范围**: 2005年1月1日到2025年9月1日
-- **过滤情况**: 共过滤掉1260行数据（1900年至2004年的数据）
+#### Data Overview
+- **Number of Rows**: 249
+- **Number of Columns**: 5
+- **Date Range**: January 1, 2005 to September 1, 2025
+- **Filtering Information**: A total of 1260 rows of data (from 1900 to 2004) were filtered out
 
-### 数据列说明
-- **Date**: 日期（YYYY-MM-DD格式）
-- **China**: 中国地缘政治风险指数
-- **Hong Kong**: 香港特别行政区地缘政治风险指数
-- **Japan**: 日本地缘政治风险指数
-- **US**: 美国地缘政治风险指数
+### Data Column Description
+- **Date**: Date (YYYY-MM-DD format)
+- **China**: China Geopolitical Risk Index
+- **Hong Kong**: Hong Kong Special Administrative Region Geopolitical Risk Index
+- **Japan**: Japan Geopolitical Risk Index
+- **US**: United States Geopolitical Risk Index

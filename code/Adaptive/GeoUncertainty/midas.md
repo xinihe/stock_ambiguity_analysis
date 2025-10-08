@@ -1,37 +1,145 @@
-### Rationale for the Advanced Mixture Index
+# Combined Global Uncertainty Index: Methodology and Implementation
 
-The core objective of this research is to robustly link global systemic uncertainty to the adaptive ambiguity aversion index (![]()) in the Chinese capital market. Achieving this requires creating a composite index that accurately reflects the full complexity of external shocks, addressing two significant methodological challenges: the **Data Frequency Mismatch** and the risk of  **Multicollinearity** .
+## Rationale for the Combined Global Uncertainty Index
 
-#### 1. Addressing Data Frequency Mismatch and Informational Loss
+The core objective of this research is to robustly link global systemic uncertainty to the adaptive ambiguity aversion index in the Chinese capital market. Achieving this requires creating a composite index that accurately reflects the full complexity of external shocks, addressing two significant methodological challenges:
 
-The Geopolitical Risk (GPR) Index by Caldara and Iacoviello is available daily, capturing sudden, high-frequency shocks—like immediate market anticipation of a conflict or sanctions threat. In contrast, the Climate Risk Index, like most policy-related uncertainty measures, is typically available only monthly.
+1. **Data Frequency Mismatch**
+2. **Risk of Multicollinearity**
 
-A simple arithmetic average of the monthly Climate Risk ($CR_t$) and the monthly average of GPR would flatten the GPR series, destroying the intraday or daily volatility spikes that are crucial drivers of sudden investor fear and capital flow shifts in emerging markets. The high-frequency GPR data holds valuable informational content about the immediacy of global threats. To preserve this information while aligning the indices to the necessary monthly frequency, an advanced weighting scheme is essential.
+## Addressing Methodological Challenges
 
-#### 2. Mitigating Multicollinearity in the State Transition Equation
+### Data Frequency Mismatch
 
-The research model uses these global measures as coefficient drivers in the state transition equation for the unobservable ambiguity aversion index ($\theta_{i,t}}$). If the two indices, GPR and CR, are included separately, their documented tendency to co-move, especially during global crises, will lead to multicollinearity. This inflates the standard errors, making it statistically difficult to determine the unique and significant contribution of each risk factor to the evolution of . Creating a single, well-weighted Global Systemic Uncertainty Index  ensures that the model robustly estimates the overall impact of aggregated global non-economic uncertainty.
+In our implementation, we have:
+- **Daily Climate Risk Data**: Containing physical risk, transition risk, policy risk, and market sentiment risk components
+- **Monthly Geopolitical Risk (GPR) Data**: Aggregated by country (China, Hong Kong Special Administrative Region, Japan, and US)
 
----
+To address this mismatch, we:
+1. Aggregate daily climate risk data to monthly frequency
+2. Apply a MIDAS-inspired time-weighting scheme to incorporate recency effects
+3. Ensure both components are normalized for comparability
 
-### Methodology for Constructing the Combined Global Uncertainty Index (![]())
+### Mitigating Multicollinearity
 
-The Global Systemic Uncertainty Index (![]()) is constructed at a monthly frequency using the **Mixed Data Sampling (MIDAS)** model, which optimally utilizes the high-frequency GPR data to form the monthly composite.
+By constructing a single composite index that combines both risk dimensions, we avoid the multicollinearity issues that would arise from including them separately in the state transition equation for the ambiguity aversion index.
 
-#### Step 1: Temporal Alignment via Mixed Data Sampling (MIDAS)
+## Implemented Methodology
 
-The MIDAS framework is employed to aggregate the daily Geopolitical Risk data (![]()) into a monthly component (![]()) using a time-decaying weighting scheme. This ensures that daily shocks closer to the end of the month are weighted more heavily, reflecting the concept that recent information has a greater impact on market expectations.^4^
+### Step 1: Data Preparation and Aggregation
 
-Let ![]() be the daily GPR observation on day ![]() of month ![](), and ![]() be the number of trading days in that month. The aggregated monthly GPR contribution, ![](), is defined as:
+1. **Load and Process Raw Data**:
+   - Read daily climate risk series and monthly GPR country data
+   - Convert date columns to date-time format
 
-![]()The function ![]() is a parsimonious, typically smooth, function (such as a Beta polynomial) that governs the weights ![](), where ![](). The parameter vector ![]() (which includes parameters controlling the shape and decay of the weights) is estimated empirically within the model estimation process, optimizing the informational integration of the daily shocks.
+2. **Aggregate Climate Risk to Monthly Frequency**:
+   - Resample daily climate risk data to monthly frequency using arithmetic mean
+   - Create a composite climate risk index by averaging all climate risk components
 
-#### Step 2: Final Composite Index (![]())
+3. **Create Composite GPR Index**:
+   - Average GPR values across all countries to create a global GPR index
 
-The final monthly index ![]() is constructed as a weighted average of the monthly Climate Risk Index (![]()) and the constructed aggregated monthly GPR component (![]()). All input indices must first be normalized (e.g., standardized or scaled to a mean of 100) to ensure comparability.
+### Step 2: Normalization of Indices
 
-![]()* ![]() and ![]() are the structural weights assigned to the Climate Risk and Geopolitical Risk components, where ![]().
+Normalize both climate risk and GPR indices to ensure comparability:
 
-* These weights can be set equally (e.g., ![]()) for neutrality, or they can be statistically determined using methods like Principal Component Analysis (PCA) to allocate weight based on each index’s contribution to the total variance in the overall global risk environment.
+- **Standardization (z-score normalization)**:
+  ```
+  normalized_value = (original_value - mean) / standard_deviation
+  ```
+- Alternative: **Scaling to mean of 100**:
+  ```
+  normalized_value = (original_value / mean) * 100
+  ```
 
-The resulting ![]() is a statistically rigorous monthly composite index that avoids simple averaging while optimally integrating high-frequency shock information. This index serves as the robust driving factor (![]()) in the state transition equation for the ambiguity aversion index ![](), allowing for precise measurement of how global systemic uncertainty dynamically shifts Chinese market sentiment.
+### Step 3: MIDAS-Inspired Weighting Approach
+
+Implement a time-decaying weighting scheme using a Beta polynomial function:
+
+```
+w(k, θ, m) = [(k/m)^(θ₁-1) * ((m-k)/m)^(θ₂-1)] / Σ[(k/m)^(θ₁-1) * ((m-k)/m)^(θ₂-1)]
+```
+
+Where:
+- `k` is the position in the window (1 to m)
+- `m` is the window size (e.g., 12 months)
+- `θ` is a parameter vector controlling the shape and decay of weights
+
+This ensures that more recent observations receive higher weights, preserving the informational content of recent shocks.
+
+### Step 4: Constructing the Final Composite Index
+
+The Combined Global Uncertainty Index (CGUI) is calculated as a weighted average of the normalized components:
+
+```
+CGUI_t = w_climate * CR_t + w_gpr * GPR_t
+```
+
+Where:
+- `CR_t` is the normalized climate risk index at time t
+- `GPR_t` is the normalized and MIDAS-weighted GPR index at time t
+- `w_climate` and `w_gpr` are structural weights summing to 1.0, determined using Correlation-Adjusted Weighting by default
+
+## Implementation Details
+
+The Python implementation (`create_combined_uncertainty_index.py`) follows this methodology with the following key features:
+
+1. Object-oriented design for modularity and extensibility
+2. Flexible weighting schemes with Correlation-Adjusted Weighting as the default approach
+3. Visualization of the components and final index
+4. Comprehensive data validation and error handling
+5. Support for multiple weighting methods: Correlation-Adjusted, Inverse Variance, EWMA, PCA-based, equal weighting, and custom weights
+
+## Weighting Methodology
+
+### Correlation-Adjusted Weighting - Recommended Default Approach
+
+This balanced approach combines statistical properties with domain knowledge:
+
+1. **Base Weights**: Start with inverse variance weights to reduce volatility impact
+2. **Correlation Adjustment**: Modify weights based on the correlation between components
+3. **Balance Targeting**: Move toward more balanced weights when components are highly correlated
+4. **Normalization**: Ensure final weights sum to 1.0
+
+This method provides a better balance than PCA (which tends to dominate one component) while still being data-driven.
+
+### Inverse Variance Weighting
+
+Assigns lower weights to more volatile components:
+
+1. **Calculate Variances**: Compute the variance of each normalized component
+2. **Inverse Variances**: Use the reciprocal of variance as weights
+3. **Normalize**: Scale weights to sum to 1.0
+
+This approach naturally reduces the impact of components with high variability.
+
+### Exponentially Weighted Moving Average (EWMA) Dynamic Weights
+
+Time-varying weights that adapt to changing market conditions:
+
+1. **Rolling Variances**: Calculate 6-month rolling variances for each component
+2. **Dynamic Ratios**: Compute time-varying variance ratios
+3. **Smoothing**: Apply EWMA to create stable but adaptive weights
+4. **Normalization**: Ensure weights sum to 1.0 at each time point
+
+This method provides dynamic adaptability while maintaining reasonable balance.
+
+### Alternative Weighting Schemes
+
+The implementation also supports:
+
+- **Principal Component Analysis (PCA)**: Weights based on variance contribution (can be dominated by one component)
+- **Equal Weighting (0.5/0.5)**: Simple but potentially ignores important statistical properties
+- **Custom Weights**: User-specified weights based on domain expertise
+
+### Advantages of Correlation-Adjusted Weighting
+
+- **Better Balance**: Avoids domination by a single component
+- **Statistical Foundation**: Still incorporates important data properties
+- **Improved Interpretability**: More intuitive weights that balance both risk dimensions
+- **Reduced Volatility**: More stable index through balanced contributions
+- **Domain Relevance**: Acknowledges the theoretical importance of both climate and geopolitical risks
+
+## Usage Notes
+
+The resulting Combined Global Uncertainty Index serves as a robust measure of global systemic uncertainty that can be used as a driving factor in the state transition equation for the ambiguity aversion index, allowing for precise measurement of how global systemic uncertainty dynamically shifts Chinese market sentiment.
