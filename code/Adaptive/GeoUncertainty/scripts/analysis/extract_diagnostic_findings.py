@@ -23,10 +23,11 @@ def main():
     data_path = project_root / "outputs" / "results" / "enhanced_monthly_data_all_bins.csv"
     df = pd.read_csv(data_path)
     
-    # Key variables
-    returns = df['Monthly_Return_Pct'].dropna()
-    risk_bins = df['Risk_Bins_20'].dropna()
-    risk_metric = df['Risk_Metric'].dropna()
+    # Key variables - use aligned data
+    df_clean = df[['Monthly_Return_Pct', 'Risk_Bins_20', 'Risk_Metric']].dropna()
+    returns = df_clean['Monthly_Return_Pct']
+    risk_bins = df_clean['Risk_Bins_20']
+    risk_metric = df_clean['Risk_Metric']
     
     print("\n🔍 KEY FINDINGS:")
     print("-" * 50)
