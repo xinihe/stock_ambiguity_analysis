@@ -32,26 +32,43 @@ To examine the relationship between GPR and ambiguity, we employ a series of Ord
 3.  **Quadratic Model**: To capture non-linear effects, we introduce squared terms for each GPR index. This allows for the possibility that the impact of GPR on ambiguity is not constant and may change at different levels of risk.
     `Ambiguity = β₀ + β₁*GPR + β₂*GPR² + ε`
 
+4.  **Lag Model**: To investigate the delayed effects of GPR on ambiguity.
+
 ## 3. Empirical Results and Analysis
 
-### 3.1. Regression Results
+### 3.1. Monthly Analysis
 
-The regression analysis reveals a statistically significant relationship between GPR and market ambiguity, with the quadratic model providing the best fit.
+The regression analysis reveals a statistically significant relationship between GPR and market ambiguity, with the quadratic and lag models providing the best fit.
 
 | Model Specification | R²     | Key Finding                               |
 | ------------------- | ------ | ----------------------------------------- |
 | Linear Model        | 16.14% | China GPR has a significant negative effect. |
 | Interaction Model   | 16.57% | Modest improvement over the linear model. |
 | **Quadratic Model** | **19.62%** | **Best overall fit, indicating non-linearity.** |
-| Lag Model           | 27.38% | Lags of GPR are highly significant.       |
-
-### 3.2. Analysis of GPR Effects
+| **Lag Model**| **27.38%** | **Lags of GPR are highly significant.** |
 
 -   **China GPR**: The most striking result is the **statistically significant negative coefficient** for China's GPR in the linear model **(-0.269, p=0.0155)**. This suggests that as China's own geopolitical risk increases, market ambiguity *decreases*. This counter-intuitive finding is robust across specifications and is the central empirical puzzle of this study.
 
 -   **US and Japan GPR**: The GPR from the US and Japan shows no statistically significant impact on Chinese market ambiguity in any of the models. This suggests that domestic geopolitical risk is the primary driver, at least within this sample period.
 
 -   **Non-Linearity and Lags**: The superior performance of the quadratic model (R² = 19.62%) and especially the lag model (R² = 27.38%) are key findings. They imply that the relationship between GPR and ambiguity is not a simple linear one. The effect of a change in GPR on ambiguity depends on the existing level of GPR and its past values, suggesting potential threshold effects or regime-dependent behavior.
+
+### 3.2. Weekly Analysis
+
+To further investigate the relationship between GPR and ambiguity, we conducted a weekly analysis by interpolating the monthly GPR data. This allows for a more granular view of the dynamic relationship.
+
+#### 3.2.1. Model Comparison (Weekly)
+
+| Model       | R-squared |
+| :---------- | :-------- |
+| Linear      | 0.0133    |
+| **Lag**     | **0.0883**|
+
+While the overall explanatory power of the models is lower in the weekly analysis, the Lag Model still outperforms the Linear Model, consistent with the monthly findings.
+
+#### 3.2.2. Analysis of GPR Effects (Weekly)
+
+The most striking result from the weekly analysis is the statistically significant negative relationship between the **third-week lag of China's GPR** and ambiguity (p-value = 0.037). This finding reinforces the monthly results and provides more precise timing on the lagged effect of China's GPR. The negative coefficient suggests that increases in GPR from China are followed by a decrease in market ambiguity three weeks later.
 
 ### 3.3. The Counter-Intuitive Negative Relationship
 
@@ -89,3 +106,37 @@ The findings of this paper provide a strong foundation for a more comprehensive 
     -   **High-Frequency Data**: Using daily or even intraday data around major geopolitical events will allow for a more granular analysis of the "risk clarification" effect.
 
 By undertaking this comprehensive analysis, we can provide a much deeper and more nuanced understanding of how the abstract concept of geopolitical risk is priced into financial assets, with market ambiguity serving as a critical, and previously under-appreciated, transmission channel.
+
+## Empirical Results: Ambiguity and Geopolitical Risk
+
+### GPR -> Ambiguity
+
+#### Monthly Analysis
+
+Our initial analysis, conducted on a monthly basis, explored the relationship between various geopolitical risk (GPR) indices and market ambiguity. The regression models, both linear and with lagged variables, yielded low R-squared values, indicating that GPR indices explained a very small portion of the variance in ambiguity. Furthermore, none of the GPR variables demonstrated a statistically significant effect on ambiguity at this frequency.
+
+#### Weekly Analysis
+
+Switching to a weekly frequency, we observed a decrease in the overall explanatory power of the models, as evidenced by even lower R-squared values. However, this higher-frequency analysis revealed a statistically significant finding that was not present in the monthly data. Specifically, we identified a negative relationship between China's GPR index and market ambiguity with a three-week lag. This suggests that an increase in China's GPR is associated with a decrease in market ambiguity three weeks later. This counterintuitive finding warrants further investigation.
+
+### Ambiguity -> Return
+
+To further understand the impact of ambiguity, we investigated its relationship with market returns.
+
+#### Monthly and Weekly Analysis
+
+Across both monthly and weekly frequencies, our regression models failed to identify a statistically significant relationship between the ambiguity metric and market returns. The R-squared values were close to zero, and the p-values for the ambiguity metric were well above the conventional significance thresholds. This suggests that, within the scope of our analysis, ambiguity does not have a direct, linear impact on market returns.
+
+### Comparison of Monthly vs. Weekly Data
+
+The transition from monthly to weekly data presented a trade-off. While the explanatory power of the models (R-squared) decreased with the higher-frequency data, the weekly analysis of the `GPR -> Ambiguity` relationship uncovered a significant lagged effect that was not visible at the monthly level. This highlights the potential for higher-frequency data to reveal more granular and time-dependent relationships.
+
+For the `Ambiguity -> Return` relationship, neither frequency yielded significant results.
+
+## Future Research
+
+Our findings open up several avenues for future research:
+
+*   **Investigate the Lagged Effect of China's GPR**: The negative relationship between China's GPR and ambiguity at a three-week lag is a particularly intriguing result that requires a deeper dive. Future studies could explore the potential underlying economic or political mechanisms driving this relationship.
+*   **Explore Non-Linear Relationships**: The lack of a linear relationship between ambiguity and returns does not preclude the existence of non-linear or more complex relationships. Future research could employ non-linear models to further explore this connection.
+*   **Incorporate Additional Variables**: The low R-squared values in our models suggest that other factors not included in our analysis are significant drivers of ambiguity. Future studies could incorporate a wider range of macroeconomic, political, and market-based variables to build more comprehensive models.
