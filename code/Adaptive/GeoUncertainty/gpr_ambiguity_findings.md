@@ -140,3 +140,29 @@ Our findings open up several avenues for future research:
 *   **Investigate the Lagged Effect of China's GPR**: The negative relationship between China's GPR and ambiguity at a three-week lag is a particularly intriguing result that requires a deeper dive. Future studies could explore the potential underlying economic or political mechanisms driving this relationship.
 *   **Explore Non-Linear Relationships**: The lack of a linear relationship between ambiguity and returns does not preclude the existence of non-linear or more complex relationships. Future research could employ non-linear models to further explore this connection.
 *   **Incorporate Additional Variables**: The low R-squared values in our models suggest that other factors not included in our analysis are significant drivers of ambiguity. Future studies could incorporate a wider range of macroeconomic, political, and market-based variables to build more comprehensive models.
+
+## Weekly Analysis with Lagged Variables
+
+In response to the non-significant results from the initial weekly analysis, we extended the investigation to include lagged effects of ambiguity, risk, and quadratic risk on market returns. The rationale for this approach is that the impact of these factors on investor behavior and, consequently, on market returns may not be instantaneous but may unfold over several periods.
+
+### Methodology
+
+We modified the `weekly_data_analysis.py` script to incorporate lagged variables for `ambiguity_metric`, `risk`, and `risk_sq` for up to four weeks. The regression model was updated to include these lagged variables as predictors of weekly returns.
+
+The updated regression model is as follows:
+
+`Returns = β₀ + Σ(β₁ᵢ * Ambiguity_lag_i) + Σ(β₂ᵢ * Risk_lag_i) + Σ(β₃ᵢ * Risk²_lag_i) + ε`
+
+where `i` ranges from 1 to 4 weeks.
+
+### Results
+
+The regression analysis with lagged variables yielded more insightful results. The adjusted R-squared of the model improved from 0.005 to 0.051, indicating that the lagged variables collectively explain a greater portion of the variance in market returns.
+
+The key finding from this analysis is the statistical significance of the squared risk from four weeks prior (`risk_sq_lag_4`) at the 5% level (p-value = 0.049). This suggests that a higher squared risk four weeks ago is associated with a change in current market returns.
+
+Additionally, `risk_lag_3` and `risk_lag_4` were found to be significant at the 10% level (p-values of 0.077 and 0.088, respectively). While the lagged ambiguity metrics did not achieve statistical significance at conventional levels, `ambiguity_metric_lag_3` showed the lowest p-value among the ambiguity lags (0.117).
+
+### Conclusion
+
+The inclusion of lagged variables in the weekly analysis has revealed a more nuanced relationship between risk and market returns. The statistically significant impact of `risk_sq_lag_4` suggests that the effect of risk on returns is not immediate and that past risk levels, particularly from a month prior, can have a delayed but significant impact. This finding provides a more promising avenue for future research into the dynamic relationship between risk, ambiguity, and market returns.
