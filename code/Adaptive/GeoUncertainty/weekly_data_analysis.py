@@ -31,10 +31,16 @@ def prepare_weekly_data():
     # Merge data
     merged_data = pd.merge(return_weekly, ambiguity_weekly, on='date', how='inner')
     merged_data = pd.merge(merged_data, gpr_weekly_linear, on='date', how='inner')
+
+    # Add lagged variables
+    for col in ['ambiguity_metric', 'risk', 'risk_sq']:
+        for i in range(1, 5):
+            merged_data[f'{col}_lag_{i}'] = merged_data[col].shift(i)
+
     merged_data.dropna(inplace=True)
 
     # Save to CSV
-    merged_data.to_csv("/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/data/processed/weekly_data.csv")
+    merged_data.to_csv("/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/data/processed/weekly_data_with_lags.csv")
 
     return merged_data
 
@@ -47,13 +53,15 @@ def main():
     print("--- Correlation Matrix ---")
     print(correlation_matrix)
 
-    # Regression analysis
-    X = weekly_data[['ambiguity_metric', 'risk', 'risk_sq']]
+    # Regression analysis with lagged variables
+    X = weekly_data[['ambiguity_metric_lag_1', 'ambiguity_metric_lag_2', 'ambiguity_metric_lag_3', 'ambiguity_metric_lag_4',
+                     'risk_lag_1', 'risk_lag_2', 'risk_lag_3', 'risk_lag_4',
+                     'risk_sq_lag_1', 'risk_sq_lag_2', 'risk_sq_lag_3', 'risk_sq_lag_4']]
     y = weekly_data['return']
     X = sm.add_constant(X)
 
     model = sm.OLS(y, X).fit()
-    print("\n--- Regression Results ---")
+    print("\n--- Regression Results (with lags) ---")
     print(model.summary())
 
 if __name__ == '__main__':
