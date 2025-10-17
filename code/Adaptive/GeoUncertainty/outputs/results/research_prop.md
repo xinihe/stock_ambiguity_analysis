@@ -59,42 +59,62 @@ By testing these hypotheses, we aim to provide a more complete and nuanced under
 - RQ2: How does ambiguity, as distinct from risk, impact stock returns in China?
 - RQ3: What is the combined impact of GPR, ambiguity, and traditional risk on Chinese stock returns?
 
-## Data and Construction
-- Combined daily dataset: `com_daily_data.csv` merges four sources—daily ambiguity metrics, risk measures, GPR data (GPRD), and SSE 300 index prices.
-- Unit of observation: Daily; dependent variable is the SSE 300 daily return; covariates include ambiguity (ambiguity_metric_1), risk (risk_1), and global geopolitical risk (GPRD).
-- Sample period: 2018-01-09 to 2024-12-10; observations used in estimation: 1,679 after list-wise deletion.
-- Preliminary stationarity checks (ADF) for weekly aggregates indicate both ambiguity and GPRD are stationary, supporting time-series modeling.
+## Empirical Studies
 
-## Empirical Strategy
-We proceed in two stages.
+### Data and Causal Strategy
 
-1) Returns model (baseline and combined specifications):
-   - Non-linear risk–return model (Model 1):
-     `Returns = β₀ + β₁(Ambiguity) + β₂(Risk) + β₃(Risk²) + ε`
-   - Combined model (Model 2):
-     `Returns = β₀ + β₁(Ambiguity) + β₂(Risk) + β₃(GPRD) + ε`
-   - Estimation via OLS with conventional standard errors; robustness with HAC standard errors (robust to variance heterogeneity and autocorrelation) considered.
+Our empirical analysis relies on a rich dataset of daily financial and economic indicators for the Chinese market, spanning from [Start Date] to [End Date]. The core variables include:
 
-2) Ambiguity–GPR linkage (causal pathway):
-   - Dynamic modeling: vector autoregression (VAR) with Granger causality tests to assess directional predictability between GPRD and ambiguity.
-   - Identification: instrumental variable/event-study approaches exploiting exogenous geopolitical events (e.g., international summits, sanctions announcements, military escalations) as instruments or event shocks.
-   - Robustness: sub-sample stability, structural break tests, and alternative ambiguity proxies.
+*   **Market Returns:** We use the daily returns of the CSI 300 index as our primary measure of market performance.
+*   **Ambiguity:** Our daily ambiguity measure is constructed following the methodology outlined in Appendix A. This measure is designed to be less sensitive to hyperparameter choices and captures the market's uncertainty about the underlying data-generating process.
+*   **Risk:** We use a standard GARCH(1,1) model to estimate the daily conditional volatility of the CSI 300 returns, which serves as our primary measure of risk.
+*   **Geopolitical Risk (GPR):** We employ the daily GPR index from Caldara and Iacoviello (2022). We use the overall GPR index, as well as its sub-indices for China and the United States, to capture both global and country-specific geopolitical tensions.
+*   **Control Variables:** We include a set of standard control variables known to affect stock returns, such as the risk-free rate, the term spread, and the credit spread.
 
-## Preliminary Evidence (from `daily_analysis_report.md`)
-Using the combined daily dataset, we estimate two OLS models of returns.
+Our identification strategy is designed to move beyond simple correlations and establish a causal link between ambiguity, GPR, and market returns. We employ a multi-pronged approach:
 
-- Model 1 (Non-linear risk–return): Ambiguity is significantly negative (β̂ ≈ −0.0369, p<0.01), risk is positive and marginally significant (β̂ ≈ 0.0090, p<0.10), while the quadratic risk term is not significant. R-squared ≈ 0.0098.
-- Model 2 (Combined returns): Ambiguity remains significantly negative (β̂ ≈ −0.0346, p<0.01). GPRD is negative and statistically significant (β̂ ≈ −0.0000, p<0.01), while the risk term loses significance. R-squared ≈ 0.0133.
+1.  **Baseline Regressions:** We start with a series of baseline regressions to establish the statistical significance of the relationships between our key variables.
+2.  **Instrumental Variables (IV):** To address potential endogeneity concerns, we use an instrumental variable approach. We propose to use [Specify Instrument(s)] as instruments for ambiguity. These instruments are plausibly exogenous to Chinese market returns but are expected to be correlated with our ambiguity measure.
+3.  **Mediation and Moderation Analysis:** We examine the channels through which GPR affects returns by testing whether ambiguity acts as a mediator. We also explore whether certain market conditions (e.g., high vs. low volatility regimes) moderate the impact of ambiguity on returns.
 
-Interpretation: Ambiguity robustly depresses daily returns, consistent with ambiguity aversion. The addition of global geopolitical risk yields a negative and significant loading on returns, suggesting that geopolitical conditions are priced in high-frequency returns, potentially crowding out conventional risk effects. These findings motivate a deeper inquiry into the causal pathway from GPRD to ambiguity and, in turn, to returns.
+### Correlation Analysis
 
-## Identification and Causality Plan
-- Concerns about endogenous relationships: GPRD may be correlated with domestic macro-financial shocks; ambiguity may respond to market volatility contemporaneously.
-- Strategy:
-  - VAR + Granger causality to test whether GPRD precedes changes in ambiguity.
-  - Event-study design using geopolitical events as exogenous shocks; measure ambiguity responses around event windows.
-  - Instrumental variables (IV) using external instruments derived from event timing or geopolitical news indices.
-  - Robust inference with HAC standard errors, and local projections to trace impulse responses.
+A crucial first step in our analysis is to establish that our ambiguity measure is distinct from traditional risk. We will conduct a detailed correlation analysis to examine the relationship between our daily ambiguity measure and our GARCH-based risk measure. We hypothesize that the correlation between ambiguity and risk will be low, suggesting that our measure captures a separate dimension of uncertainty. We will also examine the correlation between our ambiguity measure and other potential proxies for uncertainty, such as the VIX.
+
+### Baseline Regressions
+
+We will estimate two sets of baseline regressions. The first set examines the relationship between ambiguity, risk, and market returns. The model is as follows:
+
+$Return_t = \alpha + \beta_1 Ambiguity_t + \beta_2 Risk_t + \beta_3 Risk_t^2 + \epsilon_t$
+
+The inclusion of the quadratic risk term ($Risk_t^2$) allows for a non-linear relationship between risk and returns, as suggested by some studies.
+
+The second set of baseline regressions explores the link between GPR and ambiguity. We will estimate the following model:
+
+$Ambiguity_t = \alpha + \gamma_1 GPR_{China, t-1} + \gamma_2 GPR_{US, t-1} + \gamma_3 GPR_{Global, t-1} + \delta'X_{t-1} + \epsilon_t$
+
+where $GPR_{China}$, $GPR_{US}$, and $GPR_{Global}$ are the lagged values of the Chinese, U.S., and global GPR indices, respectively, and $X$ is a vector of control variables.
+
+### Causal Analysis: Instrumental Variables and Mediation/Moderation
+
+To address the potential endogeneity of ambiguity, we will employ a two-stage least squares (2SLS) IV regression. In the first stage, we will regress ambiguity on our chosen instrument(s) and the other exogenous variables. In the second stage, we will use the predicted values of ambiguity from the first stage to estimate the impact of ambiguity on returns.
+
+We will also conduct a mediation analysis to test whether ambiguity mediates the relationship between GPR and returns. This involves estimating a series of regressions to determine the extent to which the effect of GPR on returns is transmitted through the ambiguity channel.
+
+Finally, we will conduct a moderation analysis to examine whether the impact of ambiguity on returns is conditional on other factors. For example, we will test whether the negative effect of ambiguity on returns is more pronounced during periods of high market volatility or economic uncertainty.
+
+### Further Analysis: Heterogeneity and Robustness
+
+To ensure the robustness of our results, we will conduct a series of heterogeneity and robustness tests.
+
+*   **Heterogeneity Tests:** We will examine whether the impact of ambiguity on returns varies across different types of stocks (e.g., state-owned enterprises vs. private firms, large-cap vs. small-cap stocks). We will also explore whether the effect of ambiguity differs across bull and bear market states.
+*   **Robustness Tests:** We will test the robustness of our results to alternative measures of ambiguity and risk, different model specifications, and alternative lag structures. We will also perform a series of placebo tests to ensure that our results are not driven by spurious correlations.
+
+
+
+
+
+
 
 ## Expected Contributions
 - Empirical: Provide first-pass evidence that ambiguity, distinct from risk, explains high-frequency returns in an emerging market, and that global geopolitical risk has additional explanatory power for returns.
