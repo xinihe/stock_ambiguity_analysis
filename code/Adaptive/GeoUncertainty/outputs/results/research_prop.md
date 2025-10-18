@@ -69,13 +69,27 @@ Our empirical analysis relies on a rich dataset of daily financial and economic 
 *   **Ambiguity:** Our daily ambiguity measure is constructed following the methodology outlined in Appendix A. This measure is designed to be less sensitive to hyperparameter choices and captures the market's uncertainty about the underlying data-generating process.
 *   **Risk:** We use a standard GARCH(1,1) model to estimate the daily conditional volatility of the CSI 300 returns, which serves as our primary measure of risk.
 *   **Geopolitical Risk (GPR):** We employ the daily GPR index from Caldara and Iacoviello (2022). We use the overall GPR index, as well as its sub-indices for China and the United States, to capture both global and country-specific geopolitical tensions.
-*   **Control Variables:** We include a set of standard control variables known to affect stock returns, such as the risk-free rate, the term spread, and the credit spread.
 
 Our identification strategy is designed to move beyond simple correlations and establish a causal link between ambiguity, GPR, and market returns. We employ a multi-pronged approach:
 
 1.  **Baseline Regressions:** We start with a series of baseline regressions to establish the statistical significance of the relationships between our key variables.
-2.  **Instrumental Variables (IV):** To address potential endogeneity concerns, we use an instrumental variable approach. We propose to use [Specify Instrument(s)] as instruments for ambiguity. These instruments are plausibly exogenous to Chinese market returns but are expected to be correlated with our ambiguity measure.
-3.  **Mediation and Moderation Analysis:** We examine the channels through which GPR affects returns by testing whether ambiguity acts as a mediator. We also explore whether certain market conditions (e.g., high vs. low volatility regimes) moderate the impact of ambiguity on returns.
+2.  **Instrumental Variables (IV):** To address potential endogeneity concerns, we use an instrumental variable approach.
+3.  **Mediation and Moderation Analysis:** We examine the channels through which GPR affects returns by testing whether ambiguity acts as a mediator and whether market conditions moderate the impact of ambiguity.
+
+### Control Variables
+
+To isolate the effects of ambiguity and GPR, we will include the following standard control variables in our regressions:
+
+*   **Risk-Free Rate:** The yield on the 3-month Chinese government bond.
+    *   **Justification:** This represents the baseline return for a risk-free investment and is a fundamental component of asset pricing models.
+*   **Term Spread:** The difference between the yields on 10-year and 3-month Chinese government bonds.
+    *   **Justification:** This variable is a widely used proxy for the stance of monetary policy and market expectations of future economic growth.
+*   **Credit Spread:** The difference between the yield on a high-yield Chinese corporate bond index and a government bond of similar maturity.
+    *   **Justification:** This captures the market's perception of default risk and overall credit conditions, which are known to affect investor risk appetite.
+*   **Market Liquidity:** We will use the Amihud illiquidity measure, calculated from daily trading volume and returns.
+    *   **Justification:** Liquidity is a priced factor in asset returns. It is crucial to control for it, as periods of high ambiguity may also coincide with lower market liquidity.
+*   **VIX Index:** The CBOE Volatility Index will be included to control for global risk aversion.
+    *   **Justification:** The VIX, often called the "fear gauge," captures global investor sentiment and risk appetite. Controlling for it helps to ensure that our ambiguity measure is not simply proxying for global risk aversion.
 
 ### Correlation Analysis
 
@@ -85,9 +99,9 @@ A crucial first step in our analysis is to establish that our ambiguity measure 
 
 We will estimate two sets of baseline regressions. The first set examines the relationship between ambiguity, risk, and market returns. The model is as follows:
 
-$Return_t = \alpha + \beta_1 Ambiguity_t + \beta_2 Risk_t + \beta_3 Risk_t^2 + \epsilon_t$
+$Return_t = \alpha + \beta_1 Ambiguity_t + \beta_2 Risk_t + \beta_3 Risk_t^2 + \delta'X_t + \epsilon_t$
 
-The inclusion of the quadratic risk term ($Risk_t^2$) allows for a non-linear relationship between risk and returns, as suggested by some studies.
+where $X_t$ is the vector of control variables. The inclusion of the quadratic risk term ($Risk_t^2$) allows for a non-linear relationship between risk and returns.
 
 The second set of baseline regressions explores the link between GPR and ambiguity. We will estimate the following model:
 
@@ -97,7 +111,24 @@ where $GPR_{China}$, $GPR_{US}$, and $GPR_{Global}$ are the lagged values of the
 
 ### Causal Analysis: Instrumental Variables and Mediation/Moderation
 
-To address the potential endogeneity of ambiguity, we will employ a two-stage least squares (2SLS) IV regression. In the first stage, we will regress ambiguity on our chosen instrument(s) and the other exogenous variables. In the second stage, we will use the predicted values of ambiguity from the first stage to estimate the impact of ambiguity on returns.
+To address the potential endogeneity of ambiguity, we will employ a two-stage least squares (2SLS) IV regression. We propose two instrumental variables:
+
+1.  **Major Geopolitical Events:** We will construct a binary instrument based on the dates of major, unexpected geopolitical events that are exogenous to the Chinese financial market. Examples include the announcement of the first U.S. tariffs on China, the outbreak of the Russia-Ukraine conflict, or other significant international political crises.
+    *   **Justification:** These events are driven by international political dynamics and are not caused by daily fluctuations in the Chinese stock market. However, they are very likely to increase uncertainty and ambiguity among investors, satisfying the conditions for a valid instrument.
+
+2.  **Geopolitical Ambiguity News Index:** We will create a daily index based on news from major international sources (e.g., Reuters, Associated Press). This index will measure the frequency of articles that contain keywords related to both geopolitics (e.g., "trade war," "sanctions") and ambiguity (e.g., "uncertainty," "unclear," "unforeseeable").
+    *   **Justification:** This instrument is designed to capture the specific component of the international information environment that shapes investors' perceptions of ambiguity. By using global news sources, it remains exogenous to local market sentiment.
+
+We will also conduct mediation and moderation analysis to explore the channels and conditions under which ambiguity affects returns.
+
+*   **Mediating Variable: Ambiguity**
+    *   **Justification:** Our central thesis is that ambiguity acts as a key mediator in the relationship between geopolitical risk and asset returns. We will formally test the pathway: **GPR → Ambiguity → Returns**. This analysis will quantify the extent to which GPR's impact on returns is transmitted through the ambiguity channel.
+
+*   **Moderating Variables:**
+    1.  **Market Volatility Regime:** A dummy variable that equals 1 for days in a high-volatility regime (e.g., when daily volatility is in the top quintile of its historical distribution) and 0 otherwise.
+        *   **Justification:** The negative impact of ambiguity on returns may be amplified during periods of high market stress. When risk is already elevated, investors may become even more sensitive to the presence of ambiguity.
+    2.  **Investor Sentiment:** An index of Chinese investor sentiment, constructed from market-based indicators (e.g., put-call ratios, turnover) or survey data.
+        *   **Justification:** The market's reaction to ambiguity may depend on the prevailing psychological mood of investors. During periods of pessimism, the negative effect of ambiguity is likely to be stronger.ll regress ambiguity on our chosen instrument(s) and the other exogenous variables. In the second stage, we will use the predicted values of ambiguity from the first stage to estimate the impact of ambiguity on returns.
 
 We will also conduct a mediation analysis to test whether ambiguity mediates the relationship between GPR and returns. This involves estimating a series of regressions to determine the extent to which the effect of GPR on returns is transmitted through the ambiguity channel.
 
