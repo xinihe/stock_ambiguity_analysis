@@ -134,12 +134,15 @@ We will also conduct a mediation analysis to test whether ambiguity mediates the
 
 Finally, we will conduct a moderation analysis to examine whether the impact of ambiguity on returns is conditional on other factors. For example, we will test whether the negative effect of ambiguity on returns is more pronounced during periods of high market volatility or economic uncertainty.
 
-### Further Analysis: Heterogeneity and Robustness
 
-To ensure the robustness of our results, we will conduct a series of heterogeneity and robustness tests.
 
-*   **Heterogeneity Tests:** We will examine whether the impact of ambiguity on returns varies across different types of stocks (e.g., state-owned enterprises vs. private firms, large-cap vs. small-cap stocks). We will also explore whether the effect of ambiguity differs across bull and bear market states.
-*   **Robustness Tests:** We will test the robustness of our results to alternative measures of ambiguity and risk, different model specifications, and alternative lag structures. We will also perform a series of placebo tests to ensure that our results are not driven by spurious correlations.
+## Conclusion
+
+This research proposes a comprehensive empirical investigation into the role of ambiguity in transmitting geopolitical risk to financial markets. By constructing a novel, robust measure of daily ambiguity for the Chinese market, we aim to disentangle the effects of ambiguity from traditional risk and to establish a causal link between geopolitical risk, ambiguity, and asset returns. Our multi-pronged empirical strategy, which includes baseline regressions, instrumental variable analysis, and mediation/moderation tests, is designed to provide a rigorous and nuanced understanding of these complex relationships.
+
+The findings of this research are expected to make several important contributions to the literature. First, we will provide new evidence on the economic consequences of geopolitical risk, with a particular focus on the ambiguity channel. Second, we will contribute to the growing literature on ambiguity and asset pricing by providing a new, robust measure of ambiguity and by testing its impact on a major emerging market. Finally, our results will have important practical implications for investors and policymakers, as they will shed light on the sources of market volatility and the transmission of geopolitical shocks.
+
+Overall, this research aims to advance our understanding of the interplay between geopolitics, uncertainty, and financial markets. By focusing on the concept of ambiguity, we hope to provide a more complete and accurate picture of how investors respond to the complex and uncertain world in which we live.
 
 
 
