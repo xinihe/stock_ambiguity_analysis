@@ -1,0 +1,147 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}   % 处理 UTF-8
+\usepackage[T1]{fontenc}
+\usepackage{CJKutf8}          % CJK 环境支持
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{graphicx}
+% 如果要用 subfigure，也要加载 subcaption
+\usepackage{subcaption}  % if you also have Chinese in your doc
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{array}       % 导言区添加此包支持 p{} 列格式
+\usepackage{tabularx}
+\usepackage{float} 
+\usepackage{xcolor}
+
+
+
+\journal{Financial Research letter}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Adaptive Parameters for Ambiguity Aversion} %% Article title
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \affiliation[label1]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+%%
+%% \affiliation[label2]{organization={},
+%%             addressline={},
+%%             city={},
+%%             postcode={},
+%%             state={},
+%%             country={}}
+
+
+
+\author[inst1]{He Ni}
+
+\affiliation[inst1]{organization={Tailong Finance School, Zhejiang Gongshang University},
+addressline={18 Xuezheng Str.}, 
+            city={Hangzhou},
+            postcode={310018}, 
+            state={Zhejiang},
+            country={China}}
+
+
+\author[inst2]{Xinjiang Guo}
+\affiliation[inst2]{organization={Finance School, Zhejiang Gongshang University},
+            addressline={18 Xuezheng Str.}, 
+            city={Hangzhou},
+            postcode={310018}, 
+            state={Zhejiang},
+            country={China}}
+
+
+
+
+
+
+%% Abstract
+\begin{abstract}
+%% Text of abstract
+
+\end{abstract}
+
+
+%%Graphical abstract
+%\begin{graphicalabstract}
+%\includegraphics{grabs}
+%\end{graphicalabstract}
+
+%%Research highlights
+%\begin{highlights}
+%\item Research highlight 1
+%\item Research highlight 2
+%\end{highlights}
+
+%% Keywords
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Ambiguity Index \sep Cross-Entropy \sep Expected Utility under Uncertainty \sep High-Frequency Trading
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+Traditional financial and econometric models often rely on a critical, yet often flawed, assumption: that market parameters are fixed and known with certainty. These static models, which assume a single, known probability distribution of outcomes, are fundamentally ill-equipped to handle the non-linear, non-stationary nature of modern financial markets . Their inability to capture significant \textit{structural breaks} or \textit{regime shifts} —abrupt changes in market dynamics that occur during crises or major policy changes—results in strong in-sample fit but poor out-of-sample forecast performance. A new paradigm is required, one that moves beyond static assumptions to a fluid, responsive, and continuously learning framework that reflects the true complexity of the financial landscape.
+
+The limitations of these traditional models stem from their inability to differentiate between risk and a deeper form of uncertainty known as ambiguity. Risk is a situation where the probabilities of various outcomes are known, even if the outcomes themselves are not. Ambiguity, in contrast, is \textit{uncertainty when the odds are not known}. This distinction is crucial and is a leading explanation for long-standing puzzles in finance, such as the market non-participation puzzle, where investors avoid certain markets despite attractive returns. The behavioral preference for known probabilities, a phenomenon first demonstrated by the \textit{Ellsberg Paradox}, is termed \textit{ambiguity aversion}. It is a pervasive human trait rooted in psychological biases such as the familiarity effect and status quo bias , causing investors to gravitate toward safe and familiar choices even if it means foregoing higher returns. This aversion is not just a theoretical concept; it has been shown to be a significant factor in the decisions of both private and institutional investors. 
+
+A model that can successfully incorporate these psychological and market realities must itself be dynamic. An adaptive model is defined as a system that can continuously \textit{adjust its parameters and behavior in response to new data} without manual intervention. This continuous learning and updating process is essential because investor preferences and beliefs are not static; they evolve in real-time as market conditions change. By continuously refining its internal parameters, an adaptive model can enhance its predictive accuracy over time and provide a financial roadmap that is responsive to reality, not a relic of the past. The central motivation of this research is to propose and formalize a unified framework for a financial model in which the parameter for ambiguity aversion is not a static constant but an adaptive variable, formally linked to and driven by observable quantitative market indicators.
+
+This research contributes to the literature in several key areas. First, it explicitly models ambiguity aversion as a time-varying parameter, making it more responsive to evolving market conditions. This approach allows for a deeper quantification of uncertainty than traditional risk measures such as variance. It also enables the formal separation of an agent's beliefs about future outcomes from their inherent attitude toward ambiguity, a distinction that is crucial for robust econometric modeling. By capturing time-varying preferences, the model can generate a time-varying \textit{ambiguity premium} on asset returns, offering a powerful new explanation for asset pricing puzzles such as the high market price of risk and the equity premium puzzle. Furthermore, our framework allows for the establishment of a clear causal relationship between changes in ambiguity and asset prices. The study proposes empirical tests to specifically measure the impact of ambiguity on excessive returns, noting a negative relationship between ambiguity and short-term portfolio performance, particularly during periods of market turbulence. However, in the long term, ambiguity aversion helps to explain the high equity premium puzzle, with studies showing that an ambiguity premium is required for holding assets perceived as ambiguous, which contributes to higher long-run returns. This causal influence can be analyzed using traditional econometric methods that leverage \textbf{****} to understand how the dynamic ambiguity parameter affects stock returns. For example, studies have shown that portfolio strategies that integrate a dynamic ambiguity index outperform traditional risk-based approaches in backtesting, demonstrating the practical value of this approach in investment decision-making. 
+
+The major contribution of this research is to define and operationalize a dynamic, or time-varying, parameter for ambiguity aversion. This adaptive framework moves beyond the static parameters and fixed assumptions of previous models, providing a more effective and empirically grounded measurement of ambiguity that can be directly applied to a wide range of financial and macroeconomic phenomena. This new approach aims to provide a robust and dynamic tool for navigating the complexities of modern financial markets, offering a significant advancement over outdated, static methodologies.
+
+
+\section{Methodological Frameworks for Dynamic Ambiguity Aversion}
+
+The foundational distinction between risk and ambiguity lies in the Ellsberg Paradox. This thought experiment demonstrates that individuals, when faced with a choice between a gamble with known probabilities and a gamble with unknown probabilities, will often strictly prefer the former, even if the expected payoffs are identical. This irrational behavior from a purely rational choice perspective underscores a fundamental human tendency: a dislike for uncertainty that cannot be quantified or assigned a clear probability. This psychological aversion is influenced by a suite of cognitive heuristics and biases, including: 
+
+\begin{itemize}
+    \item \textit{Familiarity Effect}: People favor what they know. In finance, this translates to a preference for investing in familiar companies or assets where the outcomes feel less uncertain. 
+    \item \textit{Status Quo Bias}: The tendency to prefer things to remain the same, viewing change as a potential loss that outweighs potential gains.
+    \item \textit{Information Bias}: A tendency to seek more information, even when it is not relevant or cannot affect a decision. This behavior is driven by a desire to reduce ambiguity, even if the information obtained is useless.
+\end{itemize}
+
+Ambiguity aversion, therefore, is not merely a technical concept; it is a description of how investors behave when they lack confidence in their probabilistic assessments of future events. 
+
+To formalize this behavioral phenomenon, two dominant theoretical frameworks have emerged in decision theory and finance: the Multiple Priors (Maxmin) model and the Smooth Ambiguity model. The Multiple Priors framework assumes an agent operates with a \textit{set of beliefs} rather than a single, fixed prior, behaving pessimistically and taking the minimum expected utility over this entire belief set. In contrast, the Smooth Ambiguity model uses a differentiable utility function to capture ambiguity aversion as an aversion to \textit{utility dispersion} or \textit{mean-preserving spreads} in the distribution of expected utilities. This model allows for a formal separation between the beliefs about future outcomes and the agent's attitude toward ambiguity, which is crucial for econometric modeling. A more detailed explanation, including the specific mathematical formulations of these models, is provided in Appendix A.
+
+A model that incorporates time-varying ambiguity aversion requires an econometric framework capable of handling dynamic parameters. As discussed in Appendix B, the most common approaches fall into two categories: Time-Varying Parameter (TVP) models, which allow for gradual changes in a model's coefficients over time, and Regime-Switching Models (RSM), which are designed to accommodate abrupt shifts or \textit{structural breaks} that characterize financial crises or sudden policy changes. The proposed framework is a hybrid of these methodologies, drawing on the strengths of both. The behavior of the model is driven by observable macroeconomic and market variables, whose role as determinators of the dynamic parameters is described in detail in Appendix C.
+
+The central proposal is a unified model framework that synthesizes the theoretical foundations of ambiguity aversion with the practical application of dynamic econometric methods. This framework is built upon a state-space model where the adaptive ambiguity aversion parameter, $\theta_{i,t}$, is a firm-specific, time-varying coefficient that reflects the total contribution of ambiguity to asset prices for company $i$. This coefficient is a function of both the investor's inherent ambiguity aversion and the measured level of market-wide ambiguity. This distinction is crucial, as it separates the investor's attitude (\textit{tastes}) from their subjective beliefs about the market environment. The model can be represented by two key equations: a measurement equation and a state transition equation. 
+
+The measurement equation formally links the total ambiguity effect to observable, firm-specific market variables:
+
+\begin{equation}
+y_{i,t} = \beta_{0,t} + \beta_1 z_{i,t} + \theta_{i,t} \cdot x_{i,t} + \epsilon_{i,t}
+\end{equation}
+
+\begin{equation}
+\theta_{i,t} = C\theta_{i,t-1} + D\text{Proxies}_t + v{i,t}
+\end{equation}
+
+\end{document}
