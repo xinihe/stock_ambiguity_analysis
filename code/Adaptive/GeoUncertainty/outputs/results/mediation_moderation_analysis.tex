@@ -1,0 +1,189 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{natbib}
+\usepackage{hyperref}
+
+\title{Mediation and Moderation Analysis in Geopolitical Risk and Asset Pricing}
+\author{Research Team}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document presents a comprehensive mediation and moderation analysis framework to examine the complex relationships between geopolitical risk, financial ambiguity, and asset returns in emerging markets. The analysis aims to uncover the mechanisms through which geopolitical events transmit to financial markets and identify factors that strengthen or weaken these relationships.
+
+\section{Theoretical Framework}
+
+\subsection{Mediation Analysis}
+
+Mediation analysis allows us to decompose the total effect of geopolitical risk on asset returns into direct and indirect effects. The indirect effect operates through a mediator variable—in this case, financial ambiguity—while the direct effect represents the impact of geopolitical risk on returns that does not pass through the mediator.
+
+\subsection{Moderation Analysis}
+
+Moderation analysis examines how the relationship between two variables changes across levels of a third variable, known as the moderator. In our context, we investigate how various market conditions and economic factors moderate the effects of geopolitical risk and ambiguity on asset returns.
+
+\section{Methodology}
+
+\subsection{Mediation Framework}
+
+Following \citet{baron1986moderator}, we implement a three-step mediation analysis:
+
+\textbf{Step 1: Total Effect}
+\begin{equation}
+r_t = \alpha_1 + c \cdot GPRD_t + \gamma_1' X_t + \epsilon_{1,t}
+\end{equation}
+where $r_t$ represents asset returns, $GPRD_t$ is the geopolitical risk index, $X_t$ is a vector of control variables, and $c$ captures the total effect of geopolitical risk on returns.
+
+\textbf{Step 2: Mediator Model}
+\begin{equation}
+Amb_t = \alpha_2 + a \cdot GPRD_t + \gamma_2' X_t + \epsilon_{2,t}
+\end{equation}
+where $Amb_t$ represents financial ambiguity, and $a$ measures the effect of geopolitical risk on the mediator.
+
+\textbf{Step 3: Direct Effect}
+\begin{equation}
+r_t = \alpha_3 + c' \cdot GPRD_t + b \cdot Amb_t + \gamma_3' X_t + \epsilon_{3,t}
+\end{equation}
+where $c'$ represents the direct effect of geopolitical risk on returns, and $b$ represents the effect of ambiguity on returns.
+
+The indirect effect is calculated as the product $a \times b$, and the total effect is decomposed as:
+\begin{equation}
+c = c' + (a \times b)
+\end{equation}
+
+\subsection{Moderation Framework}
+
+To test for moderation effects, we estimate interaction models of the form:
+
+\textbf{Model 1: Geopolitical Risk Moderation}
+\begin{equation}
+r_t = \alpha_4 + \beta_1 \cdot GPRD_t + \beta_2 \cdot M_t + \beta_3 \cdot (GPRD_t \times M_t) + \gamma_4' X_t + \epsilon_{4,t}
+\end{equation}
+
+\textbf{Model 2: Ambiguity Moderation}
+\begin{equation}
+r_t = \alpha_5 + \delta_1 \cdot Amb_t + \delta_2 \cdot M_t + \delta_3 \cdot (Amb_t \times M_t) + \gamma_5' X_t + \epsilon_{5,t}
+\end{equation}
+
+where $M_t$ represents the moderator variable, and the interaction terms capture the moderation effects.
+
+\subsection{Combined Mediation-Moderation Model}
+
+We also estimate a combined model that allows the mediation pathways to be moderated:
+
+\begin{equation}
+Amb_t = \alpha_6 + a_1 \cdot GPRD_t + a_2 \cdot M_t + a_3 \cdot (GPRD_t \times M_t) + \gamma_6' X_t + \epsilon_{6,t}
+\end{equation}
+
+\begin{equation}
+r_t = \alpha_7 + c'_1 \cdot GPRD_t + b_1 \cdot Amb_t + b_2 \cdot M_t + b_3 \cdot (Amb_t \times M_t) + \gamma_7' X_t + \epsilon_{7,t}
+\end{equation}
+
+\section{Key Moderators}
+
+We examine several moderators that may influence the relationships:
+
+\subsection{Market Volatility}
+High volatility periods may amplify or dampen the effects of geopolitical risk and ambiguity on returns.
+
+\subsection{Liquidity Conditions}
+Market liquidity affects how quickly information is incorporated into prices and may moderate the transmission of geopolitical shocks.
+
+\subsection{Economic Policy Uncertainty}
+Domestic economic policy uncertainty may interact with global geopolitical risk to affect market outcomes.
+
+\subsection{Investor Sentiment}
+Periods of extreme optimism or pessimism may influence how investors respond to ambiguity and geopolitical risk.
+
+\section{Statistical Inference}
+
+\subsection{Bootstrapping}
+
+We employ bootstrap methods (10,000 resamples) to obtain confidence intervals for indirect effects, as recommended by \citet{preacher2008asymptotic}. This approach provides more reliable inference for mediation effects, especially when the sampling distribution of the indirect effect is not normal.
+
+\subsection{Model Diagnostics}
+
+We assess model adequacy through:
+\begin{itemize}
+\item Variance Inflation Factors (VIF) for multicollinearity
+\item Hausman tests for endogeneity
+\item Hansen J-tests for instrument validity
+\item Sobel tests for mediation significance
+\end{itemize}
+
+\section{Expected Findings}
+
+\subsection{Mediation Effects}
+We hypothesize that:
+\begin{enumerate}
+\item Geopolitical risk significantly increases financial ambiguity (path $a > 0$)
+\item Financial ambiguity negatively affects asset returns (path $b < 0$)
+\item The indirect effect ($a \times b$) is statistically significant
+\item The direct effect of geopolitical risk ($c'$) is reduced relative to the total effect ($c$)
+\end{enumerate}
+
+\subsection{Moderation Effects}
+We expect that:
+\begin{enumerate}
+\item High volatility periods amplify the negative effects of ambiguity on returns
+\item Low liquidity conditions strengthen the transmission of geopolitical risk
+\item High economic policy uncertainty compounds the effects of global geopolitical risk
+\item Investor sentiment moderates the response to both geopolitical risk and ambiguity
+\end{enumerate}
+
+\section{Robustness Checks}
+
+\subsection{Alternative Measures}
+We test robustness using:
+\begin{itemize}
+\item Alternative geopolitical risk indices
+\item Different ambiguity construction methods
+\item Varying return horizons (daily, weekly, monthly)
+\end{itemize}
+
+\subsection{Sample Periods}
+We analyze subsamples to ensure results are not driven by specific periods:
+\begin{itemize}
+\item Pre- and post-2020 (COVID-19 pandemic)
+\item High vs. low volatility regimes
+\item Crisis vs. non-crisis periods
+\end{itemize}
+
+\subsection{Model Specifications}
+We estimate alternative specifications:
+\begin{itemize}
+\item Quantile regression models
+\item Threshold models
+\item Time-varying parameter models
+\end{itemize}
+
+\section{Economic Significance}
+
+Beyond statistical significance, we assess economic importance by:
+\begin{itemize}
+\item Calculating the economic magnitude of mediation effects
+\item Portfolio implications of the findings
+\item Policy relevance for risk management
+\end{itemize}
+
+\section{Conclusion}
+
+This mediation and moderation analysis framework provides a comprehensive approach to understanding the complex pathways through which geopolitical risk affects financial markets. By disentangling direct and indirect effects and identifying key moderators, we can better understand:
+\begin{enumerate}
+\item How ambiguity transmits geopolitical shocks to asset prices
+\item Under what conditions these effects are strongest
+\item How investors and policymakers should respond to different types of uncertainty
+\end{enumerate}
+
+The findings contribute to the literature by providing a more nuanced understanding of uncertainty in financial markets and highlighting the importance of considering both risk and ambiguity in asset pricing models.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}
