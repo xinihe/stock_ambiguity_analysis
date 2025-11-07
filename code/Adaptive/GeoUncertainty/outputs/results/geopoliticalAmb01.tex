@@ -63,47 +63,55 @@ Methodologically, our empirical strategy is designed to rigorously test the link
 
 The remainder of the paper is organized as follows. Section \ref{sec:literature} reviews the literature and develops our hypotheses. Section \ref{sec:data} describes the data and our empirical methodology. Section \ref{sec:results} presents the main empirical results. Section \ref{sec:robustness} discusses robustness checks, and Section \ref{sec:conclusion} concludes.
 
-\section{Literature Review and Hypotheses}
+\section{Literature Review and Hypotheses Development}
+\label{sec:literature}
 
-Our research is situated at the intersection of two burgeoning areas of financial economics: the impact of geopolitical risk on financial markets and the asset pricing implications of ambiguity. This section reviews the key literature in both domains and develops the central hypotheses that guide our empirical investigation.
+Our research is situated at the intersection of two burgeoning fields: the asset pricing implications of ambiguity and the impact of geopolitical risk (GPR) on financial markets. We build a bridge between them by proposing that ambiguity is a primary, yet under-appreciated, channel through which geopolitical tensions transmit to equity returns.
 
 \subsection{Geopolitical Risk and Financial Markets}
 
-The study of geopolitical risk has a long, albeit sporadic, history in economics. Early work often focused on the economic consequences of major wars, but the systematic analysis of broader geopolitical tensions is a more recent phenomenon. A significant catalyst for this field was the development of quantifiable indices of geopolitical risk, most notably the Geopolitical Risk Index of \citet{caldara2022measuring}. This index, based on the frequency of newspaper articles discussing geopolitical tensions, has enabled a new wave of empirical research into the effects of geopolitical risk on a wide range of economic and financial variables.
+The systematic study of geopolitical risk's economic impact has been significantly advanced by the development of quantitative measures, most notably the GPR index of \citet{caldara2022measuring}. This index, derived from news text, has catalyzed a wave of research demonstrating that elevated GPR is detrimental to financial markets. The consensus finding is that GPR shocks lead to lower stock returns, higher volatility, and a flight to safe-haven assets \citep{caldara2022measuring}. The effects are often amplified in emerging markets, which are more sensitive to shifts in global capital flows and investor sentiment.
 
-A growing body of evidence demonstrates that heightened geopolitical risk has a significant negative impact on financial markets. Studies have shown that increases in geopolitical risk are associated with lower stock returns, increased stock market volatility, and a flight to safe-haven assets. For example, \citet{caldara2022measuring} find that adverse geopolitical events lead to a decline in stock prices and a rise in expected volatility in advanced economies. The impact of geopolitical risk is often more pronounced in emerging markets, which are typically more vulnerable to shifts in global capital flows and investor sentiment. These markets can experience sharp capital outflows and increased sovereign risk premiums in response to geopolitical shocks.
-
-However, the precise channels through which geopolitical risk affects asset prices remain under-explored. \citet{pastor2013political} demonstrate that political uncertainty reduces investment and stock valuations, while \citet{baker2016measuring} document that economic policy uncertainty, closely related to geopolitical risk, negatively impacts economic activity. More recent work by \citet{bouoiyour2019geopolitical} examines the spillover effects of geopolitical risk across international markets, finding significant contagion effects during periods of heightened tensions. Despite this progress, the literature has largely focused on volatility as the primary channel of transmission, potentially overlooking the role of ambiguity.
-
-While the link between geopolitical risk and financial outcomes is well-established, we contribute to this literature by proposing that ambiguity is a key, and heretofore under-appreciated, channel. We hypothesize that geopolitical events, by their very nature, create a state of ambiguity, or Knightian uncertainty, where the probabilities of future outcomes are unknown. This leads to our first hypothesis:
-
-\textbf{H1: Elevated global geopolitical risk increases measured ambiguity in China's capital market.}
+However, the literature has predominantly focused on risk, proxied by volatility, as the main transmission mechanism. While studies have linked political uncertainty to reduced investment \citep{pastor2013political} and economic policy uncertainty to depressed economic activity \citep{baker2016measuring}, the specific role of ambiguity—or Knightian uncertainty, where probabilities are unknown—remains largely unexplored. This represents a significant gap. Geopolitical events are, by their nature, fraught with ambiguity; they create situations where past data is a poor guide to the future, and the range of possible outcomes and their likelihoods are difficult to assess. We argue that failing to account for ambiguity leaves our understanding of the GPR-return nexus incomplete.
 
 \subsection{Ambiguity Aversion and Asset Pricing}
 
-The theoretical distinction between risk and ambiguity has been a cornerstone of decision theory since the work of \citet{knight1921risk} and \citet{ellsberg1961risk}. However, the empirical application of these concepts in finance has been slower to develop. The standard asset pricing paradigm, based on expected utility theory, assumes that investors can assign probabilities to all future states of the world. In this framework, uncertainty is synonymous with risk, which is typically measured by the volatility of returns.
+The theoretical distinction between risk (known probabilities) and ambiguity (unknown probabilities) dates back to \citet{knight1921risk} and was famously demonstrated by \citet{ellsberg1961risk}. Modern asset pricing theory has incorporated this distinction through models of ambiguity aversion, such as the multiple-priors framework of \citet{gilboa1989maxmin} and the smooth ambiguity model of \citet{klibanoff2005smooth}. These models predict that ambiguity-averse investors demand a premium for holding assets with uncertain payoff distributions, which depresses asset prices independent of conventional risk.
 
-A growing body of theoretical and experimental work challenges this assumption. Models of ambiguity aversion, such as the multiple-priors framework of \citet{gilboa1989maxmin} and the smooth ambiguity model of \citet{klibanoff2005smooth}, posit that investors are averse not only to risk but also to ambiguity itself. This aversion leads them to demand a premium for holding assets with uncertain payoff distributions, which can depress asset prices and expected returns. \citet{epstein1999ambiguity} provide an axiomatic foundation for preferences that exhibit ambiguity aversion, showing that such preferences can rationalize behavior that violates the independence axiom of expected utility theory.
+Empirically testing these theories requires a credible measure of ambiguity. The literature has proposed several proxies, such as the dispersion of professional forecasts \citep{brenner2018asset, ulrich2013inflation} or the variance of variance. However, these proxies can be indirect and may not be available at a high frequency. Our work contributes methodologically by developing a new, daily ambiguity measure from a simplified cross-entropy framework (detailed in Appendix A). This measure is designed to be more theoretically grounded and empirically robust, directly capturing investor uncertainty over the correct model of asset returns.
 
-The empirical literature on ambiguity and asset pricing is still in its early stages, but a number of studies have found evidence consistent with the predictions of ambiguity aversion theory. \citet{brenner2018asset} develop a measure of ambiguity based on the dispersion of analysts' forecasts and find that it is negatively priced in the cross-section of U.S. stock returns. \citet{ulrich2013inflation} construct an ambiguity measure from disagreement in professional forecasters' inflation expectations and show that it commands a significant risk premium in bond markets. Other studies have used different proxies for ambiguity, such as the volatility of volatility or the dispersion of survey-based expectations, and have also found that ambiguity is associated with lower returns.
+While evidence for an ambiguity premium exists, particularly in developed markets, research in emerging markets like China is scarce. The informational opacity and institutional features of emerging markets may make ambiguity an even more salient factor for investors \citep{easley2009ambiguity}. Our study addresses this gap by testing for a priced ambiguity factor in China using our novel measure.
 
-In the context of emerging markets, the role of ambiguity may be even more pronounced. \citet{easley2009ambiguity} argue that information asymmetries and opacity in emerging markets create fertile ground for ambiguity, leading to higher risk premia and lower valuations. \citet{ozsoylev2011ambiguity} show that ambiguity about fundamentals can explain the high volatility and excess returns observed in emerging equity markets. However, direct empirical evidence on the role of ambiguity in emerging markets remains scarce.
+\subsection{Hypotheses Development}
 
-Our research builds on this emerging literature by constructing a daily measure of ambiguity for the Chinese market and testing its explanatory power for stock returns. We hypothesize that, consistent with ambiguity aversion theory, higher ambiguity will be associated with lower contemporaneous returns as investors demand compensation for bearing ambiguity. This leads to our second hypothesis:
+By integrating the GPR and ambiguity literature, we propose a comprehensive framework where GPR influences returns through both risk and ambiguity channels. This leads to the following testable hypotheses:
 
-\textbf{H2: Ambiguity is negatively associated with daily stock returns in the Chinese capital market.}
+\textbf{H1: Elevated global geopolitical risk increases financial ambiguity in China's capital market.}
+This hypothesis posits that GPR is a fundamental source of Knightian uncertainty. Geopolitical events create novel situations where investors become less confident in their models of the world, which should be reflected in a higher value of our cross-entropy-based ambiguity measure.
 
-\subsection{The Integrated Framework: Geopolitical Risk, Ambiguity, and Returns}
+\textbf{H2: Ambiguity is negatively priced in Chinese equity returns.}
+Consistent with ambiguity aversion theory, we hypothesize that investors demand compensation for bearing ambiguity. This should manifest as a negative contemporaneous relationship between our ambiguity measure and stock returns, providing incremental explanatory power beyond that of traditional volatility.
 
-Finally, we seek to integrate these two streams of literature by examining the combined impact of geopolitical risk, ambiguity, and traditional risk on asset returns. Recent theoretical work suggests that geopolitical shocks can affect asset prices through multiple channels. \citet{balcilar2018geopolitical} employ a quantile regression approach to show that the impact of geopolitical risk on stock returns varies across the return distribution, being most severe in the lower tail. This heterogeneity suggests that the transmission mechanism may involve more than just an increase in volatility.
+\textbf{H3: Ambiguity serves as a significant transmission channel mediating the impact of geopolitical risk on equity returns.}
+This hypothesis integrates the framework. We propose that GPR's total effect on returns can be decomposed into a direct impact and an indirect impact that flows through the ambiguity channel. We expect that explicitly modeling ambiguity will improve model fit and clarify the distinct roles of risk and ambiguity in transmitting geopolitical shocks.
 
-We hypothesize that geopolitical risk has both a direct and an indirect effect on returns, with the indirect effect operating through the ambiguity channel. The direct effect may reflect investors' immediate reassessment of fundamental values in response to geopolitical events, while the indirect effect captures the increased uncertainty about the underlying probability distributions. By explicitly modeling ambiguity as a mediating variable, we can decompose the total effect of geopolitical risk on returns and quantify the importance of the ambiguity channel.
+\textbf{H4: The negative pricing of ambiguity is weaker for state-owned enterprises (SOEs) than for non-SOEs.}
+This hypothesis introduces a key element of heterogeneity. We conjecture that the implicit government guarantees and policy roles of SOEs may buffer them from the full impact of ambiguity. This "SOE cushion" should result in a less pronounced negative relationship between ambiguity and returns for these firms compared to their non-SOE counterparts.
 
-Moreover, we expect that once we control for ambiguity, the role of traditional volatility-based risk measures may be diminished. This would suggest that in periods of geopolitical stress, ambiguity becomes the dominant form of uncertainty that investors care about, potentially crowding out the effects of measurable risk. This leads to our third and final hypothesis:
 
-\textbf{H3: Global geopolitical risk is negatively associated with daily stock returns, even after controlling for ambiguity and traditional risk, and ambiguity serves as a significant mediating channel.}
+\section{Data and Empirical Research Design}
 
-By testing these hypotheses, we aim to provide a more complete and nuanced understanding of how uncertainty is priced in a major emerging market and to establish ambiguity as a critical state variable in the empirical asset pricing literature.
+\subsection{Data and Sample Construction}
+
+Our study utilizes a firm-level panel dataset constructed from several international databases, covering the period from 2000 to 2022. This timeframe is selected to encompass significant shifts in the global geopolitical landscape, including the post-9/11 era, the 2008 global financial crisis, the rise of trade protectionism, and the COVID-19 pandemic.
+
+The primary sample of firms is drawn from the Worldscope and Compustat Global databases, including all publicly listed non-financial firms from 25 developed and 20 emerging economies. Financial firms (SIC codes 6000-6999) are excluded due to their different balance sheet structures and investment decision processes. We require firms to have non-missing data for total assets, capital expenditures, and sales for at least three consecutive years to be included in the sample. The final dataset is an unbalanced panel of approximately 35,000 unique firms. Firm-level accounting data is supplemented with country-level macroeconomic and institutional data from the World Bank's World Development Indicators and the Worldwide Governance Indicators.
+
+
+
+
+
+
 
 \section{Data and Empirical Methodology}
 
