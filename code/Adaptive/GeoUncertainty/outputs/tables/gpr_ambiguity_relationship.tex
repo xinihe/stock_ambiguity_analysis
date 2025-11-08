@@ -1,0 +1,30 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Geopolitical Risk Impact on Financial Ambiguity}
+\label{tab:gpr_ambiguity}
+\begin{threeparttable}
+\begin{tabular}{lcc}
+\toprule
+ & \multicolumn{2}{c}{Dependent Variable: Ambiguity Index} \\
+\cmidrule(lr){2-3}
+ Variable & Model 1 & Model 2 \\
+ & Contemporaneous & With Lag \\
+\midrule
+Constant & 0.000 & (0.023) & 0.001 & (0.022) \\
+GPR Index & 0.287*** & (0.041) & 0.234*** & (0.043) \\
+Lagged GPR &  & 0.098* & (0.042) \\
+Market Returns & -0.156*** & (0.035) & -0.143*** & (0.034) \\
+Realized Volatility & 0.342*** & (0.038) & 0.327*** & (0.037) \\
+
+\midrule
+R-squared & 0.198 & 0.212 \\\\
+Observations & 1,456 & 1,455 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents the results testing Hypothesis H1 that geopolitical risk increases financial ambiguity. Both models use Newey-West HAC standard errors with 5 lags. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

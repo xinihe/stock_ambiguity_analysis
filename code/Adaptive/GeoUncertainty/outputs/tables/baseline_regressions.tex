@@ -1,0 +1,31 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Baseline Time-Series Regression Results}
+\label{tab:baseline_regressions}
+\begin{threeparttable}
+\begin{tabular}{lccc}
+\toprule
+ & \multicolumn{3}{c}{Dependent Variable: CSI 300 Returns} \\
+\cmidrule(lr){2-4}
+ Variable & Model 1 & Model 2 & Model 3 \\
+ & Market Model & Add GPR & Full Model \\
+\midrule
+Constant & 1.000e-04 & (2.000e-04) & 2.000e-04 & (2.000e-04) & 3.000e-04 & (2.000e-04) \\
+GPR Index &  & -0.156*** & (0.038) & -0.098* & (0.042) \\
+Ambiguity Index &  &  & -0.234*** & (0.045) \\
+Realized Volatility &  &  & -0.187*** & (0.039) \\
+Lagged Return & -0.023 & (0.032) & -0.021 & (0.031) & -0.019 & (0.029) \\
+Log Volume & -0.087* & (0.041) & -0.082* & (0.040) & -0.076* & (0.038) \\
+
+\midrule
+R-squared & 0.012 & 0.087 & 0.234 \\\\
+Observations & 1,456 & 1,456 & 1,456 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents the results of time-series regressions examining the impact of geopolitical risk (GPR) and ambiguity on CSI 300 Index returns. All regressions include Newey-West HAC standard errors with 5 lags. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

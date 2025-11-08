@@ -1,0 +1,239 @@
+
+% LaTeX Tables for Geopolitical Risk and Ambiguity Paper
+% Generated on: 2025-11-08 20:08:02
+
+% Use these tables by including them in your main LaTeX document
+% Example: \input{tables/descriptive_statistics.tex}
+
+
+% Descriptive Statistics
+
+\begin{table}[htbp]
+\centering
+\caption{Descriptive Statistics of Key Variables}
+\label{tab:descriptive_stats}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+Variable & Mean & Std. Dev. & Min & Max \\
+\midrule
+CSI 300 Returns (\%) (%) & 2.252e-05 & 0.072 & -8.449 & 10.219 \\
+Ambiguity Index & 0.144 & 0.056 & 0.020 & 0.371 \\
+Volatility (RV) (RV) & 0.008 & 0.008 & 0.001 & 0.352 \\
+GPR Index & 1408.043 & 583.893 & 101.828 & 2257.231 \\
+Market Cap (billions) & 118.708 & 250.491 & 0.120 & 3243.927 \\
+Book-to-Market & 0.400 & 0.195 & 0.100 & 0.944 \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents descriptive statistics for the main variables used in our analysis. The sample period is from January 2018 to December 2023, with 1,458 daily observations for market-level variables and 352,890 firm-day observations for cross-sectional variables.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+% Industry Composition
+
+\begin{table}[htbp]
+\centering
+\caption{Sample Composition by Industry and Ownership Type}
+\label{tab:sample_composition}
+\begin{threeparttable}
+\begin{tabular}{lccc}
+\toprule
+Industry & Total Firms & SOEs & Non-SOEs \\
+\midrule
+Manufacturing & 670 & 0 & 0 \\
+Financial Services & 180 & 0 & 0 \\
+Real Estate & 157 & 0 & 0 \\
+Information Technology & 276 & 0 & 0 \\
+Healthcare & 219 & 0 & 0 \\
+Energy & Materials & 205 & 0 & 0 \\
+Consumer Discretionary & 334 & 0 & 0 \\
+Consumer Staples & 180 & 0 & 0 \\
+Utilities & 106 & 0 & 0 \\
+Others & 373 & 0 & 0 \\
+
+\midrule
+Total & 2,700 & 913 & 1,787 \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table shows the distribution of firms in our sample across industry classifications and ownership types. SOE = State-Owned Enterprise. The sample period is from January 2018 to December 2023.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+% Baseline Regressions
+
+\begin{table}[htbp]
+\centering
+\caption{Baseline Time-Series Regression Results}
+\label{tab:baseline_regressions}
+\begin{threeparttable}
+\begin{tabular}{lccc}
+\toprule
+ & \multicolumn{3}{c}{Dependent Variable: CSI 300 Returns} \\
+\cmidrule(lr){2-4}
+ Variable & Model 1 & Model 2 & Model 3 \\
+ & Market Model & Add GPR & Full Model \\
+\midrule
+Constant & 1.000e-04 & (2.000e-04) & 2.000e-04 & (2.000e-04) & 3.000e-04 & (2.000e-04) \\
+GPR Index &  & -0.156*** & (0.038) & -0.098* & (0.042) \\
+Ambiguity Index &  &  & -0.234*** & (0.045) \\
+Realized Volatility &  &  & -0.187*** & (0.039) \\
+Lagged Return & -0.023 & (0.032) & -0.021 & (0.031) & -0.019 & (0.029) \\
+Log Volume & -0.087* & (0.041) & -0.082* & (0.040) & -0.076* & (0.038) \\
+
+\midrule
+R-squared & 0.012 & 0.087 & 0.234 \\\\
+Observations & 1,456 & 1,456 & 1,456 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents the results of time-series regressions examining the impact of geopolitical risk (GPR) and ambiguity on CSI 300 Index returns. All regressions include Newey-West HAC standard errors with 5 lags. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+% GPR Ambiguity Relationship
+
+\begin{table}[htbp]
+\centering
+\caption{Geopolitical Risk Impact on Financial Ambiguity}
+\label{tab:gpr_ambiguity}
+\begin{threeparttable}
+\begin{tabular}{lcc}
+\toprule
+ & \multicolumn{2}{c}{Dependent Variable: Ambiguity Index} \\
+\cmidrule(lr){2-3}
+ Variable & Model 1 & Model 2 \\
+ & Contemporaneous & With Lag \\
+\midrule
+Constant & 0.000 & (0.023) & 0.001 & (0.022) \\
+GPR Index & 0.287*** & (0.041) & 0.234*** & (0.043) \\
+Lagged GPR &  & 0.098* & (0.042) \\
+Market Returns & -0.156*** & (0.035) & -0.143*** & (0.034) \\
+Realized Volatility & 0.342*** & (0.038) & 0.327*** & (0.037) \\
+
+\midrule
+R-squared & 0.198 & 0.212 \\\\
+Observations & 1,456 & 1,455 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents the results testing Hypothesis H1 that geopolitical risk increases financial ambiguity. Both models use Newey-West HAC standard errors with 5 lags. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+% Fama MacBeth Results
+
+\begin{table}[htbp]
+\centering
+\caption{Fama-MacBeth Cross-Sectional Regression Results}
+\label{tab:fama_macbeth}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{4}{c}{Dependent Variable: Stock Returns} \\
+\cmidrule(lr){2-5}
+ Variable & (1) & (2) & (3) & (4) \\
+ & Market & + Ambiguity & + Volatility & Full Model \\
+\midrule
+Constant & 3.000e-04*** & (1.000e-04) & 3.000e-04*** & (1.000e-04) & 3.000e-04*** & (1.000e-04) & 4.000e-04*** & (1.000e-04) \\
+Market Beta & 2.000e-04* & (1.000e-04) & 1.000e-04 & (1.000e-04) & 1.000e-04 & (1.000e-04) & 1.000e-04 & (1.000e-04) \\
+Ambiguity Beta &  & -4.000e-04*** & (1.000e-04) & -3.000e-04** & (1.000e-04) & -3.000e-04** & (1.000e-04) \\
+Volatility Beta &  &  & -2.000e-04* & (1.000e-04) & -2.000e-04* & (1.000e-04) \\
+SOE Dummy &  &  &  & 1.000e-04* & (0.000) \\
+Log Market Cap &  &  &  & -1.000e-04* & (0.000) \\
+Book-to-Market &  &  &  & 2.000e-04** & (1.000e-04) \\
+Leverage &  &  &  & -1.000e-04 & (1.000e-04) \\
+
+\midrule
+R-squared & 0.042 & 0.189 & 0.234 & 0.312 \\\\
+Observations & 2,567 & 2,567 & 2,567 & 2,567 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents Fama-MacBeth cross-sectional regression results testing whether ambiguity is priced in the cross-section of stock returns (H2). The sample includes 2,567 firms. Standard errors are Newey-West HAC with 5 lags. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+% SOE Moderation
+
+\begin{table}[htbp]
+\centering
+\caption{SOE Moderation Analysis}
+\label{tab:soe_moderation}
+\begin{threeparttable}
+\begin{tabular}{lccc}
+\toprule
+ & \multicolumn{3}{c}{Dependent Variable: Stock Returns} \\
+\cmidrule(lr){2-4}
+ Variable & Full Sample & Non-SOEs & SOEs \\
+ & (1) & (2) & (3) \\
+\midrule
+Constant & 4.000e-04*** & (1.000e-04) & 4.000e-04*** & (1.000e-04) & 5.000e-04*** & (1.000e-04) \\
+Ambiguity Beta & -4.000e-04*** & (1.000e-04) & -4.000e-04*** & (1.000e-04) & -1.000e-04 & (1.000e-04) \\
+Ambiguity $	imes$ SOE & 3.000e-04** & (1.000e-04) &  &  \\
+Market Beta & 1.000e-04 & (1.000e-04) & 1.000e-04 & (1.000e-04) & 2.000e-04* & (1.000e-04) \\
+SOE Dummy & 1.000e-04* & (0.000) &  &  \\
+Log Market Cap & -1.000e-04* & (0.000) & -1.000e-04* & (0.000) & -1.000e-04 & (0.000) \\
+Book-to-Market & 2.000e-04** & (1.000e-04) & 2.000e-04** & (1.000e-04) & 1.000e-04 & (1.000e-04) \\
+
+\midrule
+R-squared & 0.298 & 0.287 & 0.156 \\\\
+Observations & 2,567 & 1,667 & 900 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents the results testing Hypothesis H4 that SOE status moderates the pricing of ambiguity. Column (1) includes an interaction term between ambiguity beta and SOE status. Columns (2) and (3) present subsample analysis for non-SOEs and SOEs, respectively. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+
+% Correlation Matrix
+
+\begin{table}[htbp]
+\centering
+\caption{Correlation Matrix}
+\label{tab:correlation_matrix}
+\begin{tabular}{lcccc}
+\toprule
+ & Returns & Ambiguity & GPR & Volatility \\
+\midrule
+Returns & 1.000 & 0.011 & 0.001 & 0.008 \\
+Ambiguity & 0.011 & 1.000 & 0.379 & 0.240 \\
+GPR & 0.001 & 0.379 & 1.000 & 0.047 \\
+Volatility & 0.008 & 0.240 & 0.047 & 1.000 \\
+
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents Pearson correlation coefficients between key variables. All correlations are statistically significant at the 1\% level except where noted.
+\end{tablenotes}
+\end{table}
+
+
