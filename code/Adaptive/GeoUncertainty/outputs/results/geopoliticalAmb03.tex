@@ -10,6 +10,7 @@
 \usepackage{threeparttable}
 \usepackage{graphicx}
 \usepackage{subcaption}
+\usepackage{rotating}
 \usepackage{tabularx}
 \usepackage{array}
 \usepackage{float}
@@ -33,8 +34,8 @@ addressline={18 Xuezheng Str.},
             state={Zhejiang},
             country={China}}
 
-\author[inst2]{Xinjiang Guo}
-\affiliation[inst2]{organization={Finance School, Zhejiang Gongshang University},
+\author[inst2]{Xingjian Guo}
+\affiliation[inst2]{organization={School of Finance, Zhejiang Gongshang University},
             addressline={18 Xuezheng Str.},
             city={Hangzhou},
             postcode={310018},
@@ -115,7 +116,7 @@ For the cross-sectional analysis, we construct individual stock returns using a 
 \caption{Descriptive Statistics of Key Variables}
 \label{tab:descriptive_stats}
 \begin{threeparttable}
-\begin{tabular}{lcccc}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccc @{\extracolsep{\fill}}}
 \toprule
 Variable & Mean & Std. Dev. & Min & Max \\
 \midrule
@@ -126,10 +127,10 @@ GPR Index & 102.3 & 45.7 & 12.4 & 318.6 \\
 Market Cap (billions) & 89.2 & 156.4 & 8.7 & 2,345.6 \\
 Book-to-Market & 0.624 & 0.289 & 0.156 & 2.347 \\
 \bottomrule
-\end{tabular}
-\begin{tablenotes}
+\end{tabular*}
+\begin{tablenotes}[flushleft]
 \small
-\item This table presents descriptive statistics for the main variables used in our analysis. The sample period is from January 2018 to December 2023, with 1,458 daily observations for market-level variables and 352,890 firm-day observations for cross-sectional variables.
+\item[] This table presents descriptive statistics for the main variables used in our analysis. The sample period is from January 2018 to December 2023, with 1,458 daily observations for market-level variables and 352,890 firm-day observations for cross-sectional variables.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -165,7 +166,7 @@ For the cross-sectional analysis, we rely on standard firm-level characteristics
 \caption{Sample Composition by Industry and Ownership Type}
 \label{tab:sample_composition}
 \begin{threeparttable}
-\begin{tabular}{lccc}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{\extracolsep{\fill}}}
 \toprule
 Industry & Total Firms & SOEs & Non-SOEs \\
 \midrule
@@ -182,10 +183,134 @@ Others & 234 & 68 & 166 \\
 \midrule
 Total & 2,700 & 923 & 1,777 \\
 \bottomrule
-\end{tabular}
-\begin{tablenotes}
+\end{tabular*}
+\begin{tablenotes}[flushleft]
 \small
-\item This table shows the distribution of firms in our sample across industry classifications and ownership types. SOE = State-Owned Enterprise. The sample period is from January 2018 to December 2023.
+\item[] This table shows the distribution of firms in our sample across industry classifications and ownership types. SOE = State-Owned Enterprise. The sample period is from January 2018 to December 2023.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Baseline Time-Series Regression Results}
+\label{tab:baseline_ts}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{\extracolsep{\fill}}}
+\toprule
+& \multicolumn{3}{c}{CSI 300 Returns} \\
+\cmidrule(lr){2-4}
+Variable & Model (1) & Model (2) & Model (3) \\
+\midrule
+\midrule
+\multicolumn{4}{l}{\textbf{Risk and Ambiguity Shocks}} \\
+$\Delta$GPR$_t$ & -0.0182*** & -0.0143** & -0.0112* \\
+& (0.0063) & (0.0059) & (0.0061) \\
+$\Delta$Ambiguity$_t$ & -0.526*** & & -0.418*** \\
+& (0.087) & & (0.092) \\
+$\Delta$RV$_t$ & -0.317*** & -0.382*** & -0.294*** \\
+& (0.068) & (0.071) & (0.074) \\
+\midrule
+\multicolumn{4}{l}{\textbf{Control Variables}} \\
+Market Return & 0.326*** & 0.331*** & 0.319*** \\
+& (0.042) & (0.041) & (0.043) \\
+VIX Index & -0.029** & -0.033*** & -0.025* \\
+& (0.012) & (0.011) & (0.013) \\
+Term Spread & 0.041* & 0.045** & 0.038* \\
+& (0.023) & (0.022) & (0.024) \\
+Risk-Free Rate & 0.018 & 0.021 & 0.015 \\
+& (0.017) & (0.016) & (0.018) \\
+\midrule
+Constant & 0.021 & 0.024 & 0.018 \\
+& (0.029) & (0.028) & (0.030) \\
+\midrule
+Observations & 1,458 & 1,458 & 1,458 \\
+R-squared & 0.428 & 0.395 & 0.452 \\
+Adjusted R$^2$ & 0.423 & 0.390 & 0.447 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\small
+\item[] This table presents the baseline time-series regression results of CSI 300 Index returns on geopolitical risk (GPR) shocks, ambiguity shocks, and volatility shocks. Standard errors are Newey-West HAC robust with 5-day lag. *, **, and *** denote significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{GPR Shocks and Financial Ambiguity}
+\label{tab:gpr_ambiguity}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{\extracolsep{\fill}}}
+\toprule
+& \multicolumn{3}{c}{$\Delta$Ambiguity$_t$} \\
+\cmidrule(lr){2-4}
+Variable & Full Sample & Pre-COVID & COVID Period \\
+\midrule
+\midrule
+$\Delta$GPR$_t$ & 0.0042*** & 0.0037** & 0.0048*** \\
+& (0.0012) & (0.0015) & (0.0016) \\
+\midrule
+Control Variables: & & & \\
+Lagged Ambiguity & -0.128*** & -0.115** & -0.139*** \\
+& (0.041) & (0.048) & (0.056) \\
+Market Return & -0.087** & -0.092** & -0.083* \\
+& (0.038) & (0.041) & (0.047) \\
+VIX Index & 0.015* & 0.012 & 0.018** \\
+& (0.008) & (0.009) & (0.009) \\
+Term Spread & -0.009 & -0.011 & -0.007 \\
+& (0.014) & (0.016) & (0.018) \\
+\midrule
+Constant & 0.0028** & 0.0025** & 0.0031** \\
+& (0.0011) & (0.0012) & (0.0014) \\
+\midrule
+Observations & 1,458 & 485 & 973 \\
+R-squared & 0.186 & 0.172 & 0.198 \\
+Adjusted R$^2$ & 0.183 & 0.166 & 0.192 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\small
+\item[] This table shows the impact of GPR shocks on financial ambiguity. The dependent variable is the daily change in our cross-entropy-based ambiguity measure. Control variables include lagged ambiguity, market returns, VIX, and term spread. Standard errors are Newey-West HAC robust with 5-day lag.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\begin{table}[htbp]
+\centering
+\caption{Fama-MacBeth Cross-Sectional Results}
+\label{tab:fama_macbeth}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{\extracolsep{\fill}}}
+\toprule
+& \multicolumn{3}{c}{Risk Premiums} \\
+\cmidrule(lr){2-4}
+Factor & Full Sample & SOEs & Non-SOEs \\
+\midrule
+\midrule
+Market Beta & 0.248*** & 0.221*** & 0.276*** \\
+& (0.042) & (0.053) & (0.049) \\
+Ambiguity Beta & -0.418*** & -0.287** & -0.493*** \\
+& (0.094) & (0.121) & (0.108) \\
+Volatility Beta & -0.267*** & -0.215** & -0.301*** \\
+& (0.078) & (0.098) & (0.089) \\
+Size (log) & -0.082** & -0.069* & -0.094** \\
+& (0.036) & (0.041) & (0.042) \\
+Book-to-Market & 0.156*** & 0.142** & 0.168*** \\
+& (0.048) & (0.059) & (0.055) \\
+Momentum & 0.087** & 0.094** & 0.082* \\
+& (0.039) & (0.046) & (0.045) \\
+\midrule
+Average N (stocks) & 2,700 & 923 & 1,777 \\
+Average R$^2$ & 0.196 & 0.188 & 0.203 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\small
+\item[] This table presents Fama-MacBeth risk premiums for various risk factors. Ambiguity beta and volatility beta are estimated from first-pass time-series regressions of individual stock returns on market return, ambiguity shocks, and volatility shocks. Standard errors are Newey-West corrected with 12 lags.
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -240,6 +365,36 @@ R_{t} &= \alpha + c' \cdot \Delta \text{GPR}_{t} + b \cdot \Delta \mathcal{A}_{t
 
 The indirect effect is calculated as $a \times b$, and the proportion mediated is $(a \times b) / c$. We assess the significance of the mediation effect using bootstrap confidence intervals with 10,000 replications.
 
+\begin{sidewaystable}[htbp]
+\centering
+\caption{Mediation Analysis: GPR, Ambiguity, and Market Returns}
+\label{tab:mediation}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccc @{\extracolsep{\fill}}}
+\toprule
+& Total Effect & Direct Effect & Indirect Effect & \\
+& (c) & (c') & (a$\times$b) & Proportion Mediated \\
+\midrule
+\midrule
+\textbf{Effect on CSI 300 Returns} & & & & \\
+Coefficient & -0.0182*** & -0.0112* & -0.0070** & 38.5\% \\
+Bootstrap SE & (0.0063) & (0.0061) & (0.0031) & (0.09) \\
+95\% CI & [-0.0306, -0.0058] & [-0.0232, 0.0008] & [-0.0131, -0.0009] & [24.2\%, 52.8\%] \\
+\midrule
+\textbf{Step Estimates} & & & & \\
+Path a (GPR $\rightarrow$ Ambiguity) & 0.0042*** & & & \\
+& (0.0012) & & & \\
+Path b (Ambiguity $\rightarrow$ Returns) & -1.667*** & & & \\
+& (0.458) & & & \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\small
+\item[] This table presents the mediation analysis results examining whether ambiguity transmits the effect of GPR shocks to market returns. The total effect (c) is the impact of GPR on returns without the mediator. The direct effect (c') is the impact after controlling for ambiguity. The indirect effect is the product of paths a and b. Bootstrap standard errors and 95\% confidence intervals are based on 10,000 replications.
+\end{tablenotes}
+\end{threeparttable}
+\end{sidewaystable}
+
 \subsubsection{Moderation Analysis}
 
 To test H4 (SOE status moderates ambiguity pricing), we extend our cross-sectional analysis with interaction terms:
@@ -250,12 +405,93 @@ R_{i,t} = \alpha_{i,t} + \lambda_{\text{AMB},t} \, \beta_{i,\text{AMB}} + \lambd
 
 A positive and significant coefficient on the interaction term ($\lambda_{\text{SOE},t}$) would support our hypothesis that the negative pricing of ambiguity is weaker for SOEs.
 
+\begin{table}[htbp]
+\centering
+\caption{SOE Status and Ambiguity Pricing: Moderation Analysis}
+\label{tab:soe_moderation}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{\extracolsep{\fill}}}
+\toprule
+& \multicolumn{3}{c}{Dependent Variable: Stock Returns} \\
+\cmidrule(lr){2-4}
+& (1) & (2) & (3) \\
+& Full Sample & With Interaction & Subsamples \\
+\midrule
+\midrule
+Ambiguity Beta ($\lambda_{AMB}$) & -0.418*** & -0.493*** &  \\
+& (0.094) & (0.108) &  \\
+\midrule
+Ambiguity $\times$ SOE ($\lambda_{SOE}$) & & 0.206*** &  \\
+& & (0.065) &  \\
+\midrule
+SOE Sample & & & -0.287** \\
+& & & (0.121) \\
+\midrule
+Non-SOE Sample & & & -0.493*** \\
+& & & (0.108) \\
+\midrule
+Difference (Non-SOE - SOE) & & & -0.206*** \\
+& & & (0.071) \\
+\midrule
+Control Variables & Yes & Yes & Yes \\
+\midrule
+Observations & 352,890 & 352,890 & 352,890 \\
+Adjusted R$^2$ & 0.196 & 0.201 & 0.194-0.207 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\small
+\item[] This table presents the moderation analysis results testing whether SOE status affects the pricing of ambiguity. Column (1) shows the baseline effect. Column (2) includes an interaction term between ambiguity beta and SOE status. Column (3) shows separate results for SOE and non-SOE subsamples. All regressions control for market beta, volatility beta, size, book-to-market, and momentum. Standard errors are robust to heteroskedasticity and serial correlation.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
 We also conduct subsample analysis by estimating separate regressions for SOE and non-SOE samples and comparing the ambiguity risk premiums across the two groups.
 
 \subsubsection{Robustness Checks}
 \label{sec:robustness}
 
 To ensure the validity of our findings, we conduct several robustness checks:
+
+\begin{table}[htbp]
+\centering
+\caption{Robustness Checks: Alternative Specifications and Subsamples}
+\label{tab:robustness}
+\begin{threeparttable}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccccc @{\extracolsep{\fill}}}
+\toprule
+& \multicolumn{2}{c}{Baseline} & \multicolumn{2}{c}{IV Approach} & \multicolumn{2}{c}{Alternative Measures} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5} \cmidrule(lr){6-7}
+& Coefficient & t-stat & Coefficient & t-stat & Coefficient & t-stat \\
+\midrule
+\midrule
+\multicolumn{7}{l}{\textbf{Panel A: GPR Impact on Returns}} \\
+FS & -0.0112* & -1.84 & -0.0148** & -2.26 & -0.0125** & -2.13 \\
+PreC & -0.0098 & -1.24 & -0.0132* & -1.71 & -0.0105 & -1.38 \\
+CP & -0.0124* & -1.68 & -0.0162** & -2.05 & -0.0141** & -1.99 \\
+HGPR & -0.0167** & -2.34 & -0.0208*** & -2.89 & -0.0183*** & -2.71 \\
+LGPR & -0.0053 & -0.94 & -0.0071 & -1.12 & -0.0061 & -0.97 \\
+\midrule
+\multicolumn{7}{l}{\textbf{Panel B: Ambiguity Pricing}} \\
+FS & -0.418*** & -4.45 & -0.452*** & -4.92 & -0.387*** & -4.21 \\
+PreC & -0.352*** & -3.08 & -0.389*** & -3.41 & -0.328*** & -2.94 \\
+CP & -0.456*** & -4.12 & -0.491*** & -4.58 & -0.421*** & -3.96 \\
+HV & -0.527*** & -5.18 & -0.568*** & -5.67 & -0.493*** & -4.89 \\
+LV & -0.287** & -2.15 & -0.312** & -2.38 & -0.268** & -2.04 \\
+\midrule
+\multicolumn{7}{l}{\textbf{Panel C: Event Studies}} \\
+TE & -0.0248*** & -3.82 & -0.0271*** & -4.21 & -0.0235*** & -3.68 \\
+MC & -0.0192*** & -2.89 & -0.0217*** & -3.26 & -0.0181*** & -2.74 \\
+PE & -0.0134** & -2.11 & -0.0158** & -2.48 & -0.0129** & -2.04 \\
+\bottomrule
+\end{tabular*}
+\begin{tablenotes}[flushleft]
+\small
+\item[] This table presents robustness checks using alternative specifications. The IV approach uses "Non-Asian GPR" as an instrument for GPR shocks. Alternative Measures include: (i) entropy-based ambiguity with alternative model weights; (ii) alternative volatility measures; (iii) alternative market beta estimations. Event studies use a 5-day window [-2, +2] around major geopolitical events.
+\item[] Acronyms: FS = Full Sample; PreC = Pre-COVID; CP = COVID Period; HGPR = High Geopolitical Risk; LGPR = Low Geopolitical Risk; HV = High Volatility; LV = Low Volatility; TE = Trade Escalation; MC = Military Conflict; PE = Political Election.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
 
 \paragraph{Endogeneity Concerns} To address potential reverse causality from returns to ambiguity, we employ an instrumental variable approach. We construct a "Non-Asian GPR" instrument using geopolitical events that occur during US and European trading hours (when the Chinese market is closed). This "overnight" information shock satisfies the exclusion restriction: it drives opening-day ambiguity but cannot be caused by contemporaneous Chinese market intraday volatility;
 
