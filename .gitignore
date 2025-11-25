@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+ambi_venv/
 
 # Distribution / packaging
 build/
@@ -31,4 +32,4 @@ coverage.xml
 .DS_Store
 
 # Ignore virtual environment directory
-ambi_venv/
+code/Adaptive/GeoUncertainty/outputs/data/*.csv

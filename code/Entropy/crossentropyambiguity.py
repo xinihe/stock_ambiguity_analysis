@@ -223,7 +223,11 @@ def load_and_prepare_data(file_path):
 if __name__ == "__main__":
     # Example of how to use the code
     # Note: You need to have a DataFrame 'df' with 'datetime' and 'close' columns
+<<<<<<< HEAD
     file_path = 'C:/Users/Richard/Desktop/数据/沪深300/SSE.000300.csv'  # Ensure the path is correct
+=======
+    file_path = '/Users/tlxy/Research/Ambiguity/data/SSE.000300.csv'
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     df = load_and_prepare_data(file_path)
     # Set parameters
     specific_date = '2018-01-09'
@@ -317,6 +321,7 @@ def calculate_metrics_for_date_range(df: pd.DataFrame,
     return results_df
 
 def analyze_correlation(results_df: pd.DataFrame) -> None:
+<<<<<<< HEAD
     """
     Analyze and visualize the correlation between ambiguity and risk metrics.
     
@@ -374,11 +379,47 @@ def analyze_correlation(results_df: pd.DataFrame) -> None:
     t_stat, p_value = stats.pearsonr(results_df['ambiguity_metric'], results_df['risk'])
     print(f"P-value: {p_value:.3e}")
     print(f"T-statistic: {t_stat:.3f}")
+=======
+    window_sizes = [5, 10, 20, 30, 60, 120]
+    lags = list(range(-30, 31))
+    corr_matrix = pd.DataFrame(index=lags, columns=window_sizes, dtype=float)
+    for w in window_sizes:
+        amb_roll = results_df['ambiguity_metric'].rolling(window=w).mean()
+        risk_roll = results_df['risk'].rolling(window=w).mean()
+        for lag in lags:
+            corr_matrix.loc[lag, w] = amb_roll.shift(lag).corr(risk_roll)
+    plt.figure(figsize=(12, 8))
+    sns.heatmap(corr_matrix, cmap='coolwarm', center=0)
+    plt.title('Lagged Correlation Heatmap (rows=lag, cols=window)')
+    plt.xlabel('Window Size (days)')
+    plt.ylabel('Lag (days)')
+    plt.tight_layout()
+    plt.savefig('window_lag_correlation_heatmap.png')
+    plt.close()
+    mean_corr_by_window = corr_matrix.mean(axis=0)
+    plt.figure(figsize=(10, 5))
+    plt.plot(mean_corr_by_window.index, mean_corr_by_window.values, marker='o')
+    plt.title('Mean Correlation by Window Size')
+    plt.xlabel('Window Size (days)')
+    plt.ylabel('Mean Correlation')
+    plt.grid(True)
+    plt.tight_layout()
+    plt.savefig('rolling_correlation_by_window.png')
+    plt.close()
+    pearson = results_df['ambiguity_metric'].corr(results_df['risk'])
+    spearman = stats.spearmanr(results_df['ambiguity_metric'], results_df['risk']).correlation
+    print(f"Overall Pearson correlation: {pearson:.3f}")
+    print(f"Overall Spearman correlation: {spearman:.3f}")
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
 
 # Main execution
 if __name__ == "__main__":
     # Load and prepare data
+<<<<<<< HEAD
     file_path = 'C:/Users/Richard/Desktop/数据/沪深300/SSE.000300.csv'
+=======
+    file_path = '/Users/tlxy/Research/Ambiguity/data/SSE.000300.csv'
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     df = load_and_prepare_data(file_path)
     
     # Set parameters
@@ -397,7 +438,11 @@ if __name__ == "__main__":
     
     # Save results to CSV
     results_df.to_csv('daily_ambiguity_risk_metrics_2.csv', index=False)
+<<<<<<< HEAD
     print("\nResults saved to '300_daily_ambiguity_risk_metrics_2.csv'")
+=======
+    print("\nResults saved to 'daily_ambiguity_risk_metrics_2.csv'")
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     
     # Analyze correlation and create visualizations
     print("\nAnalyzing correlation...")
@@ -407,6 +452,7 @@ if __name__ == "__main__":
     print("\nFirst few rows of results:")
     print(results_df.head())
     
+<<<<<<< HEAD
     # Calculate rolling correlation (30-day window)
     rolling_corr = results_df['ambiguity_metric'].rolling(window=30).corr(results_df['risk'])
     
@@ -419,6 +465,9 @@ if __name__ == "__main__":
     plt.grid(True)
     plt.savefig('rolling_correlation_1.png')
     plt.close()
+=======
+    print("\nCorrelation visuals saved: 'window_lag_correlation_heatmap.png' and 'rolling_correlation_by_window.png'")
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     
     print("\nAnalysis complete. Check the generated CSV and PNG files for detailed results.")
     
@@ -431,7 +480,11 @@ window_sizes = list(range(5, 21, 3))   # 5, 8, 11, 14, 17, 20
 num_bins_list = list(range(20, 101, 10))  # 20, 30, ..., 100
 
 # Prepare data
+<<<<<<< HEAD
 file_path = 'C:/Users/Richard/Desktop/数据/沪深300/SSE.000300.csv'
+=======
+file_path = '/Users/tlxy/Research/Ambiguity/data/SSE.000300.csv'
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
 df = load_and_prepare_data(file_path)
 df = prepare_data(df)
 unique_dates = sorted(df['date'].unique())

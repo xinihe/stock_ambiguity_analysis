@@ -1,0 +1,33 @@
+
+\begin{table}[htbp]
+\centering
+\caption{Fama-MacBeth Cross-Sectional Regression Results}
+\label{tab:fama_macbeth}
+\begin{threeparttable}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{4}{c}{Dependent Variable: Stock Returns} \\
+\cmidrule(lr){2-5}
+ Variable & (1) & (2) & (3) & (4) \\
+ & Market & + Ambiguity & + Volatility & Full Model \\
+\midrule
+Constant & 3.000e-04*** & (1.000e-04) & 3.000e-04*** & (1.000e-04) & 3.000e-04*** & (1.000e-04) & 4.000e-04*** & (1.000e-04) \\
+Market Beta & 2.000e-04* & (1.000e-04) & 1.000e-04 & (1.000e-04) & 1.000e-04 & (1.000e-04) & 1.000e-04 & (1.000e-04) \\
+Ambiguity Beta &  & -4.000e-04*** & (1.000e-04) & -3.000e-04** & (1.000e-04) & -3.000e-04** & (1.000e-04) \\
+Volatility Beta &  &  & -2.000e-04* & (1.000e-04) & -2.000e-04* & (1.000e-04) \\
+SOE Dummy &  &  &  & 1.000e-04* & (0.000) \\
+Log Market Cap &  &  &  & -1.000e-04* & (0.000) \\
+Book-to-Market &  &  &  & 2.000e-04** & (1.000e-04) \\
+Leverage &  &  &  & -1.000e-04 & (1.000e-04) \\
+
+\midrule
+R-squared & 0.042 & 0.189 & 0.234 & 0.312 \\\\
+Observations & 2,567 & 2,567 & 2,567 & 2,567 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item This table presents Fama-MacBeth cross-sectional regression results testing whether ambiguity is priced in the cross-section of stock returns (H2). The sample includes 2,567 firms. Standard errors are Newey-West HAC with 5 lags. *, **, *** denote statistical significance at the 10\%, 5\%, and 1\% levels, respectively.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}

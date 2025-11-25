@@ -1,0 +1,352 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{CJKutf8}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{xcolor}
+
+
+
+\journal{Financial Research Letter}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Global Geopolitical Risk, Ambiguity, and Emerging Market Returns: Evidence from China}
+
+\author[inst1]{He Ni}
+\affiliation[inst1]{organization={Tailong School of Finance, Zhejiang Gongshang University},
+addressline={18 Xuezheng Str.},
+            city={Hangzhou},
+            postcode={310018},
+            state={Zhejiang},
+            country={China}}
+
+\author[inst2]{Xinjiang Guo}
+\affiliation[inst2]{organization={Finance School, Zhejiang Gongshang University},
+            addressline={18 Xuezheng Str.},
+            city={Hangzhou},
+            postcode={310018},
+            state={Zhejiang},
+            country={China}}
+
+\begin{abstract}
+We study how global geopolitical risk (GPR) affects Chinese equity returns through two distinct uncertainty channels: risk (volatility) and ambiguity (Knightian uncertainty). Ambiguity is conceptually and empirically independent of volatility; while less commonly used than volatility, it adds incremental explanatory power for returns. We construct daily ambiguity measures under an adaptive model uncertainty framework and show that GPR significantly raises financial ambiguity, and higher ambiguity is associated with lower returns. When ambiguity is included alongside traditional risk, models explain more variation in returns and the role of volatility-based risk is often reduced. Our integrated analysis—combining time-series tests with mediation and robustness checks—provides a comprehensive account of how geopolitical risk transmits to asset prices not only through risk but also through ambiguity.
+\end{abstract}
+
+\begin{keyword}
+Geopolitical Risk \sep Ambiguity Aversion \sep Asset Pricing \sep Emerging Markets \sep Chinese Capital Market \sep Knightian Uncertainty
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+Geopolitical risk (GPR) is a pervasive driver of uncertainty in emerging markets. We argue that uncertainty operates through two distinct channels: risk (volatility) and ambiguity (Knightian uncertainty). Ambiguity is conceptually and empirically independent of volatility \citep{knight1921risk, ellsberg1961risk}; in asset pricing, models of ambiguity aversion \citep{gilboa1989maxmin, klibanoff2005smooth} imply that higher ambiguity lowers valuations even when volatility is unchanged.
+
+Our goal is to provide a comprehensive account of how GPR affects returns through both channels. We construct our daily ambiguity measures using a novel, simplified cross-entropy-based approach, which we argue is empirically more robust than traditional proxies like the variance of variance. This methodological contribution, detailed in Appendix A, is the foundation for our empirical tests.
+
+Our empirical contributions are threefold. First, we show that our new ambiguity measure is negatively priced in both time-series (CSI 300) and cross-sectional (constituents) tests, providing incremental explanatory power beyond volatility. Second, we establish that GPR significantly increases financial ambiguity, identifying it as a key transmission channel from geopolitics to asset prices \citep{caldara2022measuring}. Third, in an integrated specification, the inclusion of ambiguity improves model fit and often reduces the explanatory power of volatility-based risk. We further explore heterogeneity in the pricing of ambiguity by testing for moderation effects related to state-owned enterprise (SOE) status.
+
+Methodologically, our empirical strategy is designed to rigorously test the links between geopolitical risk, ambiguity, and returns. We employ time-series regressions to establish the direct impact of GPR on our daily ambiguity measures and to confirm that ambiguity commands a negative risk premium over time. To formally test the transmission channel, we utilize mediation analysis to quantify the extent to which ambiguity explains the effect of GPR on returns. Furthermore, we conduct Fama-MacBeth cross-sectional regressions to verify that ambiguity is a systematically priced factor across individual stocks. A key part of our analysis is exploring heterogeneity through moderation tests. We investigate whether the pricing of ambiguity differs for state-owned enterprises (SOEs) versus non-SOEs. This tests the hypothesis that implicit government guarantees may buffer SOEs from the adverse effects of ambiguity, leading to a weaker negative relationship between ambiguity and returns for these firms. The robustness of our findings is verified through a comprehensive set of tests. To address potential endogeneity concerns, such as reverse causality from returns to ambiguity, we employ an instrumental variable (IV) approach. We also conduct event studies around major geopolitical episodes (e.g., escalations in the US-China trade conflict) to assess the immediate impact of GPR shocks on ambiguity in a quasi-natural experimental setting. Further checks include using alternative specifications for our ambiguity measure, controlling for a wider array of firm-level characteristics in the cross-section, and examining the stability of our results across different sub-periods.
+
+The remainder of the paper is organized as follows. Section \ref{sec:literature} reviews the literature and develops our hypotheses. Section \ref{sec:data} describes the data and our empirical methodology. Section \ref{sec:results} presents the main empirical results. Section \ref{sec:robustness} discusses robustness checks, and Section \ref{sec:conclusion} concludes.
+
+\section{Literature Review and Hypotheses}
+
+Our research is situated at the intersection of two burgeoning areas of financial economics: the impact of geopolitical risk on financial markets and the asset pricing implications of ambiguity. This section reviews the key literature in both domains and develops the central hypotheses that guide our empirical investigation.
+
+\subsection{Geopolitical Risk and Financial Markets}
+
+The study of geopolitical risk has a long, albeit sporadic, history in economics. Early work often focused on the economic consequences of major wars, but the systematic analysis of broader geopolitical tensions is a more recent phenomenon. A significant catalyst for this field was the development of quantifiable indices of geopolitical risk, most notably the Geopolitical Risk Index of \citet{caldara2022measuring}. This index, based on the frequency of newspaper articles discussing geopolitical tensions, has enabled a new wave of empirical research into the effects of geopolitical risk on a wide range of economic and financial variables.
+
+A growing body of evidence demonstrates that heightened geopolitical risk has a significant negative impact on financial markets. Studies have shown that increases in geopolitical risk are associated with lower stock returns, increased stock market volatility, and a flight to safe-haven assets. For example, \citet{caldara2022measuring} find that adverse geopolitical events lead to a decline in stock prices and a rise in expected volatility in advanced economies. The impact of geopolitical risk is often more pronounced in emerging markets, which are typically more vulnerable to shifts in global capital flows and investor sentiment. These markets can experience sharp capital outflows and increased sovereign risk premiums in response to geopolitical shocks.
+
+However, the precise channels through which geopolitical risk affects asset prices remain under-explored. \citet{pastor2013political} demonstrate that political uncertainty reduces investment and stock valuations, while \citet{baker2016measuring} document that economic policy uncertainty, closely related to geopolitical risk, negatively impacts economic activity. More recent work by \citet{bouoiyour2019geopolitical} examines the spillover effects of geopolitical risk across international markets, finding significant contagion effects during periods of heightened tensions. Despite this progress, the literature has largely focused on volatility as the primary channel of transmission, potentially overlooking the role of ambiguity.
+
+While the link between geopolitical risk and financial outcomes is well-established, we contribute to this literature by proposing that ambiguity is a key, and heretofore under-appreciated, channel. We hypothesize that geopolitical events, by their very nature, create a state of ambiguity, or Knightian uncertainty, where the probabilities of future outcomes are unknown. This leads to our first hypothesis:
+
+\textbf{H1: Elevated global geopolitical risk increases measured ambiguity in China's capital market.}
+
+\subsection{Ambiguity Aversion and Asset Pricing}
+
+The theoretical distinction between risk and ambiguity has been a cornerstone of decision theory since the work of \citet{knight1921risk} and \citet{ellsberg1961risk}. However, the empirical application of these concepts in finance has been slower to develop. The standard asset pricing paradigm, based on expected utility theory, assumes that investors can assign probabilities to all future states of the world. In this framework, uncertainty is synonymous with risk, which is typically measured by the volatility of returns.
+
+A growing body of theoretical and experimental work challenges this assumption. Models of ambiguity aversion, such as the multiple-priors framework of \citet{gilboa1989maxmin} and the smooth ambiguity model of \citet{klibanoff2005smooth}, posit that investors are averse not only to risk but also to ambiguity itself. This aversion leads them to demand a premium for holding assets with uncertain payoff distributions, which can depress asset prices and expected returns. \citet{epstein1999ambiguity} provide an axiomatic foundation for preferences that exhibit ambiguity aversion, showing that such preferences can rationalize behavior that violates the independence axiom of expected utility theory.
+
+The empirical literature on ambiguity and asset pricing is still in its early stages, but a number of studies have found evidence consistent with the predictions of ambiguity aversion theory. \citet{brenner2018asset} develop a measure of ambiguity based on the dispersion of analysts' forecasts and find that it is negatively priced in the cross-section of U.S. stock returns. \citet{ulrich2013inflation} construct an ambiguity measure from disagreement in professional forecasters' inflation expectations and show that it commands a significant risk premium in bond markets. Other studies have used different proxies for ambiguity, such as the volatility of volatility or the dispersion of survey-based expectations, and have also found that ambiguity is associated with lower returns.
+
+In the context of emerging markets, the role of ambiguity may be even more pronounced. \citet{easley2009ambiguity} argue that information asymmetries and opacity in emerging markets create fertile ground for ambiguity, leading to higher risk premia and lower valuations. \citet{ozsoylev2011ambiguity} show that ambiguity about fundamentals can explain the high volatility and excess returns observed in emerging equity markets. However, direct empirical evidence on the role of ambiguity in emerging markets remains scarce.
+
+Our research builds on this emerging literature by constructing a daily measure of ambiguity for the Chinese market and testing its explanatory power for stock returns. We hypothesize that, consistent with ambiguity aversion theory, higher ambiguity will be associated with lower contemporaneous returns as investors demand compensation for bearing ambiguity. This leads to our second hypothesis:
+
+\textbf{H2: Ambiguity is negatively associated with daily stock returns in the Chinese capital market.}
+
+\subsection{The Integrated Framework: Geopolitical Risk, Ambiguity, and Returns}
+
+Finally, we seek to integrate these two streams of literature by examining the combined impact of geopolitical risk, ambiguity, and traditional risk on asset returns. Recent theoretical work suggests that geopolitical shocks can affect asset prices through multiple channels. \citet{balcilar2018geopolitical} employ a quantile regression approach to show that the impact of geopolitical risk on stock returns varies across the return distribution, being most severe in the lower tail. This heterogeneity suggests that the transmission mechanism may involve more than just an increase in volatility.
+
+We hypothesize that geopolitical risk has both a direct and an indirect effect on returns, with the indirect effect operating through the ambiguity channel. The direct effect may reflect investors' immediate reassessment of fundamental values in response to geopolitical events, while the indirect effect captures the increased uncertainty about the underlying probability distributions. By explicitly modeling ambiguity as a mediating variable, we can decompose the total effect of geopolitical risk on returns and quantify the importance of the ambiguity channel.
+
+Moreover, we expect that once we control for ambiguity, the role of traditional volatility-based risk measures may be diminished. This would suggest that in periods of geopolitical stress, ambiguity becomes the dominant form of uncertainty that investors care about, potentially crowding out the effects of measurable risk. This leads to our third and final hypothesis:
+
+\textbf{H3: Global geopolitical risk is negatively associated with daily stock returns, even after controlling for ambiguity and traditional risk, and ambiguity serves as a significant mediating channel.}
+
+By testing these hypotheses, we aim to provide a more complete and nuanced understanding of how uncertainty is priced in a major emerging market and to establish ambiguity as a critical state variable in the empirical asset pricing literature.
+
+\section{Data and Empirical Methodology}
+
+\subsection{Data and Variables}
+
+Our empirical analysis employs daily data spanning from January 2010 to December 2023, providing a comprehensive window into the dynamics of geopolitical risk, ambiguity, and asset returns in the Chinese market. This sample period captures several major geopolitical events, including the U.S.-China trade tensions, the Russia-Ukraine conflict, and various regional disputes, offering substantial variation in geopolitical risk to identify its effects.
+
+\subsubsection{Dependent Variable}
+
+\textbf{Market Returns.} Our primary dependent variable is the daily log return of the CSI 300 Index, calculated as $r_t = \ln(P_t/P_{t-1}) \times 100$, where $P_t$ is the closing price on day $t$. The CSI 300 Index represents the largest and most liquid stocks traded on the Shanghai and Shenzhen stock exchanges, capturing approximately 70\% of total market capitalization and serving as the benchmark for China's A-share market.
+
+\subsubsection{Key Independent Variables}
+
+\textbf{Ambiguity Measure.} We construct a daily ambiguity measure based on the framework of adaptive learning and model uncertainty. Following the methodology detailed in Appendix A, our measure captures investors' uncertainty about the true data-generating process of asset returns. The construction involves maintaining a set of competing AR(1)-GARCH(1,1) models with varying parameter values, updating model weights based on recent forecasting performance using a discounted least squares approach, and calculating ambiguity as the entropy of the distribution of model weights:
+\begin{equation}
+Amb_t = -\sum_{i=1}^{M} w_{i,t} \ln(w_{i,t})
+\end{equation}
+where $w_{i,t}$ is the weight assigned to model $i$ at time $t$, normalized to sum to unity. Higher entropy indicates greater ambiguity, as investors are more uncertain about which model best describes return dynamics. To ensure robustness, we average the measure across multiple values of the forgetting factor $\delta \in \{0.95, 0.96, 0.97, 0.98, 0.99\}$, reducing sensitivity to hyperparameter choices.
+
+\textbf{Geopolitical Risk.} We employ the daily Geopolitical Risk Index (GPRD) developed by \citet{caldara2022measuring}, which quantifies geopolitical risk by counting the frequency of articles in leading international newspapers that discuss geopolitical tensions. We use three variants: (1) the global GPRD index, capturing worldwide geopolitical tensions; (2) the China-specific index (GPRD\_China), measuring geopolitical events directly involving China; and (3) the U.S.-specific index (GPRD\_US), capturing American geopolitical developments that may spillover to China given the deep economic linkages between the two economies.
+
+\textbf{Risk Measure.} To isolate the effect of ambiguity from traditional risk, we estimate daily conditional volatility using a GARCH(1,1) model:
+\begin{equation}
+\sigma_t^2 = \omega + \alpha \epsilon_{t-1}^2 + \beta \sigma_{t-1}^2
+\end{equation}
+where $\epsilon_t$ is the innovation from an AR(1) model of returns. The estimated conditional standard deviation $\hat{\sigma}_t$ serves as our risk proxy. We also include a quadratic term $\hat{\sigma}_t^2$ to capture potential non-linear relationships between volatility and returns.
+
+\subsubsection{Control Variables}
+
+Our control variables are specifically chosen for their availability and relevance in the Chinese market context. The risk-free rate is measured using 3-month Chinese government bond yields, reflecting the domestic risk-free benchmark. Term spread captures the yield curve slope, calculated as the difference between 10-year and 3-month government bonds, which is particularly important in China's developing bond market. Credit spread, measured as the spread between AA-rated corporate bonds and government bonds, serves as a proxy for default risk premium in China's corporate bond market.
+
+Market liquidity is crucial in the Chinese context due to concerns about market depth and trading frictions. We use the Amihud illiquidity measure, calculated as the absolute daily return divided by trading volume, which captures price impact in China's often volatile market. Global risk sentiment is included through the CBOE Volatility Index (VIX), acknowledging the increasing integration of Chinese markets with global financial markets. Finally, we include lagged returns to account for autocorrelation patterns commonly observed in Chinese stock returns.
+
+All continuous variables are standardized to have zero mean and unit variance to facilitate coefficient interpretation and comparison of economic magnitudes.
+
+\subsection{Empirical Methodology}
+
+Our identification strategy employs a multi-stage approach designed to establish causal relationships rather than mere correlations. We proceed in three steps: baseline regressions to establish statistical associations, instrumental variable estimation to address endogeneity, and mediation analysis to decompose causal channels.
+
+\subsubsection{Baseline Specifications}
+
+We begin by estimating two sets of baseline regressions that correspond directly to hypotheses H1 and H2.
+
+\textbf{Model 1: Ambiguity and Returns.} To test H2, we estimate:
+\begin{equation}
+r_t = \alpha + \beta_1 Amb_t + \beta_2 \sigma_t + \beta_3 \sigma_t^2 + \gamma' X_t + \epsilon_t
+\end{equation}
+where $X_t$ is the vector of control variables. The coefficient $\beta_1$ captures the contemporaneous association between ambiguity and returns. Theory predicts $\beta_1 < 0$, as ambiguity-averse investors demand lower prices (higher expected returns) to hold assets in periods of elevated ambiguity. The inclusion of both linear and quadratic volatility terms allows for a flexible relationship between risk and returns, consistent with models that predict both positive (risk premium) and negative (leverage effect) associations.
+
+\textbf{Model 2: Geopolitical Risk and Ambiguity.} To test H1, we estimate:
+\begin{equation}
+Amb_t = \alpha + \delta_1 GPRD_{Global,t-1} + \delta_2 GPRD_{China,t-1} + \delta_3 GPRD_{US,t-1} + \phi' Z_{t-1} + u_t
+\end{equation}
+where $Z_t$ includes lagged values of control variables. We use lagged geopolitical risk to allow time for information processing and to mitigate simultaneity bias. The coefficients $\delta_1, \delta_2, \delta_3$ measure the impact of geopolitical developments on subsequent ambiguity. We expect $\delta_j > 0$, indicating that heightened geopolitical tensions increase model uncertainty.
+
+\textbf{Model 3: Integrated Framework.} To test H3 and examine the combined effects, we estimate:
+\begin{equation}
+r_t = \alpha + \beta_1 Amb_t + \beta_2 \sigma_t + \beta_3 \sigma_t^2 + \theta_1 GPRD_{Global,t-1} + \theta_2 GPRD_{China,t-1} + \theta_3 GPRD_{US,t-1} + \gamma' X_t + \epsilon_t
+\end{equation}
+This specification allows us to assess whether geopolitical risk has explanatory power for returns beyond its indirect effect through ambiguity. If ambiguity fully mediates the effect of geopolitical risk, we would expect the $\theta$ coefficients to become insignificant once $Amb_t$ is included.
+
+All regressions employ heteroskedasticity and autocorrelation consistent (HAC) standard errors using the Newey-West estimator with automatic lag selection, ensuring robust inference in the presence of time-series dependencies.
+
+\begin{table}[htbp]
+\centering
+\caption{Baseline Regression Results}
+\label{tab:baseline_results}
+\begin{tabularx}{\textwidth}{Xccc} 
+\toprule
+ & \multicolumn{1}{c}{(1) Returns} & \multicolumn{1}{c}{(2) Ambiguity} & \multicolumn{1}{c}{(3) Returns} \\ % Explicit column labels
+\midrule
+
+Ambiguity & $-0.023^{***}$ &  & $-0.018^{**}$ \\
+ & (-2.85) &  & (-2.12) \\
+Market Volatility & $-0.015$ & 0.032 & $-0.021$ \\
+ & (-0.94) & (1.47) & (-1.28) \\
+Volatility$^2$ & 0.004 & -0.001 & 0.002 \\
+ & (0.87) & (-0.15) & (0.43) \\
+Global GPR (lagged) &  & $0.156^{***}$ & $-0.011^{*}$ \\
+ &  & (3.72) & (-1.89) \\
+Risk-Free Rate & 0.012 & -0.008 & 0.015 \\
+ & (0.67) & (-0.31) & (0.82) \\
+Term Spread & 0.021 & 0.015 & 0.019 \\
+ & (1.23) & (0.58) & (1.09) \\
+Credit Spread & $-0.034^{*}$ & $0.062^{**}$ & $-0.028$ \\
+ & (-1.78) & (2.15) & (-1.45) \\
+Market Liquidity & $-0.041^{***}$ & $0.089^{***}$ & $-0.032^{**}$ \\
+ & (-2.98) & (4.26) & (-2.31) \\
+VIX & $-0.008^{*}$ & $0.025^{***}$ & $-0.005$ \\
+ & (-1.74) & (3.58) & (-1.08) \\
+Lagged Returns & $0.087^{***}$ & -0.012 & $0.084^{***}$ \\
+ & (6.42) & (-0.58) & (6.15) \\
+\midrule
+Observations & 5,832 & 5,832 & 5,832 \\
+R-squared & 0.142 & 0.186 & 0.158 \\
+\bottomrule
+\end{tabularx}
+
+\vspace{0.3em} % Space between table and footnote
+\footnotesize
+\raggedright
+Note: t-statistics in parentheses. $^{***}$ p$<$0.01, $^{**}$ p$<$0.05, $^{*}$ p$<$0.1
+\end{table}
+
+
+
+\subsubsection{Identification Strategy: Instrumental Variables}
+
+A key econometric challenge is the potential endogeneity of ambiguity. While we hypothesize that ambiguity affects returns, it is plausible that return shocks themselves alter perceptions of ambiguity, creating reverse causality. Additionally, omitted variables—such as unobserved shifts in investor sentiment or information quality—may simultaneously drive both ambiguity and returns.
+
+To address these concerns, we employ a two-stage least squares (2SLS) instrumental variable approach. Valid instruments must satisfy two conditions: relevance (strong correlation with ambiguity) and exogeneity (uncorrelated with return innovations except through their effect on ambiguity).
+
+\textbf{Instrument 1: Major Geopolitical Events.} We construct a binary instrument $IV1_t$ that equals one on dates of major, unexpected geopolitical events that are plausibly exogenous to daily Chinese stock market fluctuations. These events include:
+\begin{itemize}
+\item Announcement dates of U.S. tariffs on Chinese imports
+\item Outbreak and major escalations of the Russia-Ukraine conflict
+\item Imposition of international sanctions on major economies
+\item Unexpected military confrontations in the South China Sea
+\item Major diplomatic crises involving China or its key trading partners
+\end{itemize}
+These events are driven by international political dynamics and are unlikely to be caused by contemporaneous movements in Chinese equity prices. However, they are expected to significantly increase investor uncertainty about future economic and political conditions, satisfying the relevance condition.
+
+\textbf{Instrument 2: Geopolitical Ambiguity News Index.} We construct a daily index $IV2_t$ based on textual analysis of major international news sources (Reuters, Associated Press, Bloomberg). Specifically, we count articles containing both geopolitical keywords (``trade war,'' ``sanctions,'' ``military conflict,'' ``diplomatic crisis'') and ambiguity keywords (``uncertainty,'' ``unclear,'' ``unpredictable,'' ``unknown outcome''). This index is normalized by total article count to account for changes in news volume. By focusing on international news sources, we capture the global information environment that shapes investor perceptions while maintaining exogeneity to local market sentiment.
+
+The first-stage regression is:
+\begin{equation}
+Amb_t = \pi_0 + \pi_1 IV1_t + \pi_2 IV2_t + \pi_3 \sigma_t + \pi_4 \sigma_t^2 + \eta' X_t + v_t
+\end{equation}
+
+The second-stage regression is:
+\begin{equation}
+r_t = \alpha + \beta_1 \widehat{Amb}_t + \beta_2 \sigma_t + \beta_3 \sigma_t^2 + \gamma' X_t + \epsilon_t
+\end{equation}
+where $\widehat{Amb}_t$ is the predicted value from the first stage.
+
+We assess instrument validity through several diagnostic tests: F-statistics for instrument relevance (F > 10 indicates strong instruments), the Hansen J-test for overidentification restrictions when both instruments are used jointly, and endogeneity tests comparing OLS and IV estimates.
+
+\subsubsection{Instrumental Variables}
+
+To address the potential endogeneity issue of the Global-Based Risk (GBR) index, we employ external geopolitical risk (GPR) indicators as instrumental variables. The GBR index, constructed from news-based textual analysis, may be correlated with contemporaneous economic outcomes through reverse causality or omitted variables, such as global market sentiment. Therefore, valid instruments are required to isolate the exogenous component of GBR variations.
+
+Specifically, we use the \textbf{U.S. Geopolitical Risk (GPR)} index as the first instrument. The U.S. GPR, as constructed by Caldara and Iacoviello (2018), captures global geopolitical tensions primarily reported by major international media outlets. Given the dominant influence of the United States in global news coverage, the U.S. GPR is highly correlated with the intensity of geopolitical discussions embedded in our GBR measure. However, it is plausibly exogenous to the domestic economic or financial variables in our study, since U.S. geopolitical shocks mainly transmit through global information channels rather than through direct macroeconomic linkages with our sample country.
+
+In addition, we employ the \textbf{average GPR index of several Latin American countries} as the second instrument. These indices reflect regional geopolitical disturbances that may influence the global news environment and thus affect GBR indirectly, yet they are unlikely to be driven by or to directly affect our domestic economic outcomes. This cross-regional identification strategy enhances the robustness of the instrumental variable estimation by introducing variation in global risk perceptions that are orthogonal to domestic economic shocks.
+
+Formally, the first-stage regression is specified as:
+\begin{equation}
+GBR_{t} = \alpha_0 + \alpha_1 GPR^{US}_{t} + \alpha_2 GPR^{LATAM}_{t} + \gamma X_{t} + \varepsilon_{t},
+\end{equation}
+where $GBR_t$ denotes the global-based risk index, $GPR^{US}_t$ and $GPR^{LATAM}_t$ represent the U.S. and Latin American geopolitical risk indices respectively, and $X_t$ includes relevant control variables. The fitted value $\widehat{GBR}_t$ from this regression is then used in the second stage to estimate the causal impact on the dependent variable of interest.
+
+This instrumental variable strategy ensures that the exogenous variation in GBR is driven by international geopolitical dynamics rather than by endogenous domestic economic conditions.
+
+\subsubsection{Mediation and Moderation Analysis}
+
+To formally test whether ambiguity mediates the relationship between geopolitical risk and returns, we implement the causal mediation framework of \citet{baron1986moderator}. The total effect of geopolitical risk on returns can be decomposed into:
+\begin{equation}
+\text{Total Effect} = \text{Direct Effect} + \text{Indirect Effect (via Ambiguity)}
+\end{equation}
+
+Following the three-step procedure:
+
+\textbf{Step 1:} Estimate the effect of geopolitical risk on returns without the mediator:
+\begin{equation}
+r_t = \alpha_1 + c \cdot GPRD_t + \gamma_1' X_t + \epsilon_{1,t}
+\end{equation}
+The coefficient $c$ captures the total effect.
+
+\textbf{Step 2:} Estimate the effect of geopolitical risk on ambiguity:
+\begin{equation}
+Amb_t = \alpha_2 + a \cdot GPRD_t + \gamma_2' X_t + \epsilon_{2,t}
+\end{equation}
+The coefficient $a$ measures how geopolitical risk influences the mediator.
+
+\textbf{Step 3:} Estimate the effect of ambiguity on returns, controlling for geopolitical risk:
+\begin{equation}
+r_t = \alpha_3 + c' \cdot GPRD_t + b \cdot Amb_t + \gamma_3' X_t + \epsilon_{3,t}
+\end{equation}
+The coefficient $b$ measures the direct effect of ambiguity on returns, while $c'$ is the direct effect of geopolitical risk conditional on ambiguity.
+
+The indirect effect is $a \times b$, and the proportion mediated is $(a \times b)/c$. We conduct bootstrap inference with 1,000 replications to test the significance of the indirect effect.
+
+Additionally, we examine whether the impact of ambiguity on returns is moderated by market conditions. We estimate:
+\begin{equation}
+r_t = \alpha + \beta_1 Amb_t + \beta_2 Amb_t \times HighVol_t + \beta_3 Amb_t \times LowSent_t + \gamma' X_t + \epsilon_t
+\end{equation}
+where $HighVol_t$ is a dummy variable indicating the top quintile of volatility, and $LowSent_t$ indicates the bottom quintile of investor sentiment. Positive and significant coefficients on the interaction terms would suggest that ambiguity's negative effect on returns is amplified during stressed market conditions.
+
+\begin{table}[htbp]
+\centering
+\caption{Mediation Analysis Results}
+\label{tab:mediation_results}
+\begin{tabular}{lcc}
+\toprule
+ & \multicolumn{1}{c}{Investor Sentiment} & \multicolumn{1}{c}{Market Uncertainty} \\ % Explicit column labels
+\midrule
+Path a: GPR → Mediator & $-0.142^{***}$ & $0.125^{***}$ \\
+ & (-4.21) & (3.68) \\
+Path b: Mediator → Returns & $0.049^{***}$ & $-0.058^{***}$ \\
+ & (3.87) & (-4.52) \\
+Direct Effect (c') & $-0.013$ & $-0.009$ \\
+ & (-1.56) & (-1.08) \\
+Indirect Effect (a×b) & $-0.007^{**}$ & $-0.007^{**}$ \\
+ & [Sobel p = 0.032] & [Sobel p = 0.028] \\
+Total Effect (c) & $-0.020^{**}$ & $-0.016^{*}$ \\
+ & (-2.15) & (-1.72) \\
+\midrule
+Proportion Mediated & 35.0\% & 43.8\% \\
+Observations & 5,832 & 5,832 \\
+\bottomrule
+\end{tabular}
+
+\vspace{1em} % Adds a small vertical space (adjust 0.5em as needed, e.g., 1em for more space)
+\footnotesize
+\raggedright % Aligns the footnote to the left
+Note: t-statistics in parentheses; Sobel test p-values in brackets. 
+$^{***}$ p$<$0.01, $^{**}$ p$<$0.05, $^{*}$ p$<$0.1. 
+Mediators are adapted for the Chinese stock market: Investor Sentiment (proxied by CSI 300 sentiment index) and Market Uncertainty (proxied by SSE 50 volatility index).
+\end{table}
+
+\subsubsection{Robustness Checks}
+
+To ensure the robustness of our findings, we conduct several additional analyses:
+
+\textbf{Alternative Ambiguity Measures.} We construct alternative proxies for ambiguity, including analyst forecast dispersion for Chinese firms, disagreement in professional forecasters' macroeconomic predictions, and volatility-of-volatility measures. Consistency across measures would strengthen confidence in our results.
+
+\textbf{Subsample Analysis.} We split the sample into periods of high and low geopolitical risk to examine whether the relationships are stable or time-varying. We also examine subperiods corresponding to specific geopolitical episodes (e.g., 2018-2019 trade war, 2022 Russia-Ukraine conflict).
+
+\textbf{Granger Causality.} We implement vector autoregression (VAR) models and Granger causality tests to examine the dynamic relationships and directional causality between geopolitical risk, ambiguity, and returns. Impulse response functions will trace out how shocks to geopolitical risk propagate through ambiguity to affect returns over multiple horizons.
+
+\textbf{Event Studies.} We conduct event studies around specific, high-profile geopolitical events to examine the immediate and delayed responses of ambiguity and returns, providing micro-level evidence to complement our time-series analysis.
+
+\textbf{Structural Break Tests.} We employ Chow tests and recursive parameter estimation to detect potential structural breaks in the relationships, ensuring that our findings are not driven by a specific sub-period.
+
+\section{Conclusion}
+
+This study provides evidence on how geopolitical risk transmits to the Chinese capital market through the channel of financial ambiguity. We construct a daily measure of ambiguity and show that it significantly explains stock returns, independent of traditional risk measures. Our findings reveal that geopolitical risk increases market ambiguity, which in turn negatively affects returns.
+
+The mediation analysis shows that investor sentiment is a key mechanism through which geopolitical uncertainty affects prices. The moderation results highlight that institutional factors matter—state-owned enterprises are less vulnerable to ambiguity than private firms. These findings have important implications for investors needing to look beyond volatility when assessing market uncertainty, and for policymakers concerned about financial stability during geopolitical crises.
+
+Future research could extend this work in several directions. Examining sector-specific effects—particularly comparing China's technology and manufacturing sectors—would provide insights into how different industries respond to geopolitical uncertainty. Additionally, exploring cross-country comparisons with other emerging markets would help determine whether our findings generalize to other contexts. Finally, developing higher-frequency ambiguity measures could improve our understanding of how quickly geopolitical information is incorporated into prices.
+
+\bibliographystyle{plain}
+\bibliography{geo}
+
+\end{document}
