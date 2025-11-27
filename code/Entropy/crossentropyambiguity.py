@@ -223,7 +223,11 @@ def load_and_prepare_data(file_path):
 if __name__ == "__main__":
     # Example of how to use the code
     # Note: You need to have a DataFrame 'df' with 'datetime' and 'close' columns
+<<<<<<< HEAD
+    file_path = 'C:/Users/Richard/Desktop/数据/沪深300/SSE.000300.csv'  # Ensure the path is correct
+=======
     file_path = '/Users/tlxy/Research/Ambiguity/data/SSE.000300.csv'
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     df = load_and_prepare_data(file_path)
     # Set parameters
     specific_date = '2018-01-09'
@@ -317,6 +321,65 @@ def calculate_metrics_for_date_range(df: pd.DataFrame,
     return results_df
 
 def analyze_correlation(results_df: pd.DataFrame) -> None:
+<<<<<<< HEAD
+    """
+    Analyze and visualize the correlation between ambiguity and risk metrics.
+    
+    Args:
+        results_df: DataFrame containing date, ambiguity_metric, and risk columns
+    """
+    # Calculate correlation coefficient
+    correlation = results_df['ambiguity_metric'].corr(results_df['risk'])
+    
+    # Create a figure with multiple subplots
+    fig = plt.figure(figsize=(15, 10))
+    
+    # 1. Time series plot
+    plt.subplot(2, 2, 1)
+    plt.plot(results_df['date'], results_df['ambiguity_metric'], label='Ambiguity')
+    plt.plot(results_df['date'], results_df['risk'], label='Risk')
+    plt.title('Ambiguity and Risk Over Time')
+    plt.xlabel('Date')
+    plt.ylabel('Value')
+    plt.legend()
+    plt.grid(True)
+    
+    # 2. Scatter plot with regression line
+    plt.subplot(2, 2, 2)
+    sns.regplot(data=results_df, x='ambiguity_metric', y='risk')
+    plt.title(f'Correlation: {correlation:.3f}')
+    plt.xlabel('Ambiguity Metric')
+    plt.ylabel('Risk')
+    
+    # 3. Histogram of ambiguity metric
+    plt.subplot(2, 2, 3)
+    sns.histplot(results_df['ambiguity_metric'], kde=True)
+    plt.title('Distribution of Ambiguity Metric')
+    plt.xlabel('Ambiguity Metric')
+    
+    # 4. Histogram of risk
+    plt.subplot(2, 2, 4)
+    sns.histplot(results_df['risk'], kde=True)
+    plt.title('Distribution of Risk')
+    plt.xlabel('Risk')
+    
+    plt.tight_layout()
+    plt.savefig('ambiguity_risk_analysis_1.png')
+    plt.close()
+    
+    # Print statistical summary
+    print("\nStatistical Summary:")
+    print(results_df.describe())
+    
+    # Print correlation analysis
+    print("\nCorrelation Analysis:")
+    print(f"Pearson Correlation Coefficient: {correlation:.3f}")
+    
+    # Perform statistical test
+    t_stat, p_value = stats.pearsonr(results_df['ambiguity_metric'], results_df['risk'])
+    print(f"P-value: {p_value:.3e}")
+    print(f"T-statistic: {t_stat:.3f}")
+=======
     window_sizes = [5, 10, 20, 30, 60, 120]
     lags = list(range(-30, 31))
     corr_matrix = pd.DataFrame(index=lags, columns=window_sizes, dtype=float)
@@ -347,11 +410,16 @@ def analyze_correlation(results_df: pd.DataFrame) -> None:
     spearman = stats.spearmanr(results_df['ambiguity_metric'], results_df['risk']).correlation
     print(f"Overall Pearson correlation: {pearson:.3f}")
     print(f"Overall Spearman correlation: {spearman:.3f}")
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
 
 # Main execution
 if __name__ == "__main__":
     # Load and prepare data
+<<<<<<< HEAD
+    file_path = 'C:/Users/Richard/Desktop/数据/沪深300/SSE.000300.csv'
+=======
     file_path = '/Users/tlxy/Research/Ambiguity/data/SSE.000300.csv'
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     df = load_and_prepare_data(file_path)
     
     # Set parameters
@@ -370,7 +438,11 @@ if __name__ == "__main__":
     
     # Save results to CSV
     results_df.to_csv('daily_ambiguity_risk_metrics_2.csv', index=False)
+<<<<<<< HEAD
+    print("\nResults saved to '300_daily_ambiguity_risk_metrics_2.csv'")
+=======
     print("\nResults saved to 'daily_ambiguity_risk_metrics_2.csv'")
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     
     # Analyze correlation and create visualizations
     print("\nAnalyzing correlation...")
@@ -380,7 +452,22 @@ if __name__ == "__main__":
     print("\nFirst few rows of results:")
     print(results_df.head())
     
+<<<<<<< HEAD
+    # Calculate rolling correlation (30-day window)
+    rolling_corr = results_df['ambiguity_metric'].rolling(window=30).corr(results_df['risk'])
+    
+    # Plot rolling correlation
+    plt.figure(figsize=(12, 6))
+    plt.plot(results_df['date'], rolling_corr)
+    plt.title('30-Day Rolling Correlation between Ambiguity and Risk')
+    plt.xlabel('Date')
+    plt.ylabel('Correlation Coefficient')
+    plt.grid(True)
+    plt.savefig('rolling_correlation_1.png')
+    plt.close()
+=======
     print("\nCorrelation visuals saved: 'window_lag_correlation_heatmap.png' and 'rolling_correlation_by_window.png'")
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
     
     print("\nAnalysis complete. Check the generated CSV and PNG files for detailed results.")
     
@@ -393,7 +480,11 @@ window_sizes = list(range(5, 21, 3))   # 5, 8, 11, 14, 17, 20
 num_bins_list = list(range(20, 101, 10))  # 20, 30, ..., 100
 
 # Prepare data
+<<<<<<< HEAD
+file_path = 'C:/Users/Richard/Desktop/数据/沪深300/SSE.000300.csv'
+=======
 file_path = '/Users/tlxy/Research/Ambiguity/data/SSE.000300.csv'
+>>>>>>> be1b933d1bf708dc15aeac8d066a05ca09489d51
 df = load_and_prepare_data(file_path)
 df = prepare_data(df)
 unique_dates = sorted(df['date'].unique())
