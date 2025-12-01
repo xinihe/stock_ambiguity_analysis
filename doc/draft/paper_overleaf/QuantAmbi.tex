@@ -43,28 +43,20 @@
 \usepackage{amsmath}
 \usepackage{mathrsfs}
 \usepackage[utf8]{inputenc}   % 处理 UTF-8
-\usepackage[T1]{fontenc}
 \usepackage{CJKutf8}          % CJK 环境支持
 \usepackage[T1]{fontenc}
 \usepackage{booktabs}
 \usepackage{threeparttable}
 \usepackage{graphicx}
 \usepackage{subcaption}
-\usepackage{graphicx}
 % 如果要用 subfigure，也要加载 subcaption
-\usepackage{subcaption}  % if you also have Chinese in your doc
 \usepackage{tabularx}
-\usepackage{booktabs}
 \usepackage{array}       % 导言区添加此包支持 p{} 列格式
-\usepackage{tabularx}
 \usepackage{float} 
 \usepackage{xcolor}
-\usepackage{threeparttable}
 \usepackage{siunitx} % for S column type in tables
 \usepackage{makecell}  
-\usepackage{array}
-\usepackage{float}
-\usepackage{etoolbox}  
+\usepackage{etoolbox}
 \usepackage{adjustbox}
 %% The amsthm package provides extended theorem environments
 %% \usepackage{amsthm}
@@ -199,7 +191,7 @@ Ambiguity Index \sep Cross-Entropy \sep Expected Utility under Uncertainty \sep 
 
 % In financial markets, uncertainty arises not only from the outcomes themselves (``risk''), typically measured by variance or Value-at-Risk (VaR), but also from the probability distributions that generate those outcomes (``ambiguity''), a phenomenon known in economics as model uncertainty or ambiguity aversion. Traditional risk measures often fail to capture this deeper form of uncertainty, which is rooted in incomplete or imprecise knowledge about future returns. To address this gap, we introduce a new measure of ambiguity based on the Kullback-Leibler (KL) divergence, a metric from information theory that quantifies the difference between two probability distributions. 
 
-Financial markets are complex systems operating under conditions of pervasive uncertainty, necessitating robust methodologies that extend beyond idealized models. Traditionally, this uncertainty has been addressed through the well-established paradigm of risk, a situation where the probabilities of various outcomes are objectively known. In contrast, a deeper form of uncertainty, known as ambiguity \cite{knight1921} or Knightian uncertainty, arises when the probability distributions themselves are unknown, imprecise, or subjectively perceived. Ambiguity is defined as a situation in which the first-order probabilities (the likelihoods of the states of nature or outcomes) are not uniquely assigned but are themselves treated as random variables \cite{ellsberg1961}. This fundamental distinction highlights that risk and ambiguity are independent concepts \cite{klibanoff200}. Risk aversion is a preference for a smaller payoff with a greater likelihood of success when probabilities are known, while ambiguity aversion is a dislike for options where the probabilities are unknown. This behavioral phenomenon is a key driver of market outcomes, such as stock market volatility and incomplete contracts. Despite the importance of this distinction, traditional risk measures often fail to capture this deeper form of uncertainty, which is rooted in incomplete or imprecise knowledge about future returns. This creates a significant gap in financial modeling and risk management, underscoring the need for a new measure of ambiguity that is not only distinct from traditional risk metrics but also possesses superior predictive power for dynamic portfolio and risk management\cite{Bollerslev1988}. 
+Financial markets are complex systems operating under conditions of pervasive uncertainty, necessitating robust methodologies that extend beyond idealized models. Traditionally, this uncertainty has been addressed through the well-established paradigm of risk, a situation where the probabilities of various outcomes are objectively known. In contrast, a deeper form of uncertainty, known as ambiguity \cite{knight1921} or Knightian uncertainty, arises when the probability distributions themselves are unknown, imprecise, or subjectively perceived. Ambiguity is defined as a situation in which the first-order probabilities (the likelihoods of the states of nature or outcomes) are not uniquely assigned but are themselves treated as random variables \cite{ellsberg1961}. This fundamental distinction highlights that risk and ambiguity are independent concepts \cite{klibanoff2005}. Risk aversion is a preference for a smaller payoff with a greater likelihood of success when probabilities are known, while ambiguity aversion is a dislike for options where the probabilities are unknown. This behavioral phenomenon is a key driver of market outcomes, such as stock market volatility and incomplete contracts. Despite the importance of this distinction, traditional risk measures often fail to capture this deeper form of uncertainty, which is rooted in incomplete or imprecise knowledge about future returns. This creates a significant gap in financial modeling and risk management, underscoring the need for a new measure of ambiguity that is not only distinct from traditional risk metrics but also possesses superior predictive power for dynamic portfolio and risk management\cite{Bollerslev1988}. 
 
 % The central contribution of this paper is the development of a cross-entropy-based method for quantifying return ambiguity. This approach computes the KL divergence between observed intraday return distributions and a benchmark model, reflecting the tail behavior, skewness, and asymmetry of return distributions. By incorporating both short- and medium-term informational instability, the model adapts dynamically to changing market conditions.
 
@@ -457,7 +449,7 @@ To verify that our ambiguity measures capture a source of uncertainty distinct f
   \centering
   \caption{Correlation between AMBMP and Risk Measures}
   \label{tab:correlation_ambiguity_risk_ambmp}
-  \begin{tabular}{lcc}
+  \begin{tabularx}{\textwidth}{Xcc}
     \toprule
     Risk Measure        & Correlation & \(p\)-value \\
     \midrule
@@ -465,7 +457,7 @@ To verify that our ambiguity measures capture a source of uncertainty distinct f
     Skewness            & 0.003909    & 0.000       \\
     Kurtosis            & 0.006251    & 0.000       \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
 
@@ -504,7 +496,7 @@ By incorporating these controls, the estimated coefficients \(\beta_1\) reflect 
   \centering
   \caption{Model 2: PanelOLS Estimates with AMBMP and Controls}
   \label{tab:panelols_model2}
-  \begin{tabular}{lrrrrr}
+  \begin{tabularx}{\textwidth}{Xrrrrr}
     \toprule
     Variable         & Coefficient & Std.\ Error & \(t\)-stat & \(p\)-value & VIF    \\
     \midrule
@@ -514,7 +506,7 @@ By incorporating these controls, the estimated coefficients \(\beta_1\) reflect 
     Kurtosis         & \(0.001\)   & \(0.001\)   & \(1.102\)   & \(0.270\)   & 1.408  \\
     Turnover Rate    & \(-0.001\)  & \(0.001\)   & \(-1.065\)  & \(0.287\)   & 1.026  \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
 The AMBMP factor exhibits a significantly positive relationship with future returns (\(\beta_{\mathrm{AMBMP}} = 0.000\), \(t = 7.880\), \(p < 0.01\)), indicating its critical role in predicting market outcomes. This stands in contrast to conventional risk measures, such as realized volatility (RV), skewness, and kurtosis, which are typically associated with traditional risk perceptions. The fact that AMBMP shows a positive and statistically significant relationship with future returns suggests it captures a distinct aspect of market uncertainty—ambiguity—that is not typically captured by these other risk proxies. 
@@ -532,7 +524,7 @@ To test for the potential predictive relationship between the ambiguity measure 
 \centering
 \caption{Granger Causality Test Results for AMBMP and Future Returns}
 \label{tab:granger}
-\begin{tabular}{c c c}
+\begin{tabularx}{\textwidth}{X c c}
 \toprule
 Lag & F-statistic & p-value \\ 
 \midrule
@@ -542,7 +534,7 @@ Lag & F-statistic & p-value \\
 4 & 123.244 & 0.000 \\
 5 & 100.512 & 0.000 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 The results indicate that the null hypothesis of no Granger causality can be rejected at conventional significance levels for all five lags.  Specifically, the p-values are extremely small, which strongly suggests a statistically significant predictive relationship between the ambiguity measure $ \text{AMBMP} $ and future returns.  This implies that $ \text{AMBMP} $ contains information that can forecast future returns across multiple time horizons.   While these findings highlight the informational content of ambiguity in forecasting returns, further research is needed to evaluate its economic significance and potential interactions with other market factors.
@@ -553,8 +545,6 @@ To further investigate the underlying mechanism through which ambiguity influenc
 % 在文档正文中使用以下表格代码
 \begin{table}[H]
 \centering
-\small
-\setlength{\tabcolsep}{4pt} % 减少列间距以适应宽度
 \renewcommand{\arraystretch}{1.08}
 \caption{Conditional Mediation Analysis Results by Liquidity Regime}
 \label{tab:mediation}
@@ -624,7 +614,7 @@ Here, \texttt{bull\_market} and \texttt{bear\_market} are dummy variables indica
 \centering
 \caption{AMBMP Regression Results with Market Regime Dummies}
 \label{tab:ambmp_regression_results}
-\begin{tabular}{lccccc}
+\begin{tabularx}{\textwidth}{Xccccc}
 \toprule
 \textbf{Variable} & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{t-stat} & \textbf{p-value} & \textbf{VIF} \\
 \midrule
@@ -636,7 +626,7 @@ Turnover Rate & –0.001 & 0.0005 & –1.905 & 0.056 & 1.126 \\
 Bull Market & –0.001 & 0.0007 & –1.386 & 0.165 & 2.132 \\
 Bear Market & –0.003 & 0.0008 & –3.650 & 0.000 & 2.230 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 The regression results indicate that AMBMP maintains a significant positive relationship with future returns ($\beta = 0.007, p < 0.01$) even after controlling for market regimes. The bear market dummy is significantly negative ($\delta_{\text{bear}} = -0.003, p < 0.01$), suggesting that during bear markets, returns are generally lower. However, the interaction between market regimes and AMBMP (though not directly shown via interaction terms in this specification) implies that the effect of ambiguity might be modulated by market sentiment. These findings underscore the importance of accounting for macroeconomic conditions when assessing the role of ambiguity in asset pricing.
@@ -653,7 +643,7 @@ r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Contr
 \centering
 \caption{Regression Results by RV Subgroups}
 \label{tab:rv_subgroup_results}
-\begin{tabular}{lcccc}
+\begin{tabularx}{\textwidth}{Xcccc}
 \toprule
 \textbf{Parameter} & \textbf{Coefficient} & \textbf{Std. Err.} & \textbf{T-stat} & \textbf{P-value} \\
 \midrule
@@ -669,7 +659,7 @@ Skewness & –0.002 & 0.001 & –2.979 & 0.003 \\
 Kurtosis & 0.001 & 0.001 & 1.766 & 0.077 \\
 Turnover Rate & 0.000 & 0.001 & 0.054 & 0.956 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 The results show that AMBMP is a significant predictor of future returns in both low and high volatility environments, with coefficients of 0.006 ($t = 4.607, p < 0.01$) and 0.007 ($t = 9.990, p < 0.01$), respectively. The slightly stronger effect in high-volatility periods suggests that ambiguity plays a more pronounced role in predicting returns when market uncertainty is elevated. This aligns with the theory that ambiguity aversion becomes more salient during turbulent times. Other variables, such as skewness, gain significance only in the high-volatility subgroup, highlighting the differential impact of return distribution characteristics under varying market conditions.
@@ -692,7 +682,7 @@ r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Contr
 \centering
 \caption{Regression Results by Plevel Subgroups}
 \label{tab:plevel_subgroup_results}
-\begin{tabular}{lcccc}
+\begin{tabularx}{\textwidth}{Xcccc}
 \toprule
 \textbf{Parameter} & \textbf{Coefficient} & \textbf{Std. Err.} & \textbf{T-stat} & \textbf{P-value} \\
 \midrule
@@ -710,7 +700,7 @@ Skewness & –0.001 & 0.001 & –1.450 & 0.147 \\
 Kurtosis & 0.000 & 0.001 & 0.445 & 0.657 \\
 Turnover Rate & –0.003 & 0.001 & –2.550 & 0.011 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 AMBMP exhibits a significant positive relationship with future returns in both low and high plevel subgroups, with coefficients of 0.006 ($t = 5.662, p < 0.01$) and 0.007 ($t = 7.223, p < 0.01$), respectively. This consistency indicates that the return predictability of ambiguity is not simply an artifact of relative price levels. Yet the stronger coefficient among high-plevel stocks implies that ambiguity is incorporated into prices more swiftly for expensive, high-attention names. That pattern fits a momentum-driven "chase-and-kill" (or "buy-high, sell-low") trading style: when information is unclear, investors pile into the most visible, high-priced stocks, pushing prices even higher in the short run—a textbook case of "momentum chasing" behavior in China's A-share market.
@@ -740,7 +730,7 @@ where \( r_{i,t+1} \) denotes the log return of stock \( i \) on day \( t+1 \), 
 \centering
 \caption{AMBMP Regression Results by Uncertainty Quantile}
 \label{tab:ambmp_results}
-\begin{tabular}{ccccc}
+\begin{tabularx}{\textwidth}{Xcccc}
 \toprule
 \textbf{Quantile} & \textbf{Coefficient} & \textbf{Std.\ Error} & \textbf{t-stat} & \textbf{p-value} \\
 \midrule
@@ -750,7 +740,7 @@ Q3 & 0.004 & 0.001 & 2.772 & 0.006 \\
 Q4 & 0.005 & 0.001 & 3.801 & 0.000 \\
 Q5 & 0.007 & 0.002 & 3.960 & 0.000 \\
 \bottomrule
-\end{tabular}
+\end{tabularx}
 \end{table}
 
 Tables~\ref{tab:ambmp_results} report the panel regression results where stocks are grouped into quintiles based on the level of ambiguity—measured by AMBMP. Specifically, Q1 represents stocks with the lowest ambiguity, while Q5 contains those with the highest ambiguity.

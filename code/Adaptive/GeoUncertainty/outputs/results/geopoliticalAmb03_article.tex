@@ -38,7 +38,7 @@ Geopolitical Risk \sep Ambiguity Aversion \sep Asset Pricing \sep Chinese Capita
 
 Geopolitical risk (GPR) is a pervasive driver of uncertainty in emerging markets. We argue that uncertainty operates through two distinct channels: risk (volatility) and ambiguity (Knightian uncertainty). Ambiguity is conceptually and empirically independent of volatility \citep{Knight1921, Ellsberg1961}; in asset pricing, models of ambiguity aversion \citep{Gilboa1989, Klibanoff2005} imply that higher ambiguity lowers valuations even when volatility is unchanged.
 
-Our goal is to provide a comprehensive account of how GPR affects returns through both channels. We construct our daily ambiguity measures using a novel, simplified cross-entropy-based approach, which we argue is empirically more robust than traditional proxies like the variance of variance. This methodological contribution, detailed in Appendix A, is the foundation for our empirical tests.
+Our goal is to provide a comprehensive account of how GPR affects returns through both channels. We construct our daily ambiguity measures using a novel, simplified cross-entropy-based approach, which we argue is more robust than traditional proxies like the variance of variance. This methodological contribution, detailed in Appendix A, is the foundation for our empirical tests.
 
 Our empirical contributions are threefold. First, we show that our new ambiguity measure is negatively priced in both time-series (CSI 300) and cross-sectional (constituents) tests, providing incremental explanatory power beyond volatility. Second, we establish that GPR significantly increases financial ambiguity, identifying it as a key transmission channel from geopolitics to asset prices \citep{Caldara2022}. Third, in an integrated specification, the inclusion of ambiguity improves model fit and often reduces the explanatory power of volatility-based risk. We further explore heterogeneity in the pricing of ambiguity by testing for moderation effects related to state-owned enterprise (SOE) status.
 
@@ -81,6 +81,7 @@ This hypothesis integrates the framework. We propose that GPR's total effect on 
 \textbf{H4: The negative pricing of ambiguity is weaker for state-owned enterprises (SOEs) than for non-SOEs.}
 This hypothesis introduces a key element of heterogeneity. We conjecture that the implicit government guarantees and policy roles of SOEs may buffer them from the full impact of ambiguity. This "SOE cushion" should result in a less pronounced negative relationship between ambiguity and returns for these firms compared to their non-SOE counterparts.
 
+
 \section{Data and Empirical Research}
 \label{sec:data}
 
@@ -92,84 +93,27 @@ Our primary dependent variable is stock returns, which we examine at both market
 
 For the cross-sectional analysis, we construct individual stock returns using a comprehensive sample of A-share listed companies in China. Our sample period spans from January 2018 to December 2023, covering 1,458 trading days. Following standard practice in asset pricing literature, we exclude financial firms and ST (Special Treatment) stocks from our analysis. All returns are calculated in percentage terms and winsorized at the 1\% and 99\% levels to mitigate the influence of outliers.
 
-\begin{table}[htbp]
-\centering
-\caption{Descriptive Statistics of Key Variables}
-\label{tab:descriptive_stats}
-\begin{threeparttable}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lcccc @{\extracolsep{\fill}}}
-\toprule
-Variable & Mean & Std. Dev. & Min & Max \\
-\midrule
-CSI 300 Returns (\%) & 0.032 & 1.245 & -4.832 & 5.916 \\
-Ambiguity Index & 0.108 & 0.067 & 0.021 & 0.389 \\
-Volatility (RV) & 0.158 & 0.092 & 0.043 & 0.521 \\
-GPR Index & 102.3 & 45.7 & 12.4 & 318.6 \\
-Market Cap (billions) & 89.2 & 156.4 & 8.7 & 2,345.6 \\
-Book-to-Market & 0.624 & 0.289 & 0.156 & 2.347 \\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]
-\small
-\item[] This table presents descriptive statistics for the main variables used in our analysis. The sample period is from January 2018 to December 2023, with 1,458 daily observations for market-level variables and 352,890 firm-day observations for cross-sectional variables.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
+
 
 \subsubsection{Key Independent Variables}
 
 Our key independent variables are geopolitical risk (GPR) and our constructed ambiguity measures.
 
-\paragraph{Geopolitical Risk (GPR).}
+\paragraph{Geopolitical Risk (GPR)}
 We use the GPR index developed by \citet{Caldara2022}, which is constructed from text-based counts of news articles containing geopolitical risk-related keywords. The index is available at both monthly and daily frequencies. For our analysis, we primarily use the daily GPR index to match the frequency of our ambiguity measures. To ensure consistency with our Chinese market data, we convert the U.S.-based GPR index to local time by accounting for the time difference between U.S. and Chinese markets.
 
-\paragraph{Ambiguity Measures.}
-Following the adaptive model uncertainty framework detailed in Appendix A, we construct daily ambiguity measures using a cross-entropy-based approach. Our baseline ambiguity measure for day $t$ is defined as:
+\paragraph{Ambiguity Measures}
+Following the adaptive model uncertainty framework detailed in Appendix A, we construct daily ambiguity measures using a cross-entropy-based approach. Our baseline ambiguity measure, $\mathcal{A}_t$, is derived from the Kullback-Leibler (KL) divergence between the observed intraday return distribution and a set of historical benchmark distributions. Specifically, it is the minimum KL divergence over the set of all benchmark distributions, as defined in Appendix A.
 
-\begin{equation}
-\mathcal{A}_t = -\sum_{i=1}^{N} \hat{w}_{i,t} \log(\hat{w}_{i,t})
-\end{equation}
 
-where $\hat{w}_{i,t}$ represents the adaptive weight assigned to model $i$ at time $t$, and $N$ is the total number of competing models in our model space. We consider four classes of models: ARMA-GARCH, Markov-switching, regime-switching with time-varying parameters, and neural network-based models.
-
-\paragraph{Volatility Measures.}
+\paragraph{Volatility Measures}
 To isolate the effect of ambiguity from traditional risk, we include realized volatility (RV) calculated from high-frequency data. For the CSI 300 Index, we compute RV using 5-minute returns following the realized volatility literature. For individual stocks, we use daily close-to-close returns as a proxy for volatility.
 
 \subsubsection{Control Variables}
 
-In our time-series specifications, we incorporate a comprehensive set of control variables to isolate the impact of geopolitical ambiguity from other macroeconomic and market-wide fluctuations. We control for the \textbf{Market Return ($MKT$)}, defined as the value-weighted return of the entire A-share market, to capture systematic market movements. To account for global risk sentiment, we include the \textbf{VIX Index}, which proxies for international risk aversion.
+In our time-series specifications, we incorporate a comprehensive set of control variables to isolate the impact of geopolitical ambiguity from other macroeconomic and market-wide fluctuations. We control for the \textbf{Market Return ($MKT$)}, defined as the value-weighted return of the entire A-share market, to capture systematic market movements.\footnote{We include the value-weighted return of the entire A-share market (Market Return, MKT) as a control variable in the baseline regression for two key reasons. First, it addresses the potential omitted variable bias inherent in asset pricing tests. The CSI 300 Index, as a subset of the broader A-share market (comprising the 300 largest and most liquid A-shares), is inherently influenced by systematic market-wide fluctuations. Without controlling for MKT, the regression might erroneously attribute return variations driven by overall market trends (e.g., macroeconomic shocks affecting all A-shares) to our core variables of interest (e.g., changes in ambiguity, $\Delta\mathcal{A}$). By isolating the market-wide component of returns, we can more accurately identify the independent effect of ambiguity and volatility on CSI 300 returns. Second, this specification aligns with standard practices in asset pricing literature (consistent with the logic of the CAPM and multi-factor models), where controlling for the broad market return helps disentangle asset-specific or channel-specific effects (here, the geopolitical risk-ambiguity channel) from general market movements. While the CSI 300 Index and the full A-share market exhibit positive correlation, MKT captures fluctuations in smaller, less liquid A-shares excluded from the CSI 300—variations that could otherwise confound the estimation of our key coefficients. This control thus enhances the robustness and interpretability of our empirical results.} To account for global risk sentiment, we include the \textbf{VIX Index}, which proxies for international risk aversion. Domestically, we control for the term structure of interest rates using the \textbf{Term Spread ($TERM$)}—calculated as the difference between 10-year and 1-year Chinese government bond yields—to capture the monetary policy stance and economic growth expectations. Additionally, we use the 3-month SHIBOR as the \textbf{Risk-Free Rate ($RF$)}.
 
 For the cross-sectional analysis, we rely on standard firm-level characteristics known to explain the cross-section of stock returns. We control for firm \textbf{Size ($SIZE$)}, measured as the natural logarithm of market capitalization, and the \textbf{Book-to-Market ($BM$)} ratio to account for the size and value premiums, respectively. To capture return persistence, we include \textbf{Momentum ($MOM$)}, defined as the cumulative return over the past 12 months excluding the most recent month. Finally, given the unique institutional context of China's economy, we introduce an \textbf{SOE Dummy} (set to 1 for state-owned enterprises) to control for the influence of ownership structure on stock performance.
-
-\begin{table}[htbp]
-\centering
-\caption{Sample Composition by Industry and Ownership Type}
-\label{tab:sample_composition}
-\begin{threeparttable}
-\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} lccc @{\extracolsep{\fill}}}
-\toprule
-Industry & Total Firms & SOEs & Non-SOEs \\
-\midrule
-Manufacturing & 1,245 & 423 & 822 \\
-Financial Services & 98 & 67 & 31 \\
-Real Estate & 76 & 28 & 48 \\
-Information Technology & 234 & 45 & 189 \\
-Healthcare & 156 & 23 & 133 \\
-Energy \& Materials & 189 & 87 & 102 \\
-Consumer Discretionary & 267 & 89 & 178 \\
-Consumer Staples & 134 & 41 & 93 \\
-Utilities & 67 & 52 & 15 \\
-Others & 234 & 68 & 166 \\
-\midrule
-Total & 2,700 & 923 & 1,777 \\
-\bottomrule
-\end{tabular*}
-\begin{tablenotes}[flushleft]
-\small
-\item[] This table shows the distribution of firms in our sample across industry classifications and ownership types. SOE = State-Owned Enterprise. The sample period is from January 2018 to December 2023.
-\end{tablenotes}
-\end{threeparttable}
-\end{table}
 
 \begin{table}[htbp]
 \centering
@@ -180,16 +124,16 @@ Total & 2,700 & 923 & 1,777 \\
 \toprule
 & \multicolumn{3}{c}{CSI 300 Returns} \\
 \cmidrule(lr){2-4}
-Variable & Model (1) & Model (2) & Model (3) \\
+Variable & Risk-Only & Ambiguity-Only & Full Model \\
 \midrule
 \midrule
 \multicolumn{4}{l}{\textbf{Risk and Ambiguity Shocks}} \\
 $\Delta$GPR$_t$ & -0.0182*** & -0.0143** & -0.0112* \\
 & (0.0063) & (0.0059) & (0.0061) \\
-$\Delta$Ambiguity$_t$ & -0.526*** & & -0.418*** \\
-& (0.087) & & (0.092) \\
-$\Delta$RV$_t$ & -0.317*** & -0.382*** & -0.294*** \\
-& (0.068) & (0.071) & (0.074) \\
+$\Delta$Ambiguity$_t$ &  & -0.526*** & -0.418*** \\
+&  & (0.087) & (0.092) \\
+$\Delta$RV$_t$ & -0.317*** &  & -0.294*** \\
+& (0.068) &   & (0.074) \\
 \midrule
 \multicolumn{4}{l}{\textbf{Control Variables}} \\
 Market Return & 0.326*** & 0.331*** & 0.319*** \\
@@ -215,6 +159,7 @@ Adjusted R$^2$ & 0.423 & 0.390 & 0.447 \\
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
+
 
 \begin{table}[htbp]
 \centering
@@ -256,6 +201,7 @@ Adjusted R$^2$ & 0.183 & 0.166 & 0.192 \\
 \end{threeparttable}
 \end{table}
 
+
 \begin{table}[htbp]
 \centering
 \caption{Fama-MacBeth Cross-Sectional Results}
@@ -276,6 +222,10 @@ Volatility Beta & -0.267*** & -0.215** & -0.301*** \\
 & (0.078) & (0.098) & (0.089) \\
 Size (log) & -0.082** & -0.069* & -0.094** \\
 & (0.036) & (0.041) & (0.042) \\
+Book-to-Market & 0.156*** & 0.142** & 0.168*** \\
+& (0.048) & (0.059) & (0.055) \\
+Momentum & 0.087** & 0.094** & 0.082* \\
+& (0.039) & (0.046) & (0.045) \\
 \midrule
 Average N (stocks) & 2,700 & 923 & 1,777 \\
 Average R$^2$ & 0.196 & 0.188 & 0.203 \\
@@ -331,9 +281,9 @@ R_{i,t} = \alpha_i + \beta_{i,\text{MKT}} \text{MKT}_t + \beta_{i,\text{AMB}} \D
 To formally test H3 (ambiguity as a transmission channel), we employ mediation analysis following the approach of \citet{Baron1986Moderator}. The mediation model consists of three equations:
 
 \begin{align}
-R_{t} &= \alpha + c \cdot \Delta \text{GPR}_{t} + \gamma' \mathbf{X}_{t} + \epsilon_{t} \\
-\Delta \mathcal{A}_{t} &= \alpha + a \cdot \Delta \text{GPR}_{t} + \theta' \mathbf{Z}_{t} + \eta_{t} \\
-R_{t} &= \alpha + c' \cdot \Delta \text{GPR}_{t} + b \cdot \Delta \mathcal{A}_{t} + \gamma' \mathbf{X}_{t} + \epsilon_{t}
+R_{t} &= \alpha + c \cdot \Delta \text{GPR}_{t} + \gamma' \mathbf{X}_{t} + \epsilon_{t} \quad \text{(Total Effect)} \\
+\Delta \mathcal{A}_{t} &= \alpha + a \cdot \Delta \text{GPR}_{t} + \theta' \mathbf{Z}_{t} + \eta_{t} \quad \text{(Mediator Model)} \\
+R_{t} &= \alpha + c' \cdot \Delta \text{GPR}_{t} + b \cdot \Delta \mathcal{A}_{t} + \gamma' \mathbf{X}_{t} + \epsilon_{t} \quad \text{(Direct Effect)}
 \end{align}
 
 The indirect effect is calculated as $a \times b$, and the proportion mediated is $(a \times b) / c$. We assess the significance of the mediation effect using bootstrap confidence intervals with 10,000 replications.
@@ -472,6 +422,7 @@ PE & -0.0134** & -2.11 & -0.0158** & -2.48 & -0.0129** & -2.04 \\
 
 \paragraph{Subsample Analysis} To examine the temporal stability and state-dependence of our results, we partition our sample into distinct sub-periods. First, we distinguish between the Pre-COVID (2018-2019) and COVID (2020-2023) eras. This split is crucial because the pandemic represents a significant structural break in global financial markets, characterized by unprecedented volatility and policy interventions. By estimating our model separately for these periods, we ensure that our findings regarding geopolitical ambiguity are not confounded by the unique market dynamics of the health crisis. Second, we segregate the sample into high and low GPR periods based on the median level of the geopolitical risk index. This analysis allows us to test for asymmetry in the pricing mechanism, specifically investigating whether the transmission of ambiguity to equity returns is intensified during regimes of elevated geopolitical tension compared to calmer periods.
 
+
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -482,4 +433,26 @@ These findings offer clear implications: investors need ambiguity-specific hedgi
 \bibliographystyle{apalike}
 \bibliography{geo}
 
+\clearpage
+\section*{Acknowledgements}
+This work was supported by the Zhejiang Provincial Philosophy and Social Sciences Planning Project (No. 26NDJC082YB), the Summit Advancement Disciplines of Zhejiang Province (Zhejiang Gongshang University - Statistics), and the Collaborative Innovation Center of Statistical Data Engineering Technology \& Application.
+
+\appendix
+
+\section{Ambiguity Measures based on Cross-Entropy}
+The cross-entropy ambiguity index offers a summary measure of model uncertainty by evaluating the divergence between an observed intraday return distribution, $\mu$, and a set of $k$ historically plausible benchmark distributions, $\Pi = \{\pi_1, \pi_2, \dots, \pi_k\}$. Its foundation lies in the Kullback-Leibler (KL) divergence, which quantifies the statistical distance from a benchmark $\pi$ to the observed distribution $\mu$:
+\begin{equation}
+    \mathcal{D}_{KL}(\mu \| \pi) = \sum_{i} \mu(x_i) \log\left(\frac{\mu(x_i)}{\pi(x_i)}\right)
+\end{equation}
+This divergence is intrinsically linked to cross-entropy, $H(\mu, \pi)$, via the relation $\mathcal{D}_{KL}(\mu \| \pi) = H(\mu, \pi) - H(\mu)$, where $H(\mu)$ is the entropy of $\mu$.
+
+A generalized ambiguity measure, $\mathcal{A}(\mu, \Pi; \alpha)$, can be formulated using a generalized mean of the divergences to the set of benchmarks:
+\begin{equation}
+    \mathcal{A}(\mu, \Pi; \alpha) = \left( \frac{1}{k} \sum_{j=1}^{k} \mathcal{D}_{KL}(\mu \| \pi_j)^{\alpha} \right)^{1/\alpha}
+\end{equation}
+The specific $\mathcal{A}_t$ index used in this paper is the limiting case of this generalized measure as $\alpha \to -\infty$, which simplifies to the minimum divergence:
+\begin{equation}
+    \mathcal{A}_t = \lim_{\alpha \to -\infty} \mathcal{A}(\mu, \Pi; \alpha) = \min_{\pi \in \Pi} \mathcal{D}_{KL}(\mu \| \pi)
+\end{equation}
+This formulation ensures the index robustly identifies the closest historical analogue for the current market state, providing a clear and interpretable signal of model misspecification and ambiguity.
 \end{document}
