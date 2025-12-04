@@ -248,19 +248,12 @@ V(f)=\inf_{p\in\mathcal{P}}\left\{\mathbb{E}_p[U(f)] + c(p)\right\},
 \end{equation}
 recovering multiplier preferences when $c(p)=\rho D_{\mathrm{KL}}(p\,\|\,q)$.
 
-Relative entropy offers key advantages:
-\begin{itemize}
-  \item Unified penalty: embeds ambiguity costs directly into utility or portfolio objectives;
-  \item Dynamic updating: adapts to new data by revising the reference distribution $q$;
-  \item Higher‑order sensitivity: captures skewness, kurtosis, and tail risk beyond variance;
-  \item Analytical solutions: yields tractable formulations for exponential family and quadratic utilities;
-  \item Statistical interpretation: connects to likelihood‑ratio tests and large‑deviation bounds, grounding ambiguity measures in empirical inference.
-\end{itemize}
+Relative entropy provides a unified penalty that embeds ambiguity costs directly in objective functions, updates naturally with new information through the reference distribution $q$, is sensitive to distributional shape—including skewness, kurtosis, and tail behavior—remains tractable under common utility families, and has a clear statistical interpretation via likelihood‑based inference and large‑deviation theory. These properties make it a practical and theoretically grounded choice for modeling ambiguity in finance.
 
 
 \subsection{Applications of Ambiguity in Financial Markets}
 
-Since the Ellsberg experiment revealed the importance of ambiguity, many subsequent scholars have conducted in-depth research on ambiguity within the framework of financial markets. Anderson, Ghysels, and Juergens \cite{anderson2009} proposed a method to measure ambiguity by utilizing the degree of forecaster disagreement. Their empirical results show a strong correlation between market excess returns and uncertainty (ambiguity). After investigating the role of uncertainty in asset pricing, they concluded that the uncertainty premium is significantly positive and improves the explanatory power of the Fama-French three-factor model. Furthermore, they pointed out that, compared to risk, uncertainty is a more important determinant of returns.Rieger and Wang \cite{rieger2012} measured countries’ degrees of ambiguity aversion through international risk attitude tests and compared these with the average equity premium in each country. Their results found that ambiguity aversion can serve as an explanatory factor for the equity premium puzzle, and countries with higher ambiguity aversion tend to have higher equity premiums.Viale et al.\cite{ariel2014} applied the multiple-prior expected utility framework to study the impact of ambiguity on the cross-section of U.S. stock pricing. They found that ambiguity is priced in the cross-section of stock returns independently of traditional risk factors such as market risk, size, value, and momentum. Moreover, compared to Bayesian learning models, time-varying ICAPM, and the Fama-French and Carhart four-factor models, asset pricing models incorporating ambiguity better explain the cross-sectional variation in stock returns.Williams \cite{williams2015} used changes in the VIX index to measure variations in ambiguity. Xu \cite{xu2016} employed proxies such as investor opinion divergence, abnormal turnover rates, fluctuations in operating cash flows, and listed company information disclosure to assess information ambiguity. The study found a significant relationship between information ambiguity and momentum strategy returns, indicating that ambiguity aversion explains the momentum effect in the Chinese stock market.Kim E-B et al. \cite{kim2021} examined the relationships among risk, ambiguity, and market excess returns across 21 international markets. When ambiguity is taken into account, the risk and equity premium in international stock markets are positively correlated. Investors’ expectations about return probabilities heavily influence their attitudes toward ambiguity: when expected return probabilities are high (low), investors tend to avoid (seek) ambiguity. This implies a positive correlation between expected probabilities and ambiguity premiums. This relationship is more pronounced in emerging markets. In countries with less transparent financial disclosure and stronger uncertainty avoidance, individuals tend to have higher aversion toward both risk and ambiguity.Zhijun Hu\cite{hu2022} demonstrated that under favorable market expectations, there exists a positive model premium (ambiguity aversion) and a negative risk premium (risk preference), which effectively explains the phenomenon of momentum trading, such as chasing winners and selling losers, in the market.
+Since the Ellsberg experiment revealed the importance of ambiguity, subsequent research has examined its role in financial markets. \citep{anderson2009} measure ambiguity using forecaster disagreement and document a strong link between uncertainty and excess returns, with an uncertainty premium that improves the explanatory power of standard factor models. \citep{rieger2012} analyze international survey evidence and show that ambiguity aversion helps account for the equity premium puzzle, with higher aversion associated with higher premiums across countries. \citep{ariel2014} apply multiple-prior expected utility and find that ambiguity is priced independently of traditional risk factors, outperforming Bayesian learning, time-varying ICAPM, and Fama–French–Carhart models in explaining the cross-section of returns. Using changes in the VIX index, \citep{williams2015} quantify time variation in ambiguity. \citep{xu2016} employ proxies such as opinion divergence, abnormal turnover, cash-flow volatility, and disclosure quality to capture information ambiguity and show that ambiguity aversion explains momentum in China’s stock market. Across 21 international markets, \citep{kim2021} report that accounting for ambiguity yields a positive association between risk and the equity premium; expected return probabilities shape investors’ ambiguity attitudes, with stronger effects in emerging markets and lower-transparency environments. \citep{hu2022} further show that favorable expectations generate a positive model premium (ambiguity aversion) alongside a negative risk premium (risk preference), consistent with momentum behaviors such as chasing winners and selling losers.
 % 4. Comparison Table of Ambiguity Measures
 
 To synthesize the foregoing discussion, Table~\ref{tab:ambiguity_methods} provides a structured comparison of mainstream ambiguity measurement approaches. The table aligns with the width of the main text to ensure visual coherence and clarity.
@@ -370,7 +363,7 @@ denotes the probability density function, $E[\phi(r)]$ is the expected probabili
 
 This study investigates all A-share listed companies in the Chinese stock market, utilizing their one-minute trading data from the listing date up to May 24, 2024. Stocks that were delisted as of May 27, 2024, are excluded from the analysis. The CSI 300 Index is employed as the market benchmark, with index data spanning from January 1, 2018, to May 24, 2024. The backtesting period aligns with this time frame. The objective is to explore the relationship between stock returns and ambiguity.
 
-To conduct the empirical analysis, we utilize three main variables derived from minute-level stock data: daily log return, AMBMP (ambiguity measured by the proposed method). The sample includes 3,611,676 observations.
+To conduct the empirical analysis, we utilize three main variables derived from minute-level stock data: daily log return and \(\mathcal{A}^{CEA}_t\) (ambiguity measured by the proposed method). The sample includes 3,611,676 observations.
 
 The variables used in this study are described as follows:
 
@@ -381,7 +374,7 @@ The variables used in this study are described as follows:
     \]
     where $P_t$ and $P_{t+1}$ are the closing prices on day $t$ and $t+1$, respectively. This variable serves as the key dependent variable, reflecting the stock's return on the following day.
     
-    \item \textbf{AMBMP (Ambiguity Measure by Proposed Method)}: AMBMP is the ambiguity measure developed in this study, which provides an alternative approach to measure market ambiguity. It accounts for factors like market sentiment and intra-day volatility, offering a more dynamic assessment of ambiguity compared to AMBE. Similar to AMBE, a higher value of AMBMP reflects a higher degree of market uncertainty.
+    \item \textbf{Ambiguity (CEA)}: \(\mathcal{A}^{CEA}_t\) is the ambiguity measure developed in this study. It accounts for short‑horizon informational instability using cross‑entropy between empirical intraday distributions and benchmark models. Higher values of \(\mathcal{A}^{CEA}_t\) indicate greater market uncertainty.
     
     \item \textbf{Realized Volatility (RV)}: Realized volatility is a measure of the stock's price fluctuation over a specified period. It is calculated as the standard deviation of the stock's return during the period. In this study, RV is computed on a daily basis using the one-minute price data, capturing the daily price fluctuation and providing insights into the risk level of the stock. The formula for RV is given by:
     \[
@@ -420,7 +413,7 @@ The descriptive statistics for these variables are presented in the following ta
       Skewness            & 5,153,428  & 0.352   & 1.059   & -15.460 & -0.071  & 0.195   & 0.609   & 15.460  \\
       Kurtosis            & 5,153,428  & 5.189   & 11.055  & -1.318  & 1.242   & 2.772   & 5.425   & 239.000 \\
       Turnover Rate       & 5,153,428  & 0.038   & 0.026   & 0.000   & 0.021   & 0.031   & 0.047   & 4.540   \\
-      AMBMP               & 5,153,428  & 0.214   & 0.432   & 0.000   & 0.000   & 0.000   & 0.001   & 0.043   \\
+      \(\mathcal{A}^{CEA}_t\) & 5,153,428  & 0.214   & 0.432   & 0.000   & 0.000   & 0.000   & 0.001   & 0.043   \\
       Daily Log Return    & 5,153,428  & -0.000  & 0.011   & -0.100  & -0.006  & 0.000   & 0.005   & 0.118   \\
       \bottomrule
     \end{tabular}%
@@ -443,7 +436,7 @@ To verify that our ambiguity measures capture a source of uncertainty distinct f
 
 \begin{table}[h]
   \centering
-  \caption{Correlation between AMBMP and Risk Measures}
+  \caption{Correlation between \(\mathcal{A}^{CEA}_t\) and Risk Measures}
   \label{tab:correlation_ambiguity_risk_ambmp}
   \begin{tabularx}{\textwidth}{Xcc}
     \toprule
@@ -457,17 +450,17 @@ To verify that our ambiguity measures capture a source of uncertainty distinct f
 \end{table}
 
 
-As shown in Table~\ref{tab:correlation_ambiguity_risk_ambmp}, AMBMP exhibit correlation coefficients that are very close to zero across all three traditional risk measures, despite being statistically significant due to the large sample size. This indicates that our ambiguity metrics do not simply proxy for volatility or higher-order moment characteristics, but instead capture an independent dimension of market uncertainty.
+As shown in Table~\ref{tab:correlation_ambiguity_risk_ambmp}, \(\mathcal{A}^{CEA}_t\) exhibits correlation coefficients that are very close to zero across traditional risk measures, indicating that the ambiguity metric does not simply proxy for volatility or higher‑order moments but captures an independent dimension of market uncertainty.
 
 \section{Empirical Methodology and Results}
 
 \subsection{Baseline Regression}
 
-To examine the incremental explanatory power of the AMBMP factors for subsequent returns, we augment the baseline specifications with a set of standard risk and trading‐activity controls. Specifically, we estimate the following multivariate OLS models:
+To examine the incremental explanatory power of the ambiguity factor \(\mathcal{A}^{CEA}_t\) for subsequent returns, we augment the baseline specifications with a set of standard risk and trading‑activity controls. Specifically, we estimate the following multivariate OLS models:
 
 \begin{equation}
 \resizebox{\linewidth}{!}{$
-  r_{t+1} = \alpha_1 + \beta_1\,\mathrm{AMBMP}_t
+  r_{t+1} = \alpha_1 + \beta_1\,\mathcal{A}^{CEA}_t
             + \gamma_{1}\,\mathrm{RV}_t
             + \gamma_{2}\,\mathrm{Skewness}_t
             + \gamma_{3}\,\mathrm{Kurtosis}_t
@@ -479,7 +472,7 @@ $}
 where
 \begin{itemize}
   \item \(r_{t+1}\) denotes the log return on day \(t+1\);
-  \item \(\mathrm{AMBMP}_t\) are the ambiguity measures computed on day \(t\);
+  \item \(\mathcal{A}^{CEA}_t\) is the ambiguity measure computed on day \(t\);
   \item \(\mathrm{RV}_t\) is the realized intraday volatility on day \(t\);
   \item \(\mathrm{Skewness}_t\) and \(\mathrm{Kurtosis}_t\) are the third and fourth central moments of intraday returns, respectively;
   \item \(\mathrm{TurnoverRate}_t\) represents the share turnover rate on day \(t\);
@@ -490,13 +483,13 @@ By incorporating these controls, the estimated coefficients \(\beta_1\) reflect 
 
 \begin{table}[h!]
   \centering
-  \caption{Model 2: PanelOLS Estimates with AMBMP and Controls}
+\caption{Model 2: PanelOLS Estimates with \(\mathcal{A}^{CEA}_t\) and Controls}
   \label{tab:panelols_model2}
   \begin{tabularx}{\textwidth}{Xrrrrr}
     \toprule
     Variable         & Coefficient & Std.\ Error & \(t\)-stat & \(p\)-value & VIF    \\
     \midrule
-    AMBMP            & \(0.007\)   & \(0.000\)   & \(7.880\)   & \(0.000\)   & 1.011  \\
+    \(\mathcal{A}^{CEA}_t\) & \(0.007\)   & \(0.000\)   & \(7.880\)   & \(0.000\)   & 1.011  \\
     RV               & \(0.002\)   & \(0.001\)   & \(3.019\)   & \(0.003\)   & 1.078  \\
     Skewness         & \(-0.001\)  & \(0.001\)   & \(-2.606\)  & \(0.009\)   & 1.370  \\
     Kurtosis         & \(0.001\)   & \(0.001\)   & \(1.102\)   & \(0.270\)   & 1.408  \\
@@ -514,11 +507,11 @@ Furthermore, while realized volatility (\(\beta_{\mathrm{RV}} = 0.002\), \(p < 0
 These results underscore the growing importance of ambiguity in understanding market behavior. While traditional risk metrics primarily focus on the direct effects of volatility or statistical moments, our findings suggest that ambiguity—reflected in the AMBMP factor—should be considered as a separate and potentially more valuable measure of market uncertainty. In practical terms, this means that policies aimed at enhancing market liquidity should consider not only volatility and other risk factors but also the level of uncertainty and ambiguity faced by market participants. Given that AMBMP is shown to be significantly associated with future returns, its incorporation into market analysis could provide deeper insights into market liquidity dynamics and the strategies of liquidity providers in both stable and uncertain market environments.
 
 \subsection{Granger Causality Test}
-To test for the potential predictive relationship between the ambiguity measure $ \text{AMBMP} $ and future returns, we conducted a Granger causality test. The results for lag orders 1 to 5 are summarized in Table~\ref{tab:granger} below.
+To test for the potential predictive relationship between the ambiguity measure $ \mathcal{A}^{CEA}_t $ and future returns, we conducted a Granger causality test. The results for lag orders 1 to 5 are summarized in Table~\ref{tab:granger} below.
 
 \begin{table}[h!]
 \centering
-\caption{Granger Causality Test Results for AMBMP and Future Returns}
+\caption{Granger Causality Test Results for \(\mathcal{A}^{CEA}_t\) and Future Returns}
 \label{tab:granger}
 \begin{tabularx}{\textwidth}{X c c}
 \toprule
@@ -533,7 +526,7 @@ Lag & F-statistic & p-value \\
 \end{tabularx}
 \end{table}
 
-The results indicate that the null hypothesis of no Granger causality can be rejected at conventional significance levels for all five lags.  Specifically, the p-values are extremely small, which strongly suggests a statistically significant predictive relationship between the ambiguity measure $ \text{AMBMP} $ and future returns.  This implies that $ \text{AMBMP} $ contains information that can forecast future returns across multiple time horizons.   While these findings highlight the informational content of ambiguity in forecasting returns, further research is needed to evaluate its economic significance and potential interactions with other market factors.
+The results indicate that the null hypothesis of no Granger causality can be rejected at conventional significance levels for all five lags. Specifically, the p‑values are extremely small, which strongly suggests a statistically significant predictive relationship between $ \mathcal{A}^{CEA}_t $ and future returns. This implies that $ \mathcal{A}^{CEA}_t $ contains information that can forecast future returns across multiple time horizons.
 
 \subsection{Mechanism Analysis: The Role of Liquidity}
 To further investigate the underlying mechanism through which ambiguity influences future returns, we conduct a conditional mediation analysis following the framework proposed by Preacher, Rucker, and Hayes\cite{preacher2007moderated}. This approach allows us to examine whether the predictive relationship between ambiguity (AMBMP) and next-day returns operates through liquidity (measured by turnover rate), while accounting for the moderating role of current market liquidity conditions. Specifically, we first median-split the sample into low-liquidity and high-liquidity regimes based on turnover rate, then estimate separate mediation paths for each regime. All continuous variables were winsorized at the 5\% and 95\% levels and standardized to facilitate coefficient comparison. The conditional indirect effects were computed as the product of the path coefficients (a×b), with statistical significance assessed through bootstrap replications and Sobel tests.
@@ -601,20 +594,20 @@ To further investigate the predictive power and stability of the ambiguity measu
 We first examine whether the effect of ambiguity on future returns differs between bull and bear markets. Market regimes often reflect broader economic conditions and investor sentiment, which may alter how ambiguity is perceived and priced. We classify bull and bear markets using a commonly accepted threshold method based on the cumulative return of the market index over a rolling window. Dummy variables for bull and bear markets are then incorporated into the regression model to capture regime-dependent effects:
 
 \begin{equation}
-r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Controls}_t + \delta_{\text{bull}} \cdot \text{bull\_market} + \delta_{\text{bear}} \cdot \text{bear\_market} + \varepsilon_{t+1}
+r_{t+1} = \alpha + \beta_1 \cdot \mathcal{A}^{CEA}_t + \gamma_1 \cdot \mathrm{Controls}_t + \delta_{\text{bull}} \cdot \text{bull\_market} + \delta_{\text{bear}} \cdot \text{bear\_market} + \varepsilon_{t+1}
 \end{equation}
 
 Here, \texttt{bull\_market} and \texttt{bear\_market} are dummy variables indicating bull and bear market phases, respectively. The coefficients $\delta_{\text{bull}}$ and $\delta_{\text{bear}}$ capture the differential impact of market regimes on the returns beyond the effect of ambiguity and control variables.
 
 \begin{table}[h!]
 \centering
-\caption{AMBMP Regression Results with Market Regime Dummies}
+\caption{Regression Results with \(\mathcal{A}^{CEA}_t\) and Market Regime Dummies}
 \label{tab:ambmp_regression_results}
 \begin{tabularx}{\textwidth}{Xccccc}
 \toprule
 \textbf{Variable} & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{t-stat} & \textbf{p-value} & \textbf{VIF} \\
 \midrule
-AMBMP & 0.007 & 0.0006 & 11.071 & 0.000 & 1.001 \\
+\(\mathcal{A}^{CEA}_t\) & 0.007 & 0.0006 & 11.071 & 0.000 & 1.001 \\
 RV & 0.003 & 0.0006 & 4.944 & 0.000 & 1.118 \\
 Skewness & –0.001 & 0.0004 & –2.493 & 0.012 & 1.370 \\
 Kurtosis & –0.000 & 0.0002 & –0.015 & 0.987 & 1.410 \\
@@ -632,7 +625,7 @@ The regression results indicate that AMBMP maintains a significant positive rela
 Volatility is a key characteristic of financial markets and often clusters during periods of market stress. We next examine whether the predictive power of AMBMP varies across high and low volatility environments. We split the sample into subgroups based on the 33rd and 66th percentiles of realized volatility (RV): the low-volatility subgroup (RV below the 33rd percentile) and the high-volatility subgroup (RV above the 66th percentile). The regression model is estimated separately for each subgroup:
 
 \begin{equation}
-r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Controls}_t + \varepsilon_{t+1}
+r_{t+1} = \alpha + \beta_1 \cdot \mathcal{A}^{CEA}_t + \gamma_1 \cdot \mathrm{Controls}_t + \varepsilon_{t+1}
 \end{equation}
 
 \begin{table}[h!]
@@ -644,13 +637,13 @@ r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Contr
 \textbf{Parameter} & \textbf{Coefficient} & \textbf{Std. Err.} & \textbf{T-stat} & \textbf{P-value} \\
 \midrule
 \textbf{Low RV Subgroup} & & & & \\
-AMBMP & 0.006 & 0.001 & 4.607 & 0.000 \\
+\(\mathcal{A}^{CEA}_t\) & 0.006 & 0.001 & 4.607 & 0.000 \\
 Skewness & 0.001 & 0.001 & 0.535 & 0.592 \\
 Kurtosis & –0.001 & 0.001 & –0.977 & 0.328 \\
 Turnover Rate & –0.001 & 0.001 & –0.543 & 0.586 \\
 \midrule
 \textbf{High RV Subgroup} & & & & \\
-AMBMP & 0.007 & 0.001 & 9.990 & 0.000 \\
+\(\mathcal{A}^{CEA}_t\) & 0.007 & 0.001 & 9.990 & 0.000 \\
 Skewness & –0.002 & 0.001 & –2.979 & 0.003 \\
 Kurtosis & 0.001 & 0.001 & 1.766 & 0.077 \\
 Turnover Rate & 0.000 & 0.001 & 0.054 & 0.956 \\
@@ -671,7 +664,7 @@ plevel_t = \frac{\sum_{i=1}^n close_i \cdot \mathbb{I}(close_i \leq close_t)}{\s
 This measure ranges between 0 and 1, with higher values indicating that the stock's price is high relative to the broader market. We hypothesize that investors may perceive ambiguity differently for high-priced stocks (often growth stocks) versus low-priced stocks (often value or distressed stocks). We divide the sample into low, median, and high plevel subgroups and estimate the regression model for each:
 
 \begin{equation}
-r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Controls}_t + \varepsilon_{t+1}
+r_{t+1} = \alpha + \beta_1 \cdot \mathcal{A}^{CEA}_t + \gamma_1 \cdot \mathrm{Controls}_t + \varepsilon_{t+1}
 \end{equation}
 
 \begin{table}[h!]
@@ -683,14 +676,14 @@ r_{t+1} = \alpha + \beta_1 \cdot \mathrm{AMBMP}_t + \gamma_1 \cdot \mathrm{Contr
 \textbf{Parameter} & \textbf{Coefficient} & \textbf{Std. Err.} & \textbf{T-stat} & \textbf{P-value} \\
 \midrule
 \textbf{Low Plevel Subgroup} & & & & \\
-AMBMP & 0.006 & 0.001 & 5.662 & 0.000 \\
+\(\mathcal{A}^{CEA}_t\) & 0.006 & 0.001 & 5.662 & 0.000 \\
 RV & 0.003 & 0.001 & 2.897 & 0.004 \\
 Skewness & –0.002 & 0.001 & –1.478 & 0.139 \\
 Kurtosis & –0.000 & 0.001 & –0.337 & 0.736 \\
 Turnover Rate & –0.002 & 0.002 & –1.190 & 0.234 \\
 \midrule
 \textbf{High Plevel Subgroup} & & & & \\
-AMBMP & 0.007 & 0.001 & 7.223 & 0.000 \\
+\(\mathcal{A}^{CEA}_t\) & 0.007 & 0.001 & 7.223 & 0.000 \\
 RV & 0.003 & 0.001 & 3.535 & 0.000 \\
 Skewness & –0.001 & 0.001 & –1.450 & 0.147 \\
 Kurtosis & 0.000 & 0.001 & 0.445 & 0.657 \\
@@ -716,7 +709,7 @@ To examine how the predictive power of the two ambiguity measures varies across 
 Within each ambiguity quintile \( q \), we estimate the following single-factor panel regression model:
 
 \begin{equation}
-r_{i,t+1} = \alpha_q + \beta_q\,\text{AMBMP}_{i,t} + \varepsilon_{i,t+1}, 
+r_{i,t+1} = \alpha_q + \beta_q\,\mathcal{A}^{CEA}_{i,t} + \varepsilon_{i,t+1}, 
 \quad q = 1,2,\ldots,5,    
 \end{equation}
 
@@ -724,7 +717,7 @@ where \( r_{i,t+1} \) denotes the log return of stock \( i \) on day \( t+1 \), 
 
 \begin{table}[ht]
 \centering
-\caption{AMBMP Regression Results by Uncertainty Quantile}
+\caption{Regression Results by Uncertainty Quantile with \(\mathcal{A}^{CEA}_t\)}
 \label{tab:ambmp_results}
 \begin{tabularx}{\textwidth}{Xcccc}
 \toprule
@@ -779,9 +772,9 @@ The \textbf{maximum drawdown} is calculated as:
 where \(P_t\) is the asset value at time \(t\), and \(P_{\text{peak}}\) is the highest asset value in the historical data.
 
 % ---- Narrative ----
-Table~\ref{tab:factor_performance} summarizes the key performance metrics for the AMBE and AMBMP factors over the evaluation period.
+Table~\ref{tab:factor_performance} summarizes the key performance metrics for the AMBE and \(\mathcal{A}^{CEA}_t\) factors over the evaluation period.
 The AMBE factor’s mean rank correlation (RankIC) is –0.0334, which is negative but small in magnitude, indicating a certain degree of stability in cross‑sectional daily‑return prediction; its rank correlation information ratio (RankICIR) is –1.0587, reflecting relatively low temporal volatility. The AMBE long–short portfolio achieved an annualized return of 28.75\%, a maximum drawdown of only 1.24\%, and a Sharpe ratio of 11.81, demonstrating robust excess returns at a low risk level.
-In contrast, the AMBMP factor performed more strongly: its mean RankIC is 0.0387 and its RankICIR is 1.4385, indicating a stable positive relationship with future returns; its long–short portfolio delivered an annualized return of 49.24\%, a maximum drawdown of only 0.48\%, and a Sharpe ratio of 24.41, clearly outperforming AMBE on a risk‑adjusted basis.
+In contrast, \(\mathcal{A}^{CEA}_t\) performed more strongly: its mean RankIC is 0.0387 and its RankICIR is 1.4385, indicating a stable positive relationship with future returns; its long–short portfolio delivered an annualized return of 49.24\%, a maximum drawdown of only 0.48\%, and a Sharpe ratio of 24.41, clearly outperforming AMBE on a risk‑adjusted basis.
 
 % ---- Results Table (full text width) ----
 \begin{table}[ht]
@@ -794,7 +787,7 @@ In contrast, the AMBMP factor performed more strongly: its mean RankIC is 0.0387
       Factor & RankIC Mean & RankICIR & Annual Return & Max Drawdown & Sharpe Ratio \\
       \midrule
       AMBE  & -0.033355   & -1.058740 & 0.287538      & -0.012359    & 11.808220    \\
-      AMBMP &  0.038704   &  1.438471 & 0.492393      & -0.004790    & 24.405247    \\
+      \(\mathcal{A}^{CEA}_t\) &  0.038704   &  1.438471 & 0.492393      & -0.004790    & 24.405247    \\
       \bottomrule
     \end{tabular}%
   }
@@ -821,10 +814,10 @@ where \(N_i\) is the number of stocks in the \(i\)-th group, and \(r_j\) is the 
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{AMBMP Deciles.png}
-        \caption{AMBMP Deciles}
+        \caption{CEA (\(\mathcal{A}^{CEA}_t\)) Deciles}
         \label{fig:ambmp-deciles}
     \end{subfigure}
-    \caption{Comparison of cumulative net‐value performance of decile portfolios and the long–short strategy constructed using AMBE and AMBMP methods.}
+    \caption{Comparison of cumulative net‑value performance of decile portfolios and the long–short strategy constructed using AMBE and \(\mathcal{A}^{CEA}_t\).}
     \label{fig:deciles-comparison}
 \end{figure}
 
