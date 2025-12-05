@@ -1,8 +1,6 @@
-
 ## **Paper Title:** Global Geopolitical Risk, Ambiguity, and Emerging Market Returns: Evidence from China
 
-
-### Summary 
+### Summary
 
 - The paper proposes a daily ambiguity measure built from a cross-entropy/KL framework to distinguish ambiguity from volatility in asset pricing.
 - Using Chinese market data (CSI 300 and constituents), the study tests whether geopolitical risk increases ambiguity and whether ambiguity is negatively priced in returns.
@@ -11,18 +9,18 @@
 
 ### Major Comments
 
-1. Problem: Novelty relative to existing ambiguity proxies and smooth-ambiguity implementations is not fully articulated. Suggestion: Sharpen the methodological contribution by contrasting with variance-of-variance, forecast dispersion, and model-uncertainty approaches; add theoretical links and empirical head-to-head comparisons.
-2. Problem: Potential reverse causality from returns/volatility to ambiguity could bias estimates. Suggestion: Employ stronger designs (e.g., lag structures, external instruments tied to exogenous geopolitical events, placebo windows) and document robustness to alternative timing assumptions.
-3. Problem: The mediator–outcome treatment may be sensitive to omitted macro or micro controls. Suggestion: Expand controls (liquidity, turnover, illiquidity, governance) and include fixed effects where relevant; report variance inflation and partial R² to show incremental explanatory power.
-4. Problem: Cross-sectional Fama–MacBeth results may mask heterogeneity in industry or size/liquidity segments. Suggestion: Provide stratified analyses by sector, size/liquidity deciles, and test interaction terms to ensure stability of the ambiguity premium.
-5. Problem: The link between daily GPR and local-market ambiguity may suffer from news timing and coverage biases. Suggestion: Validate using alternative GPR series, Chinese-language sources, and event-based measures; show results with rolling-news windows and sentiment controls.
+1. Novelty relative to existing ambiguity proxies and smooth-ambiguity implementations is not fully articulated; clarify the methodological contribution by explicitly positioning the KL-based measure against variance-of-variance and forecast-dispersion proxies, and strengthen theoretical links in the text.
+2. Potential reverse causality from returns/volatility to ambiguity could bias interpretation; explain temporal ordering and design choices, and add a brief discussion of why reverse causality is unlikely under the adopted setup.
+3. The mediator–outcome treatment may be sensitive to omitted macro or micro controls; state the rationale for the selected control set, acknowledge limitations, and indicate how residual confounding is mitigated.
+4. Cross-sectional results may mask heterogeneity across industry or size/liquidity segments; provide interpretive context on where ambiguity effects are expected to be stronger or weaker, and note any observable patterns from descriptive statistics.
+5. The link between daily GPR and local-market ambiguity may face timing and coverage considerations; document source coverage, local-time conversions, and the handling of news windows, and include a short limitations paragraph.
 
 ### Minor Comments
 
 - Add exact construction details for realized volatility (sampling interval, trading hours, microstructure filters).
 - Provide a short data-quality section on survivorship, ST stocks, and winsorization thresholds.
-- Standardize confidence-level markers and HAC lag choices across all tables.
-- Include a brief intuition for the KL-minimization step with a schematic figure.
+- Standardize confidence-level markers across all tables.
+- Include a brief intuition for the KL-minimization step.
 - Verify consistency of local-time conversions between U.S.-based GPR and China trading calendars.
 - Report average cross-section size and dispersion for ambiguity betas over time.
 - Add references situating ambiguity in emerging-market contexts.

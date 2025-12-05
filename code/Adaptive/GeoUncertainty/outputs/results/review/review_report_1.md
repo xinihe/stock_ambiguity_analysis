@@ -1,21 +1,24 @@
-**BEGIN REVIEW**
+## **Paper Title:** Global Geopolitical Risk, Ambiguity, and Emerging Market Returns: Evidence from China
 
-**Paper Title:** Global Geopolitical Risk, Ambiguity, and Emerging Market Returns: Evidence from China
-**Paper ID:** geopoliticalAmb03_article
 
-### Part 1: Summary of the Paper
+### Recommendation (Confidential to the Editor)
 
-This paper examines how global geopolitical risk (GPR) influences Chinese equity returns through two distinct uncertainty channels: volatility (risk) and ambiguity (Knightian uncertainty). The authors construct daily ambiguity measures using a cross-entropy/KL-divergence framework and assess their pricing in both time-series and cross-sectional settings, including mediation analysis to quantify the GPR→ambiguity→returns pathway and moderation by SOE status. The main findings are that GPR significantly raises financial ambiguity, ambiguity is negatively priced, and including ambiguity alongside volatility improves explanatory power. Evidence is assembled using time-series regressions for the CSI 300, Fama–MacBeth cross-sectional tests for constituents, and robustness checks, with heterogeneity explored through SOE moderation.
+- Major Revisions Required.
+- The paper addresses an important question with promising methodology, but causal identification, measurement robustness, and generalizability require additional analyses; resolving these will materially strengthen the contribution.
 
-### Part 2: Major Comments
+### Summary
 
-1. The causal interpretation in the mediation analysis relies on strong assumptions and may be underidentified given potential confounders and timing frictions; tighten identification by aligning event-time windows, using plausibly exogenous instruments with validity checks, and reporting sensitivity to mediator endogeneity.
-2. The KL-based ambiguity measure depends on the choice of benchmark distributions and implicit stationarity across regimes; detail how benchmarks are selected, justify stationarity assumptions, and add concise robustness using alternative benchmark sets, rolling windows, and allowance for heavy tails.
-3. Frequency and timing alignment between daily GPR, ambiguity, realized volatility, and market/stock returns could introduce measurement mismatch; clarify timestamp conventions (local vs UTC), intraday aggregation rules, and lead–lag structures, and verify stability with close-to-close aligned variants.
-4. The SOE moderation may reflect sample composition or correlated institutional features rather than a distinct cushion from ambiguity; consider alternative SOE definitions, matched-sample or simple balance checks, and add governance/liquidity controls to isolate the mechanism.
-5. The contribution would benefit from clearer positioning of the ambiguity channel relative to volatility-focused frameworks; strengthen the narrative in the introduction and related work to articulate incremental insight and practical relevance without expanding the empirical scope.
+The paper studies how global geopolitical risk affects Chinese equity returns via volatility and ambiguity. It builds a daily ambiguity measure using a cross-entropy/KL approach and tests pricing in time-series and cross-section, including mediation and SOE moderation. The results show GPR increases ambiguity, ambiguity is negatively priced, and adding ambiguity improves model fit.
 
-### Part 3: Minor Comments
+### Major Comments
+
+1. The causal interpretation in the mediation analysis relies on strong assumptions and may be underidentified given potential confounders and timing frictions; clarify identification assumptions and timing choices, and provide a brief narrative explaining why the observed patterns are consistent with the intended causal pathway.
+2. The KL-based ambiguity measure depends on the choice of benchmark distributions and implicit stationarity across regimes; explain the rationale for benchmark selection and stationarity, and add a short methodological note discussing how plausible alternative choices would affect interpretation.
+3. Frequency and timing alignment between daily GPR, ambiguity, realized volatility, and market/stock returns could introduce measurement mismatch; clearly state timestamp conventions (local vs UTC), intraday aggregation rules, and lead–lag considerations, and comment on why the chosen alignment is appropriate.
+4. The SOE moderation may reflect sample composition or correlated institutional features rather than a distinct cushion from ambiguity; define SOE classification precisely, summarize sample characteristics, and discuss the mechanism in text with supportive descriptive evidence.
+5. The contribution would benefit from clearer positioning of the ambiguity channel relative to volatility-focused frameworks; refine the introduction and related work to emphasize incremental insight and practical relevance, and tighten the discussion of empirical results accordingly.
+
+### Minor Comments
 
 - Clarify the sample period and exact trading days for all subsamples (pre-COVID vs COVID) with start/end dates.
 - Define all variables in table captions (e.g., “ΔAmbiguity”, “RV”) and specify units/frequencies.
@@ -24,10 +27,3 @@ This paper examines how global geopolitical risk (GPR) influences Chinese equity
 - Add a brief algorithmic summary of the ambiguity measure in Appendix A with inputs/outputs.
 - Report instrument strength and overidentification tests where IV is used.
 - Citations: include more up-to-date references and situate comparisons to contemporary uncertainty proxies (e.g., EPU and recent geopolitical uncertainty measures).
-
-### Part 4: Recommendation (Confidential to the Editor)
-
-- Major Revisions Required.
-- The paper addresses an important question with promising methodology, but causal identification, measurement robustness, and generalizability require additional analyses; resolving these will materially strengthen the contribution.
-
-**END REVIEW**
