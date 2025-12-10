@@ -21,19 +21,19 @@ dates = pd.date_range(start='2018-01-01', periods=n_days, freq='B')
 market_returns = np.random.normal(0.0005, 0.015, n_days)
 
 # AMBE strategy (moderate performance)
-ambe_alpha = 0.001
-ambe_returns = market_returns + ambe_alpha + np.random.normal(0, 0.01, n_days)
+ambe_alpha = 0.0008
+ambe_returns = market_returns + ambe_alpha + np.random.normal(0, 0.0095, n_days)
 
-# CEA strategy (better performance)
-cea_alpha = 0.002
-cea_returns = market_returns + cea_alpha + np.random.normal(0, 0.008, n_days)
+# CEA strategy (slightly better performance)
+cea_alpha = 0.0012
+cea_returns = market_returns + cea_alpha + np.random.normal(0, 0.009, n_days)
 
 # Add some crisis periods with different behaviors
 crisis_periods = [(100, 150), (350, 400), (750, 800), (1200, 1250)]
 for start, end in crisis_periods:
     market_returns[start:end] = np.random.normal(-0.005, 0.03, end-start)
-    ambe_returns[start:end] = np.random.normal(0.002, 0.02, end-start)
-    cea_returns[start:end] = np.random.normal(0.005, 0.015, end-start)
+    ambe_returns[start:end] = np.random.normal(-0.002, 0.022, end-start)
+    cea_returns[start:end] = np.random.normal(-0.001, 0.02, end-start)
 
 # Calculate cumulative returns
 market_cum = np.cumprod(1 + market_returns)
@@ -58,6 +58,7 @@ ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
 
 # Panel (b): Drawdown Analysis
 def calculate_drawdown(series):
+    series = pd.Series(series)
     peak = series.expanding(min_periods=1).max()
     drawdown = (series - peak) / peak
     return drawdown
