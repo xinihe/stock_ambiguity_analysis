@@ -193,14 +193,14 @@ Financial markets are complex systems operating under conditions of pervasive un
 
 % Using high-frequency data from the CSI 300 index and representative stocks, we explore how ambiguity affects excess returns. Empirical findings show that ambiguity is negatively associated with short-term portfolio performance, particularly during volatile market periods. Additionally, portfolio strategies incorporating the ambiguity index outperform traditional risk-based approaches, highlighting the practical value of quantifying ambiguity in investment decision-making.
 
-To address this gap, this paper introduces a new measure of ambiguity, which we term the Cross-Entropy Ambiguity (CEA) index, grounded in the multiplier-preference model pioneered by \cite{hansen2001}. Our motivation stems from the limitations of existing ambiguity measures and the ability of a cross-entropy-based approach to capture a more dynamic, granular form of uncertainty in financial markets. The use of cross-entropy is motivated by its ability to precisely quantify the \textit{information lost} when a model probability distribution is used to approximate the true, unknown distribution \cite{klibanoff2005}. This directly measures the inefficiency of a financial model, providing a highly interpretable and robust proxy for model misspecification. The mathematical relationship between Cross-Entropy and KL Divergence \cite{mackay2003information} means that minimizing cross-entropy is equivalent to minimizing the Kullback-Leibler (KL) divergence between the empirical and benchmark distributions. The multiplier-preference framework \cite{epstein2008} provides a powerful lens through which to understand ambiguity aversion. It models decision-making under uncertainty by evaluating options against the worst-case prior within a set of plausible distributions \cite{maccheroni2006}, with KL divergence serving as the penalty for how far these priors deviate from a nominal one \cite{epstein2008}. This allows the measure to capture a decision-maker's perceived ambiguity in a quantifiable way, directly reflecting their aversion to uncertainty about the underlying probabilities. 
+To address this gap, this paper introduces a new measure of ambiguity, denoted by $\mathcal{A}^{CEA}_t$, grounded in the multiplier-preference model pioneered by \cite{hansen2001}. Our motivation stems from the limitations of existing ambiguity measures and the ability of a cross-entropy-based approach to capture a more dynamic, granular form of uncertainty in financial markets. The use of cross-entropy is motivated by its ability to precisely quantify the \textit{information lost} when a model probability distribution is used to approximate the true, unknown distribution \cite{klibanoff2005}. This directly measures the inefficiency of a financial model, providing a highly interpretable and robust proxy for model misspecification. The mathematical relationship between Cross-Entropy and KL Divergence \cite{mackay2003information} means that minimizing cross-entropy is equivalent to minimizing the Kullback-Leibler (KL) divergence between the empirical and benchmark distributions. The multiplier-preference framework \cite{epstein2008} provides a powerful lens through which to understand ambiguity aversion. It models decision-making under uncertainty by evaluating options against the worst-case prior within a set of plausible distributions \cite{maccheroni2006}, with KL divergence serving as the penalty for how far these priors deviate from a nominal one \cite{epstein2008}. This allows the measure to capture a decision-maker's perceived ambiguity in a quantifiable way, directly reflecting their aversion to uncertainty about the underlying probabilities. 
 
 % Strength of the proposed model
-Our proposed measure, CEA, distinguishes itself from existing methods by leveraging high-frequency intraday data to capture the full-shape changes of return distributions, including tail behavior and skewness, which go beyond traditional volatility-based measures. Methods such as Choquet Expected Utility (CEU)  and Maxmin Expected Utility (MEU)  are primarily theoretical, using non-additive beliefs or multiple priors that are less direct for empirical quantification using market data and often lead to non-linear optimization. Similarly, measures like Expected Utility Under Uncertainty (EUUP)  quantify ambiguity by examining the variance of probability densities, a more simplistic approach that may not capture the full distributional shape or higher-order moments crucial in financial markets. In contrast, CEA’s unique theoretical foundation provides a data-driven quantification method that connects directly to financial data and is designed for dynamic portfolio management. A key advantage is its superior predictive power for future returns, a capability that is central to the paper’s argument for its utility in practical financial applications. It also provides direct connections to system identification and risk measure theory, enabling a data-driven and interpretable approach that is not as apparent with other methods.
+Our proposed measure, $\mathcal{A}^{CEA}_t$, distinguishes itself from existing methods by leveraging high-frequency intraday data to capture the full-shape changes of return distributions, including tail behavior and skewness, which go beyond traditional volatility-based measures. Methods such as Choquet Expected Utility (CEU)  and Maxmin Expected Utility (MEU)  are primarily theoretical, using non-additive beliefs or multiple priors that are less direct for empirical quantification using market data and often lead to non-linear optimization. Similarly, measures like Expected Utility Under Uncertainty (EUUP)  quantify ambiguity by examining the variance of probability densities, a more simplistic approach that may not capture the full distributional shape or higher-order moments crucial in financial markets. In contrast, the unique theoretical foundation of $\mathcal{A}^{CEA}_t$ provides a data-driven quantification method that connects directly to financial data and is designed for dynamic portfolio management. A key advantage is its superior predictive power for future returns, a capability that is central to the paper’s argument for its utility in practical financial applications. It also provides direct connections to system identification and risk measure theory, enabling a data-driven and interpretable approach that is not as apparent with other methods.
 
-This paper makes several distinct contributions to the fields of financial economics and distributionally robust optimization. First, we introduce a novel, cross-entropy-based ambiguity measure, the CEA, developed under the multiplier-preference model. This measure uniquely quantifies return ambiguity using high-frequency intraday data, providing a dynamic and granular characterization of uncertainty that is distinct from traditional risk metrics and exhibits superior predictive power for future returns. Second, we provide a rigorous empirical analysis demonstrating the superior predictive power of CEA. Our findings reveal a robust positive relationship between CEA and short term returns, an effect that is statistically distinct from that of conventional risk measures such as realized volatility, skewness, and kurtosis. The minimal multicollinearity between our measure and these traditional metrics further highlights that CEA captures an independent dimension of market uncertainty. Third, and most importantly, we conduct a series of causal econometric analyses to establish that CEA has a distinct and independent effect on future returns. Our methodology extends beyond simple correlation by incorporating several key analyses, including Granger causality to demonstrate predictive power across multiple time lags. We analyze how the relationship between ambiguity and returns is moderated by different market conditions (bull vs. bear markets) and varying levels of realized volatility. This provides a nuanced understanding of when and how ambiguity becomes a more significant factor. By including control variables like turnover rate in our regressions, we isolate the unique effect of ambiguity from other market factors. Furthermore, we investigate potential mediating channels, such as liquidity provision, through which ambiguity influences returns. To address potential endogeneity and provide a more robust causal inference, we propose and implement an instrumental variable approach, which strengthens the conclusion that ambiguity is a distinct and independent driver of returns, rather than just a correlated proxy. 
+This paper makes several distinct contributions to the fields of financial economics and distributionally robust optimization. First, we introduce a novel, cross-entropy-based ambiguity measure, $\mathcal{A}^{CEA}_t$, developed under the multiplier-preference model. This measure uniquely quantifies return ambiguity using high-frequency intraday data, providing a dynamic and granular characterization of uncertainty that is distinct from traditional risk metrics and exhibits superior predictive power for future returns. Second, we provide a rigorous empirical analysis demonstrating the superior predictive power of $\mathcal{A}^{CEA}_t$. Our findings reveal a robust positive relationship between $\mathcal{A}^{CEA}_t$ and short term returns, an effect that is statistically distinct from that of conventional risk measures such as realized volatility, skewness, and kurtosis. The minimal multicollinearity between our measure and these traditional metrics further highlights that $\mathcal{A}^{CEA}_t$ captures an independent dimension of market uncertainty. Third, and most importantly, we conduct a series of causal econometric analyses to establish that $\mathcal{A}^{CEA}_t$ has a distinct and independent effect on future returns. Our methodology extends beyond simple correlation by incorporating several key analyses, including Granger causality to demonstrate predictive power across multiple time lags. We analyze how the relationship between ambiguity and returns is moderated by different market conditions (bull vs. bear markets) and varying levels of realized volatility. This provides a nuanced understanding of when and how ambiguity becomes a more significant factor. By including control variables like turnover rate in our regressions, we isolate the unique effect of ambiguity from other market factors. Furthermore, we investigate potential mediating channels, such as liquidity provision, through which ambiguity influences returns. To address potential endogeneity and provide a more robust causal inference, we propose and implement an instrumental variable approach, which strengthens the conclusion that ambiguity is a distinct and independent driver of returns, rather than just a correlated proxy. 
 
-The remainder of this paper is structured as follows. Section 2 provides a comprehensive review of the theoretical foundations of ambiguity and existing measures. Section 3 details the methodology for constructing the CEAM. Section 4 presents the empirical results, including the econometric analyses and backtesting. Section 5 concludes with a summary of findings and outlines directions for future research.
+The remainder of this paper is structured as follows. Section 2 provides a comprehensive review of the theoretical foundations of ambiguity and existing measures. Section 3 details the methodology for constructing $\mathcal{A}^{CEA}_t$. Section 4 presents the empirical results, including the econometric analyses and backtesting. Section 5 concludes with a summary of findings and outlines directions for future research.
 
 \section{Literature review}
 
@@ -270,7 +270,7 @@ To synthesize the foregoing discussion, Table~\ref{tab:ambiguity_methods} provid
     MEU (Gilboa \& Schmeidler, 1989) & Multiple prior distributions & Uses worst-case utility evaluation to capture ambiguity-averse behavior \\
     KL Divergence (Hansen \& Sargent, 2001) & Multiplier / Variational Preferences & Introduces relative entropy as penalty for deviation from benchmark model \\
     EUUP (Izhakian, 2020) & Dispersion of subjective probabilities & Links density variance to ambiguity by combining expectation and volatility of return densities \\
-    \textbf{Proposed Cross-Entropy} & Information-theoretic divergence & Captures full-shape distribution changes and integrates naturally into high-frequency dynamic portfolios \\
+    \textbf{$\mathcal{A}^{CEA}_t$} & Information-theoretic divergence & Captures full-shape distribution changes and integrates naturally into high-frequency dynamic portfolios \\
     \bottomrule
   \end{tabularx}
 \end{table}
@@ -294,7 +294,7 @@ In the context of this study, the decision-maker holds a benchmark distribution 
 To capture this ambiguity, we compute the KL divergence between the daily return distribution \(q_{\text{day}}\) and the monthly benchmark distribution \(p_i\). The ambiguity under the multiplier-preference model is then quantified as:
 
 \[
-\mathrm{AMB}_{\mathrm{MP}} \;=\; D\bigl(q_{\mathrm{day}} \parallel p_i\bigr).
+\mathcal{A}^{CEA} \;=\; D\bigl(q_{\mathrm{day}} \parallel p_i\bigr).
 \]
 
 This metric reflects the decision-maker’s perceived ambiguity in the daily return distribution relative to the benchmark distribution, \(p_i\). The model quantifies how much the daily return distribution deviates from the assumed benchmark, capturing the decision-maker's uncertainty about the true distribution of returns.
@@ -329,14 +329,14 @@ P_{j+1} = \arg\min_{k=1,\dots,4} D_{\mathrm{KL}}(q_{20j+21} \parallel p_{j,k}).
 For each subsequent trading day \(i\) in the next 20-day window, ambiguity is quantified by calculating the KL divergence between the daily return distribution \(q_i\) and the standard distribution \(P_{j+1}\). This gives the daily measure of ambiguity:
 
 \[
-\mathrm{AMB}_{\mathrm{MP}}(q_i) =  D_{\mathrm{KL}}(q_i \parallel P_{j+1}) = \sum_{x} q_i(x) \log \frac{q_i(x)}{P_{j+1}(x)}.
+\mathcal{A}^{CEA}(q_i) =  D_{\mathrm{KL}}(q_i \parallel P_{j+1}) = \sum_{x} q_i(x) \log \frac{q_i(x)}{P_{j+1}(x)}.
 \]
 
 Thus, the overall formula for ambiguity on any given trading day \(i\) can be written as:
 
 \[
 \begin{aligned}
-\mathrm{AMB}_{\mathrm{MP}}(q_i) &= \sum_{x} q_i(x) \log \frac{q_i(x)}{P_{j+1}(x)} \\
+\mathcal{A}^{CEA}(q_i) &= \sum_{x} q_i(x) \log \frac{q_i(x)}{P_{j+1}(x)} \\
 &= \sum_{x} q_i(x) \log \frac{q_i(x)}{\arg\min_{k=1,\dots,4} D_{\mathrm{KL}}(q_{20j+21} \parallel p_{j,k})} \\
 &= \sum_{x} q_i(x) \log \frac{q_i(x)}{\arg\min_{k=1,\dots,4} \sum_{x} q_{20j+21}(x) \log \frac{q_{20j+21}(x)}{p_{j,k}(x)}} \\
 &= \sum_{x} q_i(x) \log \frac{q_i(x)}{\arg\min_{k=1,\dots,4} \sum_{x} q_{20j+21}(x) \log \frac{q_{20j+21}(x)}{p_{j,k}(x)}}.
@@ -374,7 +374,7 @@ The variables used in this study are described as follows:
     \]
     where $P_t$ and $P_{t+1}$ are the closing prices on day $t$ and $t+1$, respectively. This variable serves as the key dependent variable, reflecting the stock's return on the following day.
     
-    \item \textbf{Ambiguity (CEA)}: \(\mathcal{A}^{CEA}_t\) is the ambiguity measure developed in this study. It accounts for short‑horizon informational instability using cross‑entropy between empirical intraday distributions and benchmark models. Higher values of \(\mathcal{A}^{CEA}_t\) indicate greater market uncertainty.
+    \item \textbf{Ambiguity}: \(\mathcal{A}^{CEA}_t\) is the ambiguity measure developed in this study. It accounts for short‑horizon informational instability using cross‑entropy between empirical intraday distributions and benchmark models. Higher values of \(\mathcal{A}^{CEA}_t\) indicate greater market uncertainty.
     
     \item \textbf{Realized Volatility (RV)}: Realized volatility is a measure of the stock's price fluctuation over a specified period. It is calculated as the standard deviation of the stock's return during the period. In this study, RV is computed on a daily basis using the one-minute price data, capturing the daily price fluctuation and providing insights into the risk level of the stock. The formula for RV is given by:
     \[
@@ -498,13 +498,13 @@ By incorporating these controls, the estimated coefficients \(\beta_1\) reflect 
   \end{tabularx}
 \end{table}
 
-The AMBMP factor exhibits a significantly positive relationship with future returns (\(\beta_{\mathrm{AMBMP}} = 0.000\), \(t = 7.880\), \(p < 0.01\)), indicating its critical role in predicting market outcomes. This stands in contrast to conventional risk measures, such as realized volatility (RV), skewness, and kurtosis, which are typically associated with traditional risk perceptions. The fact that AMBMP shows a positive and statistically significant relationship with future returns suggests it captures a distinct aspect of market uncertainty—ambiguity—that is not typically captured by these other risk proxies. 
+The $\mathcal{A}^{CEA}_t$ factor exhibits a significantly positive relationship with future returns (\(\beta_{\mathcal{A}^{CEA}_t} = 0.000\), \(t = 7.880\), \(p < 0.01\)), indicating its critical role in predicting market outcomes. This stands in contrast to conventional risk measures, such as realized volatility (RV), skewness, and kurtosis, which are typically associated with traditional risk perceptions. The fact that $\mathcal{A}^{CEA}_t$ shows a positive and statistically significant relationship with future returns suggests it captures a distinct aspect of market uncertainty—ambiguity—that is not typically captured by these other risk proxies. 
 
-Market makers, particularly in environments with high order book uncertainty, may adjust their behavior—by widening bid-ask spreads or selectively executing trades—based on the perceived ambiguity in the market. This adjustment likely provides short-term profitability, which is reflected in the significant positive relationship between AMBMP and future returns. Thus, AMBMP seems to represent a factor of liquidity provision that is directly related to how liquidity providers react to market uncertainty, rather than simply the level of volatility or other higher-order moments in returns.
+Market makers, particularly in environments with high order book uncertainty, may adjust their behavior—by widening bid-ask spreads or selectively executing trades—based on the perceived ambiguity in the market. This adjustment likely provides short-term profitability, which is reflected in the significant positive relationship between $\mathcal{A}^{CEA}_t$ and future returns. Thus, $\mathcal{A}^{CEA}_t$ seems to represent a factor of liquidity provision that is directly related to how liquidity providers react to market uncertainty, rather than simply the level of volatility or other higher-order moments in returns.
 
-Furthermore, while realized volatility (\(\beta_{\mathrm{RV}} = 0.002\), \(p < 0.01\)) exhibits a positive relationship with future returns, the low variance inflation factor for AMBMP (\(\mathrm{VIF}_{\mathrm{AMBMP}} = 1.011\)) indicates minimal multicollinearity between AMBMP and the higher-order moments of return distributions, such as skewness and kurtosis. This further reinforces the interpretation that AMBMP provides unique, orthogonal information about market conditions that is not captured by traditional risk measures. The low multicollinearity suggests that AMBMP is measuring a distinct dimension of market uncertainty, specifically related to ambiguity in liquidity provision.
+Furthermore, while realized volatility (\(\beta_{\mathrm{RV}} = 0.002\), \(p < 0.01\)) exhibits a positive relationship with future returns, the low variance inflation factor for $\mathcal{A}^{CEA}_t$ (\(\mathrm{VIF}_{\mathcal{A}^{CEA}_t} = 1.011\)) indicates minimal multicollinearity between $\mathcal{A}^{CEA}_t$ and the higher-order moments of return distributions, such as skewness and kurtosis. This further reinforces the interpretation that $\mathcal{A}^{CEA}_t$ provides unique, orthogonal information about market conditions that is not captured by traditional risk measures. The low multicollinearity suggests that $\mathcal{A}^{CEA}_t$ is measuring a distinct dimension of market uncertainty, specifically related to ambiguity in liquidity provision.
 
-These results underscore the growing importance of ambiguity in understanding market behavior. While traditional risk metrics primarily focus on the direct effects of volatility or statistical moments, our findings suggest that ambiguity—reflected in the AMBMP factor—should be considered as a separate and potentially more valuable measure of market uncertainty. In practical terms, this means that policies aimed at enhancing market liquidity should consider not only volatility and other risk factors but also the level of uncertainty and ambiguity faced by market participants. Given that AMBMP is shown to be significantly associated with future returns, its incorporation into market analysis could provide deeper insights into market liquidity dynamics and the strategies of liquidity providers in both stable and uncertain market environments.
+These results underscore the growing importance of ambiguity in understanding market behavior. While traditional risk metrics primarily focus on the direct effects of volatility or statistical moments, our findings suggest that ambiguity—reflected in the $\mathcal{A}^{CEA}_t$ factor—should be considered as a separate and potentially more valuable measure of market uncertainty. In practical terms, this means that policies aimed at enhancing market liquidity should consider not only volatility and other risk factors but also the level of uncertainty and ambiguity faced by market participants. Given that $\mathcal{A}^{CEA}_t$ is shown to be significantly associated with future returns, its incorporation into market analysis could provide deeper insights into market liquidity dynamics and the strategies of liquidity providers in both stable and uncertain market environments.
 
 \subsection{Granger Causality Test}
 To test for the potential predictive relationship between the ambiguity measure $ \mathcal{A}^{CEA}_t $ and future returns, we conducted a Granger causality test. The results for lag orders 1 to 5 are summarized in Table~\ref{tab:granger} below.
@@ -529,7 +529,7 @@ Lag & F-statistic & p-value \\
 The results indicate that the null hypothesis of no Granger causality can be rejected at conventional significance levels for all five lags. Specifically, the p‑values are extremely small, which strongly suggests a statistically significant predictive relationship between $ \mathcal{A}^{CEA}_t $ and future returns. This implies that $ \mathcal{A}^{CEA}_t $ contains information that can forecast future returns across multiple time horizons.
 
 \subsection{Mechanism Analysis: The Role of Liquidity}
-To further investigate the underlying mechanism through which ambiguity influences future returns, we conduct a conditional mediation analysis following the framework proposed by Preacher, Rucker, and Hayes\cite{preacher2007moderated}. This approach allows us to examine whether the predictive relationship between ambiguity (AMBMP) and next-day returns operates through liquidity (measured by turnover rate), while accounting for the moderating role of current market liquidity conditions. Specifically, we first median-split the sample into low-liquidity and high-liquidity regimes based on turnover rate, then estimate separate mediation paths for each regime. All continuous variables were winsorized at the 5\% and 95\% levels and standardized to facilitate coefficient comparison. The conditional indirect effects were computed as the product of the path coefficients (a×b), with statistical significance assessed through bootstrap replications and Sobel tests.
+To further investigate the underlying mechanism through which ambiguity influences future returns, we conduct a conditional mediation analysis following the framework proposed by Preacher, Rucker, and Hayes\cite{preacher2007moderated}. This approach allows us to examine whether the predictive relationship between ambiguity ($\mathcal{A}^{CEA}_t$) and next-day returns operates through liquidity (measured by turnover rate), while accounting for the moderating role of current market liquidity conditions. Specifically, we first median-split the sample into low-liquidity and high-liquidity regimes based on turnover rate, then estimate separate mediation paths for each regime. All continuous variables were winsorized at the 5\% and 95\% levels and standardized to facilitate coefficient comparison. The conditional indirect effects were computed as the product of the path coefficients (a×b), with statistical significance assessed through bootstrap replications and Sobel tests.
 
 % 在文档正文中使用以下表格代码
 \begin{table}[H]
@@ -587,7 +587,7 @@ These findings provide crucial insights into the heterogeneous mechanisms throug
 
 \subsection{Heterogeneity Analysis} \label{sec:heterogeneity_analysis}
 
-To further investigate the predictive power and stability of the ambiguity measure (AMBMP) across varying market environments, we conduct a series of subgroup analyses. This approach allows us to examine whether the relationship between ambiguity and future returns is influenced by distinct market states, levels of volatility, or price conditions. Understanding these heterogeneous effects is crucial for assessing the robustness and practical applicability of AMBMP in real-world portfolio management and risk assessment.
+To further investigate the predictive power and stability of the ambiguity measure ($\mathcal{A}^{CEA}_t$) across varying market environments, we conduct a series of subgroup analyses. This approach allows us to examine whether the relationship between ambiguity and future returns is influenced by distinct market states, levels of volatility, or price conditions. Understanding these heterogeneous effects is crucial for assessing the robustness and practical applicability of $\mathcal{A}^{CEA}_t$ in real-world portfolio management and risk assessment.
 
 \subsubsection{Market Regimes: Bull vs.Bear Markets} \label{subsec:market_regimes}
 
@@ -618,11 +618,11 @@ Bear Market & –0.003 & 0.0008 & –3.650 & 0.000 & 2.230 \\
 \end{tabularx}
 \end{table}
 
-The regression results indicate that AMBMP maintains a significant positive relationship with future returns ($\beta = 0.007, p < 0.01$) even after controlling for market regimes. The bear market dummy is significantly negative ($\delta_{\text{bear}} = -0.003, p < 0.01$), suggesting that during bear markets, returns are generally lower. However, the interaction between market regimes and AMBMP (though not directly shown via interaction terms in this specification) implies that the effect of ambiguity might be modulated by market sentiment. These findings underscore the importance of accounting for macroeconomic conditions when assessing the role of ambiguity in asset pricing.
+The regression results indicate that $\mathcal{A}^{CEA}_t$ maintains a significant positive relationship with future returns ($\beta = 0.007, p < 0.01$) even after controlling for market regimes. The bear market dummy is significantly negative ($\delta_{\text{bear}} = -0.003, p < 0.01$), suggesting that during bear markets, returns are generally lower. However, the interaction between market regimes and $\mathcal{A}^{CEA}_t$ (though not directly shown via interaction terms in this specification) implies that the effect of ambiguity might be modulated by market sentiment. These findings underscore the importance of accounting for macroeconomic conditions when assessing the role of ambiguity in asset pricing.
 
 \subsubsection{Volatility Regimes: High vs. Low Realized Volatility} \label{subsec:volatility_regimes}
 
-Volatility is a key characteristic of financial markets and often clusters during periods of market stress. We next examine whether the predictive power of AMBMP varies across high and low volatility environments. We split the sample into subgroups based on the 33rd and 66th percentiles of realized volatility (RV): the low-volatility subgroup (RV below the 33rd percentile) and the high-volatility subgroup (RV above the 66th percentile). The regression model is estimated separately for each subgroup:
+Volatility is a key characteristic of financial markets and often clusters during periods of market stress. We next examine whether the predictive power of $\mathcal{A}^{CEA}_t$ varies across high and low volatility environments. We split the sample into subgroups based on the 33rd and 66th percentiles of realized volatility (RV): the low-volatility subgroup (RV below the 33rd percentile) and the high-volatility subgroup (RV above the 66th percentile). The regression model is estimated separately for each subgroup:
 
 \begin{equation}
 r_{t+1} = \alpha + \beta_1 \cdot \mathcal{A}^{CEA}_t + \gamma_1 \cdot \mathrm{Controls}_t + \varepsilon_{t+1}
@@ -651,7 +651,7 @@ Turnover Rate & 0.000 & 0.001 & 0.054 & 0.956 \\
 \end{tabularx}
 \end{table}
 
-The results show that AMBMP is a significant predictor of future returns in both low and high volatility environments, with coefficients of 0.006 ($t = 4.607, p < 0.01$) and 0.007 ($t = 9.990, p < 0.01$), respectively. The slightly stronger effect in high-volatility periods suggests that ambiguity plays a more pronounced role in predicting returns when market uncertainty is elevated. This aligns with the theory that ambiguity aversion becomes more salient during turbulent times. Other variables, such as skewness, gain significance only in the high-volatility subgroup, highlighting the differential impact of return distribution characteristics under varying market conditions.
+The results show that $\mathcal{A}^{CEA}_t$ is a significant predictor of future returns in both low and high volatility environments, with coefficients of 0.006 ($t = 4.607, p < 0.01$) and 0.007 ($t = 9.990, p < 0.01$), respectively. The slightly stronger effect in high-volatility periods suggests that ambiguity plays a more pronounced role in predicting returns when market uncertainty is elevated. This aligns with the theory that ambiguity aversion becomes more salient during turbulent times. Other variables, such as skewness, gain significance only in the high-volatility subgroup, highlighting the differential impact of return distribution characteristics under varying market conditions.
 
 \subsubsection{Price Level Relative to the Market (Plevel)} \label{subsec:price_level}
 
@@ -692,11 +692,11 @@ Turnover Rate & –0.003 & 0.001 & –2.550 & 0.011 \\
 \end{tabularx}
 \end{table}
 
-AMBMP exhibits a significant positive relationship with future returns in both low and high plevel subgroups, with coefficients of 0.006 ($t = 5.662, p < 0.01$) and 0.007 ($t = 7.223, p < 0.01$), respectively. This consistency indicates that the return predictability of ambiguity is not simply an artifact of relative price levels. Yet the stronger coefficient among high-plevel stocks implies that ambiguity is incorporated into prices more swiftly for expensive, high-attention names. That pattern fits a momentum-driven "chase-and-kill" (or "buy-high, sell-low") trading style: when information is unclear, investors pile into the most visible, high-priced stocks, pushing prices even higher in the short run—a textbook case of "momentum chasing" behavior in China's A-share market.
+$\mathcal{A}^{CEA}_t$ exhibits a significant positive relationship with future returns in both low and high plevel subgroups, with coefficients of 0.006 ($t = 5.662, p < 0.01$) and 0.007 ($t = 7.223, p < 0.01$), respectively. This consistency indicates that the return predictability of ambiguity is not simply an artifact of relative price levels. Yet the stronger coefficient among high-plevel stocks implies that ambiguity is incorporated into prices more swiftly for expensive, high-attention names. That pattern fits a momentum-driven "chase-and-kill" (or "buy-high, sell-low") trading style: when information is unclear, investors pile into the most visible, high-priced stocks, pushing prices even higher in the short run—a textbook case of "momentum chasing" behavior in China's A-share market.
 
 \subsubsection{Summary of Heterogeneity Analysis}
 
-The results in this subsection demonstrate that the predictive power of AMBMP for future returns is robust across various market environments, including different market regimes, volatility conditions, and price levels. The consistency of these findings strengthens the validity of AMBMP as a measure of ambiguity and highlights its potential utility in portfolio management and risk assessment under diverse market conditions.
+The results in this subsection demonstrate that the predictive power of $\mathcal{A}^{CEA}_t$ for future returns is robust across various market environments, including different market regimes, volatility conditions, and price levels. The consistency of these findings strengthens the validity of $\mathcal{A}^{CEA}_t$ as a measure of ambiguity and highlights its potential utility in portfolio management and risk assessment under diverse market conditions.
 
 
 
@@ -704,7 +704,7 @@ The results in this subsection demonstrate that the predictive power of AMBMP fo
 
 \subsection{ Quantile Regression Analysis}
 
-To examine how the predictive power of the two ambiguity measures varies across different levels of perceived ambiguity, we adopt a quintile-sorting regression approach. On each trading day \( t \), all stock-day observations are ranked into five equal-sized groups (Q1–Q5) according to their ambiguity levels—measured either by the microstructure-based AMBMP factor. 
+To examine how the predictive power of the two ambiguity measures varies across different levels of perceived ambiguity, we adopt a quintile-sorting regression approach. On each trading day \( t \), all stock-day observations are ranked into five equal-sized groups (Q1–Q5) according to their ambiguity levels—measured by the \(\mathcal{A}^{CEA}_t\) factor. 
 
 Within each ambiguity quintile \( q \), we estimate the following single-factor panel regression model:
 
@@ -713,7 +713,7 @@ r_{i,t+1} = \alpha_q + \beta_q\,\mathcal{A}^{CEA}_{i,t} + \varepsilon_{i,t+1},
 \quad q = 1,2,\ldots,5,    
 \end{equation}
 
-where \( r_{i,t+1} \) denotes the log return of stock \( i \) on day \( t+1 \), and \( \text{AMBMP}_{i,t} \) represents the ambiguity metric of interest observed on day \( t \). The coefficient \( \beta_q \) captures the predictive power of the ambiguity factor within each quintile group.
+where \( r_{i,t+1} \) denotes the log return of stock \( i \) on day \( t+1 \), and \( \mathcal{A}^{CEA}_{i,t} \) represents the ambiguity metric of interest observed on day \( t \). The coefficient \( \beta_q \) captures the predictive power of the ambiguity factor within each quintile group.
 
 \begin{table}[ht]
 \centering
@@ -732,19 +732,19 @@ Q5 & 0.007 & 0.002 & 3.960 & 0.000 \\
 \end{tabularx}
 \end{table}
 
-Tables~\ref{tab:ambmp_results} report the panel regression results where stocks are grouped into quintiles based on the level of ambiguity—measured by AMBMP. Specifically, Q1 represents stocks with the lowest ambiguity, while Q5 contains those with the highest ambiguity.
+Tables~\ref{tab:ambmp_results} report the panel regression results where stocks are grouped into quintiles based on the level of ambiguity—measured by \(\mathcal{A}^{CEA}_t\). Specifically, Q1 represents stocks with the lowest ambiguity, while Q5 contains those with the highest ambiguity.
 
-As shown in Table~\ref{tab:ambmp_results}, there is a clear and positive relationship between AMBMP and next-day returns across higher ambiguity groups. The coefficient rises from 0.004 in Q3 (p < 0.01) to 0.007 in Q5 (p < 0.01), indicating that when ambiguity is high, AMBMP becomes a stronger predictor of positive returns. This pattern is absent in the lowest ambiguity groups (Q1 and Q2), where coefficients are small and not significant.
+As shown in Table~\ref{tab:ambmp_results}, there is a clear and positive relationship between \(\mathcal{A}^{CEA}_t\) and next-day returns across higher ambiguity groups. The coefficient rises from 0.004 in Q3 (p < 0.01) to 0.007 in Q5 (p < 0.01), indicating that when ambiguity is high, \(\mathcal{A}^{CEA}_t\) becomes a stronger predictor of positive returns. This pattern is absent in the lowest ambiguity groups (Q1 and Q2), where coefficients are small and not significant.
 
-These results have important implications for financial regulation and macroprudential policy. The performance of AMBMP across ambiguity levels suggests that it is more effective in detecting return signals in opaque or uncertain environments. For policymakers and regulators, the AMBMP measure offers a valuable tool for monitoring market sentiment under elevated ambiguity. Its robustness in high-ambiguity conditions makes it suitable for risk assessment, particularly during periods of economic policy uncertainty, crisis-induced volatility, or information asymmetry. Integrating such a measure into regulatory stress-testing frameworks or early warning systems could enhance financial stability by better anticipating shifts in investor behavior.
+These results have important implications for financial regulation and macroprudential policy. The performance of \(\mathcal{A}^{CEA}_t\) across ambiguity levels suggests that it is more effective in detecting return signals in opaque or uncertain environments. For policymakers and regulators, the \(\mathcal{A}^{CEA}_t\) measure offers a valuable tool for monitoring market sentiment under elevated ambiguity. Its robustness in high-ambiguity conditions makes it suitable for risk assessment, particularly during periods of economic policy uncertainty, crisis-induced volatility, or information asymmetry. Integrating such a measure into regulatory stress-testing frameworks or early warning systems could enhance financial stability by better anticipating shifts in investor behavior.
 
 \section{Portfolio Backtest and Performance Evaluation}
-To comprehensively evaluate the effectiveness of the AMBE and AMBMP factors, this section conducts a backtest using the data from January 1, 2018, to May 24, 2024, for the CSI 300 index. Several key performance metrics are utilized to assess the factors' performance. The entire backtesting procedure is divided into three main parts:
+To comprehensively evaluate the effectiveness of the AMBE and \(\mathcal{A}^{CEA}_t\) factors, this section conducts a backtest using the data from January 1, 2018, to May 24, 2024, for the CSI 300 index. Several key performance metrics are utilized to assess the factors' performance. The entire backtesting procedure is divided into three main parts:
 
 \subsection{Factor Performance Metrics}
-To assess the effectiveness of the AMBMP factor, we calculate RankIC and RankICIR, which measure the rank correlation between the factor and stock returns, and the stability of the factor's predictive power, respectively. Additionally, we compute annualized return and maximum drawdown to evaluate the factor's return potential and risk control ability.
+To assess the effectiveness of the \(\mathcal{A}^{CEA}_t\) factor, we calculate RankIC and RankICIR, which measure the rank correlation between the factor and stock returns, and the stability of the factor's predictive power, respectively. Additionally, we compute annualized return and maximum drawdown to evaluate the factor's return potential and risk control ability.
 
-The results show that the AMBMP factor consistently exhibits a positive relationship with future returns, outperforming traditional risk measures like realized volatility and skewness. The AMBMP-based portfolio achieves a higher annualized return and lower maximum drawdown, demonstrating its superior performance in high-frequency trading environments.
+The results show that the \(\mathcal{A}^{CEA}_t\) factor consistently exhibits a positive relationship with future returns, outperforming traditional risk measures like realized volatility and skewness. The \(\mathcal{A}^{CEA}_t\)-based portfolio achieves a higher annualized return and lower maximum drawdown, demonstrating its superior performance in high-frequency trading environments.
 
 The \textbf{RankIC} is calculated as follows:
 \begin{equation}
@@ -814,7 +814,7 @@ where \(N_i\) is the number of stocks in the \(i\)-th group, and \(r_j\) is the 
     \begin{subfigure}[b]{0.49\linewidth}
         \centering
         \includegraphics[width=\linewidth]{AMBMP Deciles.png}
-        \caption{CEA (\(\mathcal{A}^{CEA}_t\)) Deciles}
+        \caption{Deciles of \(\mathcal{A}^{CEA}_t\)}
         \label{fig:ambmp-deciles}
     \end{subfigure}
     \caption{Comparison of cumulative net‑value performance of decile portfolios and the long–short strategy constructed using AMBE and \(\mathcal{A}^{CEA}_t\).}
@@ -822,12 +822,12 @@ where \(N_i\) is the number of stocks in the \(i\)-th group, and \(r_j\) is the 
 \end{figure}
 
 Figure 2(a)presents the cumulative net-value performance of decile portfolios and the long-short strategy constructed using AMBE . From the figure, we observe that the long-short portfolio (Q9--Q0)
-starts at 1.0 in 2018 and rises to approximately 4.2 by 2024, exhibiting a pronounced upward trend. High decile portfolios (e.g., Q9) show steadily increasing cumulative net values, whereas low decile portfolios (e.g., Q0) remain relatively flat or even decline slightly. This indicates that the AMBE-based factor possesses substantial discriminative power, effectively capturing the differing risk and return characteristics of assets. Figure 2(b) depicts the cumulative net-value performance of decile portfolios and the long-short strategy constructed using the proposed AMBMP method. It
-is evident that the AMBMP long-short portfolio achieves markedly stronger growth, starting from 1.0 in 2018 and exceeding 11.5 by 2024, far surpassing the AMBE outcome. Furthermore, the highest decile (Q9) under AMBMP attains greater cumulative gains, while the lowest decile (Q0) exhibits more modest and slower growth. This demonstrates that AMBMP more effectively distinguishes between assets’ risk-return profiles, enabling high-decile portfolios to secure higher returns and low-decile portfolios to maintain lower risk.
+starts at 1.0 in 2018 and rises to approximately 4.2 by 2024, exhibiting a pronounced upward trend. High decile portfolios (e.g., Q9) show steadily increasing cumulative net values, whereas low decile portfolios (e.g., Q0) remain relatively flat or even decline slightly. This indicates that the AMBE-based factor possesses substantial discriminative power, effectively capturing the differing risk and return characteristics of assets. Figure 2(b) depicts the cumulative net-value performance of decile portfolios and the long-short strategy constructed using the proposed \(\mathcal{A}^{CEA}_t\) method. It
+is evident that the \(\mathcal{A}^{CEA}_t\) long-short portfolio achieves markedly stronger growth, starting from 1.0 in 2018 and exceeding 11.5 by 2024, far surpassing the AMBE outcome. Furthermore, the highest decile (Q9) under \(\mathcal{A}^{CEA}_t\) attains greater cumulative gains, while the lowest decile (Q0) exhibits more modest and slower growth. This demonstrates that \(\mathcal{A}^{CEA}_t\) more effectively distinguishes between assets’ risk-return profiles, enabling high-decile portfolios to secure higher returns and low-decile portfolios to maintain lower risk.
 
 A direct comparison of the two figures clearly shows the superior
-performance of AMBMP relative to AMBE. The AMBMP long-short strategy’s
-net-value growth rate significantly outperforms that of AMBE, with stronger returns for the top decile and tighter risk control for the bottom decile. These results confirm that the AMBMP method offers enhanced validity and practicality in measuring ambiguity and constructing investment portfolios, thereby better capturing the market’s heterogeneous risk-return characteristics and providing investors with a more advantageous strategy selection.
+performance of \(\mathcal{A}^{CEA}_t\) relative to AMBE. The \(\mathcal{A}^{CEA}_t\) long-short strategy’s
+net-value growth rate significantly outperforms that of AMBE, with stronger returns for the top decile and tighter risk control for the bottom decile. These results confirm that the \(\mathcal{A}^{CEA}_t\) method offers enhanced validity and practicality in measuring ambiguity and constructing investment portfolios, thereby better capturing the market’s heterogeneous risk-return characteristics and providing investors with a more advantageous strategy selection.
 
 
 
@@ -835,9 +835,9 @@ net-value growth rate significantly outperforms that of AMBE, with stronger retu
 In this section, we compare the \textbf{long-short factor strategy} with the \textbf{CSI 300 index} to assess the factor strategy's performance relative to a market benchmark. By plotting the \textbf{net asset value (NAV) of the long-short factor strategy} alongside the \textbf{CSI 300 NAV}, we can visually compare the performance differences. This comparison helps validate the factor's relative advantages and risk characteristics in real-market conditions.
 
 
-Figure~\ref{fig:strategy_vs_index} consists of two panels that compare the cumulative net value of long-short strategies based on AMBMP and AMBE with the CSI 300 Index (HS300) over the period from 2018 to 2024.
+Figure~\ref{fig:strategy_vs_index} consists of two panels that compare the cumulative net value of long-short strategies based on \(\mathcal{A}^{CEA}_t\) and AMBE with the CSI 300 Index (HS300) over the period from 2018 to 2024.
 
-Figure~\ref{fig:strategy_vs_index}(a) presents the performance of the long-short strategy constructed using the AMBMP method versus the HS300 index. As shown, the AMBMP strategy exhibits a pronounced and sustained upward trend, increasing from an initial value of 1 in 2018 to approximately 11.5 in 2024. In contrast, the HS300 index grows from 1 to only about 2.1 during the same period, reflecting a substantially smaller gain. The AMBMP strategy consistently outperforms the benchmark index throughout the sample period, with the performance gap widening notably after 2021. This indicates the AMBMP method’s strong advantage in delivering superior risk-adjusted returns.
+Figure~\ref{fig:strategy_vs_index}(a) presents the performance of the long-short strategy constructed using the \(\mathcal{A}^{CEA}_t\) method versus the HS300 index. As shown, the \(\mathcal{A}^{CEA}_t\) strategy exhibits a pronounced and sustained upward trend, increasing from an initial value of 1 in 2018 to approximately 11.5 in 2024. In contrast, the HS300 index grows from 1 to only about 2.1 during the same period, reflecting a substantially smaller gain. The \(\mathcal{A}^{CEA}_t\) strategy consistently outperforms the benchmark index throughout the sample period, with the performance gap widening notably after 2021. This indicates the \(\mathcal{A}^{CEA}_t\) method’s strong advantage in delivering superior risk-adjusted returns.
 \begin{figure}[!htbp]
   \centering
   \begin{subfigure}[b]{0.49\linewidth}
@@ -850,26 +850,26 @@ Figure~\ref{fig:strategy_vs_index}(a) presents the performance of the long-short
   \begin{subfigure}[b]{0.49\linewidth}
     \centering
     \includegraphics[width=\linewidth]{AMBMP Long-short.png}
-    \caption{Long-short strategy (AMBMP) vs. HS300}
+    \caption{Long-short strategy (\(\mathcal{A}^{CEA}_t\)) vs. HS300}
     \label{fig:strategy_vs_index_a}
   \end{subfigure}
-  \caption{Comparison of long-short strategies based on AMBMP and AMBE with the CSI 300 Index (HS300) from 2018 to 2024.}
+  \caption{Comparison of long-short strategies based on \(\mathcal{A}^{CEA}_t\) and AMBE with the CSI 300 Index (HS300) from 2018 to 2024.}
   \label{fig:strategy_vs_index}
 \end{figure}
 
 
-Figure~\ref{fig:strategy_vs_index}(b) shows the performance of the AMBE-based long-short strategy relative to the HS300 index. Although the AMBE strategy also demonstrates an upward trend—growing from 1 in 2018 to approximately 4.7 in 2024—its overall return and stability are clearly lower than those of the AMBMP strategy. While the AMBE strategy outperforms the HS300 index, the extent and persistence of its excess return are significantly weaker.
+Figure~\ref{fig:strategy_vs_index}(b) shows the performance of the AMBE-based long-short strategy relative to the HS300 index. Although the AMBE strategy also demonstrates an upward trend—growing from 1 in 2018 to approximately 4.7 in 2024—its overall return and stability are clearly lower than those of the \(\mathcal{A}^{CEA}_t\) strategy. While the AMBE strategy outperforms the HS300 index, the extent and persistence of its excess return are significantly weaker.
 
-In summary, the comparison between Figures~\ref{fig:strategy_vs_index}(a) and \ref{fig:strategy_vs_index}(b) highlights the superior performance of the AMBMP method in constructing long-short portfolios. The AMBMP strategy not only delivers markedly higher cumulative returns than the market benchmark, but also exhibits greater consistency and robustness. These results suggest that the AMBMP approach is more effective and practical in capturing market inefficiencies and balancing risk and return, thereby offering investors more competitive excess returns. In contrast, although the AMBE method shows some capacity for generating outperformance, its effectiveness is evidently inferior to that of AMBMP.
+In summary, the comparison between Figures~\ref{fig:strategy_vs_index}(a) and \ref{fig:strategy_vs_index}(b) highlights the superior performance of the \(\mathcal{A}^{CEA}_t\) method in constructing long-short portfolios. The \(\mathcal{A}^{CEA}_t\) strategy not only delivers markedly higher cumulative returns than the market benchmark, but also exhibits greater consistency and robustness. These results suggest that the \(\mathcal{A}^{CEA}_t\) approach is more effective and practical in capturing market inefficiencies and balancing risk and return, thereby offering investors more competitive excess returns. In contrast, although the AMBE method shows some capacity for generating outperformance, its effectiveness is evidently inferior to that of \(\mathcal{A}^{CEA}_t\).
 
 \section{Conclusion}
-This study proposes a novel framework for quantifying return ambiguity by utilizing intraday return distributions and measuring their divergence from benchmark distributions through cross-entropy, specifically the Kullback–Leibler divergence. Termed AMBMP, the proposed measure captures the evolution of market uncertainty by comparing daily realized return distributions—constructed from high-frequency intraday data—with adaptive benchmark distributions derived from historical patterns. This approach extends beyond traditional ambiguity measures by incorporating microstructure-informed return dynamics, enabling a more responsive and granular characterization of ambiguity in financial markets.
+This study proposes a novel framework for quantifying return ambiguity by utilizing intraday return distributions and measuring their divergence from benchmark distributions through cross-entropy, specifically the Kullback–Leibler divergence. Denoted \(\mathcal{A}^{CEA}_t\), the proposed measure captures the evolution of market uncertainty by comparing daily realized return distributions—constructed from high-frequency intraday data—with adaptive benchmark distributions derived from historical patterns. This approach extends beyond traditional ambiguity measures by incorporating microstructure-informed return dynamics, enabling a more responsive and granular characterization of ambiguity in financial markets.
 
-Through comprehensive empirical analysis using minute-level data from A-share stocks in China between 2018 and 2024, we evaluate the performance of AMBMP against a benchmark ambiguity measure (AMBE) grounded in the EUUP framework. While AMBE is primarily used in backtesting to showcase its performance in different market conditions, AMBMP consistently demonstrates superior predictive power for next-day stock returns, particularly in high-uncertainty regimes where traditional measures like AMBE lose their explanatory strength. Quintile-sorted regressions further confirm the stability and robustness of AMBMP's return-predictive capability across varying ambiguity states.
+Through comprehensive empirical analysis using minute-level data from A-share stocks in China between 2018 and 2024, we evaluate the performance of \(\mathcal{A}^{CEA}_t\) against a benchmark ambiguity measure (AMBE) grounded in the EUUP framework. While AMBE is primarily used in backtesting to showcase its performance in different market conditions, \(\mathcal{A}^{CEA}_t\) consistently demonstrates superior predictive power for next-day stock returns, particularly in high-uncertainty regimes where traditional measures like AMBE lose their explanatory strength. Quintile-sorted regressions further confirm the stability and robustness of \(\mathcal{A}^{CEA}_t\)'s return-predictive capability across varying ambiguity states.
 
-Backtesting analyses show that portfolios constructed using AMBMP produce significantly higher annualized returns, improved RankIC and RankICIR scores, and lower maximum drawdowns compared to both AMBE and the CSI 300 index. Decile portfolio performance and long-short strategy comparisons illustrate AMBMP’s effectiveness in capturing risk–return asymmetries and exploiting ambiguity-induced pricing inefficiencies in real time.
+Backtesting analyses show that portfolios constructed using \(\mathcal{A}^{CEA}_t\) produce significantly higher annualized returns, improved RankIC and RankICIR scores, and lower maximum drawdowns compared to both AMBE and the CSI 300 index. Decile portfolio performance and long-short strategy comparisons illustrate \(\mathcal{A}^{CEA}_t\)’s effectiveness in capturing risk–return asymmetries and exploiting ambiguity-induced pricing inefficiencies in real time.
 
-In conclusion, this paper contributes to the literature by integrating high-frequency data with an information-theoretic approach to ambiguity measurement. The proposed AMBMP framework not only advances our understanding of return ambiguity but also demonstrates practical value in portfolio construction and risk management. By aligning intraday distributional features with cross-entropy metrics, AMBMP offers a more precise and adaptive tool for navigating uncertainty in dynamic market environments.
+In conclusion, this paper contributes to the literature by integrating high-frequency data with an information-theoretic approach to ambiguity measurement. The proposed \(\mathcal{A}^{CEA}_t\) framework not only advances our understanding of return ambiguity but also demonstrates practical value in portfolio construction and risk management. By aligning intraday distributional features with cross-entropy metrics, \(\mathcal{A}^{CEA}_t\) offers a more precise and adaptive tool for navigating uncertainty in dynamic market environments.
 %% If you have bib database file and want bibtex to generate the
 %% bibitems, please use
 %%
@@ -880,7 +880,46 @@ In conclusion, this paper contributes to the literature by integrating high-freq
 \appendix
 \section{Cross-Entropy Ambiguity Index: Concept and Computation}
 
-\subsection*{Idea}
+\subsection{Visual Illustrations}
+
+This appendix provides visual illustrations to enhance understanding of the concepts discussed in the paper.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{fig/figure1_kl_divergence.pdf}
+    \caption{Kullback-Leibler Divergence Concept. The figure illustrates how KL divergence measures the difference between probability distributions under various scenarios including different means, variances, and distributional shapes.}
+    \label{fig:kl_divergence}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{fig/figure2_ambiguity_dynamics.pdf}
+    \caption{Ambiguity Index Dynamics and Market Conditions. Panel (a) shows market index performance over time. Panel (b) displays the time-varying ambiguity index with periods of high and low uncertainty. Panel (c) illustrates the relationship between ambiguity levels and market returns.}
+    \label{fig:ambiguity_dynamics}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{fig/figure3_portfolio_performance.pdf}
+    \caption{Portfolio Performance Evaluation. The figure compares the performance of different strategies including the CSI 300 benchmark, AMBE strategy, and CEA strategy across multiple metrics including cumulative returns, drawdowns, and annual performance.}
+    \label{fig:portfolio_performance}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.9\linewidth]{fig/figure4_risk_vs_ambiguity.pdf}
+    \caption{Risk vs Ambiguity: Conceptual Distinction. Panel (a) illustrates traditional risk measures based on known distributions. Panel (b) shows ambiguity arising from multiple plausible distributions. Panel (c) demonstrates different correlation patterns with returns. Panel (d) summarizes key differences.}
+    \label{fig:risk_vs_ambiguity}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.85\linewidth]{fig/figure5_methodology_flowchart.pdf}
+    \caption{Cross-Entropy Ambiguity Index: Methodology Framework. The flowchart illustrates the step-by-step process of calculating the ambiguity index from intraday data collection to final application in portfolio optimization.}
+    \label{fig:methodology_framework}
+\end{figure}
+
+\subsection{Idea}
 
 The Core Idea: Comparing Entire Distributions
 Traditional risk measures, like realized volatility, skewness, and kurtosis, are moments of a distribution.
@@ -893,7 +932,7 @@ Traditional risk measures, like realized volatility, skewness, and kurtosis, are
 
 While these metrics provide valuable information, they only offer a snapshot of a specific characteristic. They can fail to capture complex, simultaneous changes across the entire distribution.
 
-In contrast, the CEA, based on Kullback-Leibler (KL) divergence, is a measure of the statistical "distance" between two entire probability distributions, rather than just a comparison of their moments. The formula for KL divergence is: 
+In contrast, the ambiguity measure \(\mathcal{A}^{CEA}_t\), based on Kullback-Leibler (KL) divergence, is a measure of the statistical "distance" between two entire probability distributions, rather than just a comparison of their moments. The formula for KL divergence is: 
 
 \begin{equation}
     D_{KL}(P\|Q) = \sum_X P(X)\log \frac{Q(X)}{P(X)}
@@ -913,7 +952,7 @@ Specifically, if a stock experiences an extreme, high-magnitude return (a ``tail
 \]
 will become very large, significantly increasing the total KL divergence.  
 
-This means the CEA measure is highly responsive to the presence of \emph{fat tails}—where extreme events occur more frequently than a standard model would predict. It inherently penalizes a model that fails to anticipate these tail risks, making it a more robust measure for capturing sudden changes in market uncertainty and instability.  
+This means the \(\mathcal{A}^{CEA}_t\) measure is highly responsive to the presence of \emph{fat tails}—where extreme events occur more frequently than a standard model would predict. It inherently penalizes a model that fails to anticipate these tail risks, making it a more robust measure for capturing sudden changes in market uncertainty and instability.  
 
 How it Captures Skewness (Asymmetry)
 
@@ -925,7 +964,7 @@ This asymmetry is a key feature that allows it to distinguish between a long rig
 
 When comparing an observed daily return distribution $P$ to a symmetric benchmark distribution $Q$ (e.g., a normal or $t$-distribution), the resulting KL divergence will implicitly capture any asymmetry in $P$. If $P$ has a long right tail, the positive returns will contribute more significantly to the divergence value than the negative ones, and vice versa. This ensures that the measure is sensitive not only to the magnitude of return deviations but also to their direction.
 
-By leveraging high-frequency intraday data, the CEA measure constructs a detailed, fine-grained view of the entire distribution on a given day. The KL divergence then takes this full-shape distribution and compares it to a benchmark, providing a single, interpretable value that quantifies the ``information lost'' by assuming the market is behaving according to the benchmark model. This is how it captures the nuanced distributional changes that are vital for dynamic portfolio management.
+By leveraging high-frequency intraday data, the \(\mathcal{A}^{CEA}_t\) measure constructs a detailed, fine-grained view of the entire distribution on a given day. The KL divergence then takes this full-shape distribution and compares it to a benchmark, providing a single, interpretable value that quantifies the ``information lost'' by assuming the market is behaving according to the benchmark model. This is how it captures the nuanced distributional changes that are vital for dynamic portfolio management.
 
 \subsection*{Ambiguity Index Calculation}
 The ambiguity index is computed through a two-stage process, with K-means clustering forming the core methodology for market state classification. The implementation uses a fixed 22-day sliding window to dynamically segment return distributions into four canonical market regimes.
@@ -965,7 +1004,7 @@ The ambiguity index $\text{ambiguity}_t$ is derived from the K-means output:
 where lower values indicate higher similarity to historical market states.
 
 K-means clustering provides the essential foundation for quantifying market uncertainty through dynamic regime classification, with Euclidean distance-based clustering ensuring robust segmentation of return distribution patterns.
-\section{Concluding Summary of CEA}
+\section{Concluding Summary of $\mathcal{A}^{CEA}_t$}
 The Cross-Entropy Ambiguity (CEA) index offers a summary measure of model uncertainty by evaluating the divergence between an observed intraday return distribution, $\mu$, and a set of $k$ historically plausible benchmark distributions, $\Pi = \{\pi_1, \pi_2, \dots, \pi_k\}$. Its foundation lies in the Kullback-Leibler (KL) divergence, which quantifies the statistical distance from a benchmark $\pi$ to the observed distribution $\mu$:
 \begin{equation}
     \mathcal{D}_{KL}(\mu \| \pi) = \sum_{i} \mu(x_i) \log\left(\frac{\mu(x_i)}{\pi(x_i)}\right)
