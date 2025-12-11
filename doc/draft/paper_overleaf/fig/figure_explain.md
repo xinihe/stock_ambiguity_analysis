@@ -159,3 +159,75 @@ Styling requirements:
 
 Layout: Flow from top to bottom with branches, showing how intraday data flows through distribution creation, historical analysis, KL divergence calculation, to final portfolio decisions.
 ```
+
+---
+
+## Excalidraw Flowchart Prompt for Figure 4(a) - Revised Layout
+
+```
+Create an Excalidraw-style flowchart for the Cross-Entropy Ambiguity (CEA) calculation methodology with a clean two-column layout:
+
+Layout Structure:
+- Left column: Main data flow (vertical)
+- Right column: Historical analysis branch (vertical)
+- Bottom: Key Processes legend box
+
+Main Components (use rounded rectangles with drop shadows):
+
+Left Column (Main Flow):
+1. (2, 10) - Start node: "1-Minute Intraday Data" (light blue #A5D8FF)
+2. (2, 8.5) - Process: "Daily Return Distribution q_t" (light cyan #C5F6FA)
+3. (2, 6.5) - Central process: "KL Divergence D_KL(q_t || p_i)" (light yellow #FFF9C4)
+4. (2, 5) - Decision: "Minimum Selection min_i D_KL" (light pink #FFE0E0)
+5. (2, 3.5) - Output: "Ambiguity Index A^{CEA}_t" (light green #E8F5E9)
+6. (0.5, 2) - Final process: "Portfolio Allocation" (sky blue #E1F5FE)
+
+Right Column (Historical Analysis):
+1. (6.5, 9.5) - Process: "Historical Window (20d)" (light orange #FFE0B2)
+2. (6.5, 8.5) - Process: "K-means Clustering" (light purple #E1BEE7)
+3. (6.5, 7) - Output: "4 Market Regimes Identified" (light red #FFCDD2)
+4. (6.5, 5.5) - Data storage: "Benchmark Distributions {p_i}" (pink #F8BBD9)
+
+Arrows (numbered with circles):
+1. Vertical arrow: (1→2) with label "1" on right side
+2. Vertical arrow: (2→3) with label "2" on right side
+3. Vertical arrow: (3→4) with label "3" on right side
+4. Vertical arrow: (4→5) with label "4" on right side
+5. Vertical arrow: (5→6) with label "5" on right side
+6. Vertical arrow: (7→8) with label "6" on left side
+7. Vertical arrow: (8→9) with label "7" on left side
+8. Diagonal arrow: (5→10) with label "8"
+9. Horizontal arrow: (9→3) with label "9" (from benchmarks to KL)
+
+Key Processes Box (bottom right, white background):
+Title: "Key Processes"
+List items with numbered circles (①-⑨):
+① Data Processing - Transform intraday returns
+② Distribution Creation - Build q_t from returns
+③ Historical Analysis - 20-day window clustering
+④ Regime Identification - K-means finds 4 patterns
+④ Benchmark Creation - Generate {p_i} distributions
+⑥ KL Comparison - Measure distributional distance
+⑦ Minimum Selection - Find min_i D_KL
+⑧ Index Output - Generate A^{CEA}_t
+⑨ Portfolio Decision - Guide allocation strategy
+
+Styling Requirements:
+- Hand-drawn aesthetic with slightly imperfect lines
+- Drop shadows (light gray, 5px offset)
+- Rounded corners on all rectangles
+- Bold text inside shapes (10-11pt)
+- Arrow labels in white circles with black borders
+- Clean spacing - no overlaps
+- Pastel colors as specified
+- Black borders with medium thickness (1.5-2px)
+- Clear vertical flow in left column
+- Separate historical analysis in right column
+- Professional academic presentation style
+
+Visual Hierarchy:
+- Main flow boxes slightly larger
+- KL divergence box emphasized (central position)
+- Clear separation between columns
+- Arrow numbering follows flow sequence
+```
