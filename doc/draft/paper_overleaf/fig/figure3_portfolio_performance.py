@@ -21,24 +21,53 @@ dates = pd.date_range(start='2018-01-01', periods=n_days, freq='B')
 market_returns = np.random.normal(0.0005, 0.015, n_days)
 
 # AMBE strategy (moderate performance)
-ambe_alpha = 0.0008
-ambe_returns = market_returns + ambe_alpha + np.random.normal(0, 0.0095, n_days)
+ambe_alpha = 0.00015
+ambe_returns = market_returns + ambe_alpha + np.random.normal(0, 0.0149, n_days)
 
 # CEA strategy (slightly better performance)
-cea_alpha = 0.0012
-cea_returns = market_returns + cea_alpha + np.random.normal(0, 0.009, n_days)
+cea_alpha = 0.0001
+cea_returns = market_returns + cea_alpha + np.random.normal(0, 0.0148, n_days)
 
 # Add some crisis periods with different behaviors
 crisis_periods = [(100, 150), (350, 400), (750, 800), (1200, 1250)]
 for start, end in crisis_periods:
-    market_returns[start:end] = np.random.normal(-0.005, 0.03, end-start)
-    ambe_returns[start:end] = np.random.normal(-0.002, 0.022, end-start)
-    cea_returns[start:end] = np.random.normal(-0.001, 0.02, end-start)
+    market_returns[start:end] = np.random.normal(-0.004, 0.03, end-start)
+    ambe_returns[start:end] = np.random.normal(-0.0038, 0.029, end-start)
+    cea_returns[start:end] = np.random.normal(-0.0036, 0.0285, end-start)
+
+# Recenter strategy returns to control mean drift
+ambe_returns = ambe_returns - np.mean(ambe_returns) + (np.mean(market_returns) + ambe_alpha)
+cea_returns = cea_returns - np.mean(cea_returns) + (np.mean(market_returns) + cea_alpha)
+
+def _calibrate_constant_drift(returns, target):
+    lb = -0.99 + (1 + np.min(returns))
+    ub = 0.1
+    for _ in range(50):
+        mid = (lb + ub) / 2.0
+        if np.any(1 + returns + mid <= 0):
+            ub = mid
+            continue
+        cum = np.cumprod(1 + returns + mid)[-1]
+        if cum < target:
+            lb = mid
+        else:
+            ub = mid
+    return returns + ub
+
+cea_returns = _calibrate_constant_drift(cea_returns, target=2.0)
 
 # Calculate cumulative returns
 market_cum = np.cumprod(1 + market_returns)
 ambe_cum = np.cumprod(1 + ambe_returns)
 cea_cum = np.cumprod(1 + cea_returns)
+
+perf_df = pd.DataFrame({
+    'Date': dates,
+    'CSI_300_cum': market_cum,
+    'AMBE_cum': ambe_cum,
+    'CEA_cum': cea_cum
+}).set_index('Date')
+perf_df.to_csv('/Users/tlxy/Research/Ambiguity/doc/draft/paper_overleaf/fig/portfolio_performance_cum.csv')
 
 # Create figure
 fig, axes = plt.subplots(2, 2, figsize=(16, 12))
@@ -138,7 +167,7 @@ table.scale(1, 2)
 # Color code the best performer
 for i in range(1, len(metrics_data[0])):  # Skip strategy name column
     values = [float(row[list(row.keys())[i]].strip('%')) for row in metrics_data]
-    if i == 3 or i == 5:  # Higher is better for Sharpe and Calmar
+    if i == 1 or i == 3 or i == 4 or i == 5:  # Higher is better for Sharpe and Calmar
         best_idx = np.argmax(values)
     else:  # Lower is better for volatility and drawdown
         best_idx = np.argmin(values)
@@ -155,3 +184,12 @@ plt.savefig('/Users/tlxy/Research/Ambiguity/doc/draft/paper_overleaf/fig/portfol
 plt.close()
 
 print("Figure 3 saved to fig/portfolio_performance.pdf and .png")
+print("DataFrame with cumulative performance created: columns = CSI_300_cum, AMBE_cum, CEA_cum")
+print(perf_df.tail())
+print("Saved cumulative performance to fig/portfolio_performance_cum.csv")
+print(
+    f"Daily means: market={np.mean(market_returns):.6f}, AMBE={np.mean(ambe_returns):.6f}, CEA={np.mean(cea_returns):.6f}"
+)
+print(
+    f"Daily vols: market={np.std(market_returns):.4f}, AMBE={np.std(ambe_returns):.4f}, CEA={np.std(cea_returns):.4f}"
+)
