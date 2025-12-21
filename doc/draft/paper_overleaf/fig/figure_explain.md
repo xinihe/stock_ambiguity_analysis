@@ -90,11 +90,3 @@ This figure outlines the step-by-step computational framework for constructing t
 **Step 8: Ambiguity Index**: The minimum divergence is defined as the Ambiguity Index ($\mathcal{A}^{CEA}_t$). A high value indicates the current market state is unlike any historical regime (high ambiguity).
 
 **Output & Application**: The resulting daily ambiguity time series is utilized for portfolio optimization and risk management decisions.
-- Professional academic presentation style
-
-Visual Hierarchy:
-- Main flow boxes slightly larger
-- KL divergence box emphasized (central position)
-- Clear separation between columns
-- Arrow numbering follows flow sequence
-```

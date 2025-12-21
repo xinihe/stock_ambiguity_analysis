@@ -515,21 +515,26 @@ These results underscore the growing importance of ambiguity in understanding ma
 \subsection{Granger Causality Test}
 To test for the potential predictive relationship between the ambiguity measure $ \mathcal{A}^{CEA}_t $ and future returns, we conducted a Granger causality test. The results for lag orders 1 to 5 are summarized in Table~\ref{tab:granger} below.
 
+
 \begin{table}[h!]
 \centering
 \caption{Granger Causality Test Results for \(\mathcal{A}^{CEA}_t\) and Future Returns}
 \label{tab:granger}
-\begin{tabularx}{\textwidth}{X c c}
+\begin{adjustbox}{max width=\linewidth}
+\begin{tabular}{l c c c c c}
 \toprule
-Lag & F-statistic & p-value \\
+\textbf{Lag} & \textbf{F-statistic} & \textbf{p-value} & \textbf{Causal Strength} & \textbf{Information Ratio} & \textbf{Forecast Error Ratio} \\
 \midrule
-1 & 216.369 & 0.000 \\
-2 & 192.910 & 0.000 \\
-3 & 150.457 & 0.000 \\
-4 & 123.244 & 0.000 \\
-5 & 100.512 & 0.000 \\
+1 & 4.782 & 0.029* & 0.002 & 0.000 & 1.002 \\
+2 & 2.463 & 0.085 & 0.001 & -0.000 & 1.002 \\
+3 & 2.241 & 0.081 & 0.001 & 0.000 & 1.003 \\
+4 & 1.778 & 0.130 & 0.001 & -0.000 & 1.003 \\
+5 & 1.398 & 0.222 & 0.001 & 0.000 & 1.003 \\
 \bottomrule
-\end{tabularx}
+\end{tabular}
+\end{adjustbox}
+\vspace{0.1cm}
+\raggedright\footnotesize{\textit{Note: * indicates significance at the 5\% level. Causal strength measures the normalized Granger causality effect. Information ratio quantifies the directional predictive ability of \(\mathcal{A}^{CEA}_t\). Forecast error ratio compares prediction accuracy of models with and without \(\mathcal{A}^{CEA}_t\) (values > 1 indicate improved prediction).}}
 \end{table}
 
 The results indicate that the null hypothesis of no Granger causality can be rejected at conventional significance levels for all five lags. Specifically, the p‑values are extremely small, which strongly suggests a statistically significant predictive relationship between $ \mathcal{A}^{CEA}_t $ and future returns. This implies that $ \mathcal{A}^{CEA}_t $ contains information that can forecast future returns across multiple time horizons.
@@ -568,13 +573,13 @@ To further investigate the underlying mechanism through which ambiguity influenc
 \addlinespace[3pt]
 \makecell[l]{Indirect (low liquidity)}  &  0.002625 & 0.000182 &  0.002270 &  0.002959 \\
 \makecell[l]{Indirect (high liquidity)} & -0.002555 & 0.000179 & -0.002907 & -0.002214 \\
-\makecell[l]{Moderated Mediation $(a_1\times b)$} & -0.005180 & 0.000361 & -0.005891 & -0.004472 \\
+\makecell[l]{Mod. Med. $(a_1\times b)$} & -0.005180 & 0.000361 & -0.005891 & -0.004472 \\
 \addlinespace[4pt]
 \cmidrule(lr){1-5}
 \multicolumn{5}{@{}l}{\textit{Total Effects}} \\
 \addlinespace[3pt]
-\makecell[l]{Total Effect (low liquidity)}  &  0.013205 & 0.000567 &  0.012112 &  0.014329 \\
-\makecell[l]{Total Effect (high liquidity)} &  0.004515 & 0.000568 &  0.003406 &  0.005527 \\
+\makecell[l]{Low Liquidity}  &  0.013205 & 0.000567 &  0.012112 &  0.014329 \\
+\makecell[l]{High Liquidity} &  0.004515 & 0.000568 &  0.003406 &  0.005527 \\
 \bottomrule
 \end{tabular}
 \end{threeparttable}
@@ -582,7 +587,7 @@ To further investigate the underlying mechanism through which ambiguity influenc
 
 \begin{tablenotes}
 \footnotesize
-\item Moderated mediation = $a_1 \times b$ (Sobel $Z = -14.40$, $p = 0.000$).
+\item Moderated mediation (Mod. Med.) = $a_1 \times b$ (Sobel $Z = -14.40$, $p = 0.000$).
 \item Proportion mediated: low liquidity = 19.88\%; high liquidity = $-56.58\%$.
 \end{tablenotes}
 \end{table}
@@ -989,12 +994,12 @@ Random walk & 0.00021 & 48.1 & 0.001 \\
 
 Robustness checks confirm the CEA index's stability across parameter variations. Testing different window sizes (15-30 days) and cluster numbers (3-5) shows performance impacts within ±6.5\%, with the baseline configuration (22 days, 4 clusters) providing optimal balance between responsiveness and stability. Alternative divergence measures were evaluated, with forward KL divergence demonstrating the best combination of predictive performance (IC = 0.0387), computational efficiency (fast processing), and acceptable numerical stability, justifying its selection over Jensen-Shannon and Wasserstein alternatives.
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.9\linewidth]{fig/figure2_ambiguity_dynamics.pdf}
-    \caption{Time-varying behavior of the Cross-Entropy Ambiguity Index across market regimes}
-    \label{fig:ambiguity_dynamics}
-\end{figure}
+% \begin{figure}[!htbp]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{fig/figure2_ambiguity_dynamics.pdf}
+%     \caption{Time-varying behavior of the Cross-Entropy Ambiguity Index across market regimes}
+%     \label{fig:ambiguity_dynamics}
+% \end{figure}
 
 Market microstructure analysis reveals that the CEA index captures meaningful information flow dynamics. High ambiguity periods coincide with elevated order book imbalances, indicating disagreement among market participants about fair value. Market makers widen spreads during high ambiguity periods, charging premium for bearing model uncertainty. The CEA index leads price movements by 1-2 days, suggesting that information about distributional uncertainty gets incorporated before price levels adjust. Intraday pattern analysis shows morning ambiguity typically higher than afternoon, reflecting overnight information gaps, with peaks around major economic announcements.
 
