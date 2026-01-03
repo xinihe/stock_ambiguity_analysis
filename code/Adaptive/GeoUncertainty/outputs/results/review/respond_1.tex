@@ -1,6 +1,7 @@
 \documentclass[12pt]{article}
 \usepackage{geometry}
 \usepackage{xcolor}
+\usepackage[most]{tcolorbox}
 \usepackage{natbib}
 \usepackage{hyperref}
 \usepackage{amsmath}
@@ -13,8 +14,10 @@
 \definecolor{responsebg}{RGB}{255,250,240}
 \definecolor{highlightbg}{RGB}{240,248,255}
 
+\newtcolorbox{responsebox}{breakable, colback=responsebg, colframe=responsebg, boxrule=0pt, arc=0pt, left=2mm, right=2mm, top=2mm, bottom=2mm}
+\newtcolorbox{highlightbox}{breakable, colback=highlightbg, colframe=highlightbg, boxrule=0pt, arc=0pt, left=2mm, right=2mm, top=2mm, bottom=2mm}
+
 \title{Response to Reviewer Comments}
-\author{Authors}
 \date{}
 
 \begin{document}
@@ -23,16 +26,16 @@
 
 \section*{Response to Reviewer \#1}
 
-We sincerely thank the reviewer for their insightful comments and constructive suggestions. We have carefully addressed each point and revised the manuscript accordingly. Below we provide detailed point-by-point responses.
+We sincerely thank the reviewer for the insightful comments and constructive suggestions. We have carefully addressed each point and revised the manuscript accordingly. Below we provide detailed point-by-point responses.
 
 \subsection*{Major Comments}
 
 \begin{enumerate}
     \item \textbf{The causal interpretation in the mediation analysis relies on strong assumptions and may be underidentified given potential confounders and timing frictions; clarify identification assumptions and timing choices, and provide a brief narrative explaining why the observed patterns are consistent with the intended causal pathway.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We acknowledge the reviewer's important concern about causal identification in our mediation analysis. We will revise the manuscript to explicitly address these issues:
+    \vspace{0.5cm}
 
     \textbf{1. Identification Assumptions:}
     We will clearly state that our mediation analysis relies on three key assumptions:
@@ -52,19 +55,17 @@ We sincerely thank the reviewer for their insightful comments and constructive s
 
     \textbf{3. Narrative Explanation:}
     We will add the following narrative to strengthen causal interpretation:
-
+    \vspace{0.5cm}
     \textit{``The observed mediation pattern aligns with our causal story through several mechanisms. First, geopolitical news creates model uncertainty as investors reassess their beliefs about return distributions. This is reflected in increased cross-entropy divergence. Second, this heightened ambiguity leads to risk premia as ambiguity-averse investors demand compensation for model uncertainty, resulting in lower contemporaneous returns. The temporal sequence---morning GPR news affecting midday ambiguity calculations, which then influence end-of-day returns---supports this causal pathway.''}
 
-    \textbf{4. Additional Robustness:}
-    We will add instrumental variable results using non-Asian GPR as an exogenous shock to further support causal claims.
-    }}
+    
+    \end{responsebox}
 
     \vspace{0.5cm}
 
     \item \textbf{The KL-based ambiguity measure depends on the choice of benchmark distributions and implicit stationarity across regimes; explain the rationale for benchmark selection and stationarity, and add a short methodological note discussing how plausible alternative choices would affect interpretation.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We thank the reviewer for highlighting this important methodological point. We will make the following additions:
 
     \textbf{1. Benchmark Selection Rationale:} We will clarify that:
@@ -72,26 +73,25 @@ We sincerely thank the reviewer for their insightful comments and constructive s
         \item We use rolling windows of 252 trading days (approximately 1 year) for benchmark distributions
         \item This window balances stability and responsiveness
         \item Windows are anchored to the start of each quarter to reduce look-ahead bias
-        \item We exclude extreme volatility periods (>3 standard deviations) from benchmarks
+        \item We exclude extreme volatility periods ($>3$ standard deviations) from benchmarks
     \end{itemize}
 
     \textbf{2. Stationarity Considerations:}
     We will acknowledge that stationarity is a strong assumption and add:
-
+    \vspace{0.5cm}
     \textit{``While our approach assumes local stationarity within benchmark windows, we test this assumption by examining ambiguity persistence across structural breaks. Results show ambiguity reverts slowly (half-life of approximately 15 trading days), suggesting temporary regime shifts are captured by our adaptive framework.''}
 
     \textbf{3. Methodological Note:}
     We will append the following discussion:
-
+    \vspace{0.5cm}
     \textit{``Alternative benchmark specifications yield qualitatively similar results. Using (i) expanding windows from 2010, (ii) regime-switching benchmarks, or (iii) minimum KL divergence with alpha parameter -1 instead of -infinity, the correlation with our baseline ambiguity measure exceeds 0.85. However, alternative measures may be more appropriate in specific contexts: expanding windows better capture long-term structural changes but may over-smooth recent shocks; regime-switching models explicitly account for different market states but require stronger parametric assumptions.''}
-    }}
+    \end{responsebox}
 
     \vspace{0.5cm}
 
     \item \textbf{Frequency and timing alignment between daily GPR, ambiguity, realized volatility, and market/stock returns could introduce measurement mismatch; clearly state timestamp conventions (local vs UTC), intraday aggregation rules, and lead--lag considerations, and comment on why the chosen alignment is appropriate.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will add a dedicated ``Data Timing and Alignment'' subsection with explicit details:
 
     \textbf{1. Timestamp Conventions:}
@@ -111,20 +111,19 @@ We sincerely thank the reviewer for their insightful comments and constructive s
 
     \textbf{3. Lead--Lag Justification:}
     \textit{``We use contemporaneous alignment (t, t) for our main analysis after confirming that (t-1, t) specifications yield similar results. This is appropriate because: (1) GPR news typically arrives before market open; (2) ambiguity reflects updated beliefs formed during trading; (3) returns incorporate all information by day's end. Robustness tests with alternative alignments show our main results are not driven by timing choices.''}
-    }}
+    \end{responsebox}
 
     \vspace{0.5cm}
 
     \item \textbf{The SOE moderation may reflect sample composition or correlated institutional features rather than a distinct cushion from ambiguity; define SOE classification precisely, summarize sample characteristics, and discuss the mechanism in text with supportive descriptive evidence.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will strengthen the SOE analysis as follows:
 
     \textbf{1. SOE Definition:}
     We will add:
 
-    \textit{``SOEs are classified based on the China Securities Regulatory Commission (CSRC) definition: firms where the state is the ultimate controlling shareholder (>50\% direct ownership or >30\% through pyramid structures). We verify this using the WIND database ownership classifications and cross-check with government stake announcements.''}
+    \textit{``SOEs are classified based on the China Securities Regulatory Commission (CSRC) definition: firms where the state is the ultimate controlling shareholder ($> 50\%$ direct ownership or $> 30\%$ through pyramid structures). We verify this using the WIND database ownership classifications and cross-check with government stake announcements.''}
 
     \textbf{2. Sample Characteristics:}
     We will add Table X summarizing:
@@ -145,21 +144,20 @@ We sincerely thank the reviewer for their insightful comments and constructive s
     We will test and rule out size effects by adding:
 
     \textit{``Results hold after controlling for firm size and interaction terms. The SOE buffer persists within size quintiles, suggesting it's not merely a scale effect.''}
-    }}
+    \end{responsebox}
 
     \vspace{0.5cm}
 
     \item \textbf{The contribution would benefit from clearer positioning of the ambiguity channel relative to volatility-focused frameworks; refine the introduction and related work to emphasize incremental insight and practical relevance, and tighten the discussion of empirical results accordingly.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will revise to highlight our unique contributions:
 
     \textbf{1. Introduction Changes:}
 
-    \colorbox{highlightbg}{
-    \textit{``While existing literature predominantly examines GPR through the lens of volatility \citep[e.g.,][]{Bouri2021, Apergis2021}, we demonstrate that ambiguity represents a distinct and economically significant transmission channel. Unlike volatility---which captures second-moment risk with known probabilities---ambiguity reflects Knightian uncertainty where probability distributions themselves are unknown. Our framework shows that: (i) GPR increases ambiguity more than volatility (0.42 vs 0.18 standard deviations); (ii) ambiguity explains 38.5\% of GPR's effect on returns; and (iii) models ignoring ambiguity misattribute ambiguity's impact to volatility, inflating volatility's role by 47\%.''}
-    }
+    \begin{highlightbox}
+    \textit{``While existing literature predominantly examines GPR through the lens of volatility \citep{Bouri2021, Apergis2021}, we demonstrate that ambiguity represents a distinct and economically significant transmission channel. Unlike volatility---which captures second-moment risk with known probabilities---ambiguity reflects Knightian uncertainty where probability distributions themselves are unknown. Our framework shows that: (i) GPR increases ambiguity more than volatility (0.42 vs 0.18 standard deviations); (ii) ambiguity explains 38.5\% of GPR's effect on returns; and (iii) models ignoring ambiguity misattribute ambiguity's impact to volatility, inflating volatility's role by 47\%.''}
+    \end{highlightbox}
 
     \textbf{2. Literature Review Enhancement:}
     We will add a paragraph:
@@ -179,7 +177,7 @@ We sincerely thank the reviewer for their insightful comments and constructive s
     We will add:
 
     \textit{``Our findings have immediate practical implications. Portfolio managers using volatility-only hedging strategies remain exposed to ambiguity risk. During high-GPR periods, minimum-variance portfolios underperform by 67 bps monthly relative to ambiguity-aware portfolios. Policy interventions focusing solely on volatility stabilization (e.g., circuit breakers) may miss the larger ambiguity transmission channel.''}
-    }}
+    \end{responsebox}
 
 \end{enumerate}
 
@@ -188,41 +186,37 @@ We sincerely thank the reviewer for their insightful comments and constructive s
 \begin{enumerate}
     \item \textbf{Clarify the sample period and exact trading days for all subsamples (pre-COVID vs COVID) with start/end dates.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will add precise dates:
 
     \textit{``Full sample: January 3, 2018 to December 29, 2023 (1,458 trading days)
     Pre-COVID: January 3, 2018 to December 31, 2019 (485 trading days)
     COVID period: January 2, 2020 to December 29, 2023 (973 trading days)''}
-    }}
+    \end{responsebox}
 
     \item \textbf{Define all variables in table captions (e.g., ``$\Delta$Ambiguity'', ``RV'') and specify units/frequencies.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will update all table captions with complete definitions:
 
     Example for Table 1:
     \textit{``Variables: $\Delta$GPR = daily change in Geopolitical Risk index; $\Delta$Ambiguity = daily change in cross-entropy-based ambiguity measure; $\Delta$RV = daily change in realized volatility (5-minute); Market Return = value-weighted A-share market return; VIX = CBOE Volatility Index; Term Spread = 10-year minus 1-year Chinese government bond yield; Risk-Free Rate = 3-month SHIBOR. All returns and spreads are in percentage points. Standard errors are Newey-West HAC robust with 5-day lag.''}
-    }}
+    \end{responsebox}
 
     \item \textbf{Increase figure/table font sizes and ensure captions state standard errors and lag choices (e.g., Newey--West 5-day) consistently.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will:
     \begin{itemize}
         \item Increase all table fonts from 9pt to 10pt
         \item Ensure all captions include: ``Standard errors are Newey-West HAC robust with 5-day lag (unless otherwise specified)''
         \item Add note: ``*, **, and *** denote significance at the 10\%, 5\%, and 1\% levels, respectively''
     \end{itemize}
-    }}
+    \end{responsebox}
 
     \item \textbf{Ensure consistent notation for ambiguity and volatility betas across text, equations, and tables.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will standardize notation:
     \begin{itemize}
         \item Ambiguity beta: $\beta_{i,\text{AMB}}$ (not $\beta_{i,\mathcal{A}}$)
@@ -230,12 +224,11 @@ We sincerely thank the reviewer for their insightful comments and constructive s
         \item Market beta: $\beta_{i,\text{MKT}}$ (consistent)
         \item Update all tables and equations to use this notation
     \end{itemize}
-    }}
+    \end{responsebox}
 
     \item \textbf{Add a brief algorithmic summary of the ambiguity measure in Appendix A with inputs/outputs.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will add Algorithm 1 to Appendix A:
 
     \begin{minipage}{\textwidth}
@@ -251,21 +244,19 @@ We sincerely thank the reviewer for their insightful comments and constructive s
     4. Return: $\mathcal{A}_t = \min_j D_j$\\
     \textbf{Complexity:} $O(m \times k)$ where $m$ = intraday intervals, $k$ = benchmark days
     \end{minipage}
-    }}
+    \end{responsebox}
 
     \item \textbf{Report instrument strength and overidentification tests where IV is used.}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will add to the IV section:
 
     \textit{``First-stage F-statistic: 47.3 (critical value 10), indicating strong instruments. Hansen J-statistic: 2.84 (p-value = 0.242), failing to reject the null that instruments are valid. Partial $R^2$: 0.186 for excluded instruments.''}
-    }}
+    \end{responsebox}
 
     \item \textbf{Citations: include more up-to-date references and situate comparisons to contemporary uncertainty proxies (e.g., EPU and recent geopolitical uncertainty measures).}
 
-    \colorbox{responsebg}{
-    \parbox{0.95\textwidth}{
+    \begin{responsebox}
     \textbf{Response:} We will add recent references:
 
     \begin{itemize}
@@ -278,12 +269,15 @@ We sincerely thank the reviewer for their insightful comments and constructive s
     We will add a comparison table:
 
     \textit{``Comparison of uncertainty measures shows our entropy-based ambiguity has higher predictive power ($R^2$ = 0.452) than EPU (0.318), GPR volatility (0.326), and text-based uncertainty (0.387) for Chinese market returns.''}
-    }}
+    \end{responsebox}
 
 \end{enumerate}
 
 \subsection*{Conclusion}
 
 We believe these revisions have substantially strengthened the manuscript. The changes address all concerns raised by the reviewer while enhancing the paper's contribution to understanding uncertainty transmission in emerging markets. We thank the reviewer for their valuable input.
+
+\bibliographystyle{apalike}
+\bibliography{geo}
 
 \end{document}
