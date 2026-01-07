@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: geopoliticalAmb03_article.aux
 The style file: apalike.bst
 Database file #1: geo.bib
-You've used 13 entries,
+You've used 15 entries,
             1935 wiz_defined-function locations,
-            570 strings with 5687 characters,
-and the built_in function-call counts, 4951 in all, are:
-= -- 490
-> -- 155
+            584 strings with 6096 characters,
+and the built_in function-call counts, 5844 in all, are:
+= -- 577
+> -- 196
 < -- 11
-+ -- 54
-- -- 48
-* -- 430
-:= -- 856
-add.period$ -- 39
-call.type$ -- 13
-change.case$ -- 88
-chr.to.int$ -- 13
-cite$ -- 13
-duplicate$ -- 178
-empty$ -- 377
-format.name$ -- 75
-if$ -- 977
++ -- 68
+- -- 62
+* -- 512
+:= -- 1012
+add.period$ -- 45
+call.type$ -- 15
+change.case$ -- 105
+chr.to.int$ -- 15
+cite$ -- 15
+duplicate$ -- 206
+empty$ -- 438
+format.name$ -- 91
+if$ -- 1148
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 13
-newline$ -- 68
-num.names$ -- 39
-pop$ -- 57
+missing$ -- 15
+newline$ -- 78
+num.names$ -- 45
+pop$ -- 70
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 106
 quote$ -- 0
-skip$ -- 139
+skip$ -- 159
 stack$ -- 0
-substring$ -- 431
-swap$ -- 12
+substring$ -- 510
+swap$ -- 14
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 76
+type$ -- 88
 warning$ -- 0
-while$ -- 39
+while$ -- 46
 width$ -- 0
-write$ -- 169
+write$ -- 195
