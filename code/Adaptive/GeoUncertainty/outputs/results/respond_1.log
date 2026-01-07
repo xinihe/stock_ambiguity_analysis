@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.17)  7 JAN 2026 15:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.3.17)  7 JAN 2026 15:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -844,72 +844,43 @@ LaTeX Warning: No \author given.
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
 al/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-[2]
-
-Package natbib Warning: Citation `AllianzTrade2021' on page 3 undefined on inpu
-t line 146.
-
-[3] [4]
-
-Package natbib Warning: Citation `Bouri2021' on page 5 undefined on input line 
-165.
-
-
-Package natbib Warning: Citation `Apergis2021' on page 5 undefined on input lin
-e 165.
-
-
-Package natbib Warning: Citation `Baker2016' on page 5 undefined on input line 
-172.
-
-
-Package natbib Warning: Citation `Caldara2022' on page 5 undefined on input lin
-e 172.
-
-
-Package natbib Warning: Citation `Brenner2018' on page 5 undefined on input lin
-e 172.
-
-[5] [6]
-
-Package natbib Warning: Citation `Bouri2024' on page 7 undefined on input line 
-271.
-
-
-Package natbib Warning: Citation `Liu2024' on page 7 undefined on input line 27
-2.
-
-
-Package natbib Warning: Citation `Zhang2023' on page 7 undefined on input line 
-273.
-
-
-Package natbib Warning: Citation `Nemani2023' on page 7 undefined on input line
- 274.
-
-[7] (./respond_1.bbl
+[2] [3] [4] [5] [6] [7] (./respond_1.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 4--8
 [][]$\OT1/cmtt/m/n/12 https : / / www . allianz-[]trade . com / en _ global / n
 ews-[]insights / economic-[]insights /
  []
 
-
-./respond_1.bbl:26: LaTeX Error: Unicode character ̇ (U+0307)
-               not set up for use with LaTeX.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.26 Bouri, E., Gök, R., Gemi̇
-                                ci̇, E., and Kara, E. (2024). 
+[8]) [9] (./respond_1.aux)
+ ***********
+LaTeX2e <2023-11-01> patch level 1
+L3 programming layer <2024-02-20>
+ ***********
+Package rerunfilecheck Info: File `respond_1.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
 Here is how much of TeX's memory you used:
- 27246 strings out of 474116
- 551160 string characters out of 5743682
- 1940187 words of memory out of 5000000
- 49159 multiletter control sequences out of 15000+600000
+ 27284 strings out of 474116
+ 551646 string characters out of 5743682
+ 1941187 words of memory out of 5000000
+ 49182 multiletter control sequences out of 15000+600000
  565215 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  101i,6n,107p,775b,1064s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
+></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></
+usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/
+local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/loc
+al/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loca
+l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/
+texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/t
+exlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/te
+xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+Output written on respond_1.pdf (9 pages, 170549 bytes).
+PDF statistics:
+ 201 PDF objects out of 1000 (max. 8388607)
+ 142 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 157 words of extra memory for PDF output out of 10000 (max. 10000000)
 
-./respond_1.bbl:26:  ==> Fatal error occurred, no output PDF file produced!
