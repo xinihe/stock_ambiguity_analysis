@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex respond_1"] 0 "respond_1.aux" "respond_1.bbl" "respond_1" 0 0
+["bibtex respond_1"] 1767445260.61928 "respond_1.aux" "respond_1.bbl" "respond_1" 1767445785.35824 0
+  "../geo.bib" 1763817346.40703 4313 45ba14c998a16c4d5bd8394246b44a28 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "geo.bib" 0 -1 0 ""
-  "respond_1.aux" 0 -1 0 "pdflatex"
+  "respond_1.aux" 1767445785.06564 554 80dee244cbf5b1587da151e3e567f750 "pdflatex"
   (generated)
   "respond_1.bbl"
   "respond_1.blg"
   (rewritten before read)
-["pdflatex"] 1767419783.27024 "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/review/respond_1.tex" "respond_1.pdf" "respond_1" 1767419784.3515 0
-  "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/review/respond_1.tex" 1767419781.13984 17592 ff7a7a9f613d5ae47ca8c27425178e19 ""
+["pdflatex"] 1767445784.18265 "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/review/respond_1.tex" "respond_1.pdf" "respond_1" 1767445785.35837 0
+  "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/review/respond_1.tex" 1767445783.42637 17616 3920255a19a0553a674705e7859703d7 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
@@ -188,10 +188,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1762575399 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762575383 3345736 b2893181af760e943929766a696f3c9a ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "respond_1.aux" 1767419784.06288 376 2b301b367d994abbdadc8be5c56f94df "pdflatex"
-  "respond_1.bbl" 0 -1 0 "bibtex respond_1"
-  "respond_1.out" 1767419783.82864 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "respond_1.tex" 1767419781.13984 17592 ff7a7a9f613d5ae47ca8c27425178e19 ""
+  "respond_1.aux" 1767445785.06564 554 80dee244cbf5b1587da151e3e567f750 "pdflatex"
+  "respond_1.bbl" 1767445260.72901 661 1ca626110e6a9c996b2870473d88fbe0 "bibtex respond_1"
+  "respond_1.out" 1767445784.82612 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "respond_1.tex" 1767445783.42637 17616 3920255a19a0553a674705e7859703d7 ""
   (generated)
   "respond_1.aux"
   "respond_1.log"

@@ -304,6 +304,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti12.tfm
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+INPUT ./respond_1.bbl
+INPUT ./respond_1.bbl
+INPUT respond_1.bbl
 INPUT respond_1.aux
 INPUT ./respond_1.out
 INPUT ./respond_1.out

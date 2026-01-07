@@ -318,6 +318,8 @@ Path b (Ambiguity $\rightarrow$ Returns) & -1.667*** & & & \\
 \end{threeparttable}
 \end{sidewaystable}
 
+The observed mediation pattern aligns with our causal story through several mechanisms. First, geopolitical news creates model uncertainty as investors reassess their beliefs about return distributions. This is reflected in increased cross-entropy divergence. Second, this heightened ambiguity leads to risk premia as ambiguity-averse investors demand compensation for model uncertainty, resulting in lower contemporaneous returns. The temporal sequence---morning GPR news affecting midday ambiguity calculations, which then influence end-of-day returns---supports this causal pathway.
+
 \subsubsection{Moderation Analysis}
 
 To test H4 (SOE status moderates ambiguity pricing), we extend our cross-sectional analysis with interaction terms:
@@ -455,4 +457,6 @@ The specific $\mathcal{A}_t$ index used in this paper is the limiting case of th
     \mathcal{A}_t = \lim_{\alpha \to -\infty} \mathcal{A}(\mu, \Pi; \alpha) = \min_{\pi \in \Pi} \mathcal{D}_{KL}(\mu \| \pi)
 \end{equation}
 This formulation ensures the index robustly identifies the closest historical analogue for the current market state, providing a clear and interpretable signal of model misspecification and ambiguity.
+
+\textcolor{red}{In our empirical implementation, we specify the set of benchmark distributions $\Pi$ using a rolling window approach. For each trading day $t$, the benchmark set consists of historical return distributions from the preceding 252 trading days (approximately one year). To reduce look-ahead bias, these windows are anchored to the start of each quarter. Furthermore, to ensure the benchmarks represent plausible structural regimes rather than transient noise, we exclude days with extreme volatility (defined as returns exceeding 3 standard deviations) from the benchmark set. This construction allows the ambiguity measure to capture deviations from a locally stationary but adaptively evolving set of reference models.}
 \end{document}
