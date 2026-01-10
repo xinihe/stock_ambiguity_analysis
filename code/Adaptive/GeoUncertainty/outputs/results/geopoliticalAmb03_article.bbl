@@ -28,6 +28,12 @@ Bouri, E., Demirer, R., Gupta, R., and Pierdzioch, C. (2021).
 \newblock Geopolitical risk and the jump tails of equity market returns.
 \newblock {\em Finance Research Letters}, 38:101438.
 
+\bibitem[Bouri et~al., 2024]{Bouri2024}
+Bouri, E., G{\"o}k, R., Gemici, E., and Kara, E. (2024).
+\newblock Do geopolitical risk, economic policy uncertainty, and oil implied
+  volatility drive assets across quantiles and time-horizons?
+\newblock {\em The Quarterly Review of Economics and Finance}, 93:137--154.
+
 \bibitem[Brenner and Izhakian, 2018]{Brenner2018}
 Brenner, M. and Izhakian, Y. (2018).
 \newblock Asset pricing and ambiguity: Empirical evidence.
@@ -68,6 +74,19 @@ Knight, F.~H. (1921).
 \newblock {\em Risk, Uncertainty and Profit}.
 \newblock Houghton Mifflin.
 
+\bibitem[Liu et~al., 2024]{Liu2024}
+Liu, F., Qin, C., Qin, M., Stefea, P., and Norena-Chavez, D. (2024).
+\newblock Geopolitical risk: An opportunity or a threat to the green bond
+  market?
+\newblock {\em Energy Economics}, 131:107384.
+
+\bibitem[Nemani et~al., 2023]{Nemani2023}
+Nemani, V., Biggio, L., Huan, X., Hu, Z., Fink, O., Tran, A., Wang, Y., Zhang,
+  X., and Hu, C. (2023).
+\newblock Uncertainty quantification in machine learning for engineering design
+  and health prognostics: A tutorial.
+\newblock {\em Mechanical Systems and Signal Processing}, 205:110796.
+
 \bibitem[P{'a}stor and Veronesi, 2013]{Pastor2013}
 P{'a}stor, {\v L}. and Veronesi, P. (2013).
 \newblock Political uncertainty and risk premia.
@@ -77,5 +96,10 @@ P{'a}stor, {\v L}. and Veronesi, P. (2013).
 Ulrich, M. (2013).
 \newblock Inflation ambiguity and the term structure of u.s. government bonds.
 \newblock {\em Journal of Monetary Economics}, 60:295--309.
+
+\bibitem[Zhang et~al., 2023]{Zhang2023}
+Zhang, Y., He, Y., He, Y., and Li, Z. (2023).
+\newblock Geopolitical risk and stock market volatility: A global perspective.
+\newblock {\em Finance Research Letters}, 58:104339.
 
 \end{thebibliography}

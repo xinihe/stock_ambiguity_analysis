@@ -1,46 +1,46 @@
-This is BibTeX, Version 0.99d (TeX Live 2024)
+This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: geopoliticalAmb03_article.aux
 The style file: apalike.bst
 Database file #1: geo.bib
-You've used 15 entries,
+You've used 19 entries,
             1935 wiz_defined-function locations,
-            584 strings with 6096 characters,
-and the built_in function-call counts, 5844 in all, are:
-= -- 577
-> -- 196
+            612 strings with 7009 characters,
+and the built_in function-call counts, 7774 in all, are:
+= -- 751
+> -- 318
 < -- 11
-+ -- 68
-- -- 62
-* -- 512
-:= -- 1012
-add.period$ -- 45
-call.type$ -- 15
-change.case$ -- 105
-chr.to.int$ -- 15
-cite$ -- 15
-duplicate$ -- 206
-empty$ -- 438
-format.name$ -- 91
-if$ -- 1148
++ -- 112
+- -- 106
+* -- 697
+:= -- 1361
+add.period$ -- 57
+call.type$ -- 19
+change.case$ -- 147
+chr.to.int$ -- 19
+cite$ -- 19
+duplicate$ -- 262
+empty$ -- 551
+format.name$ -- 139
+if$ -- 1510
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 15
-newline$ -- 78
-num.names$ -- 45
-pop$ -- 70
+missing$ -- 19
+newline$ -- 98
+num.names$ -- 57
+pop$ -- 104
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 148
 quote$ -- 0
-skip$ -- 159
+skip$ -- 199
 stack$ -- 0
-substring$ -- 510
-swap$ -- 14
+substring$ -- 633
+swap$ -- 18
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 88
+type$ -- 112
 warning$ -- 0
-while$ -- 46
+while$ -- 58
 width$ -- 0
-write$ -- 195
+write$ -- 247
