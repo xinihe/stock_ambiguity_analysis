@@ -117,32 +117,6 @@
 
 
 
-\author[inst1]{He Ni}
-
-\affiliation[inst1]{organization={Tailong School of Finance, Zhejiang Gongshang University},
-addressline={18 Xuezheng Str.},
-            city={Hangzhou},
-            postcode={310018},
-            state={Zhejiang},
-            country={China}}
-
-\author[inst2]{Fan Yang}
-\affiliation[inst2]{organization={School of Finance, Zhejiang Gongshang University},
-            addressline={18 Xuezheng Str.},
-            city={Hangzhou},
-            postcode={310018},
-            state={Zhejiang},
-            country={China}}
-
-\author[inst3]{Muhammad Ansar Majeedb}
-\affiliation[inst3]{organization={Department of Accounting, Finance and Economics, KEDGE Business School},
-            addressline={Domainede Luminy, Rue Antoine Bourdelle},
-            city={},
-            postcode={13009},
-            state={Marseille},
-            country={France}}
-
-\author[inst2]{Xingjian Guo}            
 %% Abstract
 \begin{abstract}
 %% Text of abstract
@@ -898,12 +872,12 @@ Cross-entropy provides a natural mathematical framework for quantifying model un
 
 The CEA index is grounded in Hansen and Sargent's multiplier-preference model \cite{hansen2001}, where a decision-maker evaluates robustness by considering worst-case distributions within a KL-divergence ball around a reference model: $V(f) = \min_{p \in \mathcal{P}} \{\mathbb{E}_p[U(f)] + \rho D_{KL}(p\|q)\}$, where $\rho > 0$ represents ambiguity aversion. The CEA index $\mathcal{A}^{CEA}_t$ operationalizes this framework by measuring the KL divergence between empirical intraday return distributions and historically plausible benchmarks.
 
-\begin{figure}[!htbp]
-    \centering
-    \includegraphics[width=0.9\linewidth]{fig/figure5_methodology_flowchart.pdf}
-    \caption{Cross-Entropy Ambiguity Index: Methodology Framework}
-    \label{fig:methodology_framework}
-\end{figure}
+% \begin{figure}[!htbp]
+%     \centering
+%     \includegraphics[width=0.9\linewidth]{fig/figure5_methodology_flowchart.pdf}
+%     \caption{Cross-Entropy Ambiguity Index: Methodology Framework}
+%     \label{fig:methodology_framework}
+% \end{figure}
 
 The computation begins with high-frequency data collection, gathering one-minute return data for each trading day to capture intraday price dynamics. These returns are then constructed into daily return distributions by binning into 202 equally spaced intervals over $[-0.201, 0.201]$, creating a probability vector for each day. The sample is divided into overlapping 22-day windows, providing a balance between statistical robustness and responsiveness to market changes.
 
@@ -1046,4 +1020,3 @@ This formulation ensures the index robustly identifies the closest historical an
 \endinput
 %%
 %% End of file `elsarticle-template-harv.tex'.
-
