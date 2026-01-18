@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex geopoliticalAmb03_article"] 1768658694.97794 "geopoliticalAmb03_article.aux" "geopoliticalAmb03_article.bbl" "geopoliticalAmb03_article" 1768658696.44655 0
+["bibtex revise_unmarked_article"] 1768703279.87072 "revise_unmarked_article.aux" "revise_unmarked_article.bbl" "revise_unmarked_article" 1768703280.93349 0
   "./geo.bib" 1768639659.31956 7624 ad60a6b6f86f0d3cc4bec1b76a17e588 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "geopoliticalAmb03_article.aux" 1768658695.93835 7505 05927675553cab3c98dec7414459cbcf "pdflatex"
+  "revise_unmarked_article.aux" 1768703280.62358 7513 0dc8075afae1081a2fd4a2d61a0c477a "pdflatex"
   (generated)
-  "geopoliticalAmb03_article.bbl"
-  "geopoliticalAmb03_article.blg"
+  "revise_unmarked_article.bbl"
+  "revise_unmarked_article.blg"
   (rewritten before read)
-["pdflatex"] 1768658695.13662 "geopoliticalAmb03_article.tex" "geopoliticalAmb03_article.pdf" "geopoliticalAmb03_article" 1768658696.44672 0
+["pdflatex"] 1768703279.98019 "revise_unmarked_article.tex" "revise_unmarked_article.pdf" "revise_unmarked_article" 1768703280.93363 0
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -146,15 +146,15 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1762575399 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762575383 3345736 b2893181af760e943929766a696f3c9a ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "geopoliticalAmb03_article.aux" 1768658695.93835 7505 05927675553cab3c98dec7414459cbcf "pdflatex"
-  "geopoliticalAmb03_article.bbl" 1768658695.13186 4137 454d47c1fbe80c2a480e72791438c591 "bibtex geopoliticalAmb03_article"
-  "geopoliticalAmb03_article.out" 1768658695.93976 3435 b18ae5244e13a18cd6f8d0516ceec978 "pdflatex"
-  "geopoliticalAmb03_article.spl" 1768658695.41107 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "geopoliticalAmb03_article.tex" 1768639661.35581 45924 7ab39a8e4c30587c20c4aa5a24e3b674 ""
+  "revise_unmarked_article.aux" 1768703280.62358 7513 0dc8075afae1081a2fd4a2d61a0c477a "pdflatex"
+  "revise_unmarked_article.bbl" 1768703279.97757 4137 454d47c1fbe80c2a480e72791438c591 "bibtex revise_unmarked_article"
+  "revise_unmarked_article.out" 1768703280.62431 3435 b18ae5244e13a18cd6f8d0516ceec978 "pdflatex"
+  "revise_unmarked_article.spl" 1768703280.16294 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "revise_unmarked_article.tex" 1768661738.70562 45972 d3abe03df4418e08c20fa49c9769c7c1 ""
   (generated)
-  "geopoliticalAmb03_article.aux"
-  "geopoliticalAmb03_article.log"
-  "geopoliticalAmb03_article.out"
-  "geopoliticalAmb03_article.pdf"
-  "geopoliticalAmb03_article.spl"
+  "revise_unmarked_article.aux"
+  "revise_unmarked_article.log"
+  "revise_unmarked_article.out"
+  "revise_unmarked_article.pdf"
+  "revise_unmarked_article.spl"
   (rewritten before read)
