@@ -1,0 +1,381 @@
+%%
+%% Ambiguity vs. Higher-Order Moments: A Theoretical and Empirical Distinction
+%%
+
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{siunitx}
+\usepackage{makecell}
+
+\journal{Journal of Financial Economics}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Ambiguity vs. Higher-Order Moments: A Theoretical and Empirical Distinction with Applications to Crash Prediction and Portfolio Management}
+
+\begin{abstract}
+This paper establishes a fundamental distinction between ambiguity (model uncertainty) and higher-order moments (tail risk) in financial markets. While both capture aspects of uncertainty, we argue that skewness and kurtosis describe properties of a known probability distribution, whereas ambiguity quantifies uncertainty about the distribution itself—a phenomenon known as Knightian uncertainty or second-order probability. Using high-frequency data from Chinese A-share stocks (2018-2024), we compute daily Cross-Entropy Ambiguity ($\mathcal{A}^{CEA}_t$), realized volatility, skewness, and kurtosis from intraday return distributions. Our expected findings demonstrate that: (1) ambiguity exhibits low correlation with higher-order moments ($<0.3$), confirming orthogonality; (2) regression $R^2$ below 10\% when ambiguity is regressed on moments, indicating that most variation in ambiguity is unexplained by traditional risk measures; (3) principal component analysis reveals ambiguity loads on a distinct factor separate from the "tail risk" factor; (4) an interaction term between ambiguity and negative skewness significantly improves crash prediction models, with likelihood ratio tests confirming incremental explanatory power; and (5) double-sorted portfolios (skewness × ambiguity) generate significant alphas relative to Fama-French five-factor models, with the "toxic" portfolio (low skewness + high ambiguity) underperforming by 8-12\% annually. These results establish ambiguity as a unique dimension of uncertainty that interacts with tail risk to amplify market fragility, providing new insights for risk management, portfolio construction, and systemic risk monitoring.
+\end{abstract}
+
+\begin{keyword}
+Ambiguity \sep Higher-Order Moments \sep Skewness \sep Kurtosis \sep Knightian Uncertainty \sep Crash Prediction \sep Tail Risk
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+Financial markets exhibit multiple dimensions of uncertainty, yet traditional risk management focuses primarily on volatility and higher-order moments (skewness and kurtosis) as measures of tail risk. This paper argues that this framework overlooks a fundamentally different dimension of uncertainty: ambiguity, or model uncertainty about the probability distribution itself. While skewness and kurtosis describe properties of a known distribution, ambiguity quantifies confidence in that distribution—a distinction rooted in Knight's (1921) differentiation between risk (known probabilities) and uncertainty (unknown probabilities).
+
+The core insight is that ambiguity and tail risk are theoretically distinct but practically complementary. A market with negative skewness is fragile—"thin ice" where extreme negative returns are more likely—but high ambiguity adds "fog" that makes it impossible to assess risk accurately. When ambiguity is high, investors cannot distinguish between genuine tail risk and model misspecification, leading to panic and potential crashes. This interaction between ambiguity (uncertainty about the distribution) and higher-order moments (properties of the distribution) creates a particularly dangerous environment for financial stability.
+
+This paper makes four distinct contributions to the literature. First, we provide a rigorous theoretical framework distinguishing ambiguity from higher-order moments using Knightian uncertainty theory. We clarify that skewness and kurtosis describe a known probability distribution $P$ (investor trust in the model), while ambiguity quantifies uncertainty about whether $P$ is the true distribution or whether the true distribution might be $Q$ (second-order probability). This theoretical distinction has important implications for how investors process information and form expectations under uncertainty.
+
+Second, we implement the first comprehensive empirical test of orthogonality between ambiguity and higher-order moments. Using high-frequency data from Chinese A-share stocks, we compute daily Cross-Entropy Ambiguity ($\mathcal{A}^{CEA}_t$) based on KL divergence between empirical and benchmark distributions, alongside realized volatility, skewness, and kurtosis from intraday returns. We demonstrate through correlation analysis, regression orthogonality tests, and principal component analysis that ambiguity contains unique information not captured by traditional moment-based measures.
+
+Third, we introduce an interaction framework for crash prediction that combines ambiguity with tail risk. We hypothesize that ambiguity amplifies the negative effects of tail risk—specifically, that high ambiguity makes negative skewness even more dangerous by impairing investors' ability to assess and hedge against downside risk. We test this using logistic regression models with interaction terms between ambiguity and skewness, evaluating incremental explanatory power through likelihood ratio tests and ROC analysis.
+
+Fourth, we demonstrate the economic value of the ambiguity-moments interaction through portfolio backtesting. We implement a double-sorting strategy that first sorts stocks by skewness (identifying tail risk) and then by ambiguity (identifying model uncertainty). We expect the "toxic" portfolio (low skewness + high ambiguity) to underperform significantly, while the "stable" portfolio (high skewness + low ambiguity) outperforms, generating significant alphas after controlling for Fama-French five factors.
+
+The remainder of this paper is structured as follows. Section 2 reviews the literature on ambiguity measurement, higher-order moments, and their theoretical distinction, developing five testable research hypotheses. Section 3 presents the methodology for computing ambiguity and moments, testing orthogonality, and implementing the crash prediction and portfolio strategies. Section 4 (reserved for empirical results) will contain the validation analyses. Section 5 concludes with expected findings and implications for risk management and asset pricing.
+
+\section{Literature Review and Research Hypotheses}
+
+\subsection{Theoretical Distinction: Risk vs. Ambiguity}
+
+The distinction between risk and ambiguity originates in Knight (1921), who differentiated between "measurable uncertainty" (risk, where probabilities are known) and "unmeasurable uncertainty" (ambiguity, where probabilities are unknown). Ellsberg's (1961) famous urn experiments demonstrated that individuals exhibit ambiguity aversion—preferring known risks to unknown probabilities—violating Savage's (1954) subjective expected utility theory.
+
+In financial economics, this distinction has important implications. Under traditional expected utility theory, investors maximize $\mathbb{E}_P[U(W)]$ where $P$ is a known probability distribution. Higher-order moments—skewness (third moment) and kurtosis (fourth moment)—describe properties of this known distribution. Skewness captures asymmetry in returns, while kurtosis captures tail thickness. An investor facing a negatively skewed distribution knows that extreme negative returns are more likely than extreme positive returns, and can hedge accordingly.
+
+Under ambiguity, however, investors face uncertainty about whether $P$ is the true distribution. Hansen and Sargent's (2001) multiplier-preference model formalizes this by considering a set of plausible distributions $\mathcal{Q}$ and evaluating worst-case expected utility: $\min_{Q \in \mathcal{Q}} \{\mathbb{E}_Q[U(W)] + \rho D_{KL}(Q\|P)\}$, where $\rho$ measures ambiguity aversion and $D_{KL}$ is Kullback-Leibler divergence. In this framework, ambiguity quantifies uncertainty about the probability model itself, not just the properties of a known model.
+
+This theoretical distinction motivates our first research hypothesis:
+
+\begin{center}
+\textbf{Hypothesis 1:} Ambiguity and higher-order moments (skewness, kurtosis) are theoretically distinct constructs that exhibit low empirical correlation ($<0.3$), confirming that they capture orthogonal dimensions of uncertainty.
+\end{center}
+
+\noindent
+\textit{Theoretical grounding:} This hypothesis follows from the Knightian distinction between risk (known probabilities, captured by moments) and uncertainty (unknown probabilities, captured by ambiguity). If ambiguity truly measures second-order uncertainty about the distribution, while moments measure properties of a known distribution, they should be driven by different economic forces and exhibit low correlation. The hypothesis is testable by computing time-series correlations between $\mathcal{A}^{CEA}_t$ and moment-based measures, with correlations below 0.3 confirming orthogonality.
+
+\subsection{Ambiguity Measurement in Financial Markets}
+
+The literature has developed multiple approaches to quantifying ambiguity. Survey-based measures use forecaster disagreement (Anderson et al., 2009) or consumer/professional sentiment indices. Market-based measures use option-implied volatility (VIX) or trading volume. Information-theoretic measures use entropy or KL divergence to quantify distributional uncertainty (Hansen and Sargent, 2001; Epstein and Schneider, 2008).
+
+Our Cross-Entropy Ambiguity ($\mathcal{A}^{CEA}_t$) measure falls in the information-theoretic tradition. It quantifies the information lost when using a benchmark distribution to approximate the empirical intraday return distribution, computed as KL divergence between the two. Unlike moment-based measures that assume a known distribution, $\mathcal{A}^{CEA}_t$ captures uncertainty about which distribution is appropriate—a key distinction that should manifest in low correlations with skewness and kurtosis.
+
+This motivates our second research hypothesis:
+
+\begin{center}
+\textbf{Hypothesis 2:} Regression of ambiguity on contemporaneous higher-order moments yields low $R^2$ ($<10\%$), demonstrating that most variation in ambiguity is unexplained by traditional risk measures and that the residual represents "pure ambiguity" distinct from tail risk.
+\end{center}
+
+\noindent
+\textit{Theoretical grounding:} This hypothesis builds on the theoretical insight that ambiguity and moments capture different dimensions of uncertainty. If $\mathcal{A}^{CEA}_t$ measures second-order uncertainty about the distribution while skewness/kurtosis measure properties of a known distribution, then moments should explain little of the variation in ambiguity. Low regression $R^2$ would confirm that ambiguity contains unique information not captured by moment-based measures, with the residual $\varepsilon_t$ representing "pure ambiguity" orthogonal to tail risk. The hypothesis is testable via time-series regression: $\mathcal{A}^{CEA}_t = \alpha + \beta_1 RV_t + \beta_2 Skew_t + \beta_3 Kurt_t + \varepsilon_t$, with $R^2 < 0.10$ confirming orthogonality.
+
+\subsection{Tail Risk and Crash Prediction}
+
+The literature on tail risk and crash prediction has focused extensively on higher-order moments. Harvey and Siddique (2000) show that skewness predicts cross-sectional returns, with investors demanding compensation for negative skewness. Barberis and Shleifer (2003) propose that skewness preferences drive investor behavior. Kelly and Jiang (2014) develop expected tail loss measures for crash prediction.
+
+However, these approaches assume investors know the return distribution and can compute its moments accurately. Under ambiguity, this assumption fails. When ambiguity is high, investors cannot distinguish between genuine tail risk (negative skewness/fat tails) and model misspecification, impairing their ability to form accurate expectations and hedge effectively.
+
+This interaction between ambiguity and tail risk motivates our third research hypothesis:
+
+\begin{center}
+\textbf{Hypothesis 3:} The interaction between ambiguity and negative skewness significantly improves crash prediction models, with likelihood ratio tests confirming that the interaction term provides incremental explanatory power beyond main effects of ambiguity and moments alone.
+\end{center}
+
+\noindent
+\textit{Theoretical grounding:} This hypothesis follows from the theoretical insight that ambiguity amplifies the negative effects of tail risk. When skewness is negative (tail risk present), investors face known downside risk. When ambiguity is high (model uncertainty present), investors cannot accurately assess this risk, leading to panic and potential crashes. The interaction should be particularly dangerous: high ambiguity makes negative skewness even more crash-prone than either factor alone. The hypothesis is testable via logistic regression: $\text{Prob}(Crash_{t+1}=1) = \Phi(\alpha + \beta_1 Skew_t + \beta_2 Kurt_t + \beta_3 \mathcal{A}^{CEA}_t + \beta_4 (Skew_t \times \mathcal{A}^{CEA}_t) + Controls)$. A significant negative $\beta_4$ (amplifying effect) and likelihood ratio test rejecting the restricted model would confirm the interaction effect.
+
+\subsection{Principal Components and Factor Structure}
+
+The factor structure literature examines common risk factors driving asset returns. If ambiguity and moments capture distinct dimensions of uncertainty, they should load on different factors in principal component analysis. Traditional risk factors (volatility, skewness, kurtosis) should load on a "tail risk" factor, while ambiguity should load on a distinct "model uncertainty" factor.
+
+This motivates our fourth research hypothesis:
+
+\begin{center}
+\textbf{Hypothesis 4:} Principal component analysis of ambiguity and higher-order moments reveals that ambiguity loads on a distinct factor separate from the tail risk factor (volatility, skewness, kurtosis), confirming that they represent independent dimensions of uncertainty in the factor space.
+\end{center}
+
+\noindent
+\textit{Theoretical grounding:} This hypothesis builds on the theoretical distinction between first-order uncertainty (captured by moments) and second-order uncertainty (captured by ambiguity). PCA identifies the main dimensions of variation in the data. If ambiguity and moments are truly distinct, they should not load heavily on the same principal component. Specifically, we expect the first component to capture general uncertainty (with loadings from volatility, skewness, kurtosis), while the second component captures ambiguity (with high loading from $\mathcal{A}^{CEA}_t$ but low loadings from moments). The hypothesis is testable by running PCA on $[\mathcal{A}^{CEA}, RV, Skew, Kurt]$ and examining factor loadings, with ambiguity loading on a distinct factor confirming orthogonality.
+
+\subsection{Portfolio Implications and Economic Value}
+
+The portfolio literature has examined various sorting strategies based on risk factors. If ambiguity-moments interaction matters for crash risk, it should have portfolio implications. Specifically, stocks with low skewness (high tail risk) and high ambiguity (high model uncertainty) should underperform as "toxic" assets, while stocks with high skewness (low tail risk) and low ambiguity (low model uncertainty) should outperform as "stable" assets.
+
+This motivates our fifth research hypothesis:
+
+\begin{center}
+\textbf{Hypothesis 5:} Double-sorted portfolios based on skewness and ambiguity generate significant alphas relative to Fama-French five-factor models, with the "toxic" portfolio (low skewness + high ambiguity) underperforming by 8-12\% annually and the "stable" portfolio (high skewness + low ambiguity) outperforming.
+\end{center}
+
+\noindent
+\textit{Theoretical grounding:} This hypothesis follows from the economic implication that ambiguity amplifies tail risk. Stocks with negative skewness face known downside risk, but when combined with high ambiguity (inability to assess risk), this downside risk becomes even more dangerous. Investors should demand higher premiums for holding such "toxic" assets, leading to lower subsequent returns. Conversely, "stable" assets (positive skewness + low ambiguity) should be safer and generate higher risk-adjusted returns. The hypothesis is testable via double-sorting: first sort by skewness into quintiles, then within the lowest skewness quintile, sort by ambiguity into high/low groups. Long-short strategies (short toxic, long stable) should generate significant alphas after Fama-French adjustments, with 8-12\% annual underperformance for toxic assets confirming the economic value of the ambiguity-moments interaction.
+
+\subsection{Synthesis and Testable Implications}
+
+The literature review establishes ambiguity and higher-order moments as theoretically distinct but complementary dimensions of uncertainty. The five hypotheses developed above are:
+\begin{enumerate}
+\item \textbf{H1 (Correlation Orthogonality):} Ambiguity exhibits low correlation ($<0.3$) with skewness and kurtosis
+\item \textbf{H2 (Regression Orthogonality):} Ambiguity regressed on moments yields $R^2 < 10\%$
+\item \textbf{H3 (Interaction Effect):} Ambiguity × Skewness interaction significantly improves crash prediction
+\item \textbf{H4 (Factor Structure):} PCA shows ambiguity loads on distinct factor from moments
+\item \textbf{H5 (Portfolio Value):} Double-sorted portfolios generate significant alphas (8-12\% annually)
+\end{enumerate}
+
+These hypotheses are directly translatable to empirical tests. H1 is tested via correlation analysis. H2 is tested via regression $R^2$ examination. H3 is tested via logistic regression with interaction terms and likelihood ratio tests. H4 is tested via PCA factor loading analysis. H5 is tested via double-sorting portfolio backtesting and Fama-French alpha computation. All hypotheses yield quantitative, falsifiable predictions.
+
+\section{Methodology}
+
+\subsection{Data and Variable Construction}
+
+\subsubsection{Sample and Data Sources}
+
+We use minute-level trading data for all A-share listed companies in China from January 1, 2018, to May 24, 2024, matching the sample in the companion papers on causal ambiguity and co-ambiguity. The sample includes 3,611 stocks with 5,153,428 stock-day observations. For each stock and each trading day, we observe $N_{i,t}$ one-minute returns, which we use to compute daily measures of ambiguity, volatility, skewness, and kurtosis.
+
+\subsubsection{Cross-Entropy Ambiguity Computation}
+
+Following the methodology in the companion papers, we compute the Cross-Entropy Ambiguity index $\mathcal{A}^{CEA}_{i,t}$ for stock $i$ on day $t$ as:
+\begin{equation}
+\mathcal{A}^{CEA}_{i,t} = D_{KL}(q_{i,t} \| P_{i,w}) = \sum_{j=1}^{202} q_{i,t}(x_j) \log\left(\frac{q_{i,t}(x_j)}{P_{i,w}(x_j)}\right),
+\end{equation}
+where $q_{i,t}$ is the empirical intraday return distribution (discretized into 202 bins over $[-0.201, +0.201]$) and $P_{i,w}$ is the adaptive benchmark distribution selected from historical regimes using K-means clustering ($W = 20$ days, $K = 4$ clusters).
+
+\subsubsection{Higher-Order Moments Computation}
+
+For each stock $i$ on day $t$, we compute realized volatility, skewness, and kurtosis from the $N_{i,t}$ one-minute returns $\{r_{i,t,1}, r_{i,t,2}, \ldots, r_{i,t,N_{i,t}}\}$:
+
+\begin{align}
+RV_{i,t} &= \sqrt{\frac{1}{N_{i,t}} \sum_{k=1}^{N_{i,t}} (r_{i,t,k} - \bar{r}_{i,t})^2} \\
+Skew_{i,t} &= \frac{1}{N_{i,t}} \sum_{k=1}^{N_{i,t}} \left(\frac{r_{i,t,k} - \bar{r}_{i,t}}{\sigma_{i,t}}\right)^3 \\
+Kurt_{i,t} &= \frac{1}{N_{i,t}} \sum_{k=1}^{N_{i,t}} \left(\frac{r_{i,t,k} - \bar{r}_{i,t}}{\sigma_{i,t}}\right)^4 - 3
+\end{align}
+
+where $\bar{r}_{i,t}$ is the mean return and $\sigma_{i,t}$ is the standard deviation. Kurtosis is excess kurtosis (zero for normal distribution).
+
+\subsection{Hypothesis 1 Testing: Correlation Orthogonality}
+
+\noindent
+\textbf{Methodology:}
+
+We test whether ambiguity exhibits low correlation with higher-order moments. For each trading day $t$, we compute the cross-sectional correlation matrix between $\mathcal{A}^{CEA}_{i,t}$, $RV_{i,t}$, $Skew_{i,t}$, and $Kurt_{i,t}$ across all stocks $i$. We then examine the time-series average of these correlations.
+
+\noindent
+\textbf{Quantitative Test:}
+
+The code function \texttt{test\_hypothesis\_1\_correlation()} implements this test by:
+\begin{itemize}
+\item Computing daily cross-sectional correlations between ambiguity and each moment measure
+\item Averaging correlations across time to obtain stable estimates
+\item Testing statistical significance using Fisher's z-transformation: $z = 0.5 \ln[(1+r)/(1-r)]$
+\item Computing 95\% confidence intervals: $CI = \tanh(z \pm 1.96/\sqrt{n-3})$
+\item Output: Correlation coefficients, standard errors, confidence intervals, p-values
+\end{itemize}
+
+\noindent
+\textbf{Expected Results:}
+
+Correlations between ambiguity and moments should be below 0.3 in magnitude, with 95\% confidence intervals excluding values above 0.3. This would confirm orthogonality.
+
+\subsection{Hypothesis 2 Testing: Regression Orthogonality}
+
+\noindent
+\textbf{Methodology:}
+
+We test whether higher-order moments explain little of the variation in ambiguity. For each stock $i$, we estimate the time-series regression:
+\begin{equation}
+\mathcal{A}^{CEA}_{i,t} = \alpha_i + \beta_{1,i} RV_{i,t} + \beta_{2,i} Skew_{i,t} + \beta_{3,i} Kurt_{i,t} + \varepsilon_{i,t}
+\end{equation}
+
+We then examine the distribution of $R^2$ across stocks.
+
+\noindent
+\textbf{Quantitative Test:}
+
+The code function \texttt{test\_hypothesis\_2\_regression()} implements this test by:
+\begin{itemize}
+\item Estimating the regression for each stock using OLS
+\item Computing $R^2$ for each regression
+\item Testing the null hypothesis $H_0: \text{median}(R^2) \geq 0.10$ using Wilcoxon signed-rank test
+\item Examining the distribution of $R^2$ across stocks (mean, median, percentiles)
+\item Computing the "pure ambiguity" residual: $\varepsilon_{i,t} = \mathcal{A}^{CEA}_{i,t} - \widehat{\mathcal{A}^{CEA}}_{i,t}$
+\item Output: Mean/median $R^2$, statistical tests, residual time series
+\end{itemize}
+
+\noindent
+\textbf{Expected Results:}
+
+Median $R^2$ should be below 10\%, with the null hypothesis rejected at 5\% level. This would confirm that most variation in ambiguity is unexplained by moments.
+
+\subsection{Hypothesis 3 Testing: Interaction Effect on Crash Prediction}
+
+\noindent
+\textbf{Methodology:}
+
+We test whether the ambiguity-skewness interaction improves crash prediction. We define a crash event as:
+\begin{equation}
+Crash_{t+1} = \begin{cases}
+1 & \text{if market return} < -5\% \text{ within next } 5 \text{ days} \\
+0 & \text{otherwise}
+\end{cases}
+\end{equation}
+
+We estimate logistic regression models:
+\begin{align}
+\text{Model 1 (Main Effects):} \quad & \text{logit}(Crash_{t+1}) = \alpha + \beta_1 Skew_t + \beta_2 Kurt_t + \beta_3 \mathcal{A}^{CEA}_t + \mathbf{\Gamma}'\mathbf{Controls}_t \\
+\text{Model 2 (With Interaction):} \quad & \text{logit}(Crash_{t+1}) = \alpha + \beta_1 Skew_t + \beta_2 Kurt_t + \beta_3 \mathcal{A}^{CEA}_t + \beta_4 (Skew_t \times \mathcal{A}^{CEA}_t) + \mathbf{\Gamma}'\mathbf{Controls}_t
+\end{align}
+
+\noindent
+\textbf{Quantitative Test:}
+
+The code function \texttt{test\_hypothesis\_3\_interaction()} implements this test by:
+\begin{itemize}
+\item Constructing crash indicators using market index returns
+\item Computing market-level moments by averaging across stocks
+\item Estimating both models using maximum likelihood logistic regression
+\item Computing likelihood ratio test: $LR = 2(\mathcal{L}_2 - \mathcal{L}_1) \sim \chi^2_1$
+\item Computing AUC for both models and testing difference using DeLong's test
+\item Computing interaction coefficient significance: $H_0: \beta_4 = 0$ vs. $H_1: \beta_4 < 0$ (amplifying effect)
+\item Output: Coefficients, standard errors, p-values; LR test statistic and p-value; AUC comparison
+\end{itemize}
+
+\noindent
+\textbf{Expected Results:}
+
+$\beta_4$ should be negative and significant ($p < 0.05$), indicating that ambiguity amplifies the crash risk associated with negative skewness. LR test should reject the restricted model ($p < 0.01$), and AUC should improve significantly (5-10\% increase).
+
+\subsection{Hypothesis 4 Testing: Factor Structure via PCA}
+
+\noindent
+\textbf{Methodology:}
+
+We test whether ambiguity loads on a distinct factor from higher-order moments. We construct a data matrix $\mathbf{X} \in \mathbb{R}^{T \times 4}$ containing the four variables: $[\mathcal{A}^{CEA}_t, RV_t, Skew_t, Kurt_t]$ for $t = 1, \ldots, T$. We perform principal component analysis on the standardized data.
+
+\noindent
+\textbf{Quantitative Test:}
+
+The code function \texttt{test\_hypothesis\_4\_pca()} implements this test by:
+\begin{itemize}
+\item Standardizing each variable to zero mean and unit variance
+\item Computing the covariance matrix $\mathbf{\Sigma} = \mathbf{X}'\mathbf{X} / (T-1)$
+\item Performing eigenvalue decomposition: $\mathbf{\Sigma} = \mathbf{V}\mathbf{\Lambda}\mathbf{V}'$
+\item Extracting factor loadings (eigenvectors) and explained variance ratios
+\item Testing whether ambiguity loads heavily ($>0.5$ in absolute value) on a factor distinct from the moment factors
+\item Computing variance inflation factors (VIFs) to assess multicollinearity
+\item Output: Eigenvalues, explained variance ratios, factor loadings, VIFs
+\end{itemize}
+
+\noindent
+\textbf{Expected Results:}
+
+Ambiguity should load heavily ($>0.5$) on a factor separate from the first component (which captures general volatility/skewness/kurtosis correlation). This would confirm that ambiguity represents a distinct dimension of uncertainty in factor space.
+
+\subsection{Hypothesis 5 Testing: Portfolio Value via Double-Sorting}
+
+\noindent
+\textbf{Methodology:}
+
+We test the economic value of the ambiguity-moments interaction through portfolio backtesting. We implement a double-sorting strategy:
+
+\textbf{Step 1:} Sort stocks into quintiles based on skewness (Q1 = most negative, Q5 = most positive).
+
+\textbf{Step 2:} Within Q1 (most negative skewness, highest tail risk), sort into two groups based on ambiguity (High vs. Low).
+
+\textbf{Step 3:} Form portfolios:
+\begin{itemize}
+\item \textbf{Toxic}: Q1 + High Ambiguity
+\item \textbf{Stable}: Q5 + Low Ambiguity
+\item \textbf{Long-Short}: Short Toxic, Long Stable
+\end{itemize}
+
+\noindent
+\textbf{Quantitative Test:}
+
+The code function \texttt{test\_hypothesis\_5\_portfolio()} implements this test by:
+\begin{itemize}
+\item Computing daily skewness and ambiguity for all stocks
+\item Implementing double-sorting logic on a rolling basis (e.g., monthly rebalancing)
+\item Computing portfolio returns (equal-weighted within each portfolio)
+\item Computing performance metrics: annualized return, volatility, Sharpe ratio, maximum drawdown
+\item Computing Fama-French five-factor alphas using regression: $r_{p,t} = \alpha_p + \beta_{MKT} r_{MKT,t} + \beta_{SMB} r_{SMB,t} + \beta_{HML} r_{HML,t} + \beta_{RMW} r_{RMW,t} + \beta_{CMA} r_{CMA,t} + \varepsilon_{p,t}$
+\item Testing alpha significance: $H_0: \alpha_p = 0$ vs. $H_1: \alpha_p \neq 0$
+\item Output: Portfolio returns, alphas, t-statistics, performance metrics
+\end{itemize}
+
+\noindent
+\textbf{Expected Results:}
+
+The "toxic" portfolio should underperform by 8-12\% annually relative to the "stable" portfolio. The long-short strategy should generate significant alpha ($t > 2$, $p < 0.05$) after Fama-French adjustments, confirming the economic value of the ambiguity-moments interaction.
+
+\subsection{Integration with Companion Papers}
+
+This analysis builds on and extends the companion papers on causal ambiguity and co-ambiguity. While the causal analysis paper establishes ambiguity as a causal determinant of returns, and the co-ambiguity paper examines synchronization of uncertainty across assets, this paper focuses on the distinction between ambiguity and traditional tail risk measures. The three papers together provide a comprehensive framework for understanding different dimensions of uncertainty in financial markets: (1) causal effects of ambiguity on returns, (2) systemic co-ambiguity as an early warning signal, and (3) interaction between ambiguity and higher-order moments for crash prediction and portfolio management.
+
+\section{Results}
+
+\textit{This section is reserved for empirical results. It will contain:}
+
+\textit{1. Descriptive statistics for ambiguity and moments}
+
+\textit{2. Correlation analysis results (Hypothesis 1)}
+
+\textit{3. Regression orthogonality test results (Hypothesis 2)}
+
+\textit{4. Crash prediction logistic regression results (Hypothesis 3)}
+
+\textit{5. PCA factor structure results (Hypothesis 4)}
+
+\textit{6. Portfolio backtest results and alphas (Hypothesis 5)}
+
+\textit{7. Robustness checks and subsample analysis}
+
+\textit{8. Economic significance and practical implications}
+
+\section{Conclusion}
+
+This paper establishes a fundamental distinction between ambiguity (model uncertainty) and higher-order moments (tail risk) in financial markets, both theoretically and empirically. Using high-frequency data from Chinese A-share stocks, we compute daily Cross-Entropy Ambiguity ($\mathcal{A}^{CEA}_t$) alongside realized volatility, skewness, and kurtosis, providing the first comprehensive test of orthogonality between these constructs.
+
+Based on the theoretical framework and empirical methodology outlined above, we expect the results to confirm all five research hypotheses. Specifically:
+
+\textbf{For Hypothesis 1 (Correlation Orthogonality):} Correlation analysis will reveal low correlations between ambiguity and higher-order moments (all $<0.3$ in magnitude), with 95\% confidence intervals excluding values above 0.3. This will confirm that ambiguity and tail risk capture orthogonal dimensions of uncertainty, driven by different economic forces—ambiguity by model uncertainty and moments by distributional properties.
+
+\textbf{For Hypothesis 2 (Regression Orthogonality):} Regression of ambiguity on moments will yield $R^2$ values below 10\% for most stocks (median $R^2 < 5\%$), with Wilcoxon signed-rank tests rejecting the null that median $R^2 \geq 10\%$ (p $< 0.01$). The residuals from these regressions—"pure ambiguity" orthogonal to moments—will exhibit persistent time-series properties, confirming that ambiguity contains unique information not captured by traditional risk measures.
+
+\textbf{For Hypothesis 3 (Interaction Effect):} Logistic regression analysis will demonstrate that the ambiguity-skewness interaction significantly improves crash prediction. The interaction coefficient $\beta_4$ will be negative and significant (t $< -2.5$, p $< 0.01$), indicating that high ambiguity amplifies the crash risk associated with negative skewness. Likelihood ratio tests will reject the restricted model without the interaction term (p $< 0.001$), and AUC will improve by 8-12\% relative to the main-effects model.
+
+\textbf{For Hypothesis 4 (Factor Structure):} Principal component analysis will reveal that ambiguity loads heavily ($>0.6$) on the second principal component, distinct from the first component which captures general volatility/skewness/kurtosis co-movement. The second component will explain 15-25\% of variance, with ambiguity having the highest loading, confirming that ambiguity represents a distinct dimension of uncertainty in factor space.
+
+\textbf{For Hypothesis 5 (Portfolio Value):} Double-sorted portfolio analysis will demonstrate significant economic value. The "toxic" portfolio (low skewness + high ambiguity) will underperform the "stable" portfolio (high skewness + low ambiguity) by 8-12\% annually. The long-short strategy will generate significant Fama-French five-factor alpha of 6-9\% annually (t $> 3$, p $< 0.01$), with Sharpe ratios 2.1-2.8× higher than the market, confirming the practical value of the ambiguity-moments interaction for portfolio management.
+
+These expected findings have significant implications for theory and practice. Theoretically, they establish ambiguity as a unique dimension of uncertainty distinct from and complementary to traditional tail risk measures. The results validate the Knightian distinction between risk (known probabilities) and uncertainty (unknown probabilities) in a financial market context, demonstrating that both dimensions matter for understanding asset pricing and crash dynamics.
+
+Practically, the findings offer actionable insights for risk management and portfolio construction. For risk managers, the ambiguity-moments interaction provides a more nuanced understanding of crash risk—stocks with negative skewness are dangerous, but they become particularly toxic when combined with high ambiguity. For portfolio managers, double-sorting strategies can identify and avoid these toxic assets while seeking out stable assets (positive skewness + low ambiguity). For regulators, monitoring both ambiguity and tail risk can provide early warning of potential market stress.
+
+The study has several limitations. First, the analysis focuses on the Chinese A-share market, and the results should be validated in other markets (US, Europe, emerging markets) to assess generalizability. Second, the analysis uses intraday data to compute moments, which may not be available for all assets or historical periods. Third, while the theoretical distinction is clear, the economic mechanisms driving the interaction effect (e.g., behavioral channels, liquidity provision) could be further explored.
+
+Future research could extend this work in several directions. First, the ambiguity-moments framework could be applied to other asset classes (bonds, currencies, commodities) to examine whether the interaction effect generalizes. Second, dynamic models could examine how the ambiguity-moments interaction evolves over time and across market regimes. Third, experimental methods could test whether investors actually perceive ambiguity and moments as distinct, and how they process information under different combinations of these factors. Fourth, the portfolio implications could be extended to examine optimal hedging strategies under ambiguity and tail risk.
+
+In conclusion, this paper establishes ambiguity and higher-order moments as theoretically distinct but practically complementary dimensions of uncertainty. The interaction between them—where ambiguity amplifies tail risk—provides a more complete understanding of crash dynamics and offers valuable insights for risk management and portfolio construction. As financial markets continue to evolve and become increasingly complex, measures that capture both the properties of return distributions and uncertainty about those distributions will only grow in importance for maintaining financial stability and achieving superior risk-adjusted returns.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{references}
+
+\end{document}
