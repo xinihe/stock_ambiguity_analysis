@@ -239,8 +239,10 @@ Crash_{t+1} = \begin{cases}
 
 We estimate logistic regression models:
 \begin{align}
-\text{Model 1 (Main Effects):} \quad & \text{logit}(Crash_{t+1}) = \alpha + \beta_1 Skew_t + \beta_2 Kurt_t + \beta_3 \mathcal{A}^{CEA}_t + \mathbf{\Gamma}'\mathbf{Controls}_t \\
-\text{Model 2 (With Interaction):} \quad & \text{logit}(Crash_{t+1}) = \alpha + \beta_1 Skew_t + \beta_2 Kurt_t + \beta_3 \mathcal{A}^{CEA}_t + \beta_4 (Skew_t \times \mathcal{A}^{CEA}_t) + \mathbf{\Gamma}'\mathbf{Controls}_t
+\text{Model 1 (Main Effects):} \quad & \text{logit}(Crash_{t+1}) = \alpha + \beta_1 Skew_t + \beta_2 Kurt_t \nonumber \\
+& \quad + \beta_3 \mathcal{A}^{CEA}_t + \mathbf{\Gamma}'\mathbf{Controls}_t \\
+\text{Model 2 (With Interaction):} \quad & \text{logit}(Crash_{t+1}) = \alpha + \beta_1 Skew_t + \beta_2 Kurt_t \nonumber \\
+& \quad + \beta_3 \mathcal{A}^{CEA}_t + \beta_4 (Skew_t \times \mathcal{A}^{CEA}_t) + \mathbf{\Gamma}'\mathbf{Controls}_t
 \end{align}
 
 \noindent
