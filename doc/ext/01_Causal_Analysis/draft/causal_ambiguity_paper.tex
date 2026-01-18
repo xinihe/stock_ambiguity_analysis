@@ -159,7 +159,10 @@ Numerical stability is maintained by adding a small constant $\epsilon = 10^{-10
 \subsubsection{First-Stage Regression}
 To address endogeneity, we employ two-stage least squares (2SLS) estimation. The first stage regresses endogenous ambiguity on instrumental variables and exogenous controls:
 \begin{equation}
-\mathcal{A}^{CEA}_{i,t} = \pi_0 + \pi_1 \text{PeerAmbiguity}_{i,t} + \pi_2 (\text{PU}_{t} \times \text{PolicySensitivity}_{i,t}) + \pi_3 \text{FilingComplexity}_{i,t} + \mathbf{\Gamma}'\mathbf{Controls}_{i,t} + \eta_{i,t},
+\begin{split}
+\mathcal{A}^{CEA}_{i,t} = \pi_0 + \pi_1 \text{PeerAmbiguity}_{i,t} + \pi_2 (\text{PU}_{t} \times \text{PolicySensitivity}_{i,t}) \\
++ \pi_3 \text{FilingComplexity}_{i,t} + \mathbf{\Gamma}'\mathbf{Controls}_{i,t} + \eta_{i,t},
+\end{split}
 \end{equation}
 where $\text{PeerAmbiguity}_{i,t} = \frac{1}{N_{industry(i)}-1} \sum_{j \in industry(i), j \neq i} \mathcal{A}^{CEA}_{j,t}$ is the leave-one-out industry-average ambiguity, $\text{PU}_{t}$ is the economic policy uncertainty index, and $\text{PolicySensitivity}_{i,t}$ measures the firm's dependence on government policies (e.g., subsidy ratio, government contracts).
 
@@ -180,7 +183,10 @@ The exclusion restriction requires that instruments affect returns only through 
 
 \subsubsection{Baseline Panel OLS}
 \begin{equation}
-r_{i,t+1} = \alpha_1 + \beta_1 \mathcal{A}^{CEA}_{i,t} + \gamma_1 \text{RV}_{i,t} + \gamma_2 \text{Skewness}_{i,t} + \gamma_3 \text{Kurtosis}_{i,t} + \gamma_4 \text{TurnoverRate}_{i,t} + \text{FixedEffects} + \varepsilon_{i,t+1},
+\begin{split}
+r_{i,t+1} = \alpha_1 + \beta_1 \mathcal{A}^{CEA}_{i,t} + \gamma_1 \text{RV}_{i,t} + \gamma_2 \text{Skewness}_{i,t} \\
++ \gamma_3 \text{Kurtosis}_{i,t} + \gamma_4 \text{TurnoverRate}_{i,t} + \text{FixedEffects} + \varepsilon_{i,t+1},
+\end{split}
 \end{equation}
 where FixedEffects include stock fixed effects $\alpha_i$ and date fixed effects $\delta_t$.
 
@@ -195,7 +201,10 @@ where the indirect effect is $a_1 \times b_1$ and the direct effect is $b_2$. We
 \subsubsection{Moderation Analysis}
 We examine heterogeneity by estimating interactions with regime indicators:
 \begin{equation}
-r_{i,t+1} = \alpha + \beta_1 \mathcal{A}^{CEA}_{i,t} + \beta_2 (\mathcal{A}^{CEA}_{i,t} \times \text{Regime}_{i,t}) + \mathbf{\gamma}'\mathbf{Controls}_{i,t} + \text{FixedEffects} + \varepsilon_{i,t+1},
+\begin{split}
+r_{i,t+1} = \alpha + \beta_1 \mathcal{A}^{CEA}_{i,t} + \beta_2 (\mathcal{A}^{CEA}_{i,t} \times \text{Regime}_{i,t}) \\
++ \mathbf{\gamma}'\mathbf{Controls}_{i,t} + \text{FixedEffects} + \varepsilon_{i,t+1},
+\end{split}
 \end{equation}
 where $\text{Regime}_{i,t}$ indicates bear vs. bull markets, high vs. low volatility, or high vs. low institutional ownership.
 

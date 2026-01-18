@@ -267,8 +267,10 @@ The code function \texttt{test\_hypothesis\_2\_incremental\_power()} implements 
 
 We test whether SCA Granger-causes liquidity deterioration using vector autoregression (VAR):
 \begin{align}
-SCA_t &= \alpha_0 + \sum_{l=1}^{L} \alpha_l SCA_{t-l} + \sum_{l=1}^{L} \beta_l Liquidity_{t-l} + \varepsilon_{1t} \\
-Liquidity_t &= \gamma_0 + \sum_{l=1}^{L} \gamma_l SCA_{t-l} + \sum_{l=1}^{L} \delta_l Liquidity_{t-l} + \varepsilon_{2t}
+SCA_t &= \alpha_0 + \sum_{l=1}^{L} \alpha_l SCA_{t-l} \\
+&\quad + \sum_{l=1}^{L} \beta_l Liquidity_{t-l} + \varepsilon_{1t} \\
+Liquidity_t &= \gamma_0 + \sum_{l=1}^{L} \gamma_l SCA_{t-l} \\
+&\quad + \sum_{l=1}^{L} \delta_l Liquidity_{t-l} + \varepsilon_{2t}
 \end{align}
 where $Liquidity_t$ is measured by bid-ask spread, market depth, or turnover rate (inverted). We test the null hypothesis $H_0: \gamma_1 = \gamma_2 = \ldots = \gamma_L = 0$ (SCA does not Granger-cause liquidity) using an F-test.
 
@@ -291,7 +293,10 @@ The code function \texttt{test\_hypothesis\_3\_liquidity\_channel()} implements 
 
 We classify structural change periods based on: (1) major regulatory announcements, (2) geopolitical events, (3) macroeconomic policy shifts. Let $StructuralChange_t$ be an indicator for these periods. We estimate:
 \begin{equation}
-\text{Crash}_{t+k} = \alpha + \beta_1 SCA_t + \beta_2 (SCA_t \times StructuralChange_t) + \beta_3 StructuralChange_t + \mathbf{\Gamma}'\mathbf{Controls}_t + \varepsilon_t,
+\begin{split}
+\text{Crash}_{t+k} = \alpha + \beta_1 SCA_t + \beta_2 (SCA_t \times StructuralChange_t) \\
++ \beta_3 StructuralChange_t + \mathbf{\Gamma}'\mathbf{Controls}_t + \varepsilon_t,
+\end{split}
 \end{equation}
 where $\mathbf{Controls}_t$ includes VIX, return correlation, and CoVaR.
 
