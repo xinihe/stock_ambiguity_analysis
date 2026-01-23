@@ -1,65 +1,80 @@
-# Research Proposal: Ambiguity in the Energy Transition
-## "Pricing the Unknown: Ambiguity Premiums in Green vs. Brown Energy Assets"
+# Research Proposal: Ambiguity in the Chinese Energy Transition
+## "Pricing the Unknown: Ambiguity Premiums in China's Green vs. Brown Energy Markets"
 
-### 1. Strategic Rationale
-Focusing on the Energy industry maximizes the impact of the Ambiguity framework because this sector faces the highest level of **"Structural Uncertainty"** (the definition of Ambiguity):
-*   **Technological Ambiguity**: Will Hydrogen, Nuclear, or Solar win?
-*   **Policy Ambiguity**: Carbon taxes, subsidies, and net-zero timelines are constantly shifting.
-*   **Geopolitical Ambiguity**: Dependence on OPEC+, wars, and supply chain weaponization.
+### 1. Strategic Rationale (China Context)
+China is the ideal laboratory for this research due to the "Dual Carbon" goals (Peaking Carbon by 2030, Carbon Neutrality by 2060). This massive structural shift creates intense **Model Uncertainty (Ambiguity)** for investors trying to value energy assets.
 
-**Core Argument**: The "Greenium" (lower returns for green stocks) and the "Carbon Premium" (higher returns for brown stocks) are not just about *Risk* (volatility), but about *Ambiguity* (uncertainty about the future state of the world).
+**Core Argument**: In the Chinese A-share market, the divergence in returns between Traditional Energy (Coal/Oil) and New Energy (Solar/Wind/EV) is driven by **Ambiguity Aversion** measured by your CEA index, not just fundamental risk.
 
-### 2. Specific Features & Data Requirements
+### 2. Ambiguity Measurement Framework (CEA-Centric)
 
-If we concentrate on Energy, we must introduce sector-specific variables that capture these unique ambiguity sources.
+All ambiguity metrics in this study are derived using your **Cross-Entropy Ambiguity (CEA)** algorithm based on high-frequency intraday returns. We do not rely on "black box" external volatility indices.
 
-#### A. New Data Variables
-| Variable Category | Specific Metrics | Source |
+#### A. The Hierarchy of CEA Measures
+1.  **Firm-Level Ambiguity ($CEA_{i,t}$)**:
+    *   *Input*: 1-minute high-frequency returns for stock $i$ (e.g., PetroChina 601857.SH, Longi Green Energy 601012.SH).
+    *   *Algorithm*: Your entropy-based KL divergence measure (Variance of Variance).
+    *   *Meaning*: How much the intraday return distribution of this specific firm deviates from its "expected" distribution.
+
+2.  **Sector Ambiguity ($CEA_{Sector,t}$)**:
+    *   *Construction*: Value-weighted average of Firm-Level CEA for all stocks in the CSI Energy / CSI New Energy sectors.
+    *   *Meaning*: The aggregate level of "Model Uncertainty" for the entire Chinese energy industry.
+
+3.  **Policy Ambiguity (Proxy)**:
+    *   *Measurement*: The CEA calculated on the **CSI 300 Energy Index ETF** or **Shanghai Crude Oil Futures (INE SC)** high-frequency data.
+    *   *Logic*: When policy is unclear, the *index itself* exhibits the high-frequency distributional shifts that your algorithm detects.
+
+4.  **Geopolitical Ambiguity (New)**:
+    *   *Rationale*: Energy markets are uniquely sensitive to war and diplomatic tension (e.g., Russia-Ukraine, Middle East).
+    *   *Measurement*: The CEA calculated on **defense/military stocks** (e.g., CSI National Defense Index) or **gold futures** (SHFE Gold).
+    *   *Logic*: Defense stocks and Gold are pure "geometers." When their intraday return distributions become ambiguous (high CEA), it signals that the market's "geopolitical model" is breaking down.
+
+### 3. Data Requirements (Chinese Market)
+
+#### A. High-Frequency Data Sources
+*   **Universe**: Components of **CSI 300 Energy** (Traditional) and **CSI New Energy** (Green).
+*   **Frequency**: 1-minute or 5-minute tick data.
+*   **Exchange**: Shanghai (SSE) and Shenzhen (SZSE).
+
+#### B. Explanatory Variables (China Specific)
+| Variable | Proxy in China | Role |
 | :--- | :--- | :--- |
-| **Sector Ambiguity** | **OVX (CBOE Crude Oil Volatility Index)**: The "VIX" of the oil market. | CBOE / Bloomberg |
-| **Policy Ambiguity** | **Carbon Futures (EUA) Volatility**: Uncertainty in the price of emissions in Europe. | ICE / ECX |
-| **Climate Uncertainty** | **Climate Policy Uncertainty (CPU) Index**: Text-based index of climate regulation news. | *Existing in project* |
-| **Asset Classification** | **Green vs. Brown Revenue Share**: Classify firms not just by industry, but by "Greenness". | MSCI / Sustainalytics |
+| **Commodity Uncertainty** | **INE Crude Oil Futures (SC)** | Controls for fundamental oil price uncertainty. |
+| **Carbon Uncertainty** | **China National ETS Prices** (Shanghai Environment Energy Exchange) | Controls for regulatory cost uncertainty. |
+| **Policy Shocks** | **EPU China Index** (Baker et al.) or local NLP-based policy indices. | External shock for IV construction. |
+| **Geopolitical Ambiguity** | **CEA of CSI National Defense Index** (or SHFE Gold) | Captures war/diplomatic model uncertainty. |
 
-#### B. Methodological Adaptations
-The general model ($r = \alpha + \beta Ambiguity$) needs to be expanded to test for **Asymmetry**:
+### 4. Identification Strategy (Adapted for China)
 
-$$r_{i,t+1} = \alpha + \beta_1 Ambiguity_{i,t} + \beta_2 (Ambiguity_{i,t} \times BrownDummy_i) + \dots$$
+#### A. Instrumental Variable: "Peer-Based CEA"
+*   **Logic**: Instrument the CEA of *China Shenhua Energy* using the average CEA of other *Coal* companies in the A-share market.
+*   **Why it works**: Coal companies share regulatory ambiguity (e.g., "supply side reform" policies) but have idiosyncratic operational risks.
 
-*   **Hypothesis**: $\beta_2 > 0$. Brown firms (Oil & Gas) face *negative* ambiguity (fear of obsolescence), leading to a higher premium than Green firms, which might face *speculative* ambiguity.
+#### B. Natural Experiments (Policy Shocks)
+Use "Difference-in-Differences" around key "Dual Carbon" announcements:
+*   *Event*: President Xi's 2020 UN speech (2060 Neutrality Pledge).
+*   *Test*: Did the **CEA** of Green firms drop relative to Brown firms? Did the **Ambiguity Premium** change sign?
 
-### 3. Detailed Execution Outline
+### 5. Execution Roadmap
 
-#### Phase 1: Universe Construction & Classification
-1.  **Select Universe**: S&P 500 Energy Sector + S&P Global Clean Energy Index components.
-2.  **Classification**: Split firms into three buckets:
-    *   **Brown**: Pure-play Oil & Gas (e.g., Exxon, Chevron).
-    *   **Grey**: Transitioning firms / Utilities (e.g., NextEra, BP).
-    *   **Green**: Pure Renewables (e.g., SolarEdge, Vestas).
+#### Phase 1: Data Preparation
+1.  **Select Stocks**: Filter A-share list for GICS Energy + Utilities + Electrical Equipment (Solar/Wind).
+2.  **Classify**: Tag as "Green" (Renewables), "Brown" (Coal/Oil), or "Grey" (Grid/Utilities).
+3.  **Clean HF Data**: Remove limit-up/limit-down days (common in China) to avoid artificial zero-volatility periods affecting entropy calc.
 
-#### Phase 2: Constructing "Energy Ambiguity"
-Instead of just using intraday returns, construct a **Composite Energy Ambiguity Index**:
-1.  Compute standard `CEA_Ambiguity` (your current measure) for all energy stocks.
-2.  Correlate it with **OVX** (Oil VIX) to validate it captures sector stress.
-3.  **Event Study**: Plot the Ambiguity Index around key dates:
-    *   Paris Agreement (2015).
-    *   COVID-19 Oil Crash (April 2020).
-    *   Russia-Ukraine War (2022).
+#### Phase 2: Computing CEA
+1.  Run `ambiguity_measurement.py` on the Chinese HF data.
+2.  **Validation**: Check if CEA spikes during the 2015 market crash and the 2021 power crunch.
 
-#### Phase 3: Identification Strategy (Energy Specific)
-Use **Exogenous Supply Shocks** as Instruments (IVs):
-1.  **OPEC+ Announcements**: Unexpected supply cuts/hikes are pure ambiguity shocks for the sector.
-2.  **Climate Summits (COP)**: News from COP meetings creates "Policy Ambiguity" shocks that are exogenous to firm fundamentals.
+#### Phase 3: Empirical Analysis
+1.  **Panel Regression**:
+    $$r_{i,t+1} = \alpha + \beta_1 CEA_{i,t} + \beta_2 (CEA_{i,t} \times GreenDummy_i) + \beta_3 GeoAmbiguity_t + Controls$$
+    *   *Hypothesis*: $\beta_1 > 0$ (Ambiguity is priced), $\beta_2 < 0$ (Green firms have lower ambiguity premiums due to policy support).
 
-#### Phase 4: The "Stranded Asset" Test
-Test if Ambiguity explains the valuation gap between Green and Brown companies.
-*   **Regression**: Does High Ambiguity cause a widening of the spread between Green and Brown P/E ratios?
+2.  **Portfolio Sorts**:
+    *   Form "High Ambiguity" vs. "Low Ambiguity" portfolios within the Energy sector.
+    *   Check if the "High - Low" spread generates significant alpha in the A-share market.
 
-### 4. Expected Contributions
-1.  **Disentangling Risk vs. Uncertainty in Energy**: Show that the "Carbon Premium" is actually an "Ambiguity Premium."
-2.  **Policy Implication**: Policymakers can reduce the cost of capital for green energy by reducing *policy ambiguity* (clearer rules), not just by subsidies.
-
-### 5. Next Steps for Implementation
-1.  **Filter Data**: Subset your current dataset to Energy (GICS Code 10) and Utilities (GICS Code 55).
-2.  **Ingest External Data**: Download OVX and CPU (Climate Policy Uncertainty) data.
-3.  **Run Pilot**: Re-run the `ambiguity_measurement.py` script *only* on the Energy subset to see if the signal-to-noise ratio improves.
+### 6. Expected Contribution
+*   First paper to apply **High-Frequency Entropy Measures** to the **Chinese Energy Transition**.
+*   Demonstrates that "Green Finance" in China is partly about reducing *Ambiguity* (making the future model clearer), not just subsidizing *Risk*.
