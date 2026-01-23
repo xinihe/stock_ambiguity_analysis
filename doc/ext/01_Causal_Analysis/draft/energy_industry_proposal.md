@@ -20,14 +20,20 @@ All ambiguity metrics in this study are derived using your **Cross-Entropy Ambig
     *   *Construction*: Value-weighted average of Firm-Level CEA for all stocks in the CSI Energy / CSI New Energy sectors.
     *   *Meaning*: The aggregate level of "Model Uncertainty" for the entire Chinese energy industry.
 
-3.  **Policy Ambiguity (Proxy)**:
+3.  **Composite Energy Ambiguity (PCA-based)**:
+    *   *Measurement*: The first principal component (PCA) extracted from the CEA time series of all energy firms.
+    *   *Meaning*: Captures the "common component" of model uncertainty across the industry, derived entirely from high-frequency return data without relying on external indices. This distinguishes systematic ambiguity from firm-specific idiosyncratic ambiguity.
+    *   *Formula*: $CEA_{Composite,t} = \sum_{i=1}^{N} \lambda_i \cdot CEA_{i,t}$, where $\lambda_i$ are the principal component loadings.
+
+4.  **Policy Ambiguity (Proxy)**:
     *   *Measurement*: The CEA calculated on the **CSI 300 Energy Index ETF** or **Shanghai Crude Oil Futures (INE SC)** high-frequency data.
     *   *Logic*: When policy is unclear, the *index itself* exhibits the high-frequency distributional shifts that your algorithm detects.
 
-4.  **Geopolitical Ambiguity (New)**:
+5.  **Geopolitical Ambiguity (New)**:
     *   *Rationale*: Energy markets are uniquely sensitive to war and diplomatic tension (e.g., Russia-Ukraine, Middle East).
     *   *Measurement*: The CEA calculated on **defense/military stocks** (e.g., CSI National Defense Index) or **gold futures** (SHFE Gold).
     *   *Logic*: Defense stocks and Gold are pure "geometers." When their intraday return distributions become ambiguous (high CEA), it signals that the market's "geopolitical model" is breaking down.
+    *   *Combined Measure*: $GeoAmbiguity_t = PC1(\text{Defense CEA}_t, \text{Gold CEA}_t)$ - first principal component of Defense and Gold CEA.
 
 ### 3. Data Requirements (Chinese Market)
 
@@ -37,12 +43,13 @@ All ambiguity metrics in this study are derived using your **Cross-Entropy Ambig
 *   **Exchange**: Shanghai (SSE) and Shenzhen (SZSE).
 
 #### B. Explanatory Variables (China Specific)
-| Variable | Proxy in China | Role |
-| :--- | :--- | :--- |
-| **Commodity Uncertainty** | **INE Crude Oil Futures (SC)** | Controls for fundamental oil price uncertainty. |
-| **Carbon Uncertainty** | **China National ETS Prices** (Shanghai Environment Energy Exchange) | Controls for regulatory cost uncertainty. |
-| **Policy Shocks** | **EPU China Index** (Baker et al.) or local NLP-based policy indices. | External shock for IV construction. |
-| **Geopolitical Ambiguity** | **CEA of CSI National Defense Index** (or SHFE Gold) | Captures war/diplomatic model uncertainty. |
+
+| Variable | Proxy in China | Classification | Role in Model |
+| :--- | :--- | :--- | :--- |
+| **Commodity Uncertainty** | **INE Crude Oil Futures (SC)** | **Control Variable** | Controls for fundamental oil price risk (volatility) to isolate pure ambiguity. |
+| **Carbon Uncertainty** | **China National ETS Prices** | **Control Variable** | Controls for regulatory cost risk so it is not confused with policy ambiguity. |
+| **Policy Shocks** | **EPU China Index** | **Instrumental Variable (IV)** | Used in 1st-stage regression to isolate exogenous variation in Ambiguity. |
+| **Geopolitical Ambiguity** | **CEA of CSI National Defense** | **Independent Variable** | A systematic ambiguity factor (beta) that affects all energy stocks. |
 
 ### 4. Identification Strategy (Adapted for China)
 
