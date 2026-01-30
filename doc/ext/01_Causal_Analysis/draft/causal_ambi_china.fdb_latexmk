@@ -1,5 +1,5 @@
 # Fdb version 4
-["bibtex causal_ambi_china"] 0 "causal_ambi_china.aux" "causal_ambi_china.bbl" "causal_ambi_china" 1769149519.45775 0
+["bibtex causal_ambi_china"] 0 "causal_ambi_china.aux" "causal_ambi_china.bbl" "causal_ambi_china" 1769149973.15759 0
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/elsarticle/elsarticle-harv.bst" 1736456871 30002 e0380d61aa45e0af6c9b40308561c934 ""
   "causal_ambi_china.aux" 0 -1 0 "pdflatex"
   "references.bib" 0 -1 0 ""
@@ -7,8 +7,8 @@
   "causal_ambi_china.bbl"
   "causal_ambi_china.blg"
   (rewritten before read)
-["pdflatex"] 1769149518.61249 "/Users/tlxy/Research/Ambiguity/doc/ext/01_Causal_Analysis/draft/causal_ambi_china.tex" "causal_ambi_china.pdf" "causal_ambi_china" 1769149519.45788 0
-  "/Users/tlxy/Research/Ambiguity/doc/ext/01_Causal_Analysis/draft/causal_ambi_china.tex" 1769149516.18032 43041 45051c11b5745616655c725a6f756882 ""
+["pdflatex"] 1769149972.29104 "/Users/tlxy/Research/Ambiguity/doc/ext/01_Causal_Analysis/draft/causal_ambi_china.tex" "causal_ambi_china.pdf" "causal_ambi_china" 1769149973.15775 0
+  "/Users/tlxy/Research/Ambiguity/doc/ext/01_Causal_Analysis/draft/causal_ambi_china.tex" 1769149970.78367 42889 399e0bba46a23f7f150ad9cc7e368a55 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -28,14 +28,11 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib6.tfm" 1246382020 1516 a3bf6a5e7ec4401b1f52092dfaaed242 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmmib8.tfm" 1246382020 1528 dab402b9d3774ca98baa037071cee7ae ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam7.tfm" 1246382020 928 2dc8d444221b7a635bb58038579b861a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm" 1246382020 908 2921f8a10601f252058503cc6570e581 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm" 1136768653 1116 4e6ba9d7914baa6482fd69f67d126380 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
-  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -124,10 +121,10 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1762575399 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762575383 3345736 b2893181af760e943929766a696f3c9a ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "causal_ambi_china.aux" 1769149519.17281 4414 e5f0fea73e67325eb64c87432b4637bf "pdflatex"
+  "causal_ambi_china.aux" 1769149972.86261 4414 c524fce948c4e56827c421604b9b6bfc "pdflatex"
   "causal_ambi_china.bbl" 0 -1 0 "bibtex causal_ambi_china"
-  "causal_ambi_china.spl" 1769149518.79283 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "causal_ambi_china.tex" 1769149516.18032 43041 45051c11b5745616655c725a6f756882 ""
+  "causal_ambi_china.spl" 1769149972.47578 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "causal_ambi_china.tex" 1769149970.78367 42889 399e0bba46a23f7f150ad9cc7e368a55 ""
   (generated)
   "causal_ambi_china.aux"
   "causal_ambi_china.log"

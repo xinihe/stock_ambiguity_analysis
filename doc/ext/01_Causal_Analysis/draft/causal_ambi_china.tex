@@ -65,7 +65,7 @@ Gilboa and Schmeidler's (1989) Maxmin Expected Utility (MEU) framework models a 
 Based on this theoretical foundation, we posit that ambiguity-averse investors demand additional compensation for holding energy stocks when model uncertainty is high. Specifically, we expect a positive causal effect of ambiguity on future returns for energy stocks:
 
 \noindent
-\textbf{H1: Ambiguity Premium Hypothesis}. A higher Cross-Entropy Ambiguity (CEA) leads to higher subsequent returns to compensate for the discomfort of unknown probabilities.
+\textbf{H1: A higher Cross-Entropy Ambiguity (CEA) leads to higher subsequent returns to compensate for the discomfort of unknown probabilities.}
 
 \subsection{Ambiguity in Energy Markets and the Transition Literature}
 
@@ -74,24 +74,24 @@ The energy transition represents a profound shock to the economic models governi
 Crucially, this ambiguity is not uniform across all energy assets. Theoretical models of ambiguity aversion suggest that the premium is larger when the set of plausible priors is wider (Gilboa and Schmeidler, 1989). Brown energy stocks (coal, oil) face a particularly broad set of possible futures—ranging from rapid obsolescence to managed decline or even policy reversals—whereas green energy stocks (renewables) are supported by clearer government mandates. We therefore argue that the ambiguity premium should be significantly larger for brown energy stocks compared to green energy stocks:
 
 \noindent
-\textbf{H2: Brown-Green Differential Hypothesis}. The ambiguity premium is significantly larger for brown energy stocks compared to green energy stocks.
+\textbf{H2: The ambiguity premium is significantly larger for brown energy stocks compared to green energy stocks.}
 
 Furthermore, policy announcements play a critical role in shaping this ambiguity. Major policy events, such as President Xi's 2020 carbon neutrality pledge, serve to clarify the model for green energy, reducing the range of plausible outcomes and thus lowering the ambiguity premium. Conversely, such policies may increase or crystallize the "terminal risk" for brown energy. We thus expect that major policy clarifications will widen the ambiguity premium differential between brown and green stocks:
 
 \noindent
-\textbf{H3: Policy Clarification Hypothesis}. Major policy clarifications will widen the ambiguity premium differential between brown and green stocks.
+\textbf{H3: Major policy clarifications will widen the ambiguity premium differential between brown and green stocks.}
 
 \subsection{Market Microstructure and Transmission Channels}
 
 How does ambiguity translate into asset prices? Market microstructure theory suggests a liquidity channel. Glosten and Milgrom (1985) show that market makers widen spreads when facing adverse selection. In our context, high ambiguity implies that some agents (e.g., policy insiders) may have superior models, increasing the risk for market makers. Consequently, we expect ambiguity to increase bid-ask spreads, which in turn predicts higher subsequent returns:
 
 \noindent
-\textbf{H4: Liquidity Mediation Hypothesis}. Ambiguity increases bid-ask spreads, which in turn predicts higher subsequent returns.
+\textbf{H4: Ambiguity increases bid-ask spreads, which in turn predicts higher subsequent returns.}
 
 Finally, energy markets are uniquely sensitive to geopolitical tensions, which can be viewed as shocks to the global "model" of energy security. We propose that geopolitical instability—measured via defense stocks or gold futures—transmits to energy markets not just through fundamental supply shocks but through an ambiguity channel:
 
 \noindent
-\textbf{H5: Geopolitical Transmission Hypothesis}. Geopolitical instability transmits to energy markets through an ambiguity channel.
+\textbf{H5: Geopolitical instability transmits to energy markets through an ambiguity channel.}
 
 \section{Empirical Research Design}
 
@@ -172,11 +172,17 @@ This adaptive selection ensures that the benchmark evolves with changing market 
 
 For each trading day $i$ in window $w+1$, ambiguity is quantified as:
 \begin{equation}
-\mathcal{A}^{CEA}_{i,t} = D_{KL}(q_{i,t} \| P_{w+1}) = \sum_{j=1}^{202} q_{i,t}(x_j) \log\left(\frac{q_{i,t}(x_j)}{P_{w+1}(x_j)}\right).
+\begin{split}
+\mathcal{A}^{CEA}_{i,t} = D_{KL}(q_{i,t} \| P_{w+1}) \\
+= \sum_{j=1}^{202} q_{i,t}(x_j) \log\left(\frac{q_{i,t}(x_j)}{P_{w+1}(x_j)}\right).
+\end{split}
 \end{equation}
 Numerical stability is maintained by adding a small constant $\epsilon = 10^{-10}$ to prevent division by zero:
 \begin{equation}
-\mathcal{A}^{CEA}_{i,t} = \sum_{j: q_{i,t}(x_j) > 0} q_{i,t}(x_j) \log\left(\frac{q_{i,t}(x_j)}{\max(P_{w+1}(x_j), \epsilon)}\right).
+\begin{split}
+\mathcal{A}^{CEA}_{i,t} = \sum_{j: q_{i,t}(x_j) > 0} q_{i,t}(x_j) \\
+\times \log\left(\frac{q_{i,t}(x_j)}{\max(P_{w+1}(x_j), \epsilon)}\right).
+\end{split}
 \end{equation}
 
 \subsection{Hierarchy of CEA Measures for Energy Markets}
@@ -280,13 +286,13 @@ To unpack the "black box" of how ambiguity translates into asset prices, we form
 
 We employ the mediation analysis framework of Preacher et al. (2007) to decompose the total effect of ambiguity on returns into a direct effect and an indirect effect transmitted through liquidity. The system of equations is specified as follows:
 \begin{align}
-& \text{Path a (Ambiguity $\to$ Liquidity):} \nonumber \\
-& \quad \text{Spread}_{i,t} = a_0 + a_1 \mathcal{A}^{CEA}_{i,t} + \mathbf{c}'\mathbf{Controls}_{i,t} + \nu_{i,t}, \\
-& \text{Path b (Liquidity $\to$ Returns):} \nonumber \\
-& \quad \begin{aligned}
-    r_{i,t+1} &= b_0 + b_1 \text{Spread}_{i,t} + b_2 \mathcal{A}^{CEA}_{i,t} \\
-    &\quad + \mathbf{d}'\mathbf{Controls}_{i,t} + \xi_{i,t+1},
-\end{aligned}
+\intertext{Path a (Ambiguity $\to$ Liquidity):}
+\text{Spread}_{i,t} &= a_0 + a_1 \mathcal{A}^{CEA}_{i,t} + \mathbf{c}'\mathbf{Controls}_{i,t} + \nu_{i,t}, \\
+\intertext{Path b (Liquidity $\to$ Returns):}
+\begin{split}
+r_{i,t+1} &= b_0 + b_1 \text{Spread}_{i,t} + b_2 \mathcal{A}^{CEA}_{i,t} \\
+&\quad + \mathbf{d}'\mathbf{Controls}_{i,t} + \xi_{i,t+1},
+\end{split}
 \end{align}
 where $\text{Spread}_{i,t}$ is the daily average relative bid-ask spread. The coefficient $a_1$ captures the sensitivity of market makers to ambiguity, while $b_1$ captures the illiquidity premium. The \textit{indirect effect}, representing the portion of the ambiguity premium driven by liquidity drying up, is calculated as the product $a_1 \times b_1$. The \textit{direct effect} $b_2$ represents the residual ambiguity premium not explained by the liquidity channel, likely reflecting pure preference-based ambiguity aversion.
 
