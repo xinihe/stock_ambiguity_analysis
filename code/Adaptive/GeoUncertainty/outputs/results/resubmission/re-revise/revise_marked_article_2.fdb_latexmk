@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex revise_marked_article_2"] 1771681267.6188 "revise_marked_article_2.aux" "revise_marked_article_2.bbl" "revise_marked_article_2" 1771683121.31745 0
+["bibtex revise_marked_article_2"] 1771813304.2272 "revise_marked_article_2.aux" "revise_marked_article_2.bbl" "revise_marked_article_2" 1771813308.60307 0
   "./geo.bib" 1770783047.52322 7624 ad60a6b6f86f0d3cc4bec1b76a17e588 ""
   "/usr/local/texlive/2025/texmf-dist/bibtex/bst/base/apalike.bst" 1292289607 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "revise_marked_article_2.aux" 1771683120.95554 7514 c3c6a91fc4bff0b541f44d8b13b65a8e "pdflatex"
+  "revise_marked_article_2.aux" 1771813307.6667 7514 dd68c2afb4816d46b50648f17733c0be "pdflatex"
   (generated)
   "revise_marked_article_2.bbl"
   "revise_marked_article_2.blg"
   (rewritten before read)
-["pdflatex"] 1771683120.25072 "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/resubmission/re-revise/revise_marked_article_2.tex" "revise_marked_article_2.pdf" "revise_marked_article_2" 1771683121.3176 0
-  "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/resubmission/re-revise/revise_marked_article_2.tex" 1771683118.4644 47640 b731f6f1ffb8a5f9e8bcb57a8dafc922 ""
+["pdflatex"] 1771813304.77514 "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/resubmission/re-revise/revise_marked_article_2.tex" "revise_marked_article_2.pdf" "revise_marked_article_2" 1771813308.60353 0
+  "/Users/tlxy/Research/Ambiguity/code/Adaptive/GeoUncertainty/outputs/results/resubmission/re-revise/revise_marked_article_2.tex" 1771813277.62817 48465 975a93b831aa8cbba73b794008c03a42 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -147,11 +147,11 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1762575399 5467155 19efa205003f9ecad95fbbaa6ff24da1 ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1762575383 3345736 b2893181af760e943929766a696f3c9a ""
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
-  "revise_marked_article_2.aux" 1771683120.95554 7514 c3c6a91fc4bff0b541f44d8b13b65a8e "pdflatex"
-  "revise_marked_article_2.bbl" 1771682820.13455 4137 454d47c1fbe80c2a480e72791438c591 "bibtex revise_marked_article_2"
-  "revise_marked_article_2.out" 1771683120.95643 3435 b18ae5244e13a18cd6f8d0516ceec978 "pdflatex"
-  "revise_marked_article_2.spl" 1771683120.44036 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "revise_marked_article_2.tex" 1771683118.4644 47640 b731f6f1ffb8a5f9e8bcb57a8dafc922 ""
+  "revise_marked_article_2.aux" 1771813307.6667 7514 dd68c2afb4816d46b50648f17733c0be "pdflatex"
+  "revise_marked_article_2.bbl" 1771813304.76313 4121 1736d3da3aa1862f71fc0ae2dd93372e "bibtex revise_marked_article_2"
+  "revise_marked_article_2.out" 1771813307.66749 3435 b18ae5244e13a18cd6f8d0516ceec978 "pdflatex"
+  "revise_marked_article_2.spl" 1771813305.68212 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "revise_marked_article_2.tex" 1771813277.62817 48465 975a93b831aa8cbba73b794008c03a42 ""
   (generated)
   "revise_marked_article_2.aux"
   "revise_marked_article_2.log"
