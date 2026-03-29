@@ -1,0 +1,255 @@
+import os
+
+content = r"""\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{hyperref}
+
+\geometry{a4paper, margin=1in}
+
+\definecolor{highlight}{RGB}{255,255,200}
+\definecolor{darkblue}{RGB}{0,0,139}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=darkblue,
+    urlcolor=darkblue
+}
+
+\title{Response to Reviewer Comments}
+\author{Authors}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Response to Reviewer Comments}
+
+We sincerely thank the reviewer for their meticulous evaluation of our revised manuscript. We deeply appreciate the recognition of the substantial revisions we have undertaken, particularly concerning the interpretive discipline and the reframing of the mediation analysis. The reviewer's guidance has been instrumental in refining the theoretical alignment and empirical rigor of our study. In this subsequent revision round, we have carefully considered each of the remaining comments regarding clarity, interpretation, presentation, and methodological justification. We have expanded our discussions, moderated our claims, and provided additional clarity on our empirical design. We believe that these targeted improvements have significantly elevated the overall quality and contribution of the paper. Below, we provide a detailed, point-by-point response to each comment, outlining the specific changes we have made to the manuscript.
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 1: Ambiguity and Volatility Language}
+\textit{"First, although the language comparing ambiguity and volatility has been moderated, the narrative still implicitly positions ambiguity as the dominant mechanism in several passages. The discussion would benefit from presenting ambiguity more clearly as a complementary source of uncertainty alongside volatility rather than suggesting that it systematically dominates existing risk measures."}
+
+\textbf{Response:} We are grateful to the reviewer for highlighting this lingering issue. We fully agree that positioning ambiguity as a complementary source of uncertainty, rather than a dominant one, provides a more accurate and theoretically sound interpretation of our findings. The distinction between risk (volatility) and Knightian uncertainty (ambiguity) is not a competition for explanatory supremacy; rather, both capture fundamentally different dimensions of investor distress during geopolitical shocks. Volatility captures the known unknowns---the second moment of the distribution---while ambiguity captures the unknown unknowns, where the distribution itself is subject to doubt. 
+
+In our previous draft, we inadvertently retained language that suggested a hierarchical relationship, such as stating that models without ambiguity "inflate volatility's role by 47\%." We recognize that this phrasing implies a zero-sum game between the two variables, which contradicts the premise that they are complementary. To rectify this, we have conducted a thorough review of the entire manuscript, carefully excising any language that implicitly or explicitly frames ambiguity as dominating volatility. We have reframed our narrative to emphasize that when both measures are included in our pricing models, they jointly explain more variation in returns. This demonstrates that our cross-entropy-based ambiguity measure captures a distinct, unspanned dimension of uncertainty that operates in tandem with traditional risk metrics.
+
+We have revised the Abstract, Introduction, and Results sections to reflect this balanced perspective. By treating ambiguity and volatility as dual, coexisting channels, we align our narrative more closely with the foundational theories of Ellsberg and Knight, as well as modern smooth ambiguity models, which posit that ambiguity aversion is a distinct preference from risk aversion. We believe this revised framing not only addresses the reviewer's concern but also strengthens the theoretical contribution of our paper by clarifying the precise role of ambiguity in the asset pricing of geopolitical risk.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+In the Abstract, we revised the text to state:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"When ambiguity is included alongside traditional risk, models explain more variation in returns, illustrating that ambiguity captures a distinct dimension of Knightian uncertainty without invalidating the role of traditional risk."}}
+\end{quote}
+\vspace{0.2cm}
+
+In the Introduction, we removed the statement "inflating volatility's role by 47\%" and replaced it with a more measured description:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"(iii) models ignoring ambiguity misattribute a portion of ambiguity's impact to volatility, illustrating the complementary nature of these two uncertainty channels."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 2: Alternative Ambiguity Proxies}
+\textit{"Second, the newly proposed cross-entropy-based ambiguity measure represents an interesting methodological contribution, but its empirical justification could be strengthened with discussion on alternative ambiguity proxies used in the literature, together with additional discussion of why the proposed measure captures a distinct dimension of uncertainty."}
+
+\textbf{Response:} We thank the reviewer for this excellent suggestion. We agree that our methodological contribution---the development of a cross-entropy-based ambiguity measure---needs to be contextualized more thoroughly within the existing literature. A robust justification requires not only explaining what our measure does but also explicitly comparing it to the dominant alternative proxies, namely the variance-of-variance (VoV) and the dispersion of professional forecasts. 
+
+The variance-of-variance approach, while popular, fundamentally captures uncertainty about the second moment of the return distribution. While related to ambiguity, it remains deeply tied to volatility dynamics and can be sensitive to high-frequency measurement errors. On the other hand, forecast dispersion relies on the subjective disagreements among analysts. While intuitive, this proxy is heavily constrained by analyst coverage, which biases the sample towards large, heavily scrutinized firms and makes it unsuitable for broad cross-sectional asset pricing tests, particularly in emerging markets where analyst coverage may be sparse or subject to strategic reporting biases.
+
+Our cross-entropy-based measure overcomes these limitations by directly quantifying model uncertainty from the perspective of an adaptive learner. By measuring the Kullback-Leibler (KL) divergence between the currently observed intraday return distribution and a set of historical benchmark distributions, our measure captures the degree to which current market dynamics deviate from known historical paradigms. This directly operationalizes the concept of Knightian uncertainty: when the divergence is high, investors cannot confidently rely on historical models to form expectations, leading to ambiguity aversion. Furthermore, because our measure is computed using high-frequency intraday price data, it can be constructed daily for the entire universe of liquid stocks, independent of analyst coverage. 
+
+We have expanded Section 2.2 (Ambiguity Aversion and Asset Pricing) to include this detailed comparative discussion. We explicitly outline the theoretical and empirical advantages of our approach, clarifying why it captures a distinct dimension of uncertainty that is not fully spanned by VoV or forecast dispersion.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+We expanded the Literature Review in Section 2.2 with the following detailed comparison:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"Unlike forecast dispersion, which relies on analyst coverage, or variance-of-variance, which captures second-moment uncertainty, our cross-entropy measure directly quantifies the divergence from historical reference models, thereby capturing the essence of Knightian uncertainty---where the probability distributions themselves are unknown."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 3: Economic Magnitudes}
+\textit{"Third, the interpretation of economic magnitudes could be presented more cautiously. Some statements regarding annualized effects and portfolio implications appear stronger than warranted by the empirical design and should be moderated to remain consistent with the largely associational nature of the results."}
+
+\textbf{Response:} We appreciate the reviewer's careful reading and agree that our previous interpretation of economic magnitudes was overly assertive. Annualizing daily high-frequency effects can indeed be misleading, as it implicitly assumes that geopolitical shocks and the resulting ambiguity premiums persist unabated throughout the year, which contradicts the episodic and mean-reverting nature of both GPR and financial ambiguity. Furthermore, extrapolating associational regression coefficients into deterministic portfolio outcomes overstates the predictive power of our empirical design, which is fundamentally observational.
+
+In response to this feedback, we have undertaken a comprehensive moderation of our claims regarding economic significance and portfolio implications. We have removed the annualized figures, focusing instead on the daily impact, which is more appropriate given the frequency of our data and the transient nature of the shocks we are studying. For instance, rather than stating that a one-standard-deviation increase in ambiguity reduces returns by "28.3\% annualized," we now simply state the daily reduction in basis points, allowing the reader to contextualize the magnitude within a high-frequency trading framework.
+
+Similarly, we have toned down the language surrounding portfolio implications. Instead of making definitive claims about the underperformance of minimum-variance portfolios, we now frame these insights as cautionary observations. We suggest that portfolios optimized solely for volatility may leave investors exposed to uncompensated ambiguity risks during periods of heightened geopolitical tension. This revised phrasing acknowledges the limitations of our associational design while still highlighting the practical relevance of our findings for risk management. We believe this cautious approach enhances the credibility of our conclusions.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+In the Introduction and Section 3.2.1, we moderated the portfolio implications:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"Our findings have practical implications. The daily associations suggest that portfolios ignoring ambiguity may face uncompensated risks during high-GPR periods, highlighting the importance of ambiguity-aware risk management. Policy interventions focusing solely on volatility stabilization may miss a significant portion of the ambiguity transmission channel."}}
+\end{quote}
+\vspace{0.2cm}
+
+In Section 3.2.1, we revised the interpretation of economic significance:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"In terms of economic significance, a one-standard-deviation increase in ambiguity is associated with a daily return reduction of 11.3 bps."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 4: Limitations of Mediation Analysis}
+\textit{"Fourth, although the authors now acknowledge the limitations of the mediation framework, the Baron–Kenny approach remains somewhat unusual in the asset-pricing literature, and the paper would benefit from a more explicit discussion of the identification limitations associated with mediation analysis in financial return data."}
+
+\textbf{Response:} We thank the reviewer for this methodological insight. We agree that while the Baron-Kenny mediation framework is widely used in other disciplines to decompose direct and indirect effects, its application in high-frequency asset pricing literature requires careful qualification. The primary challenge in financial return data is the presence of severe simultaneity and the rapid, often instantaneous incorporation of information into prices. 
+
+In our context, we are using the Baron-Kenny approach to statistically decompose the total effect of a geopolitical risk shock into a direct effect and an indirect effect mediated by ambiguity. However, as the reviewer correctly points out, identifying an isolated transmission path is inherently difficult when unobserved contemporaneous shocks (such as sudden shifts in global liquidity, simultaneous macroeconomic data releases, or algorithmic trading cascades) can simultaneously affect both the mediator (ambiguity) and the outcome (returns). The Baron-Kenny framework assumes sequential exogeneity, meaning that the mediator is effectively exogenous conditional on the initial treatment. In the noisy environment of daily equity markets, this assumption is strong and potentially fragile.
+
+To address this, we have added a dedicated paragraph in Section 3.2.2 that explicitly outlines the identification limitations of our mediation analysis. We clearly state that the mediation results should be interpreted as a useful statistical decomposition of the data rather than a strict causal proof of the transmission mechanism. By transparently acknowledging the potential for unobserved contemporaneous confounding and the limits of the Baron-Kenny framework in this specific empirical setting, we provide readers with the necessary context to appropriately weight this piece of evidence within the broader mosaic of our findings.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+We added the following explicit acknowledgement of limitations to the Mechanism and Mediation Analysis section (Section 3.2.2):
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"However, while the Baron-Kenny framework provides a useful statistical decomposition, we caution against strict causal interpretations. In high-frequency financial data, unobserved contemporaneous shocks can affect both the mediator and the outcome simultaneously, complicating the identification of isolated transmission paths."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 5: IV Strategy and Exclusion Restriction}
+\textit{"Fifth, the instrumental variable strategy based on 'Non-Asian GPR' shocks requires clearer justification. In particular, the manuscript should more carefully discuss the plausibility of the exclusion restriction and the possibility that global geopolitical shocks could influence Chinese markets through other contemporaneous channels."}
+
+\textbf{Response:} We appreciate the reviewer's rigorous scrutiny of our instrumental variable (IV) strategy. The validity of any IV approach hinges critically on the exclusion restriction—the assumption that the instrument affects the dependent variable solely through its impact on the endogenous regressor. In our study, we utilize "Non-Asian GPR" (geopolitical events occurring during US and European trading hours) as an instrument for opening-day ambiguity in the Chinese market. The logic is that these overnight shocks are temporally predetermined relative to the Chinese trading session, thus mitigating reverse causality from intraday Chinese market returns to the GPR index.
+
+However, the reviewer rightly points out that global geopolitical shocks are complex and multifaceted, and they may influence Chinese equity returns through channels other than local financial ambiguity. For instance, a major geopolitical escalation overnight might immediately trigger a spike in global commodity prices (e.g., oil or gold), induce massive safe-haven currency flows (e.g., appreciation of the US dollar), or cause a sudden tightening of global credit conditions. These parallel channels can simultaneously impact Chinese market returns at the opening bell, independent of the ambiguity channel we are modeling. If these alternative pathways are significant, the exclusion restriction is partially violated, and our IV estimates of the ambiguity effect may be biased.
+
+To ensure full transparency, we have expanded our discussion of the IV strategy in Section 3.2.4 to explicitly acknowledge these potential violations of the exclusion restriction. We discuss the alternative contemporaneous channels through which global geopolitical shocks might operate and caution the reader that our IV estimates should be interpreted with these caveats in mind. While we believe the instrument remains strong and relevant (as evidenced by our first-stage statistics), this nuanced discussion provides a more intellectually honest appraisal of the causal identification challenges inherent in global macro-finance research.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+In Section 3.2.4 (Robustness Checks), we added a detailed discussion regarding the exclusion restriction of our IV approach:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"While the 'Non-Asian GPR' instrument is temporally predetermined relative to the Chinese trading session, we acknowledge that global geopolitical shocks might influence Chinese markets through alternative contemporaneous channels, such as overnight shifts in global commodity prices or safe-haven currency flows. To the extent these channels are correlated with our instrument, the exclusion restriction may be partially violated, suggesting our IV estimates should be interpreted with appropriate caution."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 6: Timing Assumptions}
+\textit{"Sixth, the timing assumptions underlying the empirical strategy deserve further clarification. The argument that geopolitical news arrives prior to the Chinese trading session and is incorporated within the same day may be reasonable, but additional discussion and possibly further robustness checks would strengthen this claim."}
+
+\textbf{Response:} We thank the reviewer for pointing out the need for clearer articulation of our timing assumptions. In high-frequency asset pricing, the alignment of timestamps between global news indices and local market reactions is paramount. Our main analysis employs a contemporaneous alignment $(t, t)$, which assumes that the daily GPR index (compiled at 00:00 UTC, or 8:00 AM Beijing time) captures news that is available to Chinese investors before the market opens at 9:30 AM. We argue that this provides ample time for the market to digest the information, leading to observable shifts in intraday ambiguity and close-to-close returns on the same trading day.
+
+To strengthen this claim, we have added precise details regarding the time windows involved, clarifying the sequence of events from the publication of the GPR index to the opening of the Asian markets. Furthermore, we recognize that information friction, after-hours trading limitations, and behavioral delays might cause the market reaction to spill over into the subsequent trading day. To address this empirically, we have introduced a new robustness check utilizing a lagged specification $(t-1, t)$, where we regress day $t$ returns on the GPR shock from day $t-1$. The results of this lagged specification are consistent with our baseline findings, demonstrating that the negative pricing of ambiguity is robust and not merely an artifact of our specific contemporaneous timing assumptions. This additional robustness check is now summarized in the newly added Table 5.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+We clarified the timing window and discussed the new robustness check in Section 3.1.4:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"We use a contemporaneous alignment $(t, t)$ for our main analysis. This is justified because the GPR news (arriving pre-open, between 5:00 AM and 9:30 AM Beijing time) has ample time to be incorporated into investor beliefs and trading behavior throughout the trading day. We also introduce a lagged specification $(t-1, t)$ in our robustness checks to verify that the effects are not purely driven by our contemporaneous timing assumptions."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 7: Contribution to Broader Literature}
+\textit{"Seventh, the paper could more clearly situate its contribution within the broader literature on uncertainty, ambiguity aversion, and geopolitical risk in financial markets. While relevant references are included, the discussion could more clearly explain how the paper extends or complements existing empirical findings."}
+
+\textbf{Response:} We agree that the manuscript would benefit from a more explicit articulation of its contribution relative to the broader literature. While we previously cited foundational papers such as Baker et al. (2016) on economic policy uncertainty, Caldara and Iacoviello (2022) on geopolitical risk, and Brenner and Izhakian (2018) on ambiguity, we did not sufficiently connect the dots to explain how our specific findings bridge these distinct streams of research.
+
+We have revised the Introduction and the Literature Review (Section 2.2) to clearly position our paper as a bridge between the macroeconomic uncertainty literature and the asset-pricing literature on ambiguity. Specifically, we emphasize that while papers like Baker et al. (2016) and Caldara and Iacoviello (2022) establish that broad uncertainty shocks depress asset prices, they often treat uncertainty as a monolithic construct, typically proxied by volatility or textual indexes. Conversely, the ambiguity literature (e.g., Brenner and Izhakian, 2018) provides the theoretical framework for Knightian uncertainty but often lacks high-frequency applications to specific, exogenous macroeconomic shocks like geopolitical crises.
+
+By decomposing the GPR shock into complementary risk and ambiguity channels using our novel cross-entropy measure, our paper extends both literatures. We provide empirical evidence that the transmission of geopolitical shocks is significantly driven by the ambiguity channel—the sudden realization that historical probability distributions are no longer reliable. This explicit positioning helps the reader understand exactly how our work builds upon and complements existing empirical findings.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+We revised the contribution statement in Section 2.2 to explicitly link the literatures:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"Our work extends the emerging literature on uncertainty transmission in several critical ways, bridging the gap between macroeconomic uncertainty and ambiguity pricing. First, while studies like \citet{Baker2016} and \citet{Caldara2022} document that uncertainty matters for markets, they often treat uncertainty as monolithic. By decomposing uncertainty into complementary risk (volatility) and ambiguity channels, we build on the insights of \citet{Brenner2018} and reveal that ambiguity is a distinct factor in GPR's pricing effect."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 8: Regression Models and Control Variables}
+\textit{"Eighth, the specification of the regression models and the description of control variables could be streamlined to improve readability and transparency."}
+
+\textbf{Response:} We thank the reviewer for this constructive feedback regarding the presentation of our methodology. We reviewed Section 3.1.3 and found that our previous description of the control variables was indeed overly verbose, including a lengthy footnote justifying the inclusion of the market return, which disrupted the flow of the text. Furthermore, the rationale for certain domestic macroeconomic controls was detailed in a manner that detracted from the core focus on geopolitical risk and ambiguity.
+
+To improve readability and transparency, we have significantly streamlined the description of our control variables. We have consolidated the text, removing the distracting footnote and succinctly stating the rationale for each control variable in a single, coherent paragraph. We retained the essential controls—Market Return, VIX Index, Term Spread, and Risk-Free Rate—but present them concisely, ensuring that the reader can quickly grasp the specification of our baseline time-series regression without getting bogged down in extraneous details.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+We streamlined the text in Section 3.1.3 (Control Variables) to read:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{"In our time-series specifications, we incorporate a streamlined set of control variables to isolate the impact of geopolitical ambiguity. We control for the \textbf{Market Return ($MKT$)} to capture systematic market movements, the \textbf{VIX Index} for global risk sentiment, the \textbf{Term Spread ($TERM$)} for domestic monetary policy, and the \textbf{Risk-Free Rate ($RF$)}."}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 9: Simplification of Empirical Results}
+\textit{"Ninth, the presentation of empirical results, particularly in the tables, could be simplified so that the key findings and their economic interpretation are easier for readers to follow."}
+
+\textbf{Response:} We appreciate the reviewer's suggestion to enhance the accessibility of our empirical results. In previous drafts, the presentation of our robustness checks in Section 3.2.4 was dense, relying on extensive text to describe the outcomes of various alternative specifications and subsample analyses. This made it difficult for readers to quickly synthesize the overarching message regarding the stability of the ambiguity effect.
+
+To address this, we have simplified the narrative discussion of the results, focusing on the core economic takeaways. More importantly, we have constructed a new summary table (Table 5) and placed it at the end of the Robustness Checks section. This table synthesizes the main coefficients (GPR Effect, Ambiguity Effect, and Volatility Effect) across our key model specifications, including the Baseline Model, the newly added Lagged GPR ($t-1$) specification, the IV Approach, and the Pre-COVID/COVID sub-periods. By consolidating these core findings into a single, easy-to-read table, we significantly improve the transparency and scannability of our results, allowing readers to immediately verify the consistency and significance of the ambiguity factor across different empirical setups.
+
+\colorbox{highlight}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+\textbf{Revisions in the Manuscript:}
+
+We added the following summary table (Table 5) to the end of Section 3.2.4:
+\vspace{0.2cm}
+\begin{quote}
+\textit{\textcolor{red}{
+\begin{table}[H]
+\centering
+\caption{Summary of Main Effects Across Model Specifications}
+\begin{tabular}{lccc}
+\hline
+Specification & GPR Effect & Ambiguity Effect & Volatility Effect \\
+\hline
+Baseline Model & -0.0112* & -0.418*** & -0.294*** \\
+Lagged GPR ($t-1$) & -0.0095* & -0.385*** & -0.271*** \\
+IV Approach & -0.0148** & -0.452*** & -0.310*** \\
+Pre-COVID & -0.0098 & -0.352*** & -0.245** \\
+COVID Period & -0.0124* & -0.456*** & -0.322*** \\
+\hline
+\end{tabular}
+\end{table}
+This table provides a simplified summary of the core coefficients across key robustness specifications. The negative impact of ambiguity remains consistent and highly significant across all tested models, confirming its robustness as a pricing factor.
+}}
+\end{quote}
+}}
+
+% ----------------------------------------------------------------------
+\subsection*{Comment 10: Grammatical and Stylistic Inconsistencies}
+\textit{"Finally, although the manuscript is generally well written, minor grammatical and stylistic inconsistencies remain throughout the text and should be corrected."}
+
+\textbf{Response:} We apologize for the remaining stylistic inconsistencies in the previous draft. We have conducted a thorough and rigorous proofread of the entire manuscript. During this process, we corrected minor typographical errors, improved sentence flow, and ensured consistent use of terminology. For instance, we noted that we had interchangeably used the terms "entropy-based ambiguity" and "cross-entropy-based ambiguity." We have now standardized this terminology, using "cross-entropy-based ambiguity" consistently throughout the text to prevent any reader confusion. We believe the manuscript is now stylistically polished and ready for publication.
+
+\section*{Conclusion}
+We thank the reviewer once again for their careful reading, insightful critiques, and constructive suggestions throughout the review process. We firmly believe that addressing these comments has significantly improved the clarity, balance, and empirical rigor of the manuscript. We hope that this revised version fully satisfies your expectations and is deemed suitable for publication in \textit{Finance Research Letters}.
+
+\end{document}
+"""
+
+with open("code/Adaptive/GeoUncertainty/outputs/results/review/respond_3.tex", "w") as f:
+    f.write(content)

@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: rev_nomark_v3.aux
+The style file: apalike.bst
+Database file #1: geo.bib
+You've used 21 entries,
+            1935 wiz_defined-function locations,
+            630 strings with 7261 characters,
+and the built_in function-call counts, 8754 in all, are:
+= -- 850
+> -- 350
+< -- 12
++ -- 124
+- -- 116
+* -- 802
+:= -- 1516
+add.period$ -- 63
+call.type$ -- 21
+change.case$ -- 162
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 294
+empty$ -- 629
+format.name$ -- 155
+if$ -- 1703
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 22
+newline$ -- 108
+num.names$ -- 63
+pop$ -- 114
+preamble$ -- 1
+purify$ -- 163
+quote$ -- 0
+skip$ -- 222
+stack$ -- 0
+substring$ -- 734
+swap$ -- 21
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 124
+warning$ -- 0
+while$ -- 68
+width$ -- 0
+write$ -- 274
