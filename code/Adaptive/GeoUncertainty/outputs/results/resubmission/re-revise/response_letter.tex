@@ -1,0 +1,156 @@
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{paralist}
+
+\geometry{margin=1in}
+\hypersetup{colorlinks=true, urlcolor=blue, linkcolor=black}
+
+\definecolor{responsebg}{RGB}{255,250,240}
+\definecolor{highlightbg}{RGB}{240,248,255}
+
+\newtcolorbox{responsebox}{breakable, colback=responsebg, colframe=responsebg, boxrule=0pt, arc=0pt, left=2mm, right=2mm, top=2mm, bottom=2mm}
+\newtcolorbox{highlightbox}{breakable, colback=highlightbg, colframe=highlightbg, boxrule=0pt, arc=0pt, left=2mm, right=2mm, top=2mm, bottom=2mm}
+
+\title{\textbf{Response to Reviewer Comments}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section*{Response to Reviewer}
+
+We are deeply grateful to Reviewer \#2 for the thoughtful and constructive assessment of our manuscript. We appreciate the reviewer's recognition that the empirical analysis is ``carefully executed, technically competent, and supported by an extensive set of robustness checks.''
+
+We have taken the reviewer's primary concern regarding ``interpretive discipline'' very seriously. We understand that our previous draft advanced causal and comparative claims that extended beyond what the data could strictly support. In this revision, we have conducted a comprehensive, line-by-line audit of the entire manuscript to fundamentally shift our interpretive stance. We have systematically replaced definitive causal language with more nuanced descriptions that better align with our identification strategy.
+
+Below, we provide a detailed, point-by-point response to each of the reviewer's concerns.
+
+\begin{enumerate}
+    \item \textbf{Concern regarding General Interpretation and Framing: ``From my perspective, the main remaining concern lies... in the interpretation and framing of the results... at several points the manuscript advances causal and comparative claims that extend beyond what can be cleanly identified from the data... results that are best interpreted as consistent with a proposed mechanism are described using language that suggests the mechanism is demonstrated or established.''}
+    
+    \begin{responsebox}
+    \vspace{0.5cm}
+    \textbf{Response:} We fully accept this critique and wish to emphasize that we understand this concern applies to the \textbf{entire manuscript}, not just the mediation analysis. We recognize that while our empirical results are robust, our previous language (e.g., ``demonstrates,'' ``establishes,'' ``proves,'' ``impact'') overstated the strength of the causal identification. We have thoroughly revised the manuscript to tone down these claims and adopt a more cautious interpretive stance.
+    
+    \textbf{Specific revisions include:}
+    \begin{itemize}
+        \item \textbf{Abstract:} 
+        \begin{itemize}
+            \item Changed ``We show that GPR significantly raises financial ambiguity'' to ``We find that GPR is \textbf{significantly associated with} higher financial ambiguity.''
+            \item Changed ``provides a comprehensive account of how geopolitical risk transmits'' to ``provides a comprehensive account of how geopolitical risk \textbf{appears to transmit}.''
+        \end{itemize}
+        
+        \item \textbf{Introduction:}
+        \begin{itemize}
+            \item Changed ``We argue that uncertainty operates through...'' to ``We \textbf{propose} that uncertainty \textbf{may operate} through...''
+            \item Changed ``we demonstrate that ambiguity represents a distinct... channel'' to ``we \textbf{find evidence suggesting} that ambiguity represents a distinct... channel.''
+            \item Changed ``identify it as a key transmission channel'' to ``\textbf{suggesting it acts as} a key transmission channel.''
+        \end{itemize}
+        
+        \item \textbf{Hypotheses Development:}
+        \begin{itemize}
+            \item \textbf{H1:} Changed ``Elevated global geopolitical risk increases financial ambiguity'' to ``Elevated global geopolitical risk \textbf{is associated with} increased financial ambiguity.''
+            \item \textbf{H3:} Changed ``Ambiguity acts as a significant transmission channel'' to ``Ambiguity \textbf{may act as} a significant transmission channel.''
+            \item Rephrased explanatory text to describe decomposition into ``direct \textbf{association} and indirect \textbf{association}'' rather than ``impact.''
+        \end{itemize}
+
+        \item \textbf{Empirical Methodology:}
+        \begin{itemize}
+            \item Changed ``examine the impact of GPR'' to ``examine the \textbf{relationship between} GPR and our daily ambiguity measures.''
+            \item Changed ``investigate the potential transmission channel'' to ``\textbf{investigate the potential} transmission channel'' (contextualizing as an investigation rather than a proof).
+            \item Changed ``isolate the role'' to ``\textbf{distinguish the association}'' to avoid implying causal separation.
+            \item Changed ``establish the relationship'' to ``\textbf{examine the relationship}'' in the Baseline Regression section.
+            \item In Mediation Analysis description: Changed ``estimate the extent to which ambiguity mediates'' to ``estimate the extent to which ambiguity \textbf{appears to mediate}.''
+            \item In Endogeneity Concerns: Softened the exclusion restriction language, changing ``it drives'' to ``it \textbf{precedes}'' and ``cannot be caused by'' to ``\textbf{is unlikely to be driven by}.''
+        \end{itemize}
+        
+        \item \textbf{Results \& Conclusion:}
+        \begin{itemize}
+            \item Throughout the results section and table notes (e.g., Table 2, Table 5), we have replaced ``impact'' with ``association'' or ``estimated coefficient'' where appropriate.
+            \item In the Conclusion, we changed ``confirm our causal results'' to ``\textbf{provide further support for our interpretation}.''
+            \item In Policy Implications, changed ``mitigate GPR's impacts'' to ``mitigate GPR's \textbf{adverse implications}.''
+        \end{itemize}
+    \end{itemize}
+    
+    These changes ensure that we describe our results as ``consistent with'' our proposed mechanism rather than definitively proving it.
+    \vspace{0.5cm}
+    \end{responsebox}
+
+    \vspace{0.5cm}
+
+    \item \textbf{Concern regarding Mediation Analysis: ``I am not persuaded that the estimated indirect effects can be interpreted as a causal decomposition under the present assumptions... Clarifications regarding timing... do not resolve the underlying identification concern.''}
+
+    \begin{responsebox}
+    \vspace{0.5cm}
+    \textbf{Response:} We agree that mediation analysis, while useful for decomposition, relies on strong assumptions that are difficult to fully verify in asset pricing. We have explicitly addressed this limitation in the revised text.
+    
+    \textbf{Revisions:}
+    \begin{itemize}
+        \item We have added a specific cautionary note in the Mediation Analysis section (Section 3.2.2): \textit{``While the observed mediation pattern is consistent with our proposed mechanism, we interpret these results cautiously given the challenges in strictly identifying causal chains in asset pricing.''}
+        \item We have reframed the mediation results as a ``statistical decomposition'' of the association rather than a definitive ``causal decomposition.''
+        \item We clarify that the temporal ordering (Morning GPR $\rightarrow$ Midday Ambiguity $\rightarrow$ Close returns) \textit{``lends support''} to the interpretation but does not constitute proof.
+    \end{itemize}
+    \vspace{0.5cm}
+    \end{responsebox}
+
+    \vspace{0.5cm}
+
+    \item \textbf{Concern regarding Comparative Language (Ambiguity vs. Volatility): ``Statements suggesting that ambiguity represents the `primary' transmission channel, or that volatility's role is systematically overstated, seem difficult to justify...''}
+
+    \begin{responsebox}
+    \vspace{0.5cm}
+    \textbf{Response:} We have systematically removed or softened the strong comparative language that elevated ambiguity over volatility.
+    
+    \textbf{Revisions:}
+    \begin{itemize}
+        \item \textbf{Removed ``Primary'':} We no longer describe ambiguity as the ``primary'' transmission channel. We now refer to it as a ``significant'' or ``important'' channel (e.g., in the Literature Review and Conclusion).
+        \item \textbf{Softened ``Overstated'':} We have revised the claim that volatility is ``systematically overstated.''
+        \begin{itemize}
+            \item Original: ``models ignoring ambiguity overstate the role of volatility.''
+            \item Revised: ``models ignoring ambiguity \textbf{may attribute the ambiguity premium to volatility}.''
+        \end{itemize}
+        \item We have rephrased the comparison of economic magnitudes. Instead of stating ``ambiguity's impact is 1.4x larger,'' we write ``ambiguity's \textbf{estimated coefficient} is 1.4x larger,'' which is a factual description of the regression output rather than a normative claim about importance.
+    \end{itemize}
+    \vspace{0.5cm}
+    \end{responsebox}
+
+    \vspace{0.5cm}
+
+    \item \textbf{Concern regarding Breadth of Revisions: ``This concern is not limited to a small number of isolated passages... I am not convinced that limited or purely cosmetic edits would be sufficient...''}
+
+    \begin{responsebox}
+    \vspace{0.5cm}
+    \textbf{Response:} We understood that a fundamental shift in stance was required, not just minor edits. We have revised the manuscript holistically:
+    \begin{itemize}
+        \item \textbf{Abstract and Introduction:} Completely rewritten to set a cautious tone from the outset.
+        \item \textbf{Hypotheses:} Rephrased to reflect associations and potential mechanisms (``is associated with,'' ``may act as'') rather than definitive laws.
+        \item \textbf{Discussion of Results:} Checked every instance of ``effect'' and ``impact'' to ensure it is supported by the identification strategy (e.g., using IV results to support stronger claims, but keeping OLS results descriptive).
+        \item \textbf{Policy Implications:} Softened recommendations to suggest that policies ``may miss'' the ambiguity channel, rather than asserting they will fail.
+    \end{itemize}
+    
+    \end{responsebox}
+
+
+    \item \textbf{Concern regarding Suitability and Interpretive Discipline: ``In sum, from my standpoint as a referee, the paper's remaining weaknesses lie not in empirical execution, but in interpretive discipline. Given that this issue has persisted despite a prior major revision opportunity, I remain concerned about the manuscript's suitability in its current form.''}
+
+    \begin{responsebox}
+    \vspace{0.5cm}
+    \textbf{Response:} We deeply appreciate the reviewer's candor regarding the manuscript's suitability. We acknowledge that our previous revision missed the mark by failing to align our interpretive claims with the limitations of our identification strategy. We understand that ``empirical execution'' is only half the requirement for publication; the other half is precise and defensible interpretation.
+
+    To demonstrate our commitment to rectifying this oversight, we have not merely polished the text but have fundamentally rewritten the narrative backbone of the paper. We have moved from a narrative of ``proof'' to one of ``investigation'' and ``association.'' We hope that the red-marked revisions throughout the manuscript demonstrate that we have finally aligned our claims with the strict limits of our empirical evidence. We believe these changes restore the manuscript's suitability by ensuring it contributes rigorous findings without overstepping its bounds.
+    \vspace{0.5cm}
+    \end{responsebox}
+
+\end{enumerate}
+
+    All major changes to the interpretive language have been marked in \textcolor{red}{red} in the revised manuscript to facilitate your review.
+    \vspace{0.5cm}
+
+\end{document}

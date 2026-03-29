@@ -1,0 +1,48 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\journal{Financial Research Letter}
+
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\pprintMaketitle}{\hrule}{}{}{}
+\patchcmd{\pprintMaketitle}{\hrule}{}{}{}
+\def\ps@pprintTitle{%
+ \let\@oddhead\@empty
+ \let\@evenhead\@empty
+ \def\@oddfoot{\centerline{\thepage}}%
+ \let\@evenfoot\@oddfoot}
+\makeatother
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Global Geopolitical Risk, Ambiguity, and Emerging Market Returns: Evidence from China}
+
+\author[inst1]{He Ni}
+\affiliation[inst1]{organization={Tailong School of Finance, Zhejiang Gongshang University},
+addressline={18 Xuezheng Str.},
+            city={Hangzhou},
+            postcode={310018},
+            state={Zhejiang},
+            country={China}}
+
+\author[inst2]{Xingjian Guo}
+\affiliation[inst2]{organization={School of Finance, Zhejiang Gongshang University},
+            addressline={18 Xuezheng Str.},
+            city={Hangzhou},
+            postcode={310018},
+            state={Zhejiang},
+            country={China}}
+
+\author[inst1]{Weijia Wang}
+
+\author[inst1]{Jilong Chen\corref{cor1}}
+\cortext[cor1]{Corresponding author. Email: cjlhk1989@hotmail.com}
+
+\end{frontmatter}
+
+\end{document}
