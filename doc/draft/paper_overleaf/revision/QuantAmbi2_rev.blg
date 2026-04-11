@@ -1,12 +1,14 @@
-This is BibTeX, Version 0.99d (TeX Live 2024)
+This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: QuantAmbi2_rev.aux
 The style file: elsarticle-harv.bst
 Database file #1: cas-refs.bib
+Warning--I didn't find a database entry for "amihud2002liquidity"
+Warning--I didn't find a database entry for "zhang2020liquidity"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 You've used 32 entries,
             2990 wiz_defined-function locations,
-            833 strings with 10027 characters,
+            835 strings with 10064 characters,
 and the built_in function-call counts, 19241 in all, are:
 = -- 1475
 > -- 608
@@ -45,3 +47,4 @@ warning$ -- 0
 while$ -- 125
 width$ -- 0
 write$ -- 467
+(There were 2 warnings)
