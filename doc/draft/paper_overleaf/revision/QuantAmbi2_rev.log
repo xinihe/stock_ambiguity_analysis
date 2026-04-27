@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.8)  7 APR 2026 21:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.11.8)  13 APR 2026 14:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -735,21 +735,19 @@ Package pdftex.def Info: figs/uncertainty_visualization.png  used on input line
 (pdftex.def)             Requested size: 390.0pt x 222.43109pt.
 
 
-[15]
+[15 <./figs/uncertainty_visualization.png>]
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[16]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-
-[16 <./figs/uncertainty_visualization.png>]
 
 [17]
 
 [18]
 
 [19]
-
-[20]
 Overfull \hbox (7.9412pt too wide) in paragraph at lines 587--587
 |[][]
  []
@@ -761,9 +759,9 @@ Overfull \hbox (12.83583pt too wide) in paragraph at lines 588--588
 
 
 
-[21]
+[20]
 
-[22]
+[21]
 Overfull \hbox (5.08075pt too wide) detected at line 622
 []\OML/cmm/m/it/12 r[] \OT1/cmr/m/n/12 = \OML/cmm/m/it/12  \OT1/cmr/m/n/12 + \
 OML/cmm/m/it/12 ^^L[] \OMS/cmsy/m/n/12 ^^A A[] \OT1/cmr/m/n/12 + \OML/cmm/m/it/
@@ -774,13 +772,11 @@ S/cmsy/m/n/12 ^^A [] \OT1/cmr/m/n/12 + \OML/cmm/m/it/12 ^^N[] \OMS/cmsy/m/n/12
 
 
 
+[22]
+
 [23]
 
 [24]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
 
 [25]
 
@@ -810,27 +806,28 @@ Package pdftex.def Info: figs/AMBMP Deciles.png  used on input line 852.
 (pdftex.def)             Requested size: 191.10214pt x 94.74364pt.
 
 
-[30]
-
-[31 <./figs/AMBE deciles.png> <./figs/AMBMP Deciles.png>]
-<figs/AMBE long-short.png, id=178, 604.1772pt x 309.3156pt>
+[30 <./figs/AMBE deciles.png> <./figs/AMBMP Deciles.png>]
+<figs/AMBE long-short.png, id=174, 604.1772pt x 309.3156pt>
 File: figs/AMBE long-short.png Graphic file (type png)
 <use figs/AMBE long-short.png>
 Package pdftex.def Info: figs/AMBE long-short.png  used on input line 881.
 (pdftex.def)             Requested size: 191.10214pt x 97.8361pt.
-<figs/AMBMP Long-short.png, id=179, 601.2864pt x 309.3156pt>
+<figs/AMBMP Long-short.png, id=175, 601.2864pt x 309.3156pt>
 File: figs/AMBMP Long-short.png Graphic file (type png)
 <use figs/AMBMP Long-short.png>
 Package pdftex.def Info: figs/AMBMP Long-short.png  used on input line 888.
 (pdftex.def)             Requested size: 191.10214pt x 98.30336pt.
 
 
-[32 <./figs/AMBE long-short.png> <./figs/AMBMP Long-short.png>]
+[31]
 Overfull \hbox (20.04001pt too wide) in paragraph at lines 902--903
 \T1/cmr/m/n/12 be-yond tra-di-tional am-bi-gu-ity mea-sures by in-cor-po-rat-in
 g microstructure-informed
  []
 
+
+
+[32 <./figs/AMBE long-short.png> <./figs/AMBMP Long-short.png>]
 (./QuantAmbi2_rev.bbl
 
 [33]
@@ -916,7 +913,7 @@ L3 programming layer <2025-01-18>
 Here is how much of TeX's memory you used:
  12937 strings out of 473190
  262784 string characters out of 5715800
- 644813 words of memory out of 5000000
+ 646813 words of memory out of 5000000
  36000 multiletter control sequences out of 15000+600000
  578966 words of font info for 98 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -948,7 +945,7 @@ mf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2025/texmf
 -dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2025/texmf-d
 ist/fonts/type1/public/cm-super/sfti1200.pfb></usr/local/texlive/2025/texmf-dis
 t/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on QuantAmbi2_rev.pdf (43 pages, 950988 bytes).
+Output written on QuantAmbi2_rev.pdf (43 pages, 950163 bytes).
 PDF statistics:
  551 PDF objects out of 1000 (max. 8388607)
  219 compressed objects within 3 object streams

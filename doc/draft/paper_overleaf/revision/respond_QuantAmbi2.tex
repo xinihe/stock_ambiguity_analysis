@@ -11,7 +11,7 @@
 
 \geometry{a4paper, margin=1in}
 
-\newcommand{\revblock}[1]{\begingroup\color{red}#1\endgroup}
+\newcommand{\revblock}[1]{\begingroup#1\endgroup}
 \let\origtextcolor\textcolor
 \renewcommand{\textcolor}[2]{\begingroup\color{#1}#2\endgroup}
 
@@ -65,7 +65,7 @@ We sincerely thank the Co-Editor, the Associate Editor, and both reviewers for t
 We added a new mechanism discussion section (Section 5.4, Mechanism Analysis: The Role of Liquidity) and revised the Introduction to foreground the channels:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "This paper investigates two primary mechanisms through which ambiguity influences asset prices. First, in high-ambiguity regimes, market makers widen bid-ask spreads and reduce order book depth as compensation for model uncertainty, creating a liquidity premium that translates into higher subsequent returns for investors who bear this ambiguity. Second, sophisticated investors treat elevated ambiguity as a signal of distributional uncertainty, demanding higher expected returns as compensation for holding assets whose return distributions are difficult to model. Both channels predict a positive relationship between ambiguity and next-period returns, consistent with our empirical findings."
+\itshape "This paper investigates two primary mechanisms through which ambiguity influences asset prices. First, in high-ambiguity regimes, market makers widen bid-ask spreads and reduce order book depth as compensation for model uncertainty, creating a liquidity premium that translates into higher subsequent returns for investors who bear this ambiguity. Second, sophisticated investors treat elevated ambiguity as a signal of distributional uncertainty, demanding higher expected returns as compensation for holding assets whose return distributions are difficult to model. Both channels predict a positive relationship between ambiguity and next-period returns, consistent with our empirical findings."
 \end{quote}
 \end{highlightbox}
 
@@ -83,7 +83,7 @@ We added a new mechanism discussion section (Section 5.4, Mechanism Analysis: Th
 The abstract has been rewritten to the journal's preferred structure:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "We develop a new cross-entropy-based ambiguity index ($\mathcal{A}^{CEA}_t$) using high-frequency intraday return distributions. Unlike traditional risk measures, $\mathcal{A}^{CEA}_t$ captures Knightian uncertainty---the absence of a reliable probability model---rather than merely outcome variance. Using minute-level CSI 300 data (2018--2024), we find that elevated ambiguity predicts higher next-day returns, with effects concentrated in high-volatility regimes. Mediation analysis reveals a liquidity provision channel: ambiguity induces market makers to widen spreads, generating a liquidity premium that translates into higher subsequent returns. Portfolios conditioned on $\mathcal{A}^{CEA}_t$ outperform volatility-based strategies. Our findings suggest that ambiguity---distinct from volatility---is a separate and economically significant driver of asset prices in emerging markets."
+\itshape "We develop a new cross-entropy-based ambiguity index ($\mathcal{A}^{CEA}_t$) using high-frequency intraday return distributions. Unlike traditional risk measures, $\mathcal{A}^{CEA}_t$ captures Knightian uncertainty---the absence of a reliable probability model---rather than merely outcome variance. Using minute-level CSI 300 data (2018--2024), we find that elevated ambiguity predicts higher next-day returns, with effects concentrated in high-volatility regimes. Mediation analysis reveals a liquidity provision channel: ambiguity induces market makers to widen spreads, generating a liquidity premium that translates into higher subsequent returns. Portfolios conditioned on $\mathcal{A}^{CEA}_t$ outperform volatility-based strategies. Our findings suggest that ambiguity---distinct from volatility---is a separate and economically significant driver of asset prices in emerging markets."
 \end{quote}
 \end{highlightbox}
 
@@ -101,7 +101,7 @@ The abstract has been rewritten to the journal's preferred structure:
 In Section 5.1 (Baseline Regression), we restructured the opening to state the hypothesis first:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Hypothesis: Ambiguity aversion predicts that investors demand compensation for holding assets whose return distribution is uncertain. This implies a positive $\beta_{\mathcal{A}}$ in forward return regressions, beyond the effect of realized volatility---higher ambiguity commands a higher expected return as compensation. Consistent with this prediction, Table~\ref{tab:panelols_model2} shows that a one-standard-deviation increase in $\mathcal{A}^{CEA}_t$ is associated with a 7 basis-point increase in next-day return (t=7.88), after controlling for RV, skewness, kurtosis, and turnover. This result is economically meaningful: it suggests that ambiguity captured by distributional uncertainty---not captured by conventional risk measures---is a separate pricing factor in China's A-share market."
+\itshape "Hypothesis: Ambiguity aversion predicts that investors demand compensation for holding assets whose return distribution is uncertain. This implies a positive $\beta_{\mathcal{A}}$ in forward return regressions, beyond the effect of realized volatility---higher ambiguity commands a higher expected return as compensation. Consistent with this prediction, Table~\ref{tab:panelols_model2} shows that a one-standard-deviation increase in $\mathcal{A}^{CEA}_t$ is associated with a 7 basis-point increase in next-day return (t=7.88), after controlling for RV, skewness, kurtosis, and turnover. This result is economically meaningful: it suggests that ambiguity captured by distributional uncertainty---not captured by conventional risk measures---is a separate pricing factor in China's A-share market."
 \end{quote}
 \end{highlightbox}
 
@@ -119,7 +119,7 @@ In Section 5.1 (Baseline Regression), we restructured the opening to state the h
 In Section 2.3 (Applications of Ambiguity in Financial Markets), we added new references and a clear differentiation paragraph:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Our paper contributes to this growing literature in two distinct ways. First, unlike prior studies that use survey-based or volatility-based proxies for uncertainty \citep[e.g.][]{xu2016,kim2021}, our $\mathcal{A}^{CEA}_t$ measure operationalizes Knightian uncertainty directly through distributional divergence, capturing model-form ambiguity rather than outcome variance. Second, whereas existing economics and finance studies have documented ambiguity effects across multiple markets \citep[e.g.][]{doi:10.1093/oep/gpae004,doi:10.1007/s10479-021-04314-7}, we provide the first high-frequency, intraday implementation that adapts the benchmark distribution dynamically to changing market regimes, enabling daily construction across the entire cross-section. This methodological novelty opens avenues for real-time risk management applications that were previously infeasible."
+\itshape "Our paper contributes to this growing literature in two distinct ways. First, unlike prior studies that use survey-based or volatility-based proxies for uncertainty \citep[e.g.][]{xu2016,kim2021}, our $\mathcal{A}^{CEA}_t$ measure operationalizes Knightian uncertainty directly through distributional divergence, capturing model-form ambiguity rather than outcome variance. Second, whereas existing economics and finance studies have documented ambiguity effects across multiple markets \citep[e.g.][]{doi:10.1093/oep/gpae004,doi:10.1007/s10479-021-04314-7}, we provide the first high-frequency, intraday implementation that adapts the benchmark distribution dynamically to changing market regimes, enabling daily construction across the entire cross-section. This methodological novelty opens avenues for real-time risk management applications that were previously infeasible."
 \end{quote}
 \end{highlightbox}
 
@@ -137,7 +137,7 @@ In Section 2.3 (Applications of Ambiguity in Financial Markets), we added new re
 The title has been changed to:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Ambiguity and Equity Returns: Evidence from Intraday Distribution Dynamics in China's A-Share Market"
+\itshape "Ambiguity and Equity Returns: Evidence from Intraday Distribution Dynamics in China's A-Share Market"
 \end{quote}
 \end{highlightbox}
 
@@ -155,7 +155,7 @@ The title has been changed to:
 We added an acknowledgment as a title footnote:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "We thank the anonymous reviewers and the editorial team for their constructive comments and suggestions, which helped improve the clarity and rigor of this work. All remaining errors are our own."
+\itshape "We thank the anonymous reviewers and the editorial team for their constructive comments and suggestions, which helped improve the clarity and rigor of this work. All remaining errors are our own."
 \end{quote}
 \end{highlightbox}
 
@@ -173,7 +173,7 @@ We added an acknowledgment as a title footnote:
 We revised the mediation section to use an interaction specification:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "To implement the moderated mediation, we follow \citet{preacher2007moderated} and specify the conditional model: $r_{t+1} = \alpha + \beta_1 \mathcal{A}^{CEA}_t + \beta_2 \text{Turnover}_t + \beta_3 (\mathcal{A}^{CEA}_t \times \text{Turnover}_t) + \mathbf{\Gamma}'\mathbf{X}_t + \varepsilon_{t+1}$. The interaction term $\beta_3$ captures how the ambiguity--return relationship varies with the liquidity regime. The indirect effect through liquidity is now computed as $\hat{a} \times \hat{b}$, where $\hat{a}$ is the coefficient from $\text{Turnover}_t = \delta_0 + \delta_1 \mathcal{A}^{CEA}_t + \mathbf{\Gamma}'\mathbf{X}_t + \eta_t$."
+\itshape "To implement the moderated mediation, we follow \citet{preacher2007moderated} and specify the conditional model: $r_{t+1} = \alpha + \beta_1 \mathcal{A}^{CEA}_t + \beta_2 \text{Turnover}_t + \beta_3 (\mathcal{A}^{CEA}_t \times \text{Turnover}_t) + \mathbf{\Gamma}'\mathbf{X}_t + \varepsilon_{t+1}$. The interaction term $\beta_3$ captures how the ambiguity--return relationship varies with the liquidity regime. The indirect effect through liquidity is now computed as $\hat{a} \times \hat{b}$, where $\hat{a}$ is the coefficient from $\text{Turnover}_t = \delta_0 + \delta_1 \mathcal{A}^{CEA}_t + \mathbf{\Gamma}'\mathbf{X}_t + \eta_t$."
 \end{quote}
 \end{highlightbox}
 
@@ -194,7 +194,7 @@ We revised the mediation section to use an interaction specification:
 The Introduction has been restructured to follow the requested framework:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Paragraph 1 (Topic): Financial markets are complex systems operating under conditions of pervasive uncertainty. This paper investigates how ambiguity---uncertainty about the probability distributions of returns themselves---affects equity prices in China's A-share market.\par
+\itshape "Paragraph 1 (Topic): Financial markets are complex systems operating under conditions of pervasive uncertainty. This paper investigates how ambiguity---uncertainty about the probability distributions of returns themselves---affects equity prices in China's A-share market.\par
 Paragraph 2 (Gap): Despite extensive research on volatility and risk premiums, the economics literature has not established howKnightian ambiguity---as distinct from outcome variance---transmits to equity returns at high frequency. Most existing studies treat uncertainty as a monolithic construct or rely on indirect proxies that cannot separate model uncertainty from outcome uncertainty.\par
 Paragraph 3 (Contribution): This paper is the first to (i) construct a daily, cross-sectionally applicable ambiguity index from intraday return distributions, (ii) demonstrate its separate pricing effect from realized volatility and higher moments, and (iii) identify the liquidity provision channel as the dominant mechanism in emerging markets. We thereby provide EAP readers with a new quantitative tool for real-time ambiguity monitoring and a clearer understanding of when and why ambiguity matters for asset prices.\par
 Paragraph 4 (Theoretical contribution): Theoretically, we extend the Hansen-Sargent multiplier-preference framework to a data-adaptive, information-theoretic implementation that is directly estimable from market prices.\par
@@ -217,7 +217,7 @@ Paragraph 6 (Findings): Our key finding is that ambiguity---operationalized thro
 We added a paragraph in the Introduction connecting to the special issue:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "This study is particularly relevant to the special issue on technological innovation and cross-border activities for two reasons. First, geopolitical risk---a core driver of cross-border investment uncertainty---creates ambiguity about probability distributions that standard GARCH or volatility models cannot capture. Our $\mathcal{A}^{CEA}_t$ index directly measures this distributional uncertainty. Second, firms engaged in technology-intensive sectors and cross-border operations face return distributions that are inherently harder to model, making ambiguity monitoring essential for portfolio risk management in these segments. Our methodology applies directly to these firms' high-frequency data, offering a new tool for researchers and practitioners studying the intersection of innovation, internationalization, and firm-level uncertainty."
+\itshape "This study is particularly relevant to the special issue on technological innovation and cross-border activities for two reasons. First, geopolitical risk---a core driver of cross-border investment uncertainty---creates ambiguity about probability distributions that standard GARCH or volatility models cannot capture. Our $\mathcal{A}^{CEA}_t$ index directly measures this distributional uncertainty. Second, firms engaged in technology-intensive sectors and cross-border operations face return distributions that are inherently harder to model, making ambiguity monitoring essential for portfolio risk management in these segments. Our methodology applies directly to these firms' high-frequency data, offering a new tool for researchers and practitioners studying the intersection of innovation, internationalization, and firm-level uncertainty."
 \end{quote}
 \end{highlightbox}
 
@@ -238,7 +238,7 @@ We added a paragraph in the Introduction connecting to the special issue:
 We added a bridging paragraph in Section 3.1:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "The connection between the Hansen-Sargent multiplier-preference framework and our empirical implementation is as follows. In the theoretical model, the decision-maker evaluates an act against the worst-case prior within a KL-divergence ball around a reference model $q$. In our empirical setting, the reference model $q$ is unknown and must be inferred from historical data. We operationalize this by defining the reference model as the empirical distribution of intraday returns over a rolling historical window. The worst-case prior then corresponds to the alternative distribution within this window that maximizes the KL divergence from the current intraday distribution. This alternative distribution is our `benchmark' $P_{j+1}$, which plays the role of the worst-case prior. The KL divergence between the current day's empirical distribution and this benchmark is precisely $\mathcal{A}^{CEA}_t$. This sequential minimax procedure mirrors the Hansen-Sargent value function $V(f) = \min_{p \in \mathcal{P}} \{\mathbb{E}_p[U(f)] + \rho D_{KL}(p\|q)\}$, with the rolling window providing the set $\mathcal{P}$ of plausible priors and the KL divergence serving as the penalty $\rho D_{KL}(p\|q)$."
+\itshape "The connection between the Hansen-Sargent multiplier-preference framework and our empirical implementation is as follows. In the theoretical model, the decision-maker evaluates an act against the worst-case prior within a KL-divergence ball around a reference model $q$. In our empirical setting, the reference model $q$ is unknown and must be inferred from historical data. We operationalize this by defining the reference model as the empirical distribution of intraday returns over a rolling historical window. The worst-case prior then corresponds to the alternative distribution within this window that maximizes the KL divergence from the current intraday distribution. This alternative distribution is our `benchmark' $P_{j+1}$, which plays the role of the worst-case prior. The KL divergence between the current day's empirical distribution and this benchmark is precisely $\mathcal{A}^{CEA}_t$. This sequential minimax procedure mirrors the Hansen-Sargent value function $V(f) = \min_{p \in \mathcal{P}} \{\mathbb{E}_p[U(f)] + \rho D_{KL}(p\|q)\}$, with the rolling window providing the set $\mathcal{P}$ of plausible priors and the KL divergence serving as the penalty $\rho D_{KL}(p\|q)$."
 \end{quote}
 \end{highlightbox}
 
@@ -256,7 +256,7 @@ We added a bridging paragraph in Section 3.1:
 We added a sensitivity analysis in the Appendix (Section B, Sensitivity to Window Length):
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "To verify that our results are not driven by the specific intraday window selection, we re-estimate $\mathcal{A}^{CEA}_t$ using alternative discretization schemes: 5-minute (T=48 bins), 60-minute (T=4 bins), and 1-day (T=1 bin, equivalent to using close-to-close returns as the distribution). Panel A of Table A3 shows that the Spearman rank correlation between the baseline $\mathcal{A}^{CEA}_t$ (202 bins) and the 5-minute version is 0.847, rising to 0.912 for the 60-minute version. Most importantly, the baseline regression coefficient on $\mathcal{A}^{CEA}_t$ remains positive and significant (p<0.01) across all four specifications, confirming that our empirical findings are robust to the choice of intraday frequency."
+\itshape "To verify that our results are not driven by the specific intraday window selection, we re-estimate $\mathcal{A}^{CEA}_t$ using alternative discretization schemes: 5-minute (T=48 bins), 60-minute (T=4 bins), and 1-day (T=1 bin, equivalent to using close-to-close returns as the distribution). Panel A of Table A3 shows that the Spearman rank correlation between the baseline $\mathcal{A}^{CEA}_t$ (202 bins) and the 5-minute version is 0.847, rising to 0.912 for the 60-minute version. Most importantly, the baseline regression coefficient on $\mathcal{A}^{CEA}_t$ remains positive and significant (p<0.01) across all four specifications, confirming that our empirical findings are robust to the choice of intraday frequency."
 \end{quote}
 \end{highlightbox}
 
@@ -274,7 +274,7 @@ We added a sensitivity analysis in the Appendix (Section B, Sensitivity to Windo
 We added a double-sort portfolio analysis and expanded Table 2 to include all higher moments:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "To demonstrate that $\mathcal{A}^{CEA}_t$ captures information orthogonal to standard risk factors, we conduct a two-dimensional sort. Stocks are independently sorted into quintiles by $\mathcal{A}^{CEA}_t$ and by realized volatility (RV), producing a 5$\times$5 cell portfolio grid. The average next-day return is computed for each cell. The key finding is that within every RV quintile, the spread between high- and low-$\mathcal{A}^{CEA}_t$ portfolios is positive and statistically significant, ranging from 2.3 bps (lowest RV quintile) to 4.1 bps (highest RV quintile). This confirms that $\mathcal{A}^{CEA}_t$ provides independent information about future returns beyond realized volatility."
+\itshape "To demonstrate that $\mathcal{A}^{CEA}_t$ captures information orthogonal to standard risk factors, we conduct a two-dimensional sort. Stocks are independently sorted into quintiles by $\mathcal{A}^{CEA}_t$ and by realized volatility (RV), producing a 5$\times$5 cell portfolio grid. The average next-day return is computed for each cell. The key finding is that within every RV quintile, the spread between high- and low-$\mathcal{A}^{CEA}_t$ portfolios is positive and statistically significant, ranging from 2.3 bps (lowest RV quintile) to 4.1 bps (highest RV quintile). This confirms that $\mathcal{A}^{CEA}_t$ provides independent information about future returns beyond realized volatility."
 \end{quote}
 \end{highlightbox}
 
@@ -292,7 +292,7 @@ We added a double-sort portfolio analysis and expanded Table 2 to include all hi
 We added a new comparison table (Table A2) and discussion:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Table A2 reports the pairwise correlations between $\mathcal{A}^{CEA}_t$ and alternative uncertainty proxies. The correlation with the VIX-based proxy is 0.083, with a volume-based dispersion measure is 0.127, and with analyst forecast dispersion (a proxy used in the developed-market literature) is 0.061. All correlations are positive but small in magnitude, consistent with $\mathcal{A}^{CEA}_t$ capturing a distinct dimension of uncertainty that is not spanned by these alternatives. Crucially, when all four measures are included simultaneously in a return regression, only $\mathcal{A}^{CEA}_t$ retains statistical significance (t=6.44), while the VIX proxy, volume dispersion, and forecast dispersion are jointly insignificant (F=1.22, p=0.30)."
+\itshape "Table A2 reports the pairwise correlations between $\mathcal{A}^{CEA}_t$ and alternative uncertainty proxies. The correlation with the VIX-based proxy is 0.083, with a volume-based dispersion measure is 0.127, and with analyst forecast dispersion (a proxy used in the developed-market literature) is 0.061. All correlations are positive but small in magnitude, consistent with $\mathcal{A}^{CEA}_t$ capturing a distinct dimension of uncertainty that is not spanned by these alternatives. Crucially, when all four measures are included simultaneously in a return regression, only $\mathcal{A}^{CEA}_t$ retains statistical significance (t=6.44), while the VIX proxy, volume dispersion, and forecast dispersion are jointly insignificant (F=1.22, p=0.30)."
 \end{quote}
 \end{highlightbox}
 
@@ -310,7 +310,7 @@ We added a new comparison table (Table A2) and discussion:
 We revised the relevant passage:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Unless otherwise specified, `short-term' in this paper refers to the next trading day (day $t+1$). The ambiguity index $\mathcal{A}^{CEA}_t$ is constructed using intraday data from trading day $t$ and is available before the market opens on day $t+1$. All return predictions and portfolio signals are implemented at the close of day $t$ and realized at the close of day $t+1$."
+\itshape "Unless otherwise specified, `short-term' in this paper refers to the next trading day (day $t+1$). The ambiguity index $\mathcal{A}^{CEA}_t$ is constructed using intraday data from trading day $t$ and is available before the market opens on day $t+1$. All return predictions and portfolio signals are implemented at the close of day $t$ and realized at the close of day $t+1$."
 \end{quote}
 \end{highlightbox}
 
@@ -336,7 +336,7 @@ We revised the relevant passage:
 We added a data cleaning paragraph in Section 4.1:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Data cleaning: One-minute trading records are filtered to remove (i) auction opening/closing minutes that exhibit artificially large price jumps unrelated to information arrival, (ii) trading halts and suspension periods where no meaningful price discovery occurs, and (iii) stocks with fewer than 90\% of expected ticks on any given day (these are set to missing and carried forward from the prior valid observation). Returns are winsorized at the 0.1\% and 99.9\% levels to limit the influence of microstructure noise and erroneous prints. These procedures follow standard high-frequency data cleaning practice \citep[][Section 2]{fan2019measurement}."
+\itshape "Data cleaning: One-minute trading records are filtered to remove (i) auction opening/closing minutes that exhibit artificially large price jumps unrelated to information arrival, (ii) trading halts and suspension periods where no meaningful price discovery occurs, and (iii) stocks with fewer than 90\% of expected ticks on any given day (these are set to missing and carried forward from the prior valid observation). Returns are winsorized at the 0.1\% and 99.9\% levels to limit the influence of microstructure noise and erroneous prints. These procedures follow standard high-frequency data cleaning practice \citep[][Section 2]{fan2019measurement}."
 \end{quote}
 \end{highlightbox}
 
@@ -373,7 +373,7 @@ We added a data cleaning paragraph in Section 4.1:
 We added a transaction cost paragraph in the Appendix:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "To assess the economic viability of the $\mathcal{A}^{CEA}_t$-based strategy, we incorporate transaction costs following \citet{amihud2002liquidity}. Assuming a round-trip cost of 30 basis points (appropriate for retail-heavy A-share markets; see \citealp{zhang2020liquidity}), the $\mathcal{A}^{CEA}_t$ long-short portfolio's net Sharpe ratio is 8.3, compared to 3.1 for AMBE and 0.9 for the CSI 300 buy-and-hold. The annual gross return of 49.2\% falls to 35.1\% after costs, but remains economically significant. We conclude that the $\mathcal{A}^{CEA}_t$ strategy is robust to realistic transaction cost environments in China's equity market."
+\itshape "To assess the economic viability of the $\mathcal{A}^{CEA}_t$-based strategy, we incorporate transaction costs following \citet{amihud2002liquidity}. Assuming a round-trip cost of 30 basis points (appropriate for retail-heavy A-share markets; see \citealp{zhang2020liquidity}), the $\mathcal{A}^{CEA}_t$ long-short portfolio's net Sharpe ratio is 8.3, compared to 3.1 for AMBE and 0.9 for the CSI 300 buy-and-hold. The annual gross return of 49.2\% falls to 35.1\% after costs, but remains economically significant. We conclude that the $\mathcal{A}^{CEA}_t$ strategy is robust to realistic transaction cost environments in China's equity market."
 \end{quote}
 \end{highlightbox}
 
@@ -391,7 +391,7 @@ We added a transaction cost paragraph in the Appendix:
 We added an event study subsection:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "To complement the Granger causality analysis and address concerns about reverse causality, we conduct an event study around four major exogenous shocks: (i) the US Section 301 tariff escalation on July 6, 2018; (ii) the COVID-19 national lockdown announcement on January 23, 2020; (iii) the Huawei Meng Wanzhou arrest on December 1, 2018; and (iv) the Pelosi Taiwan visit on August 2, 2022. In each event window [0, +2] days relative to the announcement, $\mathcal{A}^{CEA}_t$ spikes significantly above its 60-day average (mean increase: 340\%; range: 180\% to 620\%) and the subsequent 5-day cumulative return is significantly positive (mean: +2.3\%; t-stat: 4.12), consistent with an ambiguity premium: investors who hold positions through the uncertainty shock earn higher returns as compensation for bearing distributional ambiguity. These event-window results are consistent with our proposed mechanism: an exogenous ambiguity shock commands a positive return premium, providing quasi-experimental corroboration of the predictive relationship."
+\itshape "To complement the Granger causality analysis and address concerns about reverse causality, we conduct an event study around four major exogenous shocks: (i) the US Section 301 tariff escalation on July 6, 2018; (ii) the COVID-19 national lockdown announcement on January 23, 2020; (iii) the Huawei Meng Wanzhou arrest on December 1, 2018; and (iv) the Pelosi Taiwan visit on August 2, 2022. In each event window [0, +2] days relative to the announcement, $\mathcal{A}^{CEA}_t$ spikes significantly above its 60-day average (mean increase: 340\%; range: 180\% to 620\%) and the subsequent 5-day cumulative return is significantly positive (mean: +2.3\%; t-stat: 4.12), consistent with an ambiguity premium: investors who hold positions through the uncertainty shock earn higher returns as compensation for bearing distributional ambiguity. These event-window results are consistent with our proposed mechanism: an exogenous ambiguity shock commands a positive return premium, providing quasi-experimental corroboration of the predictive relationship."
 \end{quote}
 \end{highlightbox}
 
@@ -409,7 +409,7 @@ We added an event study subsection:
 We added a crisis sub-period analysis to the Heterogeneity Analysis section:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "We split the sample into pre-COVID (Jan 2018--Dec 2019) and COVID/post-COVID (Jan 2020--May 2024) sub-periods. The $\mathcal{A}^{CEA}_t$ coefficient is positive and significant in both sub-periods (pre-COVID: $\beta=0.006$, t=4.21; COVID+: $\beta=0.007$, t=7.65), confirming robustness. However, the economic magnitude is 17\% larger during the COVID period, consistent with ambiguity aversion becoming more salient during systemic uncertainty events. The interaction term (COVID indicator $\times \mathcal{A}^{CEA}_t$) is positive and significant ($\Delta\beta=0.001$, t=2.89), confirming that the ambiguity pricing mechanism is amplified---not replaced---during crisis regimes."
+\itshape "We split the sample into pre-COVID (Jan 2018--Dec 2019) and COVID/post-COVID (Jan 2020--May 2024) sub-periods. The $\mathcal{A}^{CEA}_t$ coefficient is positive and significant in both sub-periods (pre-COVID: $\beta=0.006$, t=4.21; COVID+: $\beta=0.007$, t=7.65), confirming robustness. However, the economic magnitude is 17\% larger during the COVID period, consistent with ambiguity aversion becoming more salient during systemic uncertainty events. The interaction term (COVID indicator $\times \mathcal{A}^{CEA}_t$) is positive and significant ($\Delta\beta=0.001$, t=2.89), confirming that the ambiguity pricing mechanism is amplified---not replaced---during crisis regimes."
 \end{quote}
 \end{highlightbox}
 
@@ -435,7 +435,7 @@ We added a crisis sub-period analysis to the Heterogeneity Analysis section:
 We revised the relevant paragraph:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "The Chinese A-share market is particularly suitable for studying ambiguity for three reasons. First, high retail participation (over 80\% of trading volume) generates heterogeneous beliefs and dispersed information, creating fertile ground for ambiguity effects \citep{guo2020retail}. Second, frequent policy interventions and geopolitical exposure (e.g., US-China trade tensions) generate sharp distributional shifts that are visible in intraday data. Third, the absence of T+0 trading and the prominent role of market-making desks in this market make liquidity provision responses to ambiguity especially interpretable."
+\itshape "The Chinese A-share market is particularly suitable for studying ambiguity for three reasons. First, high retail participation (over 80\% of trading volume) generates heterogeneous beliefs and dispersed information, creating fertile ground for ambiguity effects \citep{guo2020retail}. Second, frequent policy interventions and geopolitical exposure (e.g., US-China trade tensions) generate sharp distributional shifts that are visible in intraday data. Third, the absence of T+0 trading and the prominent role of market-making desks in this market make liquidity provision responses to ambiguity especially interpretable."
 \end{quote}
 \end{highlightbox}
 
@@ -453,7 +453,7 @@ We revised the relevant paragraph:
 We revised the opening of the mechanism section:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "The liquidity provision channel operates as follows. When $\mathcal{A}^{CEA}_t$ rises, market makers face greater uncertainty about their own inventory valuation and the correct pricing model. Rational market makers respond by widening bid-ask spreads and reducing order book depth to compensate for the elevated model risk. This reduction in liquidity creates an ambiguity premium: investors who are willing to hold positions despite the distributional uncertainty earn higher subsequent returns as compensation. Empirically, this mechanism predicts that (i) turnover decreases when $\mathcal{A}^{CEA}_t$ rises, and (ii) returns are higher following high-ambiguity days as the liquidity premium is realized. Both predictions are confirmed in our data."
+\itshape "The liquidity provision channel operates as follows. When $\mathcal{A}^{CEA}_t$ rises, market makers face greater uncertainty about their own inventory valuation and the correct pricing model. Rational market makers respond by widening bid-ask spreads and reducing order book depth to compensate for the elevated model risk. This reduction in liquidity creates an ambiguity premium: investors who are willing to hold positions despite the distributional uncertainty earn higher subsequent returns as compensation. Empirically, this mechanism predicts that (i) turnover decreases when $\mathcal{A}^{CEA}_t$ rises, and (ii) returns are higher following high-ambiguity days as the liquidity premium is realized. Both predictions are confirmed in our data."
 \end{quote}
 \end{highlightbox}
 
@@ -471,7 +471,7 @@ We revised the opening of the mechanism section:
 We added notation definitions:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "In Equation (5), the notation is as follows: $q_i(x_k)$ is the empirical probability mass assigned to bin $k$ on day $i$, obtained by normalizing the count of intraday returns falling in $[x_{k-1}, x_k]$; $P_{j+1}(x_k)$ is the benchmark probability in bin $k$ for the next window, selected as the cluster centroid minimizing KL divergence from the out-of-sample distribution $q_{20j+21}$; the sum runs over $K=202$ equally spaced bins covering $[-0.201, +0.201]$ return interval. This discretization ensures that $q_i$ and $P_{j+1}$ are proper probability vectors (non-negative, sum to one)."
+\itshape "In Equation (5), the notation is as follows: $q_i(x_k)$ is the empirical probability mass assigned to bin $k$ on day $i$, obtained by normalizing the count of intraday returns falling in $[x_{k-1}, x_k]$; $P_{j+1}(x_k)$ is the benchmark probability in bin $k$ for the next window, selected as the cluster centroid minimizing KL divergence from the out-of-sample distribution $q_{20j+21}$; the sum runs over $K=202$ equally spaced bins covering $[-0.201, +0.201]$ return interval. This discretization ensures that $q_i$ and $P_{j+1}$ are proper probability vectors (non-negative, sum to one)."
 \end{quote}
 \end{highlightbox}
 
@@ -510,15 +510,18 @@ We added notation definitions:
 \begin{highlightbox}
 \textbf{Revisions in the Manuscript:}
 
-We added Figure 4:
+We added Figure 2:
 \vspace{0.2cm}
 \begin{quote}
-\color{red}\itshape "Figure 4 displays the quintile-specific $\beta_q$ coefficients from the quantile regression, along with 90\% confidence bands. The monotonic increase in $\beta_q$ from Q1 (low ambiguity) to Q5 (high ambiguity) is clearly visible, confirming the intensity-contingent nature of the ambiguity premium: the compensation for bearing distributional uncertainty increases with the level of ambiguity."
+\itshape "Figure 2 displays the quintile-specific $\beta_q$ coefficients from the quantile regression, along with 90\% confidence bands. The monotonic increase in $\beta_q$ from Q1 (low ambiguity) to Q5 (high ambiguity) is clearly visible, confirming the intensity-contingent nature of the ambiguity premium: the compensation for bearing distributional uncertainty increases with the level of ambiguity."
 \end{quote}
 \end{highlightbox}
 
 % ----------------------------------------------------------------------
 \vspace{0.5cm}
 We thank the Co-Editor, Associate Editor, and both reviewers once again for their careful reading and constructive feedback. We believe that addressing these comments has significantly strengthened the paper's theoretical motivation, empirical credibility, practical relevance, and accessibility to the broad readership of Economic Analysis and Policy. We hope this revised version is now suitable for publication in the journal.
+
+\bibliographystyle{elsarticle-harv}
+\bibliography{cas-refs}
 
 \end{document}

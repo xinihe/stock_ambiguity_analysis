@@ -1,0 +1,73 @@
+\begin{thebibliography}{8}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Anonymous(2025)}]{doi:10.1093/oep/gpae004}
+\bibinfo{author}{Anonymous}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Aggregate uncertainty and firm-level uncertainty}.
+\newblock \bibinfo{journal}{Oxford Economic Papers}
+  \DOIprefix\doi{10.1093/oep/gpae004}.
+%Type = Article
+\bibitem[{Fan and Kim(2019)}]{fan2019measurement}
+\bibinfo{author}{Fan, J.}, \bibinfo{author}{Kim, D.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Structured volatility matrix estimation for
+  non-synchronized high-frequency financial data}.
+\newblock \bibinfo{journal}{Journal of Econometrics} \bibinfo{volume}{208},
+  \bibinfo{pages}{61--78}.
+\newblock \DOIprefix\doi{10.1016/j.jeconom.2018.09.013}.
+%Type = Misc
+\bibitem[{Guo et~al.(2020)Guo, Jia and Sun}]{guo2020retail}
+\bibinfo{author}{Guo, R.}, \bibinfo{author}{Jia, D.}, \bibinfo{author}{Sun,
+  X.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Retail investor trading in china: Evidence and
+  implications}.
+\newblock \bibinfo{note}{Working paper}.
+%Type = Article
+\bibitem[{Kim and Byun(2021)}]{kim2021}
+\bibinfo{author}{Kim, E.B.}, \bibinfo{author}{Byun, S.J.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Risk, ambiguity, and equity premium: international
+  evidence}.
+\newblock \bibinfo{journal}{International Review of Economics \& Finance}
+  \bibinfo{volume}{76}, \bibinfo{pages}{321--335}.
+%Type = Article
+\bibitem[{Kim et~al.(2021)Kim, Mallick et~al.}]{doi:10.1007/s10479-021-04314-7}
+\bibinfo{author}{Kim, J.}, \bibinfo{author}{Mallick, S.K.}, et~al.,
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Financial uncertainty and interest rate movements: is
+  asian bond market volatility different?}
+\newblock \bibinfo{journal}{Annals of Operations Research}
+  \DOIprefix\doi{10.1007/s10479-021-04314-7}.
+%Type = Book
+\bibitem[{Knight(1921)}]{Knight1921}
+\bibinfo{author}{Knight, F.H.}, \bibinfo{year}{1921}.
+\newblock \bibinfo{title}{Risk, Uncertainty, and Profit}.
+\newblock \bibinfo{publisher}{Houghton Mifflin}, \bibinfo{address}{Boston}.
+%Type = Article
+\bibitem[{Preacher et~al.(2007)Preacher, Rucker and
+  Hayes}]{preacher2007moderated}
+\bibinfo{author}{Preacher, K.J.}, \bibinfo{author}{Rucker, D.D.},
+  \bibinfo{author}{Hayes, A.F.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Addressing moderated mediation hypotheses: Theory,
+  methods, and prescriptions}.
+\newblock \bibinfo{journal}{Multivariate Behavioral Research}
+  \bibinfo{volume}{42}, \bibinfo{pages}{185--227}.
+%Type = Article
+\bibitem[{Xu(2016)}]{xu2016}
+\bibinfo{author}{Xu, Y.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Aversion of information ambiguity and momentum effect
+  in china's stock market}.
+\newblock \bibinfo{journal}{China Finance Review International}
+  \bibinfo{volume}{6}, \bibinfo{pages}{125--149}.
+
+\end{thebibliography}

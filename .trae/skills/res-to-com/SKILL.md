@@ -1,9 +1,9 @@
 ---
-name: "paper-rev"
+name: "res-to-com"
 description: "Builds a referee-response workflow for paper revisions. Invoke when revising a manuscript from comments and producing a response letter, marked TeX revision, and PDFs."
 ---
 
-# PaperRev
+# Res-to-Com (Response to Comments)
 
 Use this skill when a paper revision requires all of the following:
 
@@ -102,10 +102,41 @@ Always maintain a `COMMENT_TRACKING.md` file in the resubmission root. After eac
 
 Compile the response letter and the marked manuscript after all edits. If bibliography regeneration is required, run the full LaTeX cycle; otherwise run `pdflatex` directly.
 
-## Project Reference
+## Multi-Round Journal Revision Workflow
 
-The canonical detailed workflow for this repository is:
+### Version Naming Convention
 
-- `/Users/tlxy/Library/Mobile Documents/com~apple~CloudDocs/Research/Projects/Ambiguity/stock_ambiguity_analysis/doc/PaperRev.md`
+The manuscript filename only increments when the base manuscript changes (e.g., after a reject-and-resubmit). The response letter and comment file always increment per round, even if the manuscript base stays the same.
 
-Use that document for the full end-to-end procedure, the project-specific mapping of comments 1 to 10, the detailed templates, and the quality-control checklist.
+### Round-Tracking Comment Table
+
+Maintain a master comment table across all rounds in `COMMENT_TRACKING.md`. Add a new column for each round.
+
+```markdown
+| C# | Section | Issue | Round 1 | Round 2 | Round 3 | Status |
+|----|---------|-------|---------|---------|---------|--------|
+| 1  | Abstract | framing | ✓ softened | — | — | Closed |
+| 2  | §2.2 | proxy | ✓ Appendix added | — | — | Closed |
+```
+
+Update this table each round:
+- **Closed**: the referee confirmed the issue was addressed
+- **Carried Forward**: the comment was not fully addressed; add the new round number
+- **New**: a brand-new comment; assign the next available number
+
+### Starting a New Revision Round
+
+```text
+Round N inputs:
+  - prior response letter:   respond_{N-1}.tex
+  - prior marked manuscript: rev_marked_v{M}.tex
+  - prior comment file:      comments_{N-1}.md
+  - referee comments:        comments_{N}.md
+  - comment-tracking table:  COMMENT_TRACKING.md
+
+Round N outputs:
+  - respond_{N}.tex
+  - rev_marked_v{M}.tex (if unchanged) OR rev_marked_v{M+1}.tex (if changed)
+  - COMMENT_TRACKING.md (updated)
+  - history/round{N-1}/ (archived prior-round files)
+```
