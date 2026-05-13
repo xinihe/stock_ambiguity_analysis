@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{34}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -18,6 +18,14 @@
   risque: Critique des postulats et axiomes de l'ecole americaine}.
 \newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{21},
   \bibinfo{pages}{503--546}.
+%Type = Article
+\bibitem[{Amihud(2002)}]{amihud2002liquidity}
+\bibinfo{author}{Amihud, Y.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Illiquidity and stock returns: Cross-section and
+  time-series effects}.
+\newblock \bibinfo{journal}{Journal of Financial Markets} \bibinfo{volume}{5},
+  \bibinfo{pages}{31--56}.
+\newblock \DOIprefix\doi{10.1016/S1386-4181(01)00024-6}.
 %Type = Article
 \bibitem[{Anderson et~al.(2009)Anderson, Ghysels and Juergens}]{anderson2009}
 \bibinfo{author}{Anderson, E.W.}, \bibinfo{author}{Ghysels, E.},
@@ -252,5 +260,14 @@
   in china's stock market}.
 \newblock \bibinfo{journal}{China Finance Review International}
   \bibinfo{volume}{6}, \bibinfo{pages}{125--149}.
+%Type = Article
+\bibitem[{Ye et~al.(2020)Ye, Zhou and Zhang}]{zhang2020liquidity}
+\bibinfo{author}{Ye, Q.}, \bibinfo{author}{Zhou, S.}, \bibinfo{author}{Zhang,
+  J.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Short-selling, margin-trading, and stock liquidity:
+  Evidence from the chinese stock markets}.
+\newblock \bibinfo{journal}{International Review of Financial Analysis}
+  \bibinfo{volume}{71}, \bibinfo{pages}{101549}.
+\newblock \DOIprefix\doi{10.1016/j.irfa.2020.101549}.
 
 \end{thebibliography}

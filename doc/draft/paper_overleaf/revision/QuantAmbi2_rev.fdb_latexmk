@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex QuantAmbi2_rev"] 1774670708.61103 "QuantAmbi2_rev.aux" "QuantAmbi2_rev.bbl" "QuantAmbi2_rev" 1774670709.52942 0
-  "./cas-refs.bib" 1774601903.16047 14114 81b6b85d8facc3a47f1c72a60569d2c9 ""
+["bibtex QuantAmbi2_rev"] 1778656505.11942 "QuantAmbi2_rev.aux" "QuantAmbi2_rev.bbl" "QuantAmbi2_rev" 1778656506.02443 0
+  "./cas-refs.bib" 1778656496.05599 14780 ecc205617ac4925019bd298a2316dc7c ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/elsarticle/elsarticle-harv.bst" 1606256092 30002 8c0c5833f37bea3ec214cf315a72975d ""
-  "QuantAmbi2_rev.aux" 1774670709.32327 13187 31c99d62b0cfde83df913b866031a435 "pdflatex"
+  "QuantAmbi2_rev.aux" 1778656505.82412 13732 8f6c7efbbafe7bf62b3db7caafd17a9f "pdflatex"
   (generated)
   "QuantAmbi2_rev.bbl"
   "QuantAmbi2_rev.blg"
   (rewritten before read)
-["pdflatex"] 1774670708.7019 "QuantAmbi2_rev.tex" "QuantAmbi2_rev.pdf" "QuantAmbi2_rev" 1774670709.5295 0
+["pdflatex"] 1778656505.18628 "QuantAmbi2_rev.tex" "QuantAmbi2_rev.pdf" "QuantAmbi2_rev" 1778656506.02455 0
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -35,8 +35,11 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1246382020 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1246382020 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbsy10.tfm" 1136768653 1116 4e6ba9d7914baa6482fd69f67d126380 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm" 1136768653 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1136768653 1332 f817c21a1ba54560425663374f1b651a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1136768653 1344 8a0be4fe4d376203000810ad4dc81558 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1136768653 1336 3125ccb448c1a09074e3aa4a9832f130 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1136768653 1332 1fde11373e221473104d6cc5993f046e ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm" 1136768653 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
@@ -54,6 +57,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm" 1229303445 692 1b6510779f0f05e9cbf03e0f6c8361e6 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb" 1248133631 34793 87a84b12f86dfd35a1cf1bb142b75602 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1248133631 30251 6afa5cb1d0204815a708a080681d4674 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1248133631 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb" 1248133631 36741 fa121aac0049305630cf160b86157ee4 ""
@@ -71,6 +75,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb" 1248133631 35479 892d27442ef9ef29ce1ee57aa0e8a665 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb" 1215737283 140176 d4962f948b4cc0adf4d3dde77a128c95 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb" 1215737283 154599 ded6d7c21788a8930eadc7fef7518942 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb" 1215737283 164227 3df942b4ff2124425d8fb1b6d3e01c7a ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb" 1215737283 136101 f533469f523533d38317ab5729d00c8a ""
@@ -149,15 +154,16 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1710641127.00471 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1710641053 8221428 035085e71765b2996119378177abdd87 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "QuantAmbi2_rev.aux" 1774670709.32327 13187 31c99d62b0cfde83df913b866031a435 "pdflatex"
-  "QuantAmbi2_rev.bbl" 1774670708.69997 12167 2a822f0bb61922aebe92f13f2ddd3997 "bibtex QuantAmbi2_rev"
-  "QuantAmbi2_rev.spl" 1774670708.84216 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "QuantAmbi2_rev.tex" 1774670681.3638 105558 ac008562f136c160bf479be90014e654 ""
+  "QuantAmbi2_rev.aux" 1778656505.82412 13732 8f6c7efbbafe7bf62b3db7caafd17a9f "pdflatex"
+  "QuantAmbi2_rev.bbl" 1778656505.18405 13029 0c19a9dc59490cc00f01b75c5142957c "bibtex QuantAmbi2_rev"
+  "QuantAmbi2_rev.spl" 1778656505.32424 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "QuantAmbi2_rev.tex" 1778655903.91617 105283 a1f027f46f04566818f0a1523f5c2cb3 ""
   "figs/AMBE deciles.png" 1774588846.78779 87779 5612ed2805d926d5d1c2cf720b98bff1 ""
   "figs/AMBE long-short.png" 1774588846.7916 41597 d0117d3bab3e16b293a587aa4780268d ""
   "figs/AMBMP Deciles.png" 1774588846.78975 66789 cd596767d1c207d707c927742555fe51 ""
   "figs/AMBMP Long-short.png" 1774588846.79353 34401 b073c1d7fd6797eec823fc7268757bff ""
   "figs/figure1_kl_divergence.pdf" 1774588846.79548 64073 c3fa481fe59760f8a17d3eaa9979a97a ""
+  "figs/figure4_quantile_coefficients.pdf" 1775548892 17866 c25858a3b2a1ce2fde46217b2ecd0cdd ""
   "figs/figure4_risk_vs_ambiguity.pdf" 1774588846.79714 91552 734edb2a979ae4764598f376a4a9c9a5 ""
   "figs/uncertainty_visualization.png" 1774588846.78542 107242 24c538d892b6beb6fbd201e0acb1cf17 ""
   (generated)

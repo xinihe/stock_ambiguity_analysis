@@ -305,6 +305,9 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecti0600.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
+INPUT ./respond_QuantAmbi2.bbl
+INPUT ./respond_QuantAmbi2.bbl
+INPUT respond_QuantAmbi2.bbl
 INPUT respond_QuantAmbi2.aux
 INPUT ./respond_QuantAmbi2.out
 INPUT ./respond_QuantAmbi2.out

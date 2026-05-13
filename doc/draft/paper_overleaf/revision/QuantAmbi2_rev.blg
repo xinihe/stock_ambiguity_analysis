@@ -1,50 +1,47 @@
-This is BibTeX, Version 0.99d (TeX Live 2025)
+This is BibTeX, Version 0.99d (TeX Live 2024)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: QuantAmbi2_rev.aux
 The style file: elsarticle-harv.bst
 Database file #1: cas-refs.bib
-Warning--I didn't find a database entry for "amihud2002liquidity"
-Warning--I didn't find a database entry for "zhang2020liquidity"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 32 entries,
+You've used 34 entries,
             2990 wiz_defined-function locations,
-            835 strings with 10064 characters,
-and the built_in function-call counts, 19241 in all, are:
-= -- 1475
-> -- 608
-< -- 20
-+ -- 246
-- -- 204
-* -- 1983
-:= -- 2817
-add.period$ -- 101
-call.type$ -- 32
-change.case$ -- 225
-chr.to.int$ -- 32
-cite$ -- 32
-duplicate$ -- 1510
-empty$ -- 1535
-format.name$ -- 292
-if$ -- 3625
+            847 strings with 10380 characters,
+and the built_in function-call counts, 20473 in all, are:
+= -- 1574
+> -- 644
+< -- 21
++ -- 260
+- -- 216
+* -- 2113
+:= -- 2997
+add.period$ -- 109
+call.type$ -- 34
+change.case$ -- 239
+chr.to.int$ -- 34
+cite$ -- 34
+duplicate$ -- 1606
+empty$ -- 1632
+format.name$ -- 308
+if$ -- 3856
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 282
-newline$ -- 180
-num.names$ -- 128
-pop$ -- 537
+missing$ -- 300
+newline$ -- 192
+num.names$ -- 136
+pop$ -- 565
 preamble$ -- 1
-purify$ -- 195
+purify$ -- 207
 quote$ -- 0
-skip$ -- 444
+skip$ -- 473
 stack$ -- 0
-substring$ -- 864
-swap$ -- 1003
+substring$ -- 923
+swap$ -- 1070
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 276
+type$ -- 294
 warning$ -- 0
-while$ -- 125
+while$ -- 134
 width$ -- 0
-write$ -- 467
-(There were 2 warnings)
+write$ -- 499

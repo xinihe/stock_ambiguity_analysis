@@ -1,5 +1,13 @@
 # Fdb version 4
-["pdflatex"] 1774670737.79141 "respond_QuantAmbi2.tex" "respond_QuantAmbi2.pdf" "respond_QuantAmbi2" 1774670738.4135 0
+["bibtex respond_QuantAmbi2"] 1778656529.72785 "respond_QuantAmbi2.aux" "respond_QuantAmbi2.bbl" "respond_QuantAmbi2" 1778656530.55576 0
+  "./cas-refs.bib" 1778656496.05599 14780 ecc205617ac4925019bd298a2316dc7c ""
+  "/usr/local/texlive/2024/texmf-dist/bibtex/bst/elsarticle/elsarticle-harv.bst" 1606256092 30002 8c0c5833f37bea3ec214cf315a72975d ""
+  "respond_QuantAmbi2.aux" 1778656530.35855 1107 85020aaa165dd34eb76e7ba33b8ab40d "pdflatex"
+  (generated)
+  "respond_QuantAmbi2.bbl"
+  "respond_QuantAmbi2.blg"
+  (rewritten before read)
+["pdflatex"] 1778656529.79694 "respond_QuantAmbi2.tex" "respond_QuantAmbi2.pdf" "respond_QuantAmbi2" 1778656530.55587 0
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm" 1136768653 3584 402da0b29eafbad07963b1224b222f18 ""
@@ -183,9 +191,10 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1710641127.00471 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1710641053 8221428 035085e71765b2996119378177abdd87 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "respond_QuantAmbi2.aux" 1774670738.33854 426 97149bc89b82714f96b85adc7e9541c5 "pdflatex"
-  "respond_QuantAmbi2.out" 1774670738.12838 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "respond_QuantAmbi2.tex" 1774670729.95079 40866 233c7f5ab98ffd0851bdaf300552f8fc ""
+  "respond_QuantAmbi2.aux" 1778656530.35855 1107 85020aaa165dd34eb76e7ba33b8ab40d "pdflatex"
+  "respond_QuantAmbi2.bbl" 1778656529.79453 4217 023a13fdf2904765959e6b4c84019507 "bibtex respond_QuantAmbi2"
+  "respond_QuantAmbi2.out" 1778656530.15507 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "respond_QuantAmbi2.tex" 1778655903.97674 41262 18a4cb19ac3f41d2a918ed577a3dce49 ""
   (generated)
   "respond_QuantAmbi2.aux"
   "respond_QuantAmbi2.log"
