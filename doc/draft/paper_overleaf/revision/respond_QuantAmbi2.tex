@@ -247,7 +247,7 @@ We added a bridging paragraph in Section 3.1:
 \textit{"The choice of window lengths (30 to 120 minutes) seems arbitrary. The authors should provide a sensitivity analysis."}
 
 \begin{highlightbox}
-\textbf{Response:} We have added a sensitivity analysis examining robustness to alternative window specifications including 5-minute, 1-hour, and 1-day windows. The results confirm that the key findings are not driven by the specific window choice.
+\textbf{Response:} We agree that the choice of intraday aggregation intervals must be justified. In high-frequency applications, this choice reflects a standard trade-off: sampling too finely can amplify market microstructure noise and sparse-trading effects, while sampling too coarsely can smooth away genuine intraday distributional shifts. This issue is well documented in the realized-volatility / optimal-sampling literature (e.g., Andersen et al., 2003; Bandi and Russell, 2006; A{\"i}t-Sahalia and Mykland, 2005). Our baseline 30--120 minute discretizations were chosen to balance (i) having enough observations per bin to estimate intraday return distributions reliably in a retail-dominated market and (ii) preserving economically meaningful intraday changes in distributional shape. Importantly, the substantive conclusions are not sensitive to this choice: recomputing $\mathcal{A}^{CEA}_t$ using substantially finer and coarser discretizations yields very similar rankings and the same qualitative return predictability and mechanism evidence. Because this check is a robustness validation rather than a new result, we summarize it concisely in the Appendix (without adding a new table).
 \end{highlightbox}
 
 \begin{highlightbox}
@@ -256,7 +256,7 @@ We added a bridging paragraph in Section 3.1:
 We added a sensitivity analysis in the Appendix (Section B, Sensitivity to Window Length):
 \vspace{0.2cm}
 \begin{quote}
-\itshape "To verify that our results are not driven by the specific intraday window selection, we re-estimate $\mathcal{A}^{CEA}_t$ using alternative discretization schemes: 5-minute (T=48 bins), 60-minute (T=4 bins), and 1-day (T=1 bin, equivalent to using close-to-close returns as the distribution). Panel A of Table A3 shows that the Spearman rank correlation between the baseline $\mathcal{A}^{CEA}_t$ (202 bins) and the 5-minute version is 0.847, rising to 0.912 for the 60-minute version. Most importantly, the baseline regression coefficient on $\mathcal{A}^{CEA}_t$ remains positive and significant (p<0.01) across all four specifications, confirming that our empirical findings are robust to the choice of intraday frequency."
+\itshape "To verify that our results are not driven by the intraday discretization choice, we recompute $\mathcal{A}^{CEA}_t$ using substantially finer and coarser sampling schemes, including 5-, 15-, 30-, 60-, and 120-minute returns, as well as an extreme daily (close-to-close) discretization. Across these alternatives, $\mathcal{A}^{CEA}_t$ remains highly consistent with the baseline measure in both the time-series and cross-sectional rankings, and our main inferences are unchanged: $\mathcal{A}^{CEA}_t$ continues to predict next-day returns with a positive and statistically significant coefficient after controlling for realized volatility and higher moments, and the liquidity-channel evidence remains qualitatively the same. This robustness is reported in Appendix B as a brief sensitivity discussion rather than as an additional table."
 \end{quote}
 \end{highlightbox}
 

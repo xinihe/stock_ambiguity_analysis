@@ -1,0 +1,47 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: QuantAmbi3_rev.aux
+The style file: elsarticle-harv.bst
+Database file #1: cas-refs.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 30 entries,
+            2990 wiz_defined-function locations,
+            818 strings with 9445 characters,
+and the built_in function-call counts, 17545 in all, are:
+= -- 1354
+> -- 516
+< -- 20
++ -- 211
+- -- 171
+* -- 1768
+:= -- 2572
+add.period$ -- 93
+call.type$ -- 30
+change.case$ -- 204
+chr.to.int$ -- 30
+cite$ -- 30
+duplicate$ -- 1396
+empty$ -- 1428
+format.name$ -- 249
+if$ -- 3319
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 257
+newline$ -- 168
+num.names$ -- 120
+pop$ -- 498
+preamble$ -- 1
+purify$ -- 176
+quote$ -- 0
+skip$ -- 417
+stack$ -- 0
+substring$ -- 800
+swap$ -- 905
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 258
+warning$ -- 0
+while$ -- 117
+width$ -- 0
+write$ -- 435

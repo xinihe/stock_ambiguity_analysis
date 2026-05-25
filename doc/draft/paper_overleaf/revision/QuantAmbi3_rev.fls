@@ -38,6 +38,9 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+INPUT ./QuantAmbi3_rev.spl
+INPUT ./QuantAmbi3_rev.spl
+INPUT QuantAmbi3_rev.spl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
 OUTPUT QuantAmbi3_rev.spl
@@ -197,8 +200,14 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
-OUTPUT QuantAmbi3_rev.out
+INPUT ./QuantAmbi3_rev.out
+INPUT ./QuantAmbi3_rev.out
+INPUT QuantAmbi3_rev.out
+INPUT QuantAmbi3_rev.out
 OUTPUT QuantAmbi3_rev.pdf
+INPUT ./QuantAmbi3_rev.out
+INPUT ./QuantAmbi3_rev.out
+OUTPUT QuantAmbi3_rev.out
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecbx1200.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr8.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm
@@ -244,6 +253,13 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm0700.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm1728.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecti1000.tfm
 INPUT /usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
@@ -262,30 +278,38 @@ INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT ./figs/figure4_quantile_coefficients.pdf
+INPUT ./figs/figure4_quantile_coefficients.pdf
+INPUT ./figs/figure4_quantile_coefficients.pdf
+INPUT ./figs/figure4_quantile_coefficients.pdf
+INPUT ./figs/figure4_quantile_coefficients.pdf
+INPUT ./figs/AMBE deciles.png
+INPUT ./figs/AMBE deciles.png
+INPUT ./figs/AMBE deciles.png
+INPUT ./figs/AMBE deciles.png
+INPUT ./figs/AMBE deciles.png
+INPUT ./figs/AMBMP Deciles.png
+INPUT ./figs/AMBMP Deciles.png
+INPUT ./figs/AMBMP Deciles.png
+INPUT ./figs/AMBMP Deciles.png
+INPUT ./figs/AMBMP Deciles.png
+INPUT ./figs/AMBE long-short.png
+INPUT ./figs/AMBE long-short.png
+INPUT ./figs/AMBE long-short.png
+INPUT ./figs/AMBE long-short.png
+INPUT ./figs/AMBE long-short.png
+INPUT ./figs/AMBMP Long-short.png
+INPUT ./figs/AMBMP Long-short.png
+INPUT ./figs/AMBMP Long-short.png
+INPUT ./figs/AMBMP Long-short.png
+INPUT ./figs/AMBMP Long-short.png
+INPUT ./QuantAmbi3_rev.bbl
+INPUT ./QuantAmbi3_rev.bbl
+INPUT QuantAmbi3_rev.bbl
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
-INPUT ./figs/AMBE deciles.png
-INPUT ./figs/AMBE deciles.png
-INPUT ./figs/AMBE deciles.png
-INPUT ./figs/AMBE deciles.png
-INPUT ./figs/AMBE deciles.png
-INPUT ./figs/AMBMP Deciles.png
-INPUT ./figs/AMBMP Deciles.png
-INPUT ./figs/AMBMP Deciles.png
-INPUT ./figs/AMBMP Deciles.png
-INPUT ./figs/AMBMP Deciles.png
-INPUT ./figs/AMBE long-short.png
-INPUT ./figs/AMBE long-short.png
-INPUT ./figs/AMBE long-short.png
-INPUT ./figs/AMBE long-short.png
-INPUT ./figs/AMBE long-short.png
-INPUT ./figs/AMBMP Long-short.png
-INPUT ./figs/AMBMP Long-short.png
-INPUT ./figs/AMBMP Long-short.png
-INPUT ./figs/AMBMP Long-short.png
-INPUT ./figs/AMBMP Long-short.png
 INPUT ./figs/figure1_kl_divergence.pdf
 INPUT ./figs/figure1_kl_divergence.pdf
 INPUT ./figs/figure1_kl_divergence.pdf

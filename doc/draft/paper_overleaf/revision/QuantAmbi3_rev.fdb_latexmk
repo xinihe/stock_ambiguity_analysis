@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex QuantAmbi3_rev"] 0 "QuantAmbi3_rev.aux" "QuantAmbi3_rev.bbl" "QuantAmbi3_rev" 0 -1
+["bibtex QuantAmbi3_rev"] 1778902771.45905 "QuantAmbi3_rev.aux" "QuantAmbi3_rev.bbl" "QuantAmbi3_rev" 1778902772.39388 0
   "./cas-refs.bib" 1778656496.05599 14780 ecc205617ac4925019bd298a2316dc7c ""
   "/usr/local/texlive/2024/texmf-dist/bibtex/bst/elsarticle/elsarticle-harv.bst" 1606256092 30002 8c0c5833f37bea3ec214cf315a72975d ""
-  "QuantAmbi3_rev.aux" 1778774212.41856 15571 0761611bc1c59c1f8eaa7abbb79ac336 "pdflatex"
+  "QuantAmbi3_rev.aux" 1778902772.19696 17361 53c543f54d65592e3cfc3ef09f5bcc4d "pdflatex"
   (generated)
   "QuantAmbi3_rev.bbl"
   "QuantAmbi3_rev.blg"
   (rewritten before read)
-["pdflatex"] 1778774211.64184 "QuantAmbi3_rev.tex" "QuantAmbi3_rev.pdf" "QuantAmbi3_rev" 1778774212.69839 2
+["pdflatex"] 1778902771.52395 "QuantAmbi3_rev.tex" "QuantAmbi3_rev.pdf" "QuantAmbi3_rev" 1778902772.39403 0
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1136849721 2971 def0b6c1f0b107b3b936def894055589 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -47,6 +47,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmi8.tfm" 1136768653 1520 eccf95517727cb11801f4f1aee3a21b4 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmmib10.tfm" 1136768653 1524 554068197b70979a55370e6c6495f441 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr12.tfm" 1136768653 1288 655e228510b4c2a1abe905c368440826 ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr17.tfm" 1136768653 1292 296a67155bdbfc32aa9c636f21e91433 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr6.tfm" 1136768653 1300 b62933e007d01cfd073f79b963c01526 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmr8.tfm" 1136768653 1292 21c1c5bfeaebccffdb478fd231a0997d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm" 1136768653 1124 6c73e740cf17375f03eec0ee63599741 ""
@@ -176,16 +177,17 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1710641127.00471 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1710641053 8221428 035085e71765b2996119378177abdd87 ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "QuantAmbi3_rev.aux" 1778774212.41856 15571 0761611bc1c59c1f8eaa7abbb79ac336 "pdflatex"
-  "QuantAmbi3_rev.bbl" 0 -1 0 "bibtex QuantAmbi3_rev"
-  "QuantAmbi3_rev.out" 1778774212.41921 7924 28e8269a115a1c973be4270176346688 "pdflatex"
-  "QuantAmbi3_rev.tex" 1778681003.18386 101512 1d05f9b5f68d35547b921f7826aee8d7 ""
+  "QuantAmbi3_rev.aux" 1778902772.19696 17361 53c543f54d65592e3cfc3ef09f5bcc4d "pdflatex"
+  "QuantAmbi3_rev.bbl" 1778902771.52196 10941 6091f9d9b94489222c1f76868465418e "bibtex QuantAmbi3_rev"
+  "QuantAmbi3_rev.out" 1778902772.19791 7924 28e8269a115a1c973be4270176346688 "pdflatex"
+  "QuantAmbi3_rev.spl" 1778902771.65094 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "QuantAmbi3_rev.tex" 1778902758.20061 101722 556e88ebbf6e0193e6ce558018dcb7ad ""
   "figs/AMBE deciles.png" 1774588846.78779 87779 5612ed2805d926d5d1c2cf720b98bff1 ""
   "figs/AMBE long-short.png" 1774588846.7916 41597 d0117d3bab3e16b293a587aa4780268d ""
   "figs/AMBMP Deciles.png" 1774588846.78975 66789 cd596767d1c207d707c927742555fe51 ""
   "figs/AMBMP Long-short.png" 1774588846.79353 34401 b073c1d7fd6797eec823fc7268757bff ""
   "figs/figure1_kl_divergence.pdf" 1774588846.79548 64073 c3fa481fe59760f8a17d3eaa9979a97a ""
-  "figs/figure2_quantile_coefficients.pdf" 0 -1 0 ""
+  "figs/figure4_quantile_coefficients.pdf" 1775548892 17866 c25858a3b2a1ce2fde46217b2ecd0cdd ""
   "figs/figure4_risk_vs_ambiguity.pdf" 1774588846.79714 91552 734edb2a979ae4764598f376a4a9c9a5 ""
   "figs/uncertainty_visualization.png" 1774588846.78542 107242 24c538d892b6beb6fbd201e0acb1cf17 ""
   (generated)

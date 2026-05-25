@@ -1,0 +1,232 @@
+\begin{thebibliography}{30}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Article
+\bibitem[{Allais(1953)}]{allais1953}
+\bibinfo{author}{Allais, M.}, \bibinfo{year}{1953}.
+\newblock \bibinfo{title}{Le comportement de l'homme rationnel devant le
+  risque: Critique des postulats et axiomes de l'ecole americaine}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{21},
+  \bibinfo{pages}{503--546}.
+%Type = Article
+\bibitem[{Amihud(2002)}]{amihud2002liquidity}
+\bibinfo{author}{Amihud, Y.}, \bibinfo{year}{2002}.
+\newblock \bibinfo{title}{Illiquidity and stock returns: Cross-section and
+  time-series effects}.
+\newblock \bibinfo{journal}{Journal of Financial Markets} \bibinfo{volume}{5},
+  \bibinfo{pages}{31--56}.
+\newblock \DOIprefix\doi{10.1016/S1386-4181(01)00024-6}.
+%Type = Article
+\bibitem[{Anderson et~al.(2009)Anderson, Ghysels and Juergens}]{anderson2009}
+\bibinfo{author}{Anderson, E.W.}, \bibinfo{author}{Ghysels, E.},
+  \bibinfo{author}{Juergens, J.L.}, \bibinfo{year}{2009}.
+\newblock \bibinfo{title}{The impact of risk and uncertainty on expected
+  returns}.
+\newblock \bibinfo{journal}{Journal of Financial Economics}
+  \bibinfo{volume}{94}, \bibinfo{pages}{233--263}.
+%Type = Article
+\bibitem[{Anonymous(2025)}]{doi:10.1093/oep/gpae004}
+\bibinfo{author}{Anonymous}, \bibinfo{year}{2025}.
+\newblock \bibinfo{title}{Aggregate uncertainty and firm-level uncertainty}.
+\newblock \bibinfo{journal}{Oxford Economic Papers}
+  \DOIprefix\doi{10.1093/oep/gpae004}.
+%Type = Article
+\bibitem[{Bollerslev et~al.(1988)Bollerslev, Engle and
+  Wooldridge}]{Bollerslev1988}
+\bibinfo{author}{Bollerslev, T.}, \bibinfo{author}{Engle, R.F.},
+  \bibinfo{author}{Wooldridge, J.M.}, \bibinfo{year}{1988}.
+\newblock \bibinfo{title}{A capital asset pricing model with time-varying
+  covariances}.
+\newblock \bibinfo{journal}{Journal of Political Economy} \bibinfo{volume}{96},
+  \bibinfo{pages}{116--131}.
+%Type = Article
+\bibitem[{Ellsberg(1961)}]{ellsberg1961}
+\bibinfo{author}{Ellsberg, D.}, \bibinfo{year}{1961}.
+\newblock \bibinfo{title}{Risk, ambiguity, and the savage axioms}.
+\newblock \bibinfo{journal}{The Quarterly Journal of Economics}
+  \bibinfo{volume}{75}, \bibinfo{pages}{643--669}.
+%Type = Article
+\bibitem[{Epstein and Schneider(2008)}]{epstein2008}
+\bibinfo{author}{Epstein, L.G.}, \bibinfo{author}{Schneider, M.},
+  \bibinfo{year}{2008}.
+\newblock \bibinfo{title}{Ambiguity, information quality, and asset pricing}.
+\newblock \bibinfo{journal}{The Journal of Finance} \bibinfo{volume}{63},
+  \bibinfo{pages}{197--228}.
+%Type = Article
+\bibitem[{Fan and Kim(2019)}]{fan2019measurement}
+\bibinfo{author}{Fan, J.}, \bibinfo{author}{Kim, D.}, \bibinfo{year}{2019}.
+\newblock \bibinfo{title}{Structured volatility matrix estimation for
+  non-synchronized high-frequency financial data}.
+\newblock \bibinfo{journal}{Journal of Econometrics} \bibinfo{volume}{208},
+  \bibinfo{pages}{61--78}.
+\newblock \DOIprefix\doi{10.1016/j.jeconom.2018.09.013}.
+%Type = Article
+\bibitem[{Gilboa and Schmeidler(1989)}]{gilboa1989}
+\bibinfo{author}{Gilboa, I.}, \bibinfo{author}{Schmeidler, D.},
+  \bibinfo{year}{1989}.
+\newblock \bibinfo{title}{Maxmin expected utility with non-unique prior}.
+\newblock \bibinfo{journal}{Journal of Mathematical Economics}
+  \bibinfo{volume}{18}, \bibinfo{pages}{141--153}.
+%Type = Misc
+\bibitem[{Guo et~al.(2020)Guo, Jia and Sun}]{guo2020retail}
+\bibinfo{author}{Guo, R.}, \bibinfo{author}{Jia, D.}, \bibinfo{author}{Sun,
+  X.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Retail investor trading in china: Evidence and
+  implications}.
+\newblock \bibinfo{note}{Working paper}.
+%Type = Article
+\bibitem[{Hansen and Sargent(2001)}]{hansen2001}
+\bibinfo{author}{Hansen, L.P.}, \bibinfo{author}{Sargent, T.J.},
+  \bibinfo{year}{2001}.
+\newblock \bibinfo{title}{Robust control and model uncertainty}.
+\newblock \bibinfo{journal}{American Economic Review} \bibinfo{volume}{91},
+  \bibinfo{pages}{60--66}.
+%Type = Article
+\bibitem[{Hu et~al.(2022)Hu, Ling and Yang}]{hu2022}
+\bibinfo{author}{Hu, Z.}, \bibinfo{author}{Ling, A.}, \bibinfo{author}{Yang,
+  C.}, \bibinfo{year}{2022}.
+\newblock \bibinfo{title}{Ambiguity premium in china's a‑share market: An
+  intraday high‑frequency analysis}.
+\newblock \bibinfo{journal}{Chinese Management Science} \bibinfo{volume}{30},
+  \bibinfo{pages}{42--53}.
+%Type = Article
+\bibitem[{Izhakian(2020)}]{izhakian2020}
+\bibinfo{author}{Izhakian, Y.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{A theoretical foundation of ambiguity measurement}.
+\newblock \bibinfo{journal}{Journal of Economic Theory} \bibinfo{volume}{187},
+  \bibinfo{pages}{105001}.
+%Type = Article
+\bibitem[{Kim and Byun(2021)}]{kim2021}
+\bibinfo{author}{Kim, E.B.}, \bibinfo{author}{Byun, S.J.},
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Risk, ambiguity, and equity premium: international
+  evidence}.
+\newblock \bibinfo{journal}{International Review of Economics \& Finance}
+  \bibinfo{volume}{76}, \bibinfo{pages}{321--335}.
+%Type = Article
+\bibitem[{Kim et~al.(2021)Kim, Mallick et~al.}]{doi:10.1007/s10479-021-04314-7}
+\bibinfo{author}{Kim, J.}, \bibinfo{author}{Mallick, S.K.}, et~al.,
+  \bibinfo{year}{2021}.
+\newblock \bibinfo{title}{Financial uncertainty and interest rate movements: is
+  asian bond market volatility different?}
+\newblock \bibinfo{journal}{Annals of Operations Research}
+  \DOIprefix\doi{10.1007/s10479-021-04314-7}.
+%Type = Article
+\bibitem[{Klibanoff et~al.(2005)Klibanoff, Marinacci and
+  Mukerji}]{klibanoff2005}
+\bibinfo{author}{Klibanoff, P.}, \bibinfo{author}{Marinacci, M.},
+  \bibinfo{author}{Mukerji, S.}, \bibinfo{year}{2005}.
+\newblock \bibinfo{title}{A smooth model of decision making under ambiguity}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{73},
+  \bibinfo{pages}{1849--1892}.
+%Type = Book
+\bibitem[{Knight(1921)}]{knight1921}
+\bibinfo{author}{Knight, F.H.}, \bibinfo{year}{1921}.
+\newblock \bibinfo{title}{Risk, Uncertainty, and Profit}.
+\newblock \bibinfo{publisher}{Houghton Mifflin}, \bibinfo{address}{Boston}.
+%Type = Article
+\bibitem[{Maccheroni et~al.(2006)Maccheroni, Marinacci and
+  Rustichini}]{maccheroni2006}
+\bibinfo{author}{Maccheroni, F.}, \bibinfo{author}{Marinacci, M.},
+  \bibinfo{author}{Rustichini, A.}, \bibinfo{year}{2006}.
+\newblock \bibinfo{title}{Ambiguity aversion, robustness, and the variational
+  representation of preferences}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{74},
+  \bibinfo{pages}{1447--1498}.
+%Type = Book
+\bibitem[{MacKay(2003)}]{mackay2003information}
+\bibinfo{author}{MacKay, D.}, \bibinfo{year}{2003}.
+\newblock \bibinfo{title}{Information Theory, Inference and Learning
+  Algorithms}.
+\newblock \bibinfo{publisher}{Cambridge University Press}.
+%Type = Article
+\bibitem[{Markowitz(1952)}]{markowitz1952}
+\bibinfo{author}{Markowitz, H.}, \bibinfo{year}{1952}.
+\newblock \bibinfo{title}{Portfolio selection}.
+\newblock \bibinfo{journal}{The Journal of Finance} \bibinfo{volume}{7},
+  \bibinfo{pages}{77--91}.
+%Type = Article
+\bibitem[{Merton(1971)}]{merton1971}
+\bibinfo{author}{Merton, R.C.}, \bibinfo{year}{1971}.
+\newblock \bibinfo{title}{Optimum consumption and portfolio rules in a
+  continuous-time model}.
+\newblock \bibinfo{journal}{Journal of Economic Theory} \bibinfo{volume}{3},
+  \bibinfo{pages}{373--413}.
+%Type = Book
+\bibitem[{Neumann and Morgenstern(1947)}]{neumann1947}
+\bibinfo{author}{Neumann, J.v.}, \bibinfo{author}{Morgenstern, O.},
+  \bibinfo{year}{1947}.
+\newblock \bibinfo{title}{Theory of Games and Economic Behavior}.
+\newblock \bibinfo{edition}{2nd} ed., \bibinfo{publisher}{Princeton University
+  Press}.
+%Type = Article
+\bibitem[{Preacher et~al.(2007)Preacher, Rucker and
+  Hayes}]{preacher2007moderated}
+\bibinfo{author}{Preacher, K.J.}, \bibinfo{author}{Rucker, D.D.},
+  \bibinfo{author}{Hayes, A.F.}, \bibinfo{year}{2007}.
+\newblock \bibinfo{title}{Addressing moderated mediation hypotheses: Theory,
+  methods, and prescriptions}.
+\newblock \bibinfo{journal}{Multivariate Behavioral Research}
+  \bibinfo{volume}{42}, \bibinfo{pages}{185--227}.
+%Type = Article
+\bibitem[{Rieger and Wang(2012)}]{rieger2012}
+\bibinfo{author}{Rieger, M.O.}, \bibinfo{author}{Wang, M.},
+  \bibinfo{year}{2012}.
+\newblock \bibinfo{title}{Can ambiguity aversion solve the equity premium
+  puzzle? survey evidence from international data}.
+\newblock \bibinfo{journal}{Cultural Finance} .
+%Type = Book
+\bibitem[{Savage(1954)}]{savage1954}
+\bibinfo{author}{Savage, L.J.}, \bibinfo{year}{1954}.
+\newblock \bibinfo{title}{The Foundations of Statistics}.
+\newblock \bibinfo{publisher}{John Wiley \& Sons}.
+%Type = Article
+\bibitem[{Schmeidler(1989)}]{schmeidler1989}
+\bibinfo{author}{Schmeidler, D.}, \bibinfo{year}{1989}.
+\newblock \bibinfo{title}{Subjective probability and expected utility without
+  additivity}.
+\newblock \bibinfo{journal}{Econometrica} \bibinfo{volume}{57},
+  \bibinfo{pages}{571--587}.
+%Type = Article
+\bibitem[{Viale et~al.(2014)Viale, Garcia-Feijoo and Giannetti}]{ariel2014}
+\bibinfo{author}{Viale, A.M.}, \bibinfo{author}{Garcia-Feijoo, L.},
+  \bibinfo{author}{Giannetti, A.}, \bibinfo{year}{2014}.
+\newblock \bibinfo{title}{Safety first, learning under ambiguity, and the
+  cross-section of stock returns}.
+\newblock \bibinfo{journal}{The Review of Asset Pricing Studies}
+  \bibinfo{volume}{4}, \bibinfo{pages}{118--159}.
+%Type = Article
+\bibitem[{Williams(2015)}]{williams2015}
+\bibinfo{author}{Williams, C.D.}, \bibinfo{year}{2015}.
+\newblock \bibinfo{title}{Asymmetric responses to earnings news: A case for
+  ambiguity}.
+\newblock \bibinfo{journal}{The Accounting Review} \bibinfo{volume}{90},
+  \bibinfo{pages}{785--817}.
+%Type = Article
+\bibitem[{Xu(2016)}]{xu2016}
+\bibinfo{author}{Xu, Y.}, \bibinfo{year}{2016}.
+\newblock \bibinfo{title}{Aversion of information ambiguity and momentum effect
+  in china's stock market}.
+\newblock \bibinfo{journal}{China Finance Review International}
+  \bibinfo{volume}{6}, \bibinfo{pages}{125--149}.
+%Type = Article
+\bibitem[{Ye et~al.(2020)Ye, Zhou and Zhang}]{zhang2020liquidity}
+\bibinfo{author}{Ye, Q.}, \bibinfo{author}{Zhou, S.}, \bibinfo{author}{Zhang,
+  J.}, \bibinfo{year}{2020}.
+\newblock \bibinfo{title}{Short-selling, margin-trading, and stock liquidity:
+  Evidence from the chinese stock markets}.
+\newblock \bibinfo{journal}{International Review of Financial Analysis}
+  \bibinfo{volume}{71}, \bibinfo{pages}{101549}.
+\newblock \DOIprefix\doi{10.1016/j.irfa.2020.101549}.
+
+\end{thebibliography}
